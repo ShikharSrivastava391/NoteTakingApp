@@ -15,8 +15,8 @@ pub struct SyncProviderConfig {
 impl Default for SyncProviderConfig {
     fn default() -> Self {
         Self {
-            // V2 is now the default! Use LOKUS_USE_IROH_V1=true to fallback to V1
-            use_v2: std::env::var("LOKUS_USE_IROH_V1")
+            // V2 is now the default! Use NoteMakingApp_USE_IROH_V1=true to fallback to V1
+            use_v2: std::env::var("NoteMakingApp_USE_IROH_V1")
                 .unwrap_or_default()
                 .to_lowercase() != "true",
         }

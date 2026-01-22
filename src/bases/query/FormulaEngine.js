@@ -1,5 +1,5 @@
 /**
- * Formula Engine for Lokus Bases
+ * Formula Engine for NoteMakingApp Bases
  * Evaluates formula expressions with support for string, math, and date operations
  */
 

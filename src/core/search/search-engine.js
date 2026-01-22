@@ -1,4 +1,4 @@
-// Full-text search engine for Lokus
+// Full-text search engine for NoteMakingApp
 import MiniSearch from 'minisearch';
 
 /**

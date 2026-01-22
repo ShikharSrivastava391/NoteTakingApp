@@ -1,4 +1,4 @@
-/// Platform-abstracted file operations for Lokus
+/// Platform-abstracted file operations for NoteMakingApp
 /// 
 /// This module provides file system operations that use the platform abstraction layer,
 /// ensuring consistent behavior across different operating systems while leveraging

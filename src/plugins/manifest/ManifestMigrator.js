@@ -181,12 +181,12 @@ export class ManifestMigrator {
   migrateEngines(v1, v2) {
     v2.engines = {}
 
-    if (v1.lokusVersion) {
-      v2.engines.lokus = v1.lokusVersion
-      this.log(`Migrated lokusVersion to engines.lokus: ${v1.lokusVersion}`)
+    if (v1.NoteMakingAppVersion) {
+      v2.engines.NoteMakingApp = v1.NoteMakingAppVersion
+      this.log(`Migrated NoteMakingAppVersion to engines.NoteMakingApp: ${v1.NoteMakingAppVersion}`)
     } else {
-      v2.engines.lokus = '^1.0.0'
-      this.addWarning('No lokusVersion specified, defaulted to ^1.0.0')
+      v2.engines.NoteMakingApp = '^1.0.0'
+      this.addWarning('No NoteMakingAppVersion specified, defaulted to ^1.0.0')
     }
 
     // Add Node.js engine if main file is specified
@@ -446,7 +446,7 @@ export class ManifestMigrator {
     if (manifest.manifest === '1.0') return true
     
     // Legacy v1 indicators
-    if (manifest.lokusVersion && !manifest.engines) return true
+    if (manifest.NoteMakingAppVersion && !manifest.engines) return true
     
     // Has v1 required fields but not v2 indicators
     const hasV1Fields = !!(manifest.id && manifest.name && manifest.version && manifest.main)
@@ -504,8 +504,8 @@ export class ManifestMigrator {
       // Analyze what will change
       changes.push('Manifest version will be updated to 2.0')
       
-      if (manifest.lokusVersion) {
-        changes.push(`lokusVersion will move to engines.lokus`)
+      if (manifest.NoteMakingAppVersion) {
+        changes.push(`NoteMakingAppVersion will move to engines.NoteMakingApp`)
       }
 
       if (manifest.id && manifest.id.includes('.')) {

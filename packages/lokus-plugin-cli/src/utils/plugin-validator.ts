@@ -16,7 +16,7 @@ export interface PluginManifest {
   author: string;
   main: string;
   engines: {
-    lokus: string;
+    NoteMakingApp: string;
   };
   permissions?: string[];
   capabilities?: {
@@ -100,15 +100,15 @@ export class PluginValidator {
           type: 'string',
           pattern: '\\.(js|ts)$'
         },
-        lokusVersion: {
+        NoteMakingAppVersion: {
           type: 'string',
           pattern: '^[\\^~>=<]*\\d+\\.\\d+\\.\\d+'
         },
         engines: {
           type: 'object',
-          required: ['lokus'],
+          required: ['NoteMakingApp'],
           properties: {
-            lokus: {
+            NoteMakingApp: {
               type: 'string',
               pattern: '^[>=<~^]?\\d+\\.\\d+\\.\\d+'
             }
@@ -284,7 +284,7 @@ export class PluginValidator {
       }
 
       // Check for required dependencies
-      const requiredDeps = ['lokus-plugin-sdk'];
+      const requiredDeps = ['NoteMakingApp-plugin-sdk'];
       const allDeps = {
         ...packageJson.dependencies,
         ...packageJson.devDependencies,
@@ -310,7 +310,7 @@ export class PluginValidator {
 
   validatePluginName(name: string): boolean {
     const nameRegex = /^[a-z0-9-]+$/;
-    const reservedNames = ['lokus', 'plugin', 'core', 'api', 'system'];
+    const reservedNames = ['NoteMakingApp', 'plugin', 'core', 'api', 'system'];
 
     if (!nameRegex.test(name)) {
       return false;

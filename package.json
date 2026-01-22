@@ -1,5 +1,5 @@
 {
-  "name": "lokus",
+  "name": "NoteMakingApp",
   "private": true,
   "version": "1.0.0",
   "description": "Local-first markdown note-taking app with database views, 3D knowledge graphs, AI integration, and blazing-fast search. Built with React and Rust (Tauri). Obsidian alternative with 100x faster performance.",
@@ -31,13 +31,13 @@
   ],
   "author": "Pratham",
   "license": "FCL-1.0-MIT",
-  "homepage": "https://lokusmd.com",
+  "homepage": "https://NoteMakingAppmd.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lokus-ai/lokus"
+    "url": "https://github.com/NoteMakingApp-ai/NoteMakingApp"
   },
   "bugs": {
-    "url": "https://github.com/lokus-ai/lokus/issues"
+    "url": "https://github.com/NoteMakingApp-ai/NoteMakingApp/issues"
   },
   "type": "module",
   "workspaces": [

@@ -50,7 +50,7 @@ export async function generatePreview(canvasPath) {
     let resolvedPath = canvasPath;
     if (!canvasPath.startsWith('/') && !canvasPath.includes('/')) {
       // Try to find the canvas in the file index
-      const fileIndex = globalThis.__LOKUS_FILE_INDEX__ || [];
+      const fileIndex = globalThis.__NoteMakingApp_FILE_INDEX__ || [];
       const canvasFileName = canvasPath.endsWith('.canvas') ? canvasPath : `${canvasPath}.canvas`;
 
       const matchedFile = fileIndex.find(file => {
@@ -215,7 +215,7 @@ function extractShapes(tldrawSnapshot) {
     );
   }
 
-  // Handle format with document.store (Lokus canvas format)
+  // Handle format with document.store (NoteMakingApp canvas format)
   if (tldrawSnapshot.document?.store) {
     const store = tldrawSnapshot.document.store;
     return Object.values(store).filter(record =>

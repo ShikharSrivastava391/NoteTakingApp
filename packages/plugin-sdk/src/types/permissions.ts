@@ -198,7 +198,7 @@ export interface PermissionMetadata {
   /** Permissions that conflict with this one */
   conflicts?: Permission[]
   
-  /** Minimum Lokus version required */
+  /** Minimum NoteMakingApp version required */
   minVersion?: string
   
   /** Whether this permission is deprecated */

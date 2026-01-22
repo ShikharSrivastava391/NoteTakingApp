@@ -2,7 +2,7 @@
 
 set -e
 
-echo "🚀 Setting up Lokus development environment..."
+echo "🚀 Setting up NoteMakingApp development environment..."
 echo ""
 
 # Verify installations
@@ -27,7 +27,7 @@ echo ""
 # Display welcome message
 echo "╔═══════════════════════════════════════════════════════════╗"
 echo "║                                                           ║"
-echo "║   ✨ Lokus Development Environment Ready! ✨              ║"
+echo "║   ✨ NoteMakingApp Development Environment Ready! ✨              ║"
 echo "║                                                           ║"
 echo "╚═══════════════════════════════════════════════════════════╝"
 echo ""

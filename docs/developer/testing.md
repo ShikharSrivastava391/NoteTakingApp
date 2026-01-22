@@ -1,6 +1,6 @@
 # Testing Suite
 
-Lokus maintains a comprehensive testing suite with 17+ test files covering both unit and end-to-end (E2E) testing scenarios. The testing strategy ensures code quality, feature reliability, and maintains confidence during development and refactoring.
+NoteMakingApp maintains a comprehensive testing suite with 17+ test files covering both unit and end-to-end (E2E) testing scenarios. The testing strategy ensures code quality, feature reliability, and maintains confidence during development and refactoring.
 
 ## Overview
 

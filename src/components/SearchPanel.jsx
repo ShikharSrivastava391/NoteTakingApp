@@ -52,7 +52,7 @@ export default function SearchPanel({ isOpen, onClose, onFileOpen, workspacePath
 
   // Load recent searches from localStorage
   useEffect(() => {
-    const saved = localStorage.getItem('lokus-recent-searches')
+    const saved = localStorage.getItem('NoteMakingApp-recent-searches')
     if (saved) {
       try {
         setRecentSearches(JSON.parse(saved))
@@ -66,7 +66,7 @@ export default function SearchPanel({ isOpen, onClose, onFileOpen, workspacePath
     
     const updated = [searchQuery, ...recentSearches.filter(s => s !== searchQuery)].slice(0, 10)
     setRecentSearches(updated)
-    localStorage.setItem('lokus-recent-searches', JSON.stringify(updated))
+    localStorage.setItem('NoteMakingApp-recent-searches', JSON.stringify(updated))
   }, [recentSearches])
 
   // Perform search

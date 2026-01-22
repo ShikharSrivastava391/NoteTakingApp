@@ -4,7 +4,7 @@ import { EventEmitter } from '../utils/EventEmitter.js'
 import { logger } from '../utils/logger.js'
 
 /**
- * Plugin API - Provides standardized interface for plugins to interact with Lokus
+ * Plugin API - Provides standardized interface for plugins to interact with NoteMakingApp
  * This class exposes safe, controlled access to editor, UI, filesystem, and other core features
  */
 export class PluginAPI extends EventEmitter {

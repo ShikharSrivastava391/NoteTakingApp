@@ -137,19 +137,19 @@ fn get_home_dir() -> Result<PathBuf, String> {
 #[tauri::command]
 pub fn get_plugins_directory() -> Result<String, String> {
     let home = get_home_dir()?;
-    let plugins_dir = home.join(".lokus").join("plugins");
+    let plugins_dir = home.join(".NoteMakingApp").join("plugins");
     Ok(plugins_dir.to_string_lossy().to_string())
 }
 
 #[tauri::command]
 pub fn create_plugins_directory() -> Result<String, String> {
     let home = get_home_dir()?;
-    let lokus_dir = home.join(".lokus");
-    let plugins_dir = lokus_dir.join("plugins");
+    let NoteMakingApp_dir = home.join(".NoteMakingApp");
+    let plugins_dir = NoteMakingApp_dir.join("plugins");
     
-    // Create .lokus directory if it doesn't exist
-    if !lokus_dir.exists() {
-        fs::create_dir_all(&lokus_dir).map_err(|e| format!("Failed to create .lokus directory: {}", e))?;
+    // Create .NoteMakingApp directory if it doesn't exist
+    if !NoteMakingApp_dir.exists() {
+        fs::create_dir_all(&NoteMakingApp_dir).map_err(|e| format!("Failed to create .NoteMakingApp directory: {}", e))?;
     }
     
     // Create plugins directory if it doesn't exist

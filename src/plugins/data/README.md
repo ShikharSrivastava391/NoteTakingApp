@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Data Provider Architecture enables Lokus plugins to provide alternative data sources, custom algorithms, and enhanced functionality for all data-driven components including Graph visualization, Kanban boards, Search systems, and File System operations.
+The Data Provider Architecture enables NoteMakingApp plugins to provide alternative data sources, custom algorithms, and enhanced functionality for all data-driven components including Graph visualization, Kanban boards, Search systems, and File System operations.
 
 ## Architecture Components
 

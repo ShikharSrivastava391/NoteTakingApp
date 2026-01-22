@@ -121,7 +121,7 @@ const FILE_ICON_MAP = {
   '7z': FileArchive,
   'bz2': FileArchive,
 
-  // Special Lokus Files
+  // Special NoteMakingApp Files
   'canvas': Layout,
   'kanban': Trello,
 
@@ -227,7 +227,7 @@ export function getFileIconColor(fileName, isDirectory) {
     'jpeg': 'text-purple-400',
     'svg': 'text-orange-400',
 
-    // Special Lokus
+    // Special NoteMakingApp
     'canvas': 'text-green-500',
     'kanban': 'text-teal-500',
 

@@ -1,6 +1,6 @@
 # Windows Code Signing Guide
 
-Complete guide for signing Windows builds of Lokus for distribution.
+Complete guide for signing Windows builds of NoteMakingApp for distribution.
 
 ## Why Code Sign?
 
@@ -116,8 +116,8 @@ Edit `src-tauri/tauri.windows.conf.json`:
           "/fd", "sha256",
           "/tr", "http://timestamp.digicert.com",
           "/td", "sha256",
-          "/d", "Lokus - Lightning-fast note-taking",
-          "/du", "https://lokusmd.com"
+          "/d", "NoteMakingApp - Lightning-fast note-taking",
+          "/du", "https://NoteMakingAppmd.com"
         ]
       },
       "certificateThumbprint": "YOUR_CERT_THUMBPRINT_HERE"
@@ -146,7 +146,7 @@ Create a build script that sets environment variables:
 **`scripts/build-windows-signed.bat`:**
 ```batch
 @echo off
-SET PFX_PATH=C:\certs\lokus-code-signing.pfx
+SET PFX_PATH=C:\certs\NoteMakingApp-code-signing.pfx
 SET PFX_PASSWORD=YourSecurePassword
 
 npm run build
@@ -188,7 +188,7 @@ tauri build --config src-tauri/tauri.windows.conf.json
           "/fd", "sha256",
           "/tr", "http://timestamp.digicert.com",
           "/td", "sha256",
-          "/d", "Lokus"
+          "/d", "NoteMakingApp"
         ]
       }
     }
@@ -217,9 +217,9 @@ signtool sign /sha1 YOUR_THUMBPRINT_HERE `
   /fd sha256 `
   /tr http://timestamp.digicert.com `
   /td sha256 `
-  /d "Lokus" `
-  /du "https://lokusmd.com" `
-  "src-tauri\target\release\lokus.exe"
+  /d "NoteMakingApp" `
+  /du "https://NoteMakingAppmd.com" `
+  "src-tauri\target\release\NoteMakingApp.exe"
 ```
 
 **Sign .msi installer:**
@@ -228,14 +228,14 @@ signtool sign /sha1 YOUR_THUMBPRINT_HERE `
   /fd sha256 `
   /tr http://timestamp.digicert.com `
   /td sha256 `
-  /d "Lokus Installer" `
-  /du "https://lokusmd.com" `
-  "src-tauri\target\release\bundle\msi\Lokus_1.2.0_x64.msi"
+  /d "NoteMakingApp Installer" `
+  /du "https://NoteMakingAppmd.com" `
+  "src-tauri\target\release\bundle\msi\NoteMakingApp_1.2.0_x64.msi"
 ```
 
 **Verify signature:**
 ```powershell
-signtool verify /pa /v "lokus.exe"
+signtool verify /pa /v "NoteMakingApp.exe"
 ```
 
 ## Step 6: Timestamp Server URLs
@@ -310,7 +310,7 @@ jobs:
         env:
           GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
           GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
-          VITE_AUTH_BASE_URL: https://lokusmd.com
+          VITE_AUTH_BASE_URL: https://NoteMakingAppmd.com
         run: npm run build:windows
 
       - name: Upload signed artifacts
@@ -404,7 +404,7 @@ $servers = @(
 )
 
 foreach ($server in $servers) {
-  signtool sign /tr $server ... lokus.exe
+  signtool sign /tr $server ... NoteMakingApp.exe
   if ($LASTEXITCODE -eq 0) { break }
 }
 ```
@@ -429,4 +429,4 @@ foreach ($server in $servers) {
 ---
 
 **Last Updated:** 2025-01-10
-**Lokus Version:** 1.3+
+**NoteMakingApp Version:** 1.3+

@@ -7,9 +7,9 @@ import { readConfig } from '../core/config/store.js';
 import { getAppVersion } from '../utils/appInfo.js';
 
 // Update endpoints
-const BETA_ENDPOINT = 'https://config.lokusmd.com/api/updates/beta.json';
+const BETA_ENDPOINT = 'https://config.NoteMakingAppmd.com/api/updates/beta.json';
 
-const SNOOZE_STORAGE_KEY = 'lokus_update_snoozed';
+const SNOOZE_STORAGE_KEY = 'NoteMakingApp_update_snoozed';
 const SNOOZE_DURATION_MS = 24 * 60 * 60 * 1000; // 24 hours
 
 // Simple semver comparison (handles x.y.z and x.y.z-beta.n formats)
@@ -183,7 +183,7 @@ export default function UpdateChecker() {
     showEnhancedToast({
       id: 'update-available',
       title: `Update Available: v${update.version}`,
-      message: 'A new version of Lokus is ready to install' + (isBeta ? ' (Beta)' : ''),
+      message: 'A new version of NoteMakingApp is ready to install' + (isBeta ? ' (Beta)' : ''),
       variant: 'update',
       expandedContent: (update.body || 'This update includes bug fixes and improvements.') + betaNote,
       persistent: true,
@@ -257,7 +257,7 @@ export default function UpdateChecker() {
 
       toast.success('Update installed!', {
         id: 'update-download',
-        description: 'Restarting Lokus...',
+        description: 'Restarting NoteMakingApp...',
       });
 
       // Small delay to show success message before relaunch

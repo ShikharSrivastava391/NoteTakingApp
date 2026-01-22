@@ -213,10 +213,10 @@ export const TEMPLATE_CONFIG_SCHEMA = {
           additionalProperties: { type: 'string' },
           description: 'Peer dependencies'
         },
-        lokus: {
+        NoteMakingApp: {
           type: 'object',
           additionalProperties: { type: 'string' },
-          description: 'Lokus-specific dependencies'
+          description: 'NoteMakingApp-specific dependencies'
         }
       }
     },

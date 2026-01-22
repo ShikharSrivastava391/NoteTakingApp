@@ -6,7 +6,7 @@ import { listen } from "@tauri-apps/api/event";
 import { readRecents, addRecent, removeRecent, shortenPath } from "../lib/recents.js";
 import { WorkspaceManager } from "../core/workspace/manager.js";
 import { readGlobalVisuals, setGlobalActiveTheme } from "../core/theme/manager.js";
-import LokusLogo from "../components/LokusLogo.jsx";
+import NoteMakingAppLogo from "../components/NoteMakingAppLogo.jsx";
 import { toast } from "sonner";
 import { isMobile, isDesktop } from "../platform/index.js";
 
@@ -74,7 +74,7 @@ export default function Launcher() {
     );
 
     const unlistenPromise = isTauri
-      ? listen("lokus:open-workspace", () => {
+      ? listen("NoteMakingApp:open-workspace", () => {
         // Already showing the launcher/welcome screen, so just log
       })
       : Promise.resolve(() => { });
@@ -130,7 +130,7 @@ export default function Launcher() {
 
       // Create a welcome note
       const { writeTextFile } = await import("@tauri-apps/plugin-fs");
-      await writeTextFile(`${workspacePath}/Welcome.md`, `# Welcome to Lokus
+      await writeTextFile(`${workspacePath}/Welcome.md`, `# Welcome to NoteMakingApp
 
 This is your new mobile workspace. Start taking notes!
 
@@ -234,8 +234,8 @@ This is your new mobile workspace. Start taking notes!
       <div className="h-full bg-app-bg text-app-text flex flex-col safe-area-inset transition-colors duration-300">
         {/* Mobile Header */}
         <div className="flex flex-col items-center pt-12 pb-6 px-6">
-          <LokusLogo className="w-16 h-16 mb-3" />
-          <h1 className="text-3xl font-bold tracking-tight">Lokus</h1>
+          <NoteMakingAppLogo className="w-16 h-16 mb-3" />
+          <h1 className="text-3xl font-bold tracking-tight">NoteMakingApp</h1>
           <p className="text-sm text-app-muted mt-1">Your local-first notes</p>
         </div>
 
@@ -417,9 +417,9 @@ This is your new mobile workspace. Start taking notes!
         <div className="flex flex-col justify-center">
           <div className="text-center md:text-left">
             <div className="mb-4">
-              <LokusLogo className="w-20 h-20 mx-auto md:mx-0" />
+              <NoteMakingAppLogo className="w-20 h-20 mx-auto md:mx-0" />
             </div>
-            <h1 className="text-6xl font-bold tracking-tighter">Lokus</h1>
+            <h1 className="text-6xl font-bold tracking-tighter">NoteMakingApp</h1>
             <p className="mt-2 text-app-muted">Your local-first notes workspace.</p>
           </div>
           <div className="mt-8 space-y-4">

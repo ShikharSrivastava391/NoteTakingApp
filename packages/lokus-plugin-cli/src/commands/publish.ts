@@ -27,7 +27,7 @@ interface RegistryConfig {
 
 export const publishCommand = new Command('publish')
   .description('Publish plugin to registry')
-  .option('-r, --registry <url>', 'registry URL', process.env.LOKUS_REGISTRY_URL || 'https://lokusmd.com')
+  .option('-r, --registry <url>', 'registry URL', process.env.NoteMakingApp_REGISTRY_URL || 'https://NoteMakingAppmd.com')
   .option('-t, --token <token>', 'authentication token')
   .option('--skip-validation', 'skip plugin validation')
   .option('--dry-run', 'validate and prepare but do not publish')
@@ -96,7 +96,7 @@ export const publishCommand = new Command('publish')
 
         logger.newLine();
         logger.info('Installation:');
-        logger.info(`  lokus-plugin install ${manifest.name}`);
+        logger.info(`  NoteMakingApp-plugin install ${manifest.name}`);
 
       } catch (error) {
         spinner.fail('Publication failed');
@@ -111,17 +111,17 @@ export const publishCommand = new Command('publish')
 
 async function getRegistryConfig(options: PublishOptions): Promise<RegistryConfig> {
   const config: RegistryConfig = {
-    url: options.registry || process.env.LOKUS_REGISTRY_URL || 'https://lokusmd.com'
+    url: options.registry || process.env.NoteMakingApp_REGISTRY_URL || 'https://NoteMakingAppmd.com'
   };
 
   // Get token from options, environment, or prompt
   if (options.token) {
     config.token = options.token;
-  } else if (process.env.LOKUS_REGISTRY_TOKEN) {
-    config.token = process.env.LOKUS_REGISTRY_TOKEN;
+  } else if (process.env.NoteMakingApp_REGISTRY_TOKEN) {
+    config.token = process.env.NoteMakingApp_REGISTRY_TOKEN;
   } else {
     // Try to read from config file
-    const configPath = path.join(require('os').homedir(), '.lokus', 'config.json');
+    const configPath = path.join(require('os').homedir(), '.NoteMakingApp', 'config.json');
 
     if (await fs.pathExists(configPath)) {
       try {
@@ -296,7 +296,7 @@ async function publishToRegistry(
     const response = await axios.post(`${config.url}/api/v1/registry/publish`, formData, {
       headers: {
         'Authorization': `Bearer ${config.token}`,
-        'User-Agent': 'lokus-plugin-cli',
+        'User-Agent': 'NoteMakingApp-plugin-cli',
         ...formData.getHeaders()
       },
       timeout: 60000, // 1 minute timeout for upload

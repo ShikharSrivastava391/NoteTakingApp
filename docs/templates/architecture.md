@@ -1,6 +1,6 @@
 # Template System Architecture
 
-Technical documentation for the Lokus template system implementation.
+Technical documentation for the NoteMakingApp template system implementation.
 
 ## Overview
 

@@ -39,7 +39,7 @@ pub async fn gmail_complete_auth(
 pub async fn gmail_check_auth_callback() -> Result<Option<(String, String)>, String> {
     // Check for auth callback file from localhost server
     let home_dir = dirs::home_dir().ok_or("Could not find home directory")?;
-    let temp_dir = home_dir.join(".lokus").join("temp");
+    let temp_dir = home_dir.join(".NoteMakingApp").join("temp");
     let auth_file = temp_dir.join("gmail_auth_callback.json");
     
     if auth_file.exists() {

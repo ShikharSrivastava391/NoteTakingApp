@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
 /**
- * Lokus MCP Server - Enhanced Version with 40+ Tools
+ * NoteMakingApp MCP Server - Enhanced Version with 40+ Tools
  *
- * This server provides comprehensive integration between Lokus and AI assistants.
- * Features modular tools for all Lokus features including notes, bases, canvas,
+ * This server provides comprehensive integration between NoteMakingApp and AI assistants.
+ * Features modular tools for all NoteMakingApp features including notes, bases, canvas,
  * kanban, graph navigation, and more.
  */
 
@@ -44,10 +44,10 @@ import { markdownSyntaxResources, getMarkdownSyntaxResource } from "./resources/
 
 // ===== CONFIGURATION =====
 const CONFIG = {
-  defaultWorkspace: join(homedir(), 'Documents', 'Lokus Workspace'),
-  lokusConfigDir: join(homedir(), '.lokus'),
-  lastWorkspaceFile: join(homedir(), '.lokus', 'last-workspace.json'),
-  apiUrl: 'http://127.0.0.1:3333', // Lokus API server
+  defaultWorkspace: join(homedir(), 'Documents', 'NoteMakingApp Workspace'),
+  NoteMakingAppConfigDir: join(homedir(), '.NoteMakingApp'),
+  lastWorkspaceFile: join(homedir(), '.NoteMakingApp', 'last-workspace.json'),
+  apiUrl: 'http://127.0.0.1:3333', // NoteMakingApp API server
 };
 
 // ===== LOGGER =====
@@ -86,8 +86,8 @@ class WorkspaceDetector {
 
       const sourceLabels = {
         cwd: 'current directory',
-        env: 'LOKUS_WORKSPACE env var',
-        api: 'Lokus app API',
+        env: 'NoteMakingApp_WORKSPACE env var',
+        api: 'NoteMakingApp app API',
         context: 'MCP context',
         config: 'last used config',
         default: 'default location'
@@ -116,10 +116,10 @@ class WorkspaceDetector {
       // Create default workspace
       try {
         await mkdir(workspace, { recursive: true });
-        await mkdir(join(workspace, '.lokus'), { recursive: true });
+        await mkdir(join(workspace, '.NoteMakingApp'), { recursive: true });
 
         // Create welcome note
-        const welcomeNote = `# Welcome to Lokus!
+        const welcomeNote = `# Welcome to NoteMakingApp!
 
 This is your knowledge workspace. You can:
 - Create notes with [[WikiLinks]]
@@ -157,7 +157,7 @@ Happy knowledge building!
    */
   async saveLastWorkspace(workspace) {
     try {
-      await mkdir(CONFIG.lokusConfigDir, { recursive: true });
+      await mkdir(CONFIG.NoteMakingAppConfigDir, { recursive: true });
       await writeFile(
         CONFIG.lastWorkspaceFile,
         JSON.stringify({
@@ -209,7 +209,7 @@ const workspaceDetector = new WorkspaceDetector();
 
 const server = new Server(
   {
-    name: "lokus-mcp-enhanced",
+    name: "NoteMakingApp-mcp-enhanced",
     version: "2.0.0",
   },
   {
@@ -356,15 +356,15 @@ async function main() {
   await server.connect(transport);
 
   logger.info('===========================================');
-  logger.info('Lokus MCP Server v2.0 started successfully');
+  logger.info('NoteMakingApp MCP Server v2.0 started successfully');
   logger.info(`Offering ${getAllTools().length} tools`);
 
   // Check API availability
   const apiAvailable = await workspaceDetector.checkAPIStatus();
   if (apiAvailable) {
-    logger.info('✅ Connected to Lokus app API');
+    logger.info('✅ Connected to NoteMakingApp app API');
   } else {
-    logger.info('⚠️  Lokus app not running (basic features only)');
+    logger.info('⚠️  NoteMakingApp app not running (basic features only)');
   }
 
   // Get and display workspace with detection info

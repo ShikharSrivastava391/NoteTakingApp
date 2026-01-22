@@ -17,11 +17,11 @@ describe('ReferenceUpdateModal', () => {
 
   beforeEach(() => {
     vi.clearAllMocks()
-    globalThis.__LOKUS_WORKSPACE_PATH__ = '/workspace'
+    globalThis.__NoteMakingApp_WORKSPACE_PATH__ = '/workspace'
   })
 
   afterEach(() => {
-    delete globalThis.__LOKUS_WORKSPACE_PATH__
+    delete globalThis.__NoteMakingApp_WORKSPACE_PATH__
   })
 
   describe('rendering', () => {

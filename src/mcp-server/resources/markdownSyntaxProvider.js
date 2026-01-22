@@ -1,65 +1,65 @@
 /**
  * Markdown Syntax Documentation Resource for MCP
- * Provides comprehensive documentation of all supported markdown features in Lokus
+ * Provides comprehensive documentation of all supported markdown features in NoteMakingApp
  */
 
 export const markdownSyntaxResources = [
   {
-    uri: "lokus://markdown-syntax/overview",
-    name: "Lokus Markdown Syntax Overview",
-    description: "Complete guide to all supported markdown syntax in Lokus",
+    uri: "NoteMakingApp://markdown-syntax/overview",
+    name: "NoteMakingApp Markdown Syntax Overview",
+    description: "Complete guide to all supported markdown syntax in NoteMakingApp",
     mimeType: "text/markdown"
   },
   {
-    uri: "lokus://markdown-syntax/callouts",
+    uri: "NoteMakingApp://markdown-syntax/callouts",
     name: "Callout Syntax",
-    description: "How to create callouts/admonitions in Lokus",
+    description: "How to create callouts/admonitions in NoteMakingApp",
     mimeType: "text/markdown"
   },
   {
-    uri: "lokus://markdown-syntax/images",
+    uri: "NoteMakingApp://markdown-syntax/images",
     name: "Image Embedding Syntax",
-    description: "How to embed images in Lokus notes",
+    description: "How to embed images in NoteMakingApp notes",
     mimeType: "text/markdown"
   },
   {
-    uri: "lokus://markdown-syntax/wiki-links",
+    uri: "NoteMakingApp://markdown-syntax/wiki-links",
     name: "Wiki Link Syntax",
     description: "How to create wiki-style links and embeds",
     mimeType: "text/markdown"
   },
   {
-    uri: "lokus://markdown-syntax/math",
+    uri: "NoteMakingApp://markdown-syntax/math",
     name: "Math Equations (LaTeX/KaTeX)",
     description: "How to write inline and block math equations using LaTeX syntax",
     mimeType: "text/markdown"
   },
   {
-    uri: "lokus://markdown-syntax/tables",
+    uri: "NoteMakingApp://markdown-syntax/tables",
     name: "Tables",
     description: "How to create and format markdown tables",
     mimeType: "text/markdown"
   },
   {
-    uri: "lokus://markdown-syntax/code",
+    uri: "NoteMakingApp://markdown-syntax/code",
     name: "Code Blocks",
     description: "How to add inline code and code blocks with syntax highlighting",
     mimeType: "text/markdown"
   },
   {
-    uri: "lokus://markdown-syntax/lists",
+    uri: "NoteMakingApp://markdown-syntax/lists",
     name: "Lists and Tasks",
     description: "How to create ordered lists, unordered lists, and task lists",
     mimeType: "text/markdown"
   },
   {
-    uri: "lokus://markdown-syntax/formatting",
+    uri: "NoteMakingApp://markdown-syntax/formatting",
     name: "Text Formatting",
     description: "Bold, italic, strikethrough, highlights, superscript, subscript",
     mimeType: "text/markdown"
   },
   {
-    uri: "lokus://markdown-syntax/diagrams",
+    uri: "NoteMakingApp://markdown-syntax/diagrams",
     name: "Mermaid Diagrams",
     description: "How to create flowcharts, sequence diagrams, and more with Mermaid",
     mimeType: "text/markdown"
@@ -68,34 +68,34 @@ export const markdownSyntaxResources = [
 
 export async function getMarkdownSyntaxResource(uri) {
   switch (uri) {
-    case "lokus://markdown-syntax/overview":
+    case "NoteMakingApp://markdown-syntax/overview":
       return getOverview();
 
-    case "lokus://markdown-syntax/callouts":
+    case "NoteMakingApp://markdown-syntax/callouts":
       return getCalloutSyntax();
 
-    case "lokus://markdown-syntax/images":
+    case "NoteMakingApp://markdown-syntax/images":
       return getImageSyntax();
 
-    case "lokus://markdown-syntax/wiki-links":
+    case "NoteMakingApp://markdown-syntax/wiki-links":
       return getWikiLinkSyntax();
 
-    case "lokus://markdown-syntax/math":
+    case "NoteMakingApp://markdown-syntax/math":
       return getMathSyntax();
 
-    case "lokus://markdown-syntax/tables":
+    case "NoteMakingApp://markdown-syntax/tables":
       return getTableSyntax();
 
-    case "lokus://markdown-syntax/code":
+    case "NoteMakingApp://markdown-syntax/code":
       return getCodeSyntax();
 
-    case "lokus://markdown-syntax/lists":
+    case "NoteMakingApp://markdown-syntax/lists":
       return getListSyntax();
 
-    case "lokus://markdown-syntax/formatting":
+    case "NoteMakingApp://markdown-syntax/formatting":
       return getFormattingSyntax();
 
-    case "lokus://markdown-syntax/diagrams":
+    case "NoteMakingApp://markdown-syntax/diagrams":
       return getDiagramSyntax();
 
     default:
@@ -106,11 +106,11 @@ export async function getMarkdownSyntaxResource(uri) {
 function getOverview() {
   return {
     contents: [{
-      uri: "lokus://markdown-syntax/overview",
+      uri: "NoteMakingApp://markdown-syntax/overview",
       mimeType: "text/markdown",
-      text: `# Lokus Markdown Syntax Guide
+      text: `# NoteMakingApp Markdown Syntax Guide
 
-Lokus supports extended markdown with special features for note-taking and knowledge management.
+NoteMakingApp supports extended markdown with special features for note-taking and knowledge management.
 
 ## Basic Markdown
 
@@ -233,7 +233,7 @@ graph TD
 function getCalloutSyntax() {
   return {
     contents: [{
-      uri: "lokus://markdown-syntax/callouts",
+      uri: "NoteMakingApp://markdown-syntax/callouts",
       mimeType: "text/markdown",
       text: `# Callout/Admonition Syntax
 
@@ -325,7 +325,7 @@ And even [[Wiki Links]]
 function getImageSyntax() {
   return {
     contents: [{
-      uri: "lokus://markdown-syntax/images",
+      uri: "NoteMakingApp://markdown-syntax/images",
       mimeType: "text/markdown",
       text: `# Image Embedding Syntax
 
@@ -417,7 +417,7 @@ Images are resolved relative to:
 function getWikiLinkSyntax() {
   return {
     contents: [{
-      uri: "lokus://markdown-syntax/wiki-links",
+      uri: "NoteMakingApp://markdown-syntax/wiki-links",
       mimeType: "text/markdown",
       text: `# Wiki Link Syntax
 
@@ -588,7 +588,7 @@ Examples:
 
 ## Path Resolution
 
-Lokus resolves links intelligently:
+NoteMakingApp resolves links intelligently:
 
 1. **By filename** - \`[[Note]]\` finds \`Note.md\`
 2. **By path** - \`[[folder/Note]]\` finds specific location
@@ -663,11 +663,11 @@ Visual diagram: ![[diagrams/architecture.png]]
 function getMathSyntax() {
   return {
     contents: [{
-      uri: "lokus://markdown-syntax/math",
+      uri: "NoteMakingApp://markdown-syntax/math",
       mimeType: "text/markdown",
       text: `# Math Equations (LaTeX/KaTeX)
 
-Lokus supports LaTeX math equations using KaTeX renderer.
+NoteMakingApp supports LaTeX math equations using KaTeX renderer.
 
 ## Inline Math
 
@@ -869,7 +869,7 @@ $$
 function getTableSyntax() {
   return {
     contents: [{
-      uri: "lokus://markdown-syntax/tables",
+      uri: "NoteMakingApp://markdown-syntax/tables",
       mimeType: "text/markdown",
       text: `# Markdown Tables
 
@@ -951,7 +951,7 @@ Tables support inline formatting:
 function getCodeSyntax() {
   return {
     contents: [{
-      uri: "lokus://markdown-syntax/code",
+      uri: "NoteMakingApp://markdown-syntax/code",
       mimeType: "text/markdown",
       text: `# Code Syntax
 
@@ -1057,7 +1057,7 @@ greetings = [f"Hello, {name}!" for name in users]
 function getListSyntax() {
   return {
     contents: [{
-      uri: "lokus://markdown-syntax/lists",
+      uri: "NoteMakingApp://markdown-syntax/lists",
       mimeType: "text/markdown",
       text: `# Lists and Tasks
 
@@ -1201,7 +1201,7 @@ Combine ordered and unordered:
 function getFormattingSyntax() {
   return {
     contents: [{
-      uri: "lokus://markdown-syntax/formatting",
+      uri: "NoteMakingApp://markdown-syntax/formatting",
       mimeType: "text/markdown",
       text: `# Text Formatting
 
@@ -1395,11 +1395,11 @@ a~n~ = a~1~ + (n-1)d
 function getDiagramSyntax() {
   return {
     contents: [{
-      uri: "lokus://markdown-syntax/diagrams",
+      uri: "NoteMakingApp://markdown-syntax/diagrams",
       mimeType: "text/markdown",
       text: `# Mermaid Diagrams
 
-Lokus supports Mermaid for creating diagrams using text.
+NoteMakingApp supports Mermaid for creating diagrams using text.
 
 ## Flowcharts
 

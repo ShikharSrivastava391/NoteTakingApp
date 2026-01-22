@@ -62,7 +62,7 @@ async function captureAllFeatures() {
   const page = await context.newPage();
 
   // Create screenshots directory in docs
-  const screenshotsDir = path.join(__dirname, '../../Lokus-docs/public/screenshots');
+  const screenshotsDir = path.join(__dirname, '../../NoteMakingApp-docs/public/screenshots');
   if (!fs.existsSync(screenshotsDir)) {
     fs.mkdirSync(screenshotsDir, { recursive: true });
   }
@@ -132,7 +132,7 @@ async function captureAllFeatures() {
     await editor.click();
 
     // 4. RICH TEXT EDITOR
-    const sampleContent = `# Welcome to Lokus
+    const sampleContent = `# Welcome to NoteMakingApp
 
 This is a **sample note** with various **formatting** options.
 

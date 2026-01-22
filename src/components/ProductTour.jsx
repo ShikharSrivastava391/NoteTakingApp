@@ -6,19 +6,19 @@ export default function ProductTour({ autoStart = true, delay = 1500 }) {
 
   // Expose tour controls globally for development/testing
   useEffect(() => {
-    window.lokusDevTour = {
+    window.NoteMakingAppDevTour = {
       start: startTour,
       startFull: startFullTour,
       reset: async () => {
         await resetTour();
       },
       clearConfig: () => {
-        localStorage.removeItem('lokus:config');
+        localStorage.removeItem('NoteMakingApp:config');
       }
     };
 
     return () => {
-      delete window.lokusDevTour;
+      delete window.NoteMakingAppDevTour;
     };
   }, [startTour, startFullTour, resetTour]);
 

@@ -41,8 +41,8 @@ impl MCPSetup {
         // 5. Ensure default workspace exists
         self.ensure_default_workspace()?;
 
-        // 6. Create Lokus config directory
-        self.create_lokus_config_dir()?;
+        // 6. Create NoteMakingApp config directory
+        self.create_NoteMakingApp_config_dir()?;
 
         Ok(())
     }
@@ -51,7 +51,7 @@ impl MCPSetup {
     fn get_bundled_mcp_path(&self) -> Result<PathBuf, String> {
         // First try to find an already extracted version
         let home = dirs::home_dir().ok_or("Could not find home directory")?;
-        let extracted_path = home.join(".lokus").join("mcp-server").join("index.js");
+        let extracted_path = home.join(".NoteMakingApp").join("mcp-server").join("index.js");
 
         if extracted_path.exists() {
             return Ok(extracted_path);
@@ -77,10 +77,10 @@ impl MCPSetup {
         let config_path = home.join(".config/Claude/claude_desktop_config.json");
 
         #[cfg(target_os = "ios")]
-        let config_path = home.join("Documents/.lokus/claude_config.json");
+        let config_path = home.join("Documents/.NoteMakingApp/claude_config.json");
 
         #[cfg(target_os = "android")]
-        let config_path = home.join(".lokus/claude_config.json");
+        let config_path = home.join(".NoteMakingApp/claude_config.json");
 
         // Create directory if it doesn't exist
         if let Some(parent) = config_path.parent() {
@@ -128,7 +128,7 @@ impl MCPSetup {
             json!({})
         };
 
-        // Add or update Lokus MCP server
+        // Add or update NoteMakingApp MCP server
         if let Some(obj) = config.as_object_mut() {
             // Ensure mcpServers object exists
             if !obj.contains_key("mcpServers") {
@@ -138,7 +138,7 @@ impl MCPSetup {
             if let Some(mcp_servers) = obj.get_mut("mcpServers").and_then(|v| v.as_object_mut()) {
                 // Use stdio transport for Desktop
                 // Desktop spawns its own MCP server process using node
-                mcp_servers.insert("lokus".to_string(), json!({
+                mcp_servers.insert("NoteMakingApp".to_string(), json!({
                     "command": "node",
                     "args": [mcp_path.to_string_lossy()]
                 }));
@@ -168,7 +168,7 @@ impl MCPSetup {
         // Create .mcp.json configuration for Claude Code
         let mcp_config = json!({
             "mcpServers": {
-                "lokus": {
+                "NoteMakingApp": {
                     "transport": "http",
                     "url": "http://localhost:3456/mcp"
                 }
@@ -200,14 +200,14 @@ impl MCPSetup {
 
         if let Ok(output) = claude_check {
             if output.status.success() {
-                // Remove any existing lokus configuration
+                // Remove any existing NoteMakingApp configuration
                 let _ = Command::new("claude")
-                    .args(&["mcp", "remove", "lokus", "-s", "user"])
+                    .args(&["mcp", "remove", "NoteMakingApp", "-s", "user"])
                     .output();
 
                 // Add HTTP configuration
                 let result = Command::new("claude")
-                    .args(&["mcp", "add", "-t", "http", "lokus", "http://localhost:3456/mcp", "-s", "user"])
+                    .args(&["mcp", "add", "-t", "http", "NoteMakingApp", "http://localhost:3456/mcp", "-s", "user"])
                     .output()
                     .map_err(|e| format!("Failed to run claude CLI: {}", e))?;
 
@@ -228,25 +228,25 @@ impl MCPSetup {
             dirs::home_dir()
                 .unwrap_or_else(|| PathBuf::from("/"))
                 .join("Documents")
-                .join("Lokus Workspace")
+                .join("NoteMakingApp Workspace")
         }))
     }
 
     /// Ensure default workspace exists
     fn ensure_default_workspace(&self) -> Result<(), String> {
         let home = dirs::home_dir().ok_or("Could not find home directory")?;
-        let workspace = home.join("Documents").join("Lokus Workspace");
+        let workspace = home.join("Documents").join("NoteMakingApp Workspace");
 
         if !workspace.exists() {
             fs::create_dir_all(&workspace)
                 .map_err(|e| format!("Failed to create default workspace: {}", e))?;
 
-            // Create .lokus directory
-            fs::create_dir_all(workspace.join(".lokus"))
-                .map_err(|e| format!("Failed to create .lokus directory: {}", e))?;
+            // Create .NoteMakingApp directory
+            fs::create_dir_all(workspace.join(".NoteMakingApp"))
+                .map_err(|e| format!("Failed to create .NoteMakingApp directory: {}", e))?;
 
             // Create welcome note
-            let welcome = r#"# Welcome to Lokus! 👋
+            let welcome = r#"# Welcome to NoteMakingApp! 👋
 
 This is your default workspace. Here's what you can do:
 
@@ -274,13 +274,13 @@ Happy note-taking! ✨
         Ok(())
     }
 
-    /// Create Lokus config directory
-    fn create_lokus_config_dir(&self) -> Result<(), String> {
+    /// Create NoteMakingApp config directory
+    fn create_NoteMakingApp_config_dir(&self) -> Result<(), String> {
         let home = dirs::home_dir().ok_or("Could not find home directory")?;
-        let lokus_config = home.join(".lokus");
+        let NoteMakingApp_config = home.join(".NoteMakingApp");
 
-        fs::create_dir_all(&lokus_config)
-            .map_err(|e| format!("Failed to create .lokus config directory: {}", e))?;
+        fs::create_dir_all(&NoteMakingApp_config)
+            .map_err(|e| format!("Failed to create .NoteMakingApp config directory: {}", e))?;
 
         Ok(())
     }
@@ -293,7 +293,7 @@ Happy note-taking! ✨
             None => return false,
         };
 
-        let mcp_dir = home.join(".lokus").join("mcp-server");
+        let mcp_dir = home.join(".NoteMakingApp").join("mcp-server");
         let index_exists = mcp_dir.join("index.js").exists();
         let http_server_exists = mcp_dir.join("http-server.js").exists();
 
@@ -308,12 +308,12 @@ Happy note-taking! ✨
                 return false;
             }
 
-            // Check if lokus MCP server is configured
+            // Check if NoteMakingApp MCP server is configured
             if let Ok(content) = fs::read_to_string(&config_path) {
                 if let Ok(config) = serde_json::from_str::<serde_json::Value>(&content) {
                     return config
                         .get("mcpServers")
-                        .and_then(|s| s.get("lokus"))
+                        .and_then(|s| s.get("NoteMakingApp"))
                         .is_some();
                 }
             }
@@ -346,7 +346,7 @@ pub async fn restart_mcp_server(app: tauri::AppHandle) -> Result<String, String>
     
     // Force re-extraction by removing old files
     let home = dirs::home_dir().ok_or("Could not find home directory")?;
-    let mcp_dir = home.join(".lokus").join("mcp-server");
+    let mcp_dir = home.join(".NoteMakingApp").join("mcp-server");
     
     // Remove old MCP server files
     if mcp_dir.exists() {

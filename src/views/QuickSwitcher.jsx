@@ -50,7 +50,7 @@ export default function QuickSwitcher({ isOpen, onClose, onSelectFile, workspace
       setLoading(true);
       try {
         // Get file index from global
-        const index = globalThis.__LOKUS_FILE_INDEX__ || [];
+        const index = globalThis.__NoteMakingApp_FILE_INDEX__ || [];
 
         // Build file list
         const files = index.map((file) => ({

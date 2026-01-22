@@ -49,7 +49,7 @@ describe('RemoteAnnouncement', () => {
     });
 
     it('should NOT show toast if already dismissed', () => {
-        localStorage.setItem('lokus_dismissed_announcements', JSON.stringify(['test-id']));
+        localStorage.setItem('NoteMakingApp_dismissed_announcements', JSON.stringify(['test-id']));
         render(<RemoteAnnouncement />);
 
         expect(toast.custom).not.toHaveBeenCalled();
@@ -123,7 +123,7 @@ describe('RemoteAnnouncement', () => {
                 announcement: {
                     id: 'survey-2025',
                     title: 'Quick Survey',
-                    message: 'Help us improve Lokus',
+                    message: 'Help us improve NoteMakingApp',
                     variant: 'survey',
                     expandedContent: 'We are planning our 2025 roadmap...',
                     link: {
@@ -143,7 +143,7 @@ describe('RemoteAnnouncement', () => {
     });
 
     it('should show toast repeatedly if showOnce is false', () => {
-        localStorage.setItem('lokus_dismissed_announcements', JSON.stringify(['repeating-id']));
+        localStorage.setItem('NoteMakingApp_dismissed_announcements', JSON.stringify(['repeating-id']));
 
         useRemoteConfig.mockReturnValue({
             loading: false,

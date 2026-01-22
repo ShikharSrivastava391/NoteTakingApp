@@ -1,2 +1,2 @@
 // Jest setup file for plugin tests
-import '@lokus/plugin-sdk/testing';
+import '@NoteMakingApp/plugin-sdk/testing';

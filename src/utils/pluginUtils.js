@@ -70,16 +70,16 @@ export class SecurePluginSandbox {
             window.SharedWorker = undefined;
             window.ServiceWorker = undefined;
             
-            // Lokus API based on permissions
-            const lokusAPI = ${restrictedAPI};
+            // NoteMakingApp API based on permissions
+            const NoteMakingAppAPI = ${restrictedAPI};
             
             // Message handler for plugin code execution
             window.addEventListener('message', async function(event) {
               if (event.data.type === 'EXECUTE_PLUGIN') {
                 try {
                   // Execute plugin code in restricted environment
-                  const pluginFunction = new Function('lokus', event.data.code);
-                  const result = await pluginFunction(lokusAPI);
+                  const pluginFunction = new Function('NoteMakingApp', event.data.code);
+                  const result = await pluginFunction(NoteMakingAppAPI);
                   
                   // SECURITY FIX: Use window.location.origin instead of wildcard
                   window.parent.postMessage({

@@ -1,6 +1,6 @@
 # Build Guide
 
-Complete guide for building Lokus across all supported platforms with step-by-step instructions, troubleshooting, and optimization tips.
+Complete guide for building NoteMakingApp across all supported platforms with step-by-step instructions, troubleshooting, and optimization tips.
 
 ## 📋 Table of Contents
 
@@ -110,8 +110,8 @@ where cl.exe  # Should find MSVC compiler
 #### 2. Install Dependencies
 ```powershell
 # Clone repository
-git clone https://github.com/lokus-ai/lokus.git
-cd lokus
+git clone https://github.com/NoteMakingApp-ai/NoteMakingApp.git
+cd NoteMakingApp
 
 # Install Node.js dependencies
 npm install
@@ -140,14 +140,14 @@ npm run build
 npm run tauri build
 
 # Outputs will be in:
-# src-tauri/target/release/bundle/msi/Lokus_1.0.3_x64_en-US.msi
-# src-tauri/target/release/bundle/nsis/Lokus_1.0.3_x64-setup.exe
+# src-tauri/target/release/bundle/msi/NoteMakingApp_1.0.3_x64_en-US.msi
+# src-tauri/target/release/bundle/nsis/NoteMakingApp_1.0.3_x64-setup.exe
 ```
 
 #### 5. Code Signing (Optional)
 ```powershell
 # Sign the executable (requires certificate)
-signtool sign /f certificate.pfx /p password /tr http://timestamp.digicert.com /td sha256 /fd sha256 "lokus.exe"
+signtool sign /f certificate.pfx /p password /tr http://timestamp.digicert.com /td sha256 /fd sha256 "NoteMakingApp.exe"
 ```
 
 ### macOS Build
@@ -168,8 +168,8 @@ xcode-select -p  # Should show Xcode path
 #### 2. Install Dependencies
 ```bash
 # Clone repository
-git clone https://github.com/lokus-ai/lokus.git
-cd lokus
+git clone https://github.com/NoteMakingApp-ai/NoteMakingApp.git
+cd NoteMakingApp
 
 # Install Node.js dependencies
 npm install
@@ -197,8 +197,8 @@ npm run build
 npm run tauri build
 
 # Outputs will be in:
-# src-tauri/target/release/bundle/macos/Lokus.app
-# src-tauri/target/release/bundle/dmg/Lokus_1.0.3_x64.dmg
+# src-tauri/target/release/bundle/macos/NoteMakingApp.app
+# src-tauri/target/release/bundle/dmg/NoteMakingApp_1.0.3_x64.dmg
 ```
 
 #### 5. Universal Binary (Intel + Apple Silicon)
@@ -219,11 +219,11 @@ npm run tauri build -- --target aarch64-apple-darwin    # Apple Silicon
 # Sign the application
 codesign --force --deep --timestamp --options runtime \
   --sign "Developer ID Application: Your Name" \
-  src-tauri/target/release/bundle/macos/Lokus.app
+  src-tauri/target/release/bundle/macos/NoteMakingApp.app
 
 # Notarize for distribution (requires Apple Developer account)
 xcrun notarytool submit \
-  src-tauri/target/release/bundle/dmg/Lokus_1.0.3_x64.dmg \
+  src-tauri/target/release/bundle/dmg/NoteMakingApp_1.0.3_x64.dmg \
   --apple-id "your-apple-id@example.com" \
   --password "app-specific-password" \
   --team-id "TEAM_ID"
@@ -247,8 +247,8 @@ pkg-config --version
 #### 2. Install Dependencies
 ```bash
 # Clone repository
-git clone https://github.com/lokus-ai/lokus.git
-cd lokus
+git clone https://github.com/NoteMakingApp-ai/NoteMakingApp.git
+cd NoteMakingApp
 
 # Install Node.js dependencies
 npm install
@@ -276,9 +276,9 @@ npm run build
 npm run tauri build
 
 # Outputs will be in:
-# src-tauri/target/release/bundle/deb/lokus_1.0.3_amd64.deb
-# src-tauri/target/release/bundle/appimage/lokus_1.0.3_amd64.AppImage
-# src-tauri/target/release/bundle/rpm/lokus-1.0.3-1.x86_64.rpm
+# src-tauri/target/release/bundle/deb/NoteMakingApp_1.0.3_amd64.deb
+# src-tauri/target/release/bundle/appimage/NoteMakingApp_1.0.3_amd64.AppImage
+# src-tauri/target/release/bundle/rpm/NoteMakingApp-1.0.3-1.x86_64.rpm
 ```
 
 #### 5. Additional Package Formats
@@ -307,14 +307,14 @@ The build behavior is controlled by `src-tauri/tauri.conf.json`:
     "distDir": "../dist"
   },
   "package": {
-    "productName": "Lokus",
+    "productName": "NoteMakingApp",
     "version": "1.0.3"
   },
   "tauri": {
     "bundle": {
       "active": true,
       "targets": "all",
-      "identifier": "com.lokus.app",
+      "identifier": "com.NoteMakingApp.app",
       "icon": [
         "icons/32x32.png",
         "icons/128x128.png",
@@ -357,7 +357,7 @@ npm run tauri build --config-file tauri.production.conf.json
 npm run tauri build --debug
 
 # Specific debug features
-export RUST_LOG=tauri=debug,lokus=debug
+export RUST_LOG=tauri=debug,NoteMakingApp=debug
 npm run tauri dev
 ```
 
@@ -486,10 +486,10 @@ convert icon.png -resize 128x128 icons/128x128.png
 security find-identity -v -p codesigning
 
 # Verify certificate
-codesign --verify --deep --strict Lokus.app
+codesign --verify --deep --strict NoteMakingApp.app
 
 # Re-sign if necessary
-codesign --force --deep --sign "Developer ID" Lokus.app
+codesign --force --deep --sign "Developer ID" NoteMakingApp.app
 ```
 
 #### Package creation failures (Linux)
@@ -498,7 +498,7 @@ codesign --force --deep --sign "Developer ID" Lokus.app
 sudo apt-get install rpm build-essential
 
 # Manual .deb creation
-dpkg-deb --build lokus_1.0.3_amd64
+dpkg-deb --build NoteMakingApp_1.0.3_amd64
 
 # Manual AppImage creation
 # Use appimagetool from AppImageKit
@@ -574,8 +574,8 @@ npm run build:windows
 
 # Upload to GitHub Releases
 gh release create v1.0.3 `
-  src-tauri/target/release/bundle/msi/Lokus_1.0.3_x64_en-US.msi `
-  src-tauri/target/release/bundle/nsis/Lokus_1.0.3_x64-setup.exe
+  src-tauri/target/release/bundle/msi/NoteMakingApp_1.0.3_x64_en-US.msi `
+  src-tauri/target/release/bundle/nsis/NoteMakingApp_1.0.3_x64-setup.exe
 ```
 
 #### macOS Release
@@ -590,7 +590,7 @@ npm run tauri build -- --bundles dmg
 ./scripts/sign-and-notarize.sh
 
 # Upload to GitHub Releases
-gh release upload v1.0.3 src-tauri/target/release/bundle/dmg/Lokus_1.0.3_x64.dmg
+gh release upload v1.0.3 src-tauri/target/release/bundle/dmg/NoteMakingApp_1.0.3_x64.dmg
 ```
 
 #### Linux Release
@@ -599,14 +599,14 @@ gh release upload v1.0.3 src-tauri/target/release/bundle/dmg/Lokus_1.0.3_x64.dmg
 npm run build:linux
 
 # Test packages
-sudo dpkg -i src-tauri/target/release/bundle/deb/lokus_1.0.3_amd64.deb
-./src-tauri/target/release/bundle/appimage/lokus_1.0.3_amd64.AppImage
+sudo dpkg -i src-tauri/target/release/bundle/deb/NoteMakingApp_1.0.3_amd64.deb
+./src-tauri/target/release/bundle/appimage/NoteMakingApp_1.0.3_amd64.AppImage
 
 # Upload to GitHub Releases
 gh release upload v1.0.3 \
-  src-tauri/target/release/bundle/deb/lokus_1.0.3_amd64.deb \
-  src-tauri/target/release/bundle/appimage/lokus_1.0.3_amd64.AppImage \
-  src-tauri/target/release/bundle/rpm/lokus-1.0.3-1.x86_64.rpm
+  src-tauri/target/release/bundle/deb/NoteMakingApp_1.0.3_amd64.deb \
+  src-tauri/target/release/bundle/appimage/NoteMakingApp_1.0.3_amd64.AppImage \
+  src-tauri/target/release/bundle/rpm/NoteMakingApp-1.0.3-1.x86_64.rpm
 ```
 
 ## 🚀 Build Optimization

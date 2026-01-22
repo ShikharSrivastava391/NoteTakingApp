@@ -1,6 +1,6 @@
-name: lokus
+name: NoteMakingApp
 options:
-  bundleIdPrefix: io.lokus.app
+  bundleIdPrefix: io.NoteMakingApp.app
   deploymentTarget:
     iOS: 14.0
 fileGroups: [../../src]
@@ -10,8 +10,8 @@ configs:
 settingGroups:
   app:
     base:
-      PRODUCT_NAME: Lokus
-      PRODUCT_BUNDLE_IDENTIFIER: io.lokus.app
+      PRODUCT_NAME: NoteMakingApp
+      PRODUCT_BUNDLE_IDENTIFIER: io.NoteMakingApp.app
 targetTemplates:
   app:
     type: application
@@ -24,20 +24,20 @@ targetTemplates:
     settings:
       groups: [app]
 targets:
-  lokus_iOS:
+  NoteMakingApp_iOS:
     type: application
     platform: iOS
     sources:
       - path: Sources
       - path: Assets.xcassets
       - path: Externals
-      - path: lokus_iOS
+      - path: NoteMakingApp_iOS
       - path: assets
         buildPhase: resources
         type: folder
       - path: LaunchScreen.storyboard
     info:
-      path: lokus_iOS/Info.plist
+      path: NoteMakingApp_iOS/Info.plist
       properties:
         LSRequiresIPhoneOS: true
         UILaunchStoryboardName: LaunchScreen
@@ -54,7 +54,7 @@ targets:
         CFBundleShortVersionString: 1.0.0
         CFBundleVersion: "1.0.0"
     entitlements:
-      path: lokus_iOS/lokus_iOS.entitlements
+      path: NoteMakingApp_iOS/NoteMakingApp_iOS.entitlements
     scheme:
       environmentVariables:
         RUST_BACKTRACE: full

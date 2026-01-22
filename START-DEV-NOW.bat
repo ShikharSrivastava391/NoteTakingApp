@@ -1,5 +1,5 @@
 @echo off
-echo Starting Lokus Development with MSVC Fix...
+echo Starting NoteMakingApp Development with MSVC Fix...
 echo.
 
 REM Find Visual Studio installation

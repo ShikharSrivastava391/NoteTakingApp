@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { pluginEventBridge } from '../../../src/plugins/PluginEventBridge.js';
-import { LokusPluginAPI } from '../../../src/plugins/api/LokusPluginAPI.js';
+import { NoteMakingAppPluginAPI } from '../../../src/plugins/api/NoteMakingAppPluginAPI.js';
 
 describe('PluginEventBridge', () => {
   let mockPluginAPI;

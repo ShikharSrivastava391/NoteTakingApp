@@ -1,21 +1,21 @@
 <div align="center">
 
-<img src="assets/lokus-logo.svg" alt="Lokus" width="120" height="120" />
+<img src="assets/NoteMakingApp-logo.svg" alt="NoteMakingApp" width="120" height="120" />
 
-# Lokus
+# NoteMakingApp
 
 **The Open Source Note-Taking App for People Who Own Their Data**
 
 Local-first. Privacy-focused. Blazing fast.
 
-[Website](https://lokusmd.com) · [Documentation](https://docs.lokusmd.com) · [Changelog](https://github.com/lokus-ai/lokus/releases)
+[Website](https://NoteMakingAppmd.com) · [Documentation](https://docs.NoteMakingAppmd.com) · [Changelog](https://github.com/NoteMakingApp-ai/NoteMakingApp/releases)
 
 ---
 
-[![GitHub Stars](https://img.shields.io/github/stars/lokus-ai/lokus?style=flat&logo=github&labelColor=1a1a2e&color=6366f1)](https://github.com/lokus-ai/lokus/stargazers)
+[![GitHub Stars](https://img.shields.io/github/stars/NoteMakingApp-ai/NoteMakingApp?style=flat&logo=github&labelColor=1a1a2e&color=6366f1)](https://github.com/NoteMakingApp-ai/NoteMakingApp/stargazers)
 [![License](https://img.shields.io/badge/License-FCL_1.0-blue?style=flat&labelColor=1a1a2e&color=6366f1)](LICENSE)
-[![Release](https://img.shields.io/github/v/release/lokus-ai/lokus?include_prereleases&style=flat&labelColor=1a1a2e&color=6366f1)](https://github.com/lokus-ai/lokus/releases)
-[![Downloads](https://img.shields.io/github/downloads/lokus-ai/lokus/total?style=flat&labelColor=1a1a2e&color=6366f1)](https://github.com/lokus-ai/lokus/releases)
+[![Release](https://img.shields.io/github/v/release/NoteMakingApp-ai/NoteMakingApp?include_prereleases&style=flat&labelColor=1a1a2e&color=6366f1)](https://github.com/NoteMakingApp-ai/NoteMakingApp/releases)
+[![Downloads](https://img.shields.io/github/downloads/NoteMakingApp-ai/NoteMakingApp/total?style=flat&labelColor=1a1a2e&color=6366f1)](https://github.com/NoteMakingApp-ai/NoteMakingApp/releases)
 
 <br />
 
@@ -23,9 +23,9 @@ Local-first. Privacy-focused. Blazing fast.
 
 <br />
 
-## Why Lokus?
+## Why NoteMakingApp?
 
-Most note-taking apps fall into two categories: **powerful but closed-source** (Obsidian) or **open but cloud-dependent** (Notion). Lokus is neither.
+Most note-taking apps fall into two categories: **powerful but closed-source** (Obsidian) or **open but cloud-dependent** (Notion). NoteMakingApp is neither.
 
 - **Fair Source** — FCL 1.0 licensed. Read every line. Fork it. Make it yours.
 - **Local-First** — Your notes are markdown files on YOUR device. No proprietary format.
@@ -98,7 +98,7 @@ Most note-taking apps fall into two categories: **powerful but closed-source** (
 <br />
 <b>macOS</b>
 <br />
-<a href="https://github.com/lokus-ai/lokus/releases/latest">Download .dmg</a>
+<a href="https://github.com/NoteMakingApp-ai/NoteMakingApp/releases/latest">Download .dmg</a>
 <br />
 <sub>Intel & Apple Silicon</sub>
 </td>
@@ -107,7 +107,7 @@ Most note-taking apps fall into two categories: **powerful but closed-source** (
 <br />
 <b>Windows</b>
 <br />
-<a href="https://github.com/lokus-ai/lokus/releases/latest">Download .exe</a>
+<a href="https://github.com/NoteMakingApp-ai/NoteMakingApp/releases/latest">Download .exe</a>
 <br />
 <sub>Windows 10/11 x64</sub>
 </td>
@@ -116,7 +116,7 @@ Most note-taking apps fall into two categories: **powerful but closed-source** (
 <br />
 <b>Linux</b>
 <br />
-<a href="https://github.com/lokus-ai/lokus/releases/latest">Download .AppImage</a>
+<a href="https://github.com/NoteMakingApp-ai/NoteMakingApp/releases/latest">Download .AppImage</a>
 <br />
 <sub>.deb and .rpm also available</sub>
 </td>
@@ -125,8 +125,8 @@ Most note-taking apps fall into two categories: **powerful but closed-source** (
 
 ```bash
 # Or build from source
-git clone https://github.com/lokus-ai/lokus.git
-cd lokus && npm install && npm run tauri build
+git clone https://github.com/NoteMakingApp-ai/NoteMakingApp.git
+cd NoteMakingApp && npm install && npm run tauri build
 ```
 
 <br />
@@ -134,12 +134,12 @@ cd lokus && npm install && npm run tauri build
 ## Quick Start
 
 ```
-1. Download and install Lokus
+1. Download and install NoteMakingApp
 2. Create a new workspace (or open existing markdown folder)
 3. Start writing
 ```
 
-**Coming from Obsidian?** Just point Lokus at your vault. It works with your existing notes.
+**Coming from Obsidian?** Just point NoteMakingApp at your vault. It works with your existing notes.
 
 <br />
 
@@ -168,8 +168,8 @@ cd lokus && npm install && npm run tauri build
 
 ```bash
 # Clone the repository
-git clone https://github.com/lokus-ai/lokus.git
-cd lokus
+git clone https://github.com/NoteMakingApp-ai/NoteMakingApp.git
+cd NoteMakingApp
 
 # Install dependencies
 npm install
@@ -184,7 +184,7 @@ npm test
 ### Project Structure
 
 ```
-lokus/
+NoteMakingApp/
 ├── src/                    # React frontend
 │   ├── components/         # UI components
 │   ├── core/               # Core functionality
@@ -221,8 +221,8 @@ lokus/
 
 We welcome contributions of all kinds:
 
-- **Bug reports** — [Open an issue](https://github.com/lokus-ai/lokus/issues)
-- **Feature requests** — [Start a discussion](https://github.com/lokus-ai/lokus/discussions)
+- **Bug reports** — [Open an issue](https://github.com/NoteMakingApp-ai/NoteMakingApp/issues)
+- **Feature requests** — [Start a discussion](https://github.com/NoteMakingApp-ai/NoteMakingApp/discussions)
 - **Code contributions** — Fork, code, submit PR
 - **Documentation** — Help us improve the docs
 
@@ -232,25 +232,25 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ## Community
 
-- [GitHub Discussions](https://github.com/lokus-ai/lokus/discussions) — Questions & ideas
+- [GitHub Discussions](https://github.com/NoteMakingApp-ai/NoteMakingApp/discussions) — Questions & ideas
 - [Discord](https://discord.com/invite/2rauPDEXcs) — Real-time chat
-- [Twitter](https://x.com/LokusMD0) — Updates & news
+- [Twitter](https://x.com/NoteMakingAppMD0) — Updates & news
 
 <br />
 
 ## Support
 
-If you find Lokus useful, consider:
+If you find NoteMakingApp useful, consider:
 
 - Starring this repository
-- [Sponsoring on Open Collective](https://opencollective.com/lokus)
+- [Sponsoring on Open Collective](https://opencollective.com/NoteMakingApp)
 - Spreading the word
 
 <br />
 
 ## License
 
-Lokus is licensed under the [Fair Core License 1.0 (FCL-1.0-MIT)](LICENSE).
+NoteMakingApp is licensed under the [Fair Core License 1.0 (FCL-1.0-MIT)](LICENSE).
 
 - **Free for personal use** — Always
 - **Free for education & research** — Non-commercial
@@ -264,8 +264,8 @@ The license automatically converts to MIT after 2 years. [Learn more about FCL](
 
 <div align="center">
 
-**[Download Lokus](https://github.com/lokus-ai/lokus/releases)** · **[Read the Docs](https://docs.lokusmd.com)** · **[Join Discord](https://discord.com/invite/2rauPDEXcs)**
+**[Download NoteMakingApp](https://github.com/NoteMakingApp-ai/NoteMakingApp/releases)** · **[Read the Docs](https://docs.NoteMakingAppmd.com)** · **[Join Discord](https://discord.com/invite/2rauPDEXcs)**
 
-<sub>Built with care by the Lokus team and contributors.</sub>
+<sub>Built with care by the NoteMakingApp team and contributors.</sub>
 
 </div>

@@ -2,8 +2,8 @@ import { Node, mergeAttributes } from '@tiptap/core'
 
 // Resolve canvas file from the global file index
 async function resolveCanvasPath(canvasName) {
-  // Check if __LOKUS_FILE_INDEX__ is available
-  if (typeof window.__LOKUS_FILE_INDEX__ === 'undefined') {
+  // Check if __NoteMakingApp_FILE_INDEX__ is available
+  if (typeof window.__NoteMakingApp_FILE_INDEX__ === 'undefined') {
     return {
       exists: false,
       path: '',
@@ -12,7 +12,7 @@ async function resolveCanvasPath(canvasName) {
   }
 
   // Search for canvas file in the index
-  const fileIndex = window.__LOKUS_FILE_INDEX__
+  const fileIndex = window.__NoteMakingApp_FILE_INDEX__
   const canvasFileName = `${canvasName}.canvas`
 
   // Find exact match or partial match

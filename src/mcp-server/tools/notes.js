@@ -1,6 +1,6 @@
 /**
  * Notes Management Tools for MCP
- * Enhanced tools for working with notes in Lokus
+ * Enhanced tools for working with notes in NoteMakingApp
  */
 
 import { readFile, writeFile, readdir, stat, mkdir } from "fs/promises";

@@ -103,12 +103,12 @@ Get information about a file or directory.
 
 ## Installation
 
-1. Copy this plugin to your Lokus plugins directory
+1. Copy this plugin to your NoteMakingApp plugins directory
 2. Install dependencies:
    ```bash
    npm install
    ```
-3. Activate the plugin in Lokus settings
+3. Activate the plugin in NoteMakingApp settings
 
 ## Configuration
 
@@ -173,7 +173,7 @@ const entries = await server.listDirectory('/workspace')
 
 ### Plugin Integration
 
-The plugin integrates with Lokus through the MCP API:
+The plugin integrates with NoteMakingApp through the MCP API:
 
 ```javascript
 // Register resources
@@ -242,7 +242,7 @@ const result = await tool.execute(arguments)
 
 Enable debug logging by setting the environment variable:
 ```bash
-DEBUG=lokus:file-server
+DEBUG=NoteMakingApp:file-server
 ```
 
 ## Contributing

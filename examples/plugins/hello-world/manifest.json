@@ -2,10 +2,10 @@
   "id": "hello-world",
   "name": "Hello World",
   "version": "1.0.0",
-  "description": "A simple example plugin that demonstrates basic Lokus plugin functionality",
-  "author": "Lokus Team",
+  "description": "A simple example plugin that demonstrates basic NoteMakingApp plugin functionality",
+  "author": "NoteMakingApp Team",
   "main": "index.js",
-  "lokusVersion": ">=1.0.0",
+  "NoteMakingAppVersion": ">=1.0.0",
   "permissions": [
     "editor.addExtension",
     "notifications.show",

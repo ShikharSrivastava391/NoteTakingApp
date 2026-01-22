@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Mock Data Generator for Lokus MCP Server Testing
+ * Mock Data Generator for NoteMakingApp MCP Server Testing
  * 
  * This utility generates realistic test data for MCP server development and testing.
  * It creates sample workspaces, files, and configurations that demonstrate the
@@ -878,7 +878,7 @@ if __name__ == "__main__":
 
 set -e
 
-PROJECT_NAME="lokus-mcp"
+PROJECT_NAME="NoteMakingApp-mcp"
 DEPLOY_ENV="\${1:-staging}"
 VERSION="\${2:-latest}"
 
@@ -1291,7 +1291,7 @@ volumes:
       version: '1.0.0',
       description: 'Generated mock workspace for MCP server testing',
       generated: new Date().toISOString(),
-      generator: 'Lokus Mock Data Generator',
+      generator: 'NoteMakingApp Mock Data Generator',
       statistics: {
         totalFiles: this.createdFiles.length,
         fileTypes: this.getFileTypeStats(),

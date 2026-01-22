@@ -1,4 +1,4 @@
-/// Platform abstraction layer for Lokus
+/// Platform abstraction layer for NoteMakingApp
 /// 
 /// This module provides trait-based abstractions for platform-specific operations,
 /// ensuring clear separation between platform-specific code and business logic.

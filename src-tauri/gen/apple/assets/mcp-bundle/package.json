@@ -1,7 +1,7 @@
 {
-  "name": "@lokus/mcp-server",
+  "name": "@NoteMakingApp/mcp-server",
   "version": "1.0.0",
   "main": "mcp-server.js",
   "type": "commonjs",
-  "description": "Lokus MCP Server - Bundled for production"
+  "description": "NoteMakingApp MCP Server - Bundled for production"
 }

@@ -12,7 +12,7 @@
 import blockIdManager from './block-id-manager.js'
 
 /**
- * Parse blocks from HTML content (used by Lokus editor)
+ * Parse blocks from HTML content (used by NoteMakingApp editor)
  * @param {string} content - HTML file content
  * @param {string} filePath - Path to the file (for registration)
  * @returns {Array<object>} Array of parsed blocks
@@ -153,7 +153,7 @@ function parseHTMLBlocks(content, filePath) {
 export function parseBlocks(content, filePath) {
   if (!content) return []
 
-  // Check if content is HTML (Lokus stores as HTML)
+  // Check if content is HTML (NoteMakingApp stores as HTML)
   if (content.trim().startsWith('<')) {
     return parseHTMLBlocks(content, filePath)
   }

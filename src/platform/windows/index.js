@@ -228,8 +228,8 @@ export const windowsShell = {
   // Generate context menu items
   getContextMenuItems: () => [
     {
-      id: 'open-with-lokus',
-      label: 'Open with Lokus',
+      id: 'open-with-NoteMakingApp',
+      label: 'Open with NoteMakingApp',
       icon: 'file-text'
     },
     {
@@ -244,12 +244,12 @@ export const windowsShell = {
     '.md': {
       description: 'Markdown Document',
       icon: 'markdown-icon',
-      progId: 'Lokus.Markdown'
+      progId: 'NoteMakingApp.Markdown'
     },
     '.markdown': {
       description: 'Markdown Document',
       icon: 'markdown-icon',
-      progId: 'Lokus.Markdown'
+      progId: 'NoteMakingApp.Markdown'
     }
   })
 };
@@ -262,7 +262,7 @@ export const windowsFeatureHelpers = {
       type: 'task',
       title: workspace.name,
       description: workspace.path,
-      program: 'lokus.exe',
+      program: 'NoteMakingApp.exe',
       args: `--workspace "${workspace.path}"`,
       iconPath: workspace.path,
       iconIndex: 0

@@ -11,7 +11,7 @@ import { invoke } from '@tauri-apps/api/core'
 async function getAllTasks() {
   try {
     // Get workspace path
-    const workspacePath = globalThis.__LOKUS_WORKSPACE_PATH__ || localStorage.getItem('workspace_path')
+    const workspacePath = globalThis.__NoteMakingApp_WORKSPACE_PATH__ || localStorage.getItem('workspace_path')
 
     if (!workspacePath) {
       return []

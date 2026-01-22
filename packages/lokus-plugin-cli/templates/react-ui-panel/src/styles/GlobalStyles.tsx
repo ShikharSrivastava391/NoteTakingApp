@@ -1,38 +1,38 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
-  /* Plugin-specific CSS variables that extend Lokus theme */
+  /* Plugin-specific CSS variables that extend NoteMakingApp theme */
   :root {
     /* Primary colors */
-    --{{pluginNameKebabCase}}-primary: var(--lokus-accent-background, #0066cc);
-    --{{pluginNameKebabCase}}-primary-hover: var(--lokus-accent-hover-background, #0052a3);
-    --{{pluginNameKebabCase}}-primary-active: var(--lokus-accent-active-background, #003d7a);
+    --{{pluginNameKebabCase}}-primary: var(--NoteMakingApp-accent-background, #0066cc);
+    --{{pluginNameKebabCase}}-primary-hover: var(--NoteMakingApp-accent-hover-background, #0052a3);
+    --{{pluginNameKebabCase}}-primary-active: var(--NoteMakingApp-accent-active-background, #003d7a);
     
     /* Status colors */
-    --{{pluginNameKebabCase}}-success: var(--lokus-success-background, #22c55e);
-    --{{pluginNameKebabCase}}-warning: var(--lokus-warning-background, #f59e0b);
-    --{{pluginNameKebabCase}}-error: var(--lokus-error-background, #ef4444);
-    --{{pluginNameKebabCase}}-info: var(--lokus-info-background, #3b82f6);
+    --{{pluginNameKebabCase}}-success: var(--NoteMakingApp-success-background, #22c55e);
+    --{{pluginNameKebabCase}}-warning: var(--NoteMakingApp-warning-background, #f59e0b);
+    --{{pluginNameKebabCase}}-error: var(--NoteMakingApp-error-background, #ef4444);
+    --{{pluginNameKebabCase}}-info: var(--NoteMakingApp-info-background, #3b82f6);
     
     /* Background colors */
-    --{{pluginNameKebabCase}}-bg-primary: var(--lokus-background, #ffffff);
-    --{{pluginNameKebabCase}}-bg-secondary: var(--lokus-secondary-background, #f8fafc);
-    --{{pluginNameKebabCase}}-bg-tertiary: var(--lokus-tertiary-background, #f1f5f9);
+    --{{pluginNameKebabCase}}-bg-primary: var(--NoteMakingApp-background, #ffffff);
+    --{{pluginNameKebabCase}}-bg-secondary: var(--NoteMakingApp-secondary-background, #f8fafc);
+    --{{pluginNameKebabCase}}-bg-tertiary: var(--NoteMakingApp-tertiary-background, #f1f5f9);
     
     /* Text colors */
-    --{{pluginNameKebabCase}}-text-primary: var(--lokus-foreground, #0f172a);
-    --{{pluginNameKebabCase}}-text-secondary: var(--lokus-secondary-foreground, #64748b);
-    --{{pluginNameKebabCase}}-text-muted: var(--lokus-muted-foreground, #94a3b8);
+    --{{pluginNameKebabCase}}-text-primary: var(--NoteMakingApp-foreground, #0f172a);
+    --{{pluginNameKebabCase}}-text-secondary: var(--NoteMakingApp-secondary-foreground, #64748b);
+    --{{pluginNameKebabCase}}-text-muted: var(--NoteMakingApp-muted-foreground, #94a3b8);
     
     /* Border colors */
-    --{{pluginNameKebabCase}}-border: var(--lokus-border, #e2e8f0);
-    --{{pluginNameKebabCase}}-border-hover: var(--lokus-hover-border, #cbd5e1);
-    --{{pluginNameKebabCase}}-border-focus: var(--lokus-focus-border, #0066cc);
+    --{{pluginNameKebabCase}}-border: var(--NoteMakingApp-border, #e2e8f0);
+    --{{pluginNameKebabCase}}-border-hover: var(--NoteMakingApp-hover-border, #cbd5e1);
+    --{{pluginNameKebabCase}}-border-focus: var(--NoteMakingApp-focus-border, #0066cc);
     
     /* Interactive states */
-    --{{pluginNameKebabCase}}-hover: var(--lokus-hover-background, #f8fafc);
-    --{{pluginNameKebabCase}}-active: var(--lokus-active-background, #f1f5f9);
-    --{{pluginNameKebabCase}}-selected: var(--lokus-selected-background, #e0f2fe);
+    --{{pluginNameKebabCase}}-hover: var(--NoteMakingApp-hover-background, #f8fafc);
+    --{{pluginNameKebabCase}}-active: var(--NoteMakingApp-active-background, #f1f5f9);
+    --{{pluginNameKebabCase}}-selected: var(--NoteMakingApp-selected-background, #e0f2fe);
     
     /* Shadows */
     --{{pluginNameKebabCase}}-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
@@ -78,25 +78,25 @@ export const GlobalStyles = createGlobalStyle`
 
   /* Dark theme overrides */
   [data-theme="dark"] {
-    --{{pluginNameKebabCase}}-bg-primary: var(--lokus-background, #0f172a);
-    --{{pluginNameKebabCase}}-bg-secondary: var(--lokus-secondary-background, #1e293b);
-    --{{pluginNameKebabCase}}-bg-tertiary: var(--lokus-tertiary-background, #334155);
+    --{{pluginNameKebabCase}}-bg-primary: var(--NoteMakingApp-background, #0f172a);
+    --{{pluginNameKebabCase}}-bg-secondary: var(--NoteMakingApp-secondary-background, #1e293b);
+    --{{pluginNameKebabCase}}-bg-tertiary: var(--NoteMakingApp-tertiary-background, #334155);
     
-    --{{pluginNameKebabCase}}-text-primary: var(--lokus-foreground, #f8fafc);
-    --{{pluginNameKebabCase}}-text-secondary: var(--lokus-secondary-foreground, #cbd5e1);
-    --{{pluginNameKebabCase}}-text-muted: var(--lokus-muted-foreground, #94a3b8);
+    --{{pluginNameKebabCase}}-text-primary: var(--NoteMakingApp-foreground, #f8fafc);
+    --{{pluginNameKebabCase}}-text-secondary: var(--NoteMakingApp-secondary-foreground, #cbd5e1);
+    --{{pluginNameKebabCase}}-text-muted: var(--NoteMakingApp-muted-foreground, #94a3b8);
     
-    --{{pluginNameKebabCase}}-border: var(--lokus-border, #334155);
-    --{{pluginNameKebabCase}}-border-hover: var(--lokus-hover-border, #475569);
+    --{{pluginNameKebabCase}}-border: var(--NoteMakingApp-border, #334155);
+    --{{pluginNameKebabCase}}-border-hover: var(--NoteMakingApp-hover-border, #475569);
     
-    --{{pluginNameKebabCase}}-hover: var(--lokus-hover-background, #1e293b);
-    --{{pluginNameKebabCase}}-active: var(--lokus-active-background, #334155);
-    --{{pluginNameKebabCase}}-selected: var(--lokus-selected-background, #0c4a6e);
+    --{{pluginNameKebabCase}}-hover: var(--NoteMakingApp-hover-background, #1e293b);
+    --{{pluginNameKebabCase}}-active: var(--NoteMakingApp-active-background, #334155);
+    --{{pluginNameKebabCase}}-selected: var(--NoteMakingApp-selected-background, #0c4a6e);
   }
 
   /* Plugin container styles */
   .{{pluginNameKebabCase}}-container {
-    font-family: var(--lokus-font-family, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif);
+    font-family: var(--NoteMakingApp-font-family, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif);
     font-size: var(--{{pluginNameKebabCase}}-font-size-base);
     line-height: var(--{{pluginNameKebabCase}}-line-height-normal);
     color: var(--{{pluginNameKebabCase}}-text-primary);

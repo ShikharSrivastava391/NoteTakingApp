@@ -1,10 +1,10 @@
-# Getting Started with Lokus
+# Getting Started with NoteMakingApp
 
-Welcome to Lokus! This guide will help you get up and running with Lokus quickly, covering the essential features you need to start taking notes, organizing your knowledge, and building your personal knowledge base.
+Welcome to NoteMakingApp! This guide will help you get up and running with NoteMakingApp quickly, covering the essential features you need to start taking notes, organizing your knowledge, and building your personal knowledge base.
 
-## What is Lokus?
+## What is NoteMakingApp?
 
-Lokus is a modern note-taking application that combines the best of rich text editing with powerful knowledge management features. It's designed for researchers, writers, students, and knowledge workers who need to organize and connect their ideas effectively.
+NoteMakingApp is a modern note-taking application that combines the best of rich text editing with powerful knowledge management features. It's designed for researchers, writers, students, and knowledge workers who need to organize and connect their ideas effectively.
 
 ### Key Capabilities
 - **Rich Text Editor** - Professional editing with markdown support
@@ -17,11 +17,11 @@ Lokus is a modern note-taking application that combines the best of rich text ed
 ## First Launch
 
 ### Creating Your First Workspace
-When you first open Lokus:
+When you first open NoteMakingApp:
 1. **Welcome Screen** - You'll see a welcome screen with options to create or open a workspace
 2. **Create New Workspace** - Click "Create New Workspace" to start fresh
 3. **Choose Location** - Select a folder on your computer to store your notes
-4. **Workspace Setup** - Lokus will set up the workspace structure
+4. **Workspace Setup** - NoteMakingApp will set up the workspace structure
 
 ### Interface Overview
 After creating your workspace, you'll see:
@@ -45,7 +45,7 @@ Try these formatting options:
 - **Lists**: Type `- ` for bullet points or `1. ` for numbered lists
 
 ### Saving Your Work
-- **Auto-save**: Lokus automatically saves your work as you type
+- **Auto-save**: NoteMakingApp automatically saves your work as you type
 - **Manual Save**: Press `⌘S` (macOS) / `Ctrl+S` (Windows/Linux) to save immediately
 - **Save Indicator**: Unsaved changes show as a dot on the file tab
 
@@ -121,7 +121,7 @@ Once you're comfortable with the basics:
 1. **Graph View** - Visualize connections between your notes
 2. **Canvas** - Create visual mind maps and diagrams  
 3. **Kanban Boards** - Manage tasks and projects
-4. **Plugin System** - Extend Lokus with community plugins
+4. **Plugin System** - Extend NoteMakingApp with community plugins
 
 ### Customize Your Experience
 - **Themes** - Switch between light and dark themes
@@ -157,8 +157,8 @@ Once you're comfortable with the basics:
 ### Import Existing Notes
 If you have notes from other applications:
 1. **Export from old app** - Export your notes (usually as markdown or text)
-2. **Copy to workspace** - Copy files into your Lokus workspace folder
-3. **Refresh view** - Restart Lokus or refresh the file explorer
+2. **Copy to workspace** - Copy files into your NoteMakingApp workspace folder
+3. **Refresh view** - Restart NoteMakingApp or refresh the file explorer
 4. **Update links** - Convert any internal links to wiki link format
 
 ### Set Up Daily Notes
@@ -220,7 +220,7 @@ Develop consistent workflows:
 
 ---
 
-**Ready to start your Lokus journey?** Create your first note and begin exploring the features that will transform how you organize and connect your knowledge.
+**Ready to start your NoteMakingApp journey?** Create your first note and begin exploring the features that will transform how you organize and connect your knowledge.
 
 ## Related Guides
 

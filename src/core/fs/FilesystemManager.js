@@ -5,7 +5,7 @@ import { join, homeDir } from '@tauri-apps/api/path';
 class FilesystemManager {
     async getPluginFilePath(pluginId, relativePath) {
         const home = await homeDir();
-        return await join(home, '.lokus', 'plugins', pluginId, relativePath);
+        return await join(home, '.NoteMakingApp', 'plugins', pluginId, relativePath);
     }
 
     async readFile(path, encoding = 'utf8') {

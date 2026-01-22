@@ -146,7 +146,7 @@ export function parseNestedTag(tag) {
 
 /**
  * Get all parent tags for a nested tag
- * Example: 'work/projects/lokus' -> ['work', 'work/projects', 'work/projects/lokus']
+ * Example: 'work/projects/NoteMakingApp' -> ['work', 'work/projects', 'work/projects/NoteMakingApp']
  * @param {string} tag - Nested tag
  * @returns {string[]} - Array of all parent tags including the tag itself
  */

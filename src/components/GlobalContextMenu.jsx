@@ -38,7 +38,7 @@ export default function GlobalContextMenu({
     if (targetElement) {
       // Store the element globally
       window.$0 = targetElement;
-      window.$lokusElement = targetElement;
+      window.$NoteMakingAppElement = targetElement;
       
       // Highlight the element
       const originalOutline = targetElement.style.outline;
@@ -315,7 +315,7 @@ export default function GlobalContextMenu({
         {/* Keyboard Shortcuts */}
         <button
           onClick={() => {
-            window.dispatchEvent(new CustomEvent('lokus:shortcut-help'));
+            window.dispatchEvent(new CustomEvent('NoteMakingApp:shortcut-help'));
             onClose();
           }}
           className="flex items-center gap-3 w-full px-4 py-2 text-sm"

@@ -107,7 +107,7 @@ export interface PluginManifest {
   categories: RegistryCategory[]
   keywords: string[]
   engines: {
-    lokus: string
+    NoteMakingApp: string
     [key: string]: string
   }
   main: string

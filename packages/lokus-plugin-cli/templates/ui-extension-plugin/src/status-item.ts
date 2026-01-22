@@ -1,4 +1,4 @@
-import { PluginContext, StatusBarItem, Disposable } from 'lokus-plugin-sdk';
+import { PluginContext, StatusBarItem, Disposable } from 'NoteMakingApp-plugin-sdk';
 
 export class {{ pluginNamePascalCase }}StatusItem implements Disposable {
   private statusBarItem: StatusBarItem;

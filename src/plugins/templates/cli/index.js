@@ -1,13 +1,13 @@
 /**
  * CLI Integration Module
  * 
- * Exports CLI components for the lokus-plugin-cli tool
+ * Exports CLI components for the NoteMakingApp-plugin-cli tool
  */
 
 export { CLITemplateGenerator, CLICommands } from './CLITemplateGenerator.js'
 
 /**
- * Register CLI commands with the lokus-plugin-cli
+ * Register CLI commands with the NoteMakingApp-plugin-cli
  */
 export function registerCLICommands(cli) {
   const { CLICommands } = await import('./CLITemplateGenerator.js')

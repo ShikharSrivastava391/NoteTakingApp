@@ -127,7 +127,7 @@ export class BasicPluginTemplate implements TemplateGenerator {
     return JSON.stringify({
       name: config.id,
       version: config.version || '1.0.0',
-      description: config.description || 'A Lokus plugin',
+      description: config.description || 'A NoteMakingApp plugin',
       main: config.typescript ? 'dist/index.js' : 'src/index.js',
       types: config.typescript ? 'dist/index.d.ts' : undefined,
       scripts: {
@@ -140,14 +140,14 @@ export class BasicPluginTemplate implements TemplateGenerator {
         lint: 'eslint src/**/*.{js,ts}',
         'lint:fix': 'eslint src/**/*.{js,ts} --fix'
       },
-      keywords: ['lokus', 'plugin', 'extension'],
+      keywords: ['NoteMakingApp', 'plugin', 'extension'],
       author: config.author || '',
       license: 'MIT',
       engines: {
-        lokus: '^1.0.0'
+        NoteMakingApp: '^1.0.0'
       },
       dependencies: {
-        '@lokus/plugin-sdk': '^1.0.0'
+        '@NoteMakingApp/plugin-sdk': '^1.0.0'
       },
       devDependencies: {
         ...(config.typescript && {
@@ -165,7 +165,7 @@ export class BasicPluginTemplate implements TemplateGenerator {
       id: config.id,
       version: config.version || '1.0.0',
       name: config.name,
-      description: config.description || 'A Lokus plugin',
+      description: config.description || 'A NoteMakingApp plugin',
       author: config.author || '',
       main: config.typescript ? 'dist/index.js' : 'src/index.js',
       activationEvents: ['*'],
@@ -186,14 +186,14 @@ export class BasicPluginTemplate implements TemplateGenerator {
   }
 
   private generateTypeScriptMain(config: TemplateConfig): string {
-    return `import { Plugin, PluginContext, LokusAPI } from '@lokus/plugin-sdk'
+    return `import { Plugin, PluginContext, NoteMakingAppAPI } from '@NoteMakingApp/plugin-sdk'
 
 /**
  * ${config.name} Plugin
- * ${config.description || 'A Lokus plugin'}
+ * ${config.description || 'A NoteMakingApp plugin'}
  */
 export default class ${this.toPascalCase(config.name || 'MyPlugin')}Plugin implements Plugin {
-  private api?: LokusAPI
+  private api?: NoteMakingAppAPI
   private context?: PluginContext
 
   /**
@@ -259,7 +259,7 @@ export default class ${this.toPascalCase(config.name || 'MyPlugin')}Plugin imple
   private generateJavaScriptMain(config: TemplateConfig): string {
     return `/**
  * ${config.name} Plugin
- * ${config.description || 'A Lokus plugin'}
+ * ${config.description || 'A NoteMakingApp plugin'}
  */
 class ${this.toPascalCase(config.name || 'MyPlugin')}Plugin {
   /**
@@ -348,7 +348,7 @@ module.exports = ${this.toPascalCase(config.name || 'MyPlugin')}Plugin
   private generateReadme(config: TemplateConfig): string {
     return `# ${config.name}
 
-${config.description || 'A Lokus plugin'}
+${config.description || 'A NoteMakingApp plugin'}
 
 ## Features
 
@@ -362,7 +362,7 @@ ${config.description || 'A Lokus plugin'}
 1. Clone this repository
 2. Run \`npm install\`
 3. Run \`npm run build\` (if using TypeScript)
-4. Install the plugin in Lokus
+4. Install the plugin in NoteMakingApp
 
 ## Development
 

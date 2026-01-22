@@ -2,7 +2,7 @@
  * @fileoverview Plugin lifecycle types and event definitions
  */
 
-import type { LokusAPI } from './api/index.js'
+import type { NoteMakingAppAPI } from './api/index.js'
 import type { PluginManifest } from './manifest.js'
 import type { Permission } from './permissions.js'
 import type { Disposable } from './utilities.js'
@@ -17,8 +17,8 @@ export interface PluginContext {
   /** Plugin manifest */
   readonly manifest: PluginManifest
 
-  /** Lokus API instance */
-  readonly api: LokusAPI
+  /** NoteMakingApp API instance */
+  readonly api: NoteMakingAppAPI
 
   /** Plugin's storage directory */
   readonly storageUri: string
@@ -82,8 +82,8 @@ export enum ExtensionMode {
  * Plugin runtime environment
  */
 export interface PluginEnvironment {
-  /** Lokus version */
-  lokusVersion: string
+  /** NoteMakingApp version */
+  NoteMakingAppVersion: string
 
   /** Node.js version */
   nodeVersion: string
@@ -377,7 +377,7 @@ export enum DeactivationReason {
   /** Plugin dependencies missing */
   MISSING_DEPENDENCIES = 'missing-dependencies',
 
-  /** Lokus is shutting down */
+  /** NoteMakingApp is shutting down */
   SHUTDOWN = 'shutdown',
 
   /** Plugin update requires restart */
@@ -429,8 +429,8 @@ export interface PluginDependency {
   /** Dependency type */
   type: 'runtime' | 'development' | 'peer'
 
-  /** Minimum Lokus version required */
-  lokusVersion?: string
+  /** Minimum NoteMakingApp version required */
+  NoteMakingAppVersion?: string
 
   /** Platform requirements */
   platforms?: Array<'win32' | 'darwin' | 'linux'>
@@ -443,11 +443,11 @@ export interface PluginDependency {
  * Plugin compatibility information
  */
 export interface PluginCompatibility {
-  /** Minimum Lokus version */
-  minLokusVersion?: string
+  /** Minimum NoteMakingApp version */
+  minNoteMakingAppVersion?: string
 
-  /** Maximum Lokus version */
-  maxLokusVersion?: string
+  /** Maximum NoteMakingApp version */
+  maxNoteMakingAppVersion?: string
 
   /** Supported platforms */
   platforms?: Array<'win32' | 'darwin' | 'linux'>

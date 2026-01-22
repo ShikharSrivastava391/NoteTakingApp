@@ -2,13 +2,13 @@
  * Integration tests for Terminal and Output Channel managers with Plugin API
  */
 import { describe, test, expect, beforeEach } from 'vitest';
-import { LokusPluginAPI } from '../../../../src/plugins/api/LokusPluginAPI.js';
+import { NoteMakingAppPluginAPI } from '../../../../src/plugins/api/NoteMakingAppPluginAPI.js';
 
 describe('Manager Integration', () => {
     let api;
 
     beforeEach(() => {
-        api = new LokusPluginAPI({});
+        api = new NoteMakingAppPluginAPI({});
         api.setPluginContext('test-plugin', {
             id: 'test-plugin',
             manifest: {

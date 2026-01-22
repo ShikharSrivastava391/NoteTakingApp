@@ -1,11 +1,11 @@
 {
-  "name": "lokus-plugin-cli",
+  "name": "NoteMakingApp-plugin-cli",
   "version": "2.3.0",
-  "description": "Advanced CLI toolkit for developing Lokus plugins with interactive templates, hot-reload, and comprehensive tooling",
+  "description": "Advanced CLI toolkit for developing NoteMakingApp plugins with interactive templates, hot-reload, and comprehensive tooling",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "bin": {
-    "lokus-plugin": "./dist/index.js"
+    "NoteMakingApp-plugin": "./dist/index.js"
   },
   "scripts": {
     "build": "tsc",
@@ -15,7 +15,7 @@
     "prepublishOnly": "npm run build"
   },
   "keywords": [
-    "lokus",
+    "NoteMakingApp",
     "plugin",
     "cli",
     "development",
@@ -23,16 +23,16 @@
     "vscode",
     "extension"
   ],
-  "author": "Lokus Team <team@lokus.app>",
+  "author": "NoteMakingApp Team <team@NoteMakingApp.app>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lokus-editor/lokus.git",
-    "directory": "packages/lokus-plugin-cli"
+    "url": "https://github.com/NoteMakingApp-editor/NoteMakingApp.git",
+    "directory": "packages/NoteMakingApp-plugin-cli"
   },
-  "homepage": "https://lokus.app/plugins",
+  "homepage": "https://NoteMakingApp.app/plugins",
   "bugs": {
-    "url": "https://github.com/lokus-editor/lokus/issues"
+    "url": "https://github.com/NoteMakingApp-editor/NoteMakingApp/issues"
   },
   "engines": {
     "node": ">=16.0.0"

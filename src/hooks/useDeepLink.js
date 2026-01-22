@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react';
 import { onOpenUrl } from '@tauri-apps/plugin-deep-link';
 
 /**
- * Hook to handle lokus:// deep links
+ * Hook to handle NoteMakingApp:// deep links
  *
  * Supported URLs:
- * - lokus://install/{plugin-slug} - Install a plugin from the registry
+ * - NoteMakingApp://install/{plugin-slug} - Install a plugin from the registry
  */
 export function useDeepLink() {
     const [pendingInstall, setPendingInstall] = useState(null);
@@ -20,15 +20,15 @@ export function useDeepLink() {
 
                     for (const urlString of urls) {
                         try {
-                            // Handle both lokus:// and lokus: formats
-                            const normalizedUrl = urlString.replace('lokus:', 'lokus://');
+                            // Handle both NoteMakingApp:// and NoteMakingApp: formats
+                            const normalizedUrl = urlString.replace('NoteMakingApp:', 'NoteMakingApp://');
                             const url = new URL(normalizedUrl);
 
                             // Get the path (remove leading slashes)
                             const path = url.pathname.replace(/^\/+/, '') || url.host;
 
                             if (path.startsWith('install/') || url.host === 'install') {
-                                // lokus://install/plugin-slug
+                                // NoteMakingApp://install/plugin-slug
                                 const slug = path.replace('install/', '') || url.pathname.replace(/^\/+/, '');
 
                                 if (slug) {

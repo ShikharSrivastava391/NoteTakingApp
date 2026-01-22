@@ -51,7 +51,7 @@ jobs:
               "🎉 You've got this!",
               "🚀 Happy coding!",
               "💪 Let's build something awesome!",
-              "✨ Ready to make Lokus even better!",
+              "✨ Ready to make NoteMakingApp even better!",
               "🔥 Time to ship some code!"
             ];
             
@@ -73,11 +73,11 @@ jobs:
 **Need Help?**
 - 💬 Comment here for questions
 - 📚 Check our [Contributing Guide](https://github.com/${owner}/${repo}/blob/main/CONTRIBUTING.md)
-- 🔧 Join our [Discord](https://discord.gg/lokus) for real-time help
+- 🔧 Join our [Discord](https://discord.gg/NoteMakingApp) for real-time help
 
 **Stuck or changed your mind?** Comment \`/unassign\` to release this issue.
 
-Thanks for contributing to Lokus! 🙏`
+Thanks for contributing to NoteMakingApp! 🙏`
             });
             
             // Add "in progress" label if it exists

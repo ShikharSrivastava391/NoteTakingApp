@@ -44,7 +44,7 @@ export function useProductTour() {
     const driverObj = driver({
       showProgress: true,
       showButtons: ['next', 'previous', 'close'],
-      popoverClass: 'lokus-tour-popover',
+      popoverClass: 'NoteMakingApp-tour-popover',
       overlayColor: 'rgba(0, 0, 0, 0.5)',
       allowClose: true,
       stagePadding: 4,
@@ -203,7 +203,7 @@ export function useProductTour() {
     const driverObj = driver({
       showProgress: true,
       showButtons: ['next', 'previous', 'close'],
-      popoverClass: 'lokus-tour-popover',
+      popoverClass: 'NoteMakingApp-tour-popover',
       overlayColor: 'rgba(0, 0, 0, 0.5)',
       allowClose: true,
       stagePadding: 4,
@@ -221,7 +221,7 @@ export function useProductTour() {
         {
           element: '[data-tour="create-note"]',
           popover: {
-            title: 'Welcome to Lokus!',
+            title: 'Welcome to NoteMakingApp!',
             description: 'Let\'s take a quick tour. We\'ll create a note to show you the editor.',
             side: "bottom",
             align: 'start',
@@ -312,7 +312,7 @@ export function useProductTour() {
         {
           popover: {
             title: 'Quick Tour Complete!',
-            description: 'Want to see more features in detail? Click "Next" for a full demo, or "Close" to start using Lokus.',
+            description: 'Want to see more features in detail? Click "Next" for a full demo, or "Close" to start using NoteMakingApp.',
           }
         },
         {

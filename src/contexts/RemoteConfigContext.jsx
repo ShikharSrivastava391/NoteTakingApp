@@ -39,12 +39,12 @@ const DEFAULT_CONFIG = {
 
     // External links (can be updated without app release)
     links: {
-        documentation: 'https://docs.lokus.dev',
-        releases: 'https://github.com/lokus-app/lokus/releases',
-        issues: 'https://github.com/lokus-app/lokus/issues',
-        website: 'https://lokus.io',
-        github: 'https://github.com/lokus-ai/lokus',
-        donate: 'https://opencollective.com/lokus',
+        documentation: 'https://docs.NoteMakingApp.dev',
+        releases: 'https://github.com/NoteMakingApp-app/NoteMakingApp/releases',
+        issues: 'https://github.com/NoteMakingApp-app/NoteMakingApp/issues',
+        website: 'https://NoteMakingApp.io',
+        github: 'https://github.com/NoteMakingApp-ai/NoteMakingApp',
+        donate: 'https://opencollective.com/NoteMakingApp',
         discord: null,
     },
 
@@ -150,7 +150,7 @@ const DEFAULT_CONFIG = {
 };
 
 // URL to your remote JSON file
-const REMOTE_CONFIG_URL = 'https://config.lokusmd.com/config.json';
+const REMOTE_CONFIG_URL = 'https://config.NoteMakingAppmd.com/config.json';
 
 // Deep merge helper for nested config objects
 const deepMerge = (target, source) => {

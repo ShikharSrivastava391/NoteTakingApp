@@ -1,14 +1,14 @@
-# Lokus Plugin CLI
+# NoteMakingApp Plugin CLI
 
-Advanced CLI toolkit for developing Lokus plugins with interactive templates, hot-reload, and comprehensive tooling.
+Advanced CLI toolkit for developing NoteMakingApp plugins with interactive templates, hot-reload, and comprehensive tooling.
 
 ## Installation
 
 ```bash
-npm install -g lokus-plugin-cli
+npm install -g NoteMakingApp-plugin-cli
 ```
 
-> **Note:** This CLI automatically installs the `@lokus/plugin-sdk` (or `lokus-plugin-sdk`) for you when you create a new project. You don't need to install the SDK manually unless you are adding it to an existing project.
+> **Note:** This CLI automatically installs the `@NoteMakingApp/plugin-sdk` (or `NoteMakingApp-plugin-sdk`) for you when you create a new project. You don't need to install the SDK manually unless you are adding it to an existing project.
 
 ## Usage
 
@@ -18,15 +18,15 @@ You can create a new plugin interactively or using command-line flags.
 
 **Interactive Mode:**
 ```bash
-lokus-plugin create my-plugin
+NoteMakingApp-plugin create my-plugin
 ```
 
 **Non-Interactive Mode (using flags):**
 ```bash
-lokus-plugin create my-plugin \
+NoteMakingApp-plugin create my-plugin \
   --template basic-typescript \
-  --author "Lokus Team" \
-  --publisher "lokus" \
+  --author "NoteMakingApp Team" \
+  --publisher "NoteMakingApp" \
   --description "My awesome plugin" \
   --skip-prompts
 ```
@@ -34,7 +34,7 @@ lokus-plugin create my-plugin \
 **Partial Interactivity:**
 You can provide some flags and let the CLI prompt for the rest:
 ```bash
-lokus-plugin create my-plugin --template react-ui-panel
+NoteMakingApp-plugin create my-plugin --template react-ui-panel
 # CLI will skip template selection and ask for other details
 ```
 
@@ -64,13 +64,13 @@ lokus-plugin create my-plugin --template react-ui-panel
 
 ```bash
 cd my-awesome-plugin
-lokus-plugin dev
+NoteMakingApp-plugin dev
 ```
 
 ### Build
 
 ```bash
-lokus-plugin build
+NoteMakingApp-plugin build
 ```
 
 ## Plugin Types

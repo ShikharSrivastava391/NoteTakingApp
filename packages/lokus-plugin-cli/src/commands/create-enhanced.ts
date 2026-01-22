@@ -48,7 +48,7 @@ export const advancedPluginTemplates: Record<string, AdvancedPluginTemplate> = {
     technologies: ['TypeScript', 'Jest', 'ESLint', 'Prettier'],
     permissions: [],
     dependencies: {
-      'lokus-plugin-sdk': '^1.0.0'
+      'NoteMakingApp-plugin-sdk': '^1.0.0'
     },
     devDependencies: {
       'typescript': '^5.2.2',
@@ -73,7 +73,7 @@ export const advancedPluginTemplates: Record<string, AdvancedPluginTemplate> = {
     technologies: ['React', 'TypeScript', 'Styled Components', 'React Testing Library', 'Storybook'],
     permissions: ['ui:panels', 'ui:notifications', 'ui:dialogs'],
     dependencies: {
-      'lokus-plugin-sdk': '^1.0.0',
+      'NoteMakingApp-plugin-sdk': '^1.0.0',
       'react': '^18.2.0',
       'react-dom': '^18.2.0',
       'styled-components': '^6.0.8',
@@ -88,8 +88,8 @@ export const advancedPluginTemplates: Record<string, AdvancedPluginTemplate> = {
       '@testing-library/jest-dom': '^6.1.4'
     },
     templatePath: 'react-ui-panel',
-    exampleUrl: 'https://github.com/lokus/plugin-examples/tree/main/react-ui-panel',
-    documentationUrl: 'https://lokus.dev/docs/ui-extensions',
+    exampleUrl: 'https://github.com/NoteMakingApp/plugin-examples/tree/main/react-ui-panel',
+    documentationUrl: 'https://NoteMakingApp.dev/docs/ui-extensions',
     iconEmoji: '⚛️'
   },
   'language-server': {
@@ -104,7 +104,7 @@ export const advancedPluginTemplates: Record<string, AdvancedPluginTemplate> = {
     technologies: ['TypeScript', 'Language Server Protocol', 'Tree-sitter', 'Monaco Editor'],
     permissions: ['editor:read', 'editor:write', 'editor:decorations', 'filesystem:read'],
     dependencies: {
-      'lokus-plugin-sdk': '^1.0.0',
+      'NoteMakingApp-plugin-sdk': '^1.0.0',
       'vscode-languageserver': '^8.1.0',
       'vscode-languageserver-textdocument': '^1.0.11',
       'vscode-uri': '^3.0.7'
@@ -114,15 +114,15 @@ export const advancedPluginTemplates: Record<string, AdvancedPluginTemplate> = {
       '@types/vscode': '^1.83.0'
     },
     templatePath: 'language-server',
-    exampleUrl: 'https://github.com/lokus/plugin-examples/tree/main/language-server',
-    documentationUrl: 'https://lokus.dev/docs/language-support',
+    exampleUrl: 'https://github.com/NoteMakingApp/plugin-examples/tree/main/language-server',
+    documentationUrl: 'https://NoteMakingApp.dev/docs/language-support',
     iconEmoji: '🔤'
   },
   'custom-theme': {
     id: 'custom-theme',
     name: 'Custom Theme Creator',
     description: 'Create beautiful themes with live preview',
-    longDescription: 'Design stunning themes for Lokus with a comprehensive theme development kit. Includes color palette generator, live preview, and theme validation.',
+    longDescription: 'Design stunning themes for NoteMakingApp with a comprehensive theme development kit. Includes color palette generator, live preview, and theme validation.',
     category: 'Theme',
     complexity: 'Beginner',
     estimatedTime: '1-2 hours',
@@ -130,7 +130,7 @@ export const advancedPluginTemplates: Record<string, AdvancedPluginTemplate> = {
     technologies: ['CSS Variables', 'PostCSS', 'Color Theory', 'Design Tokens'],
     permissions: ['ui:themes'],
     dependencies: {
-      'lokus-plugin-sdk': '^1.0.0',
+      'NoteMakingApp-plugin-sdk': '^1.0.0',
       'chroma-js': '^2.4.2'
     },
     devDependencies: {
@@ -139,8 +139,8 @@ export const advancedPluginTemplates: Record<string, AdvancedPluginTemplate> = {
       '@types/chroma-js': '^2.4.2'
     },
     templatePath: 'custom-theme',
-    exampleUrl: 'https://github.com/lokus/plugin-examples/tree/main/custom-theme',
-    documentationUrl: 'https://lokus.dev/docs/themes',
+    exampleUrl: 'https://github.com/NoteMakingApp/plugin-examples/tree/main/custom-theme',
+    documentationUrl: 'https://NoteMakingApp.dev/docs/themes',
     iconEmoji: '🎨'
   },
   'api-integration': {
@@ -155,7 +155,7 @@ export const advancedPluginTemplates: Record<string, AdvancedPluginTemplate> = {
     technologies: ['Axios', 'WebSocket', 'JWT', 'IndexedDB', 'Service Workers'],
     permissions: ['network:http', 'storage:local', 'notifications:show'],
     dependencies: {
-      'lokus-plugin-sdk': '^1.0.0',
+      'NoteMakingApp-plugin-sdk': '^1.0.0',
       'axios': '^1.5.1',
       'ws': '^8.14.2',
       'idb': '^7.1.1',
@@ -167,8 +167,8 @@ export const advancedPluginTemplates: Record<string, AdvancedPluginTemplate> = {
       'msw': '^1.3.2'
     },
     templatePath: 'api-integration',
-    exampleUrl: 'https://github.com/lokus/plugin-examples/tree/main/api-integration',
-    documentationUrl: 'https://lokus.dev/docs/integrations',
+    exampleUrl: 'https://github.com/NoteMakingApp/plugin-examples/tree/main/api-integration',
+    documentationUrl: 'https://NoteMakingApp.dev/docs/integrations',
     iconEmoji: '🔌'
   },
   'data-visualization': {
@@ -183,7 +183,7 @@ export const advancedPluginTemplates: Record<string, AdvancedPluginTemplate> = {
     technologies: ['D3.js', 'Chart.js', 'Canvas API', 'SVG', 'WebGL'],
     permissions: ['ui:panels', 'data:read', 'filesystem:write'],
     dependencies: {
-      'lokus-plugin-sdk': '^1.0.0',
+      'NoteMakingApp-plugin-sdk': '^1.0.0',
       'd3': '^7.8.5',
       'chart.js': '^4.4.0',
       'chartjs-adapter-date-fns': '^3.0.0'
@@ -193,8 +193,8 @@ export const advancedPluginTemplates: Record<string, AdvancedPluginTemplate> = {
       'canvas': '^2.11.2'
     },
     templatePath: 'data-visualization',
-    exampleUrl: 'https://github.com/lokus/plugin-examples/tree/main/data-visualization',
-    documentationUrl: 'https://lokus.dev/docs/data-visualization',
+    exampleUrl: 'https://github.com/NoteMakingApp/plugin-examples/tree/main/data-visualization',
+    documentationUrl: 'https://NoteMakingApp.dev/docs/data-visualization',
     iconEmoji: '📊'
   },
   'git-integration': {
@@ -209,7 +209,7 @@ export const advancedPluginTemplates: Record<string, AdvancedPluginTemplate> = {
     technologies: ['isomorphic-git', 'diff2html', 'GitLab/GitHub APIs'],
     permissions: ['filesystem:read', 'filesystem:write', 'network:http', 'terminal:access'],
     dependencies: {
-      'lokus-plugin-sdk': '^1.0.0',
+      'NoteMakingApp-plugin-sdk': '^1.0.0',
       'isomorphic-git': '^1.24.5',
       'diff2html': '^3.4.42',
       '@octokit/rest': '^20.0.2'
@@ -218,8 +218,8 @@ export const advancedPluginTemplates: Record<string, AdvancedPluginTemplate> = {
       '@types/diff2html': '^3.4.3'
     },
     templatePath: 'git-integration',
-    exampleUrl: 'https://github.com/lokus/plugin-examples/tree/main/git-integration',
-    documentationUrl: 'https://lokus.dev/docs/git-tools',
+    exampleUrl: 'https://github.com/NoteMakingApp/plugin-examples/tree/main/git-integration',
+    documentationUrl: 'https://NoteMakingApp.dev/docs/git-tools',
     iconEmoji: '🌿'
   },
   'ai-assistant': {
@@ -234,7 +234,7 @@ export const advancedPluginTemplates: Record<string, AdvancedPluginTemplate> = {
     technologies: ['OpenAI API', 'Transformers.js', 'TensorFlow.js', 'Hugging Face'],
     permissions: ['editor:read', 'editor:write', 'network:http', 'ai:inference'],
     dependencies: {
-      'lokus-plugin-sdk': '^1.0.0',
+      'NoteMakingApp-plugin-sdk': '^1.0.0',
       'openai': '^4.11.1',
       '@huggingface/inference': '^2.6.4',
       '@tensorflow/tfjs': '^4.10.0'
@@ -243,8 +243,8 @@ export const advancedPluginTemplates: Record<string, AdvancedPluginTemplate> = {
       '@types/tensorflow__tfjs': '^4.0.1'
     },
     templatePath: 'ai-assistant',
-    exampleUrl: 'https://github.com/lokus/plugin-examples/tree/main/ai-assistant',
-    documentationUrl: 'https://lokus.dev/docs/ai-plugins',
+    exampleUrl: 'https://github.com/NoteMakingApp/plugin-examples/tree/main/ai-assistant',
+    documentationUrl: 'https://NoteMakingApp.dev/docs/ai-plugins',
     iconEmoji: '🤖'
   }
 };
@@ -277,17 +277,17 @@ export interface AdvancedCreateOptions {
 async function showWelcomeScreen(): Promise<void> {
   console.clear();
 
-  const lokusTitle = figlet.textSync('LOKUS PLUGIN', {
+  const NoteMakingAppTitle = figlet.textSync('NoteMakingApp PLUGIN', {
     font: 'ANSI Shadow',
     horizontalLayout: 'default',
     verticalLayout: 'default'
   });
 
-  const gradientTitle = gradient(['#ff6b6b', '#4ecdc4', '#45b7d1'])(lokusTitle);
+  const gradientTitle = gradient(['#ff6b6b', '#4ecdc4', '#45b7d1'])(NoteMakingAppTitle);
 
   const welcomeMessage = boxen(
     chalk.white.bold('🚀 Advanced Plugin Generator\n\n') +
-    chalk.gray('Create professional-grade Lokus plugins with modern tooling,\n') +
+    chalk.gray('Create professional-grade NoteMakingApp plugins with modern tooling,\n') +
     chalk.gray('best practices, and comprehensive templates.\n\n') +
     chalk.cyan('✨ TypeScript-first development\n') +
     chalk.cyan('🔧 Modern build tools & testing\n') +
@@ -854,7 +854,7 @@ bundle-analyzer-report.html
     {
       title: 'Creating initial commit',
       task: async () => {
-        await execa('git', ['commit', '-m', '🎉 Initial commit: Generated with Lokus Plugin CLI'], { cwd: targetDir });
+        await execa('git', ['commit', '-m', '🎉 Initial commit: Generated with NoteMakingApp Plugin CLI'], { cwd: targetDir });
       }
     }
   ], {
@@ -904,7 +904,7 @@ async function installDependencies(targetDir: string, options: any): Promise<voi
 }
 
 export const createEnhancedCommand = new Command('create')
-  .description('Create a new Lokus plugin with advanced tooling and templates')
+  .description('Create a new NoteMakingApp plugin with advanced tooling and templates')
   .argument('[name]', 'plugin name')
   .option('-t, --template <template>', 'plugin template to use')
   .option('-a, --author <author>', 'plugin author')
@@ -962,13 +962,13 @@ export const createEnhancedCommand = new Command('create')
           pluginId: name, // Added field
           pluginName: name,
           pluginDisplayName: options.displayName || name, // Added field
-          pluginDescription: options.description || 'A Lokus plugin', // Modified to use options.description
+          pluginDescription: options.description || 'A NoteMakingApp plugin', // Modified to use options.description
           pluginAuthor: options.author || 'Unknown', // Modified to use options.author
           pluginPublisher: options.author || 'Unknown', // Added field, using author as default
           year: new Date().getFullYear(), // Added field
           template,
           author: options.author || 'Unknown',
-          description: options.description || 'A Lokus plugin',
+          description: options.description || 'A NoteMakingApp plugin',
           category: template.category,
           complexity: template.complexity,
           typescript: options.typescript !== false,
@@ -1079,13 +1079,13 @@ export const createEnhancedCommand = new Command('create')
         `${chalk.bold('Next Steps:')}\n\n` +
         `${chalk.cyan('1.')} ${chalk.white('cd ' + pluginName)}\n` +
         (pluginDetails.installDeps ? '' : `${chalk.cyan('2.')} ${chalk.white('npm install')}\n`) +
-        `${chalk.cyan(pluginDetails.installDeps ? '2.' : '3.')} ${chalk.white('lokus-plugin dev')} ${chalk.gray('# Start development server')}\n` +
+        `${chalk.cyan(pluginDetails.installDeps ? '2.' : '3.')} ${chalk.white('NoteMakingApp-plugin dev')} ${chalk.gray('# Start development server')}\n` +
         `${chalk.cyan(pluginDetails.installDeps ? '3.' : '4.')} ${chalk.white('npm test')} ${chalk.gray('# Run tests')}\n` +
         `${chalk.cyan(pluginDetails.installDeps ? '4.' : '5.')} ${chalk.white('npm run build')} ${chalk.gray('# Build for production')}\n\n` +
         `${chalk.bold('Resources:')}\n` +
-        `${chalk.blue('📖 Documentation:')} https://lokus.dev/docs/plugin-development\n` +
-        `${chalk.blue('🔌 Plugin API:')} https://lokus.dev/docs/plugin-api\n` +
-        `${chalk.blue('💬 Community:')} https://discord.gg/lokus\n` +
+        `${chalk.blue('📖 Documentation:')} https://NoteMakingApp.dev/docs/plugin-development\n` +
+        `${chalk.blue('🔌 Plugin API:')} https://NoteMakingApp.dev/docs/plugin-api\n` +
+        `${chalk.blue('💬 Community:')} https://discord.gg/NoteMakingApp\n` +
         (template.exampleUrl ? `${chalk.blue('🌟 Examples:')} ${template.exampleUrl}\n` : '') +
         (template.documentationUrl ? `${chalk.blue('📚 Template Docs:')} ${template.documentationUrl}` : ''),
         {

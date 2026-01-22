@@ -1,10 +1,10 @@
 # Context Menus
 
-Lokus features comprehensive VS Code-style context menus that provide quick access to file operations, sharing options, and advanced functionality. These context menus appear when you right-click on files or folders in the file explorer, offering contextual actions based on the selected item.
+NoteMakingApp features comprehensive VS Code-style context menus that provide quick access to file operations, sharing options, and advanced functionality. These context menus appear when you right-click on files or folders in the file explorer, offering contextual actions based on the selected item.
 
 ## Overview
 
-Context menus in Lokus are designed to match the familiar VS Code experience while adding enhanced functionality for note-taking workflows. They provide immediate access to the most common operations without navigating through application menus.
+Context menus in NoteMakingApp are designed to match the familiar VS Code experience while adding enhanced functionality for note-taking workflows. They provide immediate access to the most common operations without navigating through application menus.
 
 ## Activation
 

@@ -730,10 +730,10 @@ export class PluginManifestV2 {
   }
 
   /**
-   * Get Lokus engine compatibility
+   * Get NoteMakingApp engine compatibility
    */
-  getLokusEngineRange() {
-    return this.manifest?.engines?.lokus || null
+  getNoteMakingAppEngineRange() {
+    return this.manifest?.engines?.NoteMakingApp || null
   }
 
   /**

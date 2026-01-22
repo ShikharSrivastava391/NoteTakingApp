@@ -1,10 +1,10 @@
 /**
- * Auto Workspace Detection for Lokus MCP Server
+ * Auto Workspace Detection for NoteMakingApp MCP Server
  *
  * Provides smart workspace detection with priority:
- * 1. CWD detection - walk up from current directory to find .lokus folder
- * 2. Environment variable - LOKUS_WORKSPACE
- * 3. Running Lokus app API
+ * 1. CWD detection - walk up from current directory to find .NoteMakingApp folder
+ * 2. Environment variable - NoteMakingApp_WORKSPACE
+ * 3. Running NoteMakingApp app API
  * 4. Last workspace from config
  * 5. Default workspace
  */
@@ -15,7 +15,7 @@ import { homedir } from 'os';
 import { constants } from 'fs';
 
 /**
- * Walk up from a directory to find a Lokus workspace (.lokus folder)
+ * Walk up from a directory to find a NoteMakingApp workspace (.NoteMakingApp folder)
  * @param {string} startDir - Directory to start searching from
  * @returns {Promise<string|null>} - Workspace path or null
  */
@@ -26,15 +26,15 @@ export async function findWorkspaceFromCWD(startDir = process.cwd()) {
   // Walk up the directory tree
   while (currentDir !== root && currentDir !== dirname(currentDir)) {
     try {
-      const lokusDir = join(currentDir, '.lokus');
-      const stats = await stat(lokusDir);
+      const NoteMakingAppDir = join(currentDir, '.NoteMakingApp');
+      const stats = await stat(NoteMakingAppDir);
 
       if (stats.isDirectory()) {
-        // Found a .lokus folder - this is a Lokus workspace
+        // Found a .NoteMakingApp folder - this is a NoteMakingApp workspace
         return currentDir;
       }
     } catch (error) {
-      // .lokus doesn't exist in this directory, continue up
+      // .NoteMakingApp doesn't exist in this directory, continue up
     }
 
     currentDir = dirname(currentDir);
@@ -48,7 +48,7 @@ export async function findWorkspaceFromCWD(startDir = process.cwd()) {
  * @returns {Promise<string|null>} - Workspace path or null
  */
 export async function getWorkspaceFromEnv() {
-  const envWorkspace = process.env.LOKUS_WORKSPACE;
+  const envWorkspace = process.env.NoteMakingApp_WORKSPACE;
 
   if (!envWorkspace) {
     return null;
@@ -68,7 +68,7 @@ export async function getWorkspaceFromEnv() {
 }
 
 /**
- * Get workspace from running Lokus app API
+ * Get workspace from running NoteMakingApp app API
  * @param {string} apiUrl - API base URL
  * @returns {Promise<string|null>} - Workspace path or null
  */
@@ -102,7 +102,7 @@ export async function getWorkspaceFromAPI(apiUrl = 'http://127.0.0.1:3333') {
  * @returns {Promise<string|null>} - Workspace path or null
  */
 export async function getLastWorkspace() {
-  const configFile = join(homedir(), '.lokus', 'last-workspace.json');
+  const configFile = join(homedir(), '.NoteMakingApp', 'last-workspace.json');
 
   try {
     const content = await readFile(configFile, 'utf-8');
@@ -125,7 +125,7 @@ export async function getLastWorkspace() {
  * @returns {Promise<string|null>} - Workspace path or null
  */
 export async function getMcpContextWorkspace() {
-  const contextFile = join(homedir(), '.lokus', 'mcp-context.json');
+  const contextFile = join(homedir(), '.NoteMakingApp', 'mcp-context.json');
 
   try {
     const content = await readFile(contextFile, 'utf-8');
@@ -176,7 +176,7 @@ export async function autoDetectWorkspace(options = {}) {
     }
   }
 
-  // 3. Running Lokus app API
+  // 3. Running NoteMakingApp app API
   if (!skipAPI) {
     const apiWorkspace = await getWorkspaceFromAPI(apiUrl);
     if (apiWorkspace) {
@@ -197,7 +197,7 @@ export async function autoDetectWorkspace(options = {}) {
   }
 
   // 6. Default workspace
-  const defaultWorkspace = join(homedir(), 'Documents', 'Lokus Workspace');
+  const defaultWorkspace = join(homedir(), 'Documents', 'NoteMakingApp Workspace');
   try {
     await access(defaultWorkspace, constants.R_OK);
     return { workspace: defaultWorkspace, source: 'default' };

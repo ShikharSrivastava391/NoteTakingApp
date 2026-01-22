@@ -35,7 +35,7 @@ import analytics from "./services/analytics.js";
 const LoadingFallback = () => (
   <div className="flex items-center justify-center h-screen bg-app-bg text-app-text select-none">
     <div className="flex flex-col items-center gap-2 animate-pulse">
-      <div className="text-4xl font-bold tracking-tight text-app-accent">Lokus</div>
+      <div className="text-4xl font-bold tracking-tight text-app-accent">NoteMakingApp</div>
     </div>
   </div>
 );
@@ -46,7 +46,7 @@ function App() {
   const activePath = useWorkspaceActivation();
   const progressItems = usePluginProgress();
 
-  // Handle lokus:// deep links for plugin installation
+  // Handle NoteMakingApp:// deep links for plugin installation
   useDeepLink();
 
   useEffect(() => {

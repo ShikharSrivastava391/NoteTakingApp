@@ -52,7 +52,7 @@ export const jumpList = {
         type: 'task',
         title: workspace.name || 'Untitled Workspace',
         description: workspace.path,
-        program: 'lokus.exe',
+        program: 'NoteMakingApp.exe',
         args: `"${workspace.path}"`,
         iconPath: workspace.path,
         iconIndex: 0
@@ -86,7 +86,7 @@ export const jumpList = {
  */
 export const contextMenu = {
   /**
-   * Register "Open with Lokus" in Windows Explorer context menu
+   * Register "Open with NoteMakingApp" in Windows Explorer context menu
    */
   async register() {
     try {
@@ -158,7 +158,7 @@ export const notifications = {
       const notification = {
         title: options.title,
         body: options.body,
-        icon: options.icon || 'lokus.ico',
+        icon: options.icon || 'NoteMakingApp.ico',
         sound: options.sound !== false ? windowsConfig.notifications.defaultSound : null,
         actions: options.actions || [],
         silent: options.silent || false

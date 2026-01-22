@@ -11,7 +11,7 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 echo -e "${BLUE}═══════════════════════════════════════════════${NC}"
-echo -e "${BLUE}  Lokus Build Dependencies Installer${NC}"
+echo -e "${BLUE}  NoteMakingApp Build Dependencies Installer${NC}"
 echo -e "${BLUE}═══════════════════════════════════════════════${NC}\n"
 
 # Check if on macOS
@@ -75,13 +75,13 @@ fi
 # Build Docker Linux builder image
 echo -e "\n${BLUE}[4/4] Building Linux builder Docker image...${NC}"
 cd "$(dirname "$0")/.."
-if docker images | grep -q "lokus-linux-builder"; then
+if docker images | grep -q "NoteMakingApp-linux-builder"; then
     echo -e "${YELLOW}Rebuilding Docker image...${NC}"
 else
     echo -e "${YELLOW}Building Docker image (this may take a few minutes)...${NC}"
 fi
 
-docker build -t lokus-linux-builder -f docker/Dockerfile.linux-builder .
+docker build -t NoteMakingApp-linux-builder -f docker/Dockerfile.linux-builder .
 
 echo -e "\n${GREEN}═══════════════════════════════════════════════${NC}"
 echo -e "${GREEN}✓ All dependencies installed successfully!${NC}"

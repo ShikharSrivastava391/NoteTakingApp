@@ -1,6 +1,6 @@
 # Plugin System Documentation
 
-This folder documents the Lokus plugin system architecture and known limitations.
+This folder documents the NoteMakingApp plugin system architecture and known limitations.
 
 ## Documents
 
@@ -13,7 +13,7 @@ This folder documents the Lokus plugin system architecture and known limitations
 
 ## Architectural Limitations
 
-Plugins in Lokus are **JavaScript-only** and run in a sandboxed environment. This design provides security and portability but comes with limitations:
+Plugins in NoteMakingApp are **JavaScript-only** and run in a sandboxed environment. This design provides security and portability but comes with limitations:
 
 ### What Plugins CAN Do
 
@@ -35,9 +35,9 @@ Plugins in Lokus are **JavaScript-only** and run in a sandboxed environment. Thi
 
 If your plugin requires native functionality not currently available:
 
-1. Open an issue on the Lokus repository
+1. Open an issue on the NoteMakingApp repository
 2. Describe the feature and use case
-3. The Lokus team may add the command to core
+3. The NoteMakingApp team may add the command to core
 
 ---
 
@@ -45,13 +45,13 @@ If your plugin requires native functionality not currently available:
 
 | Command | Description |
 |---------|-------------|
-| `npx lokus-plugin create` | Create a new plugin |
-| `npx lokus-plugin build` | Build for production |
-| `npx lokus-plugin dev` | Watch mode development |
-| `npx lokus-plugin validate` | Validate plugin.json |
-| `npx lokus-plugin link` | Link to local Lokus |
-| `npx lokus-plugin package` | Create distributable ZIP |
-| `npx lokus-plugin publish` | Publish to registry |
+| `npx NoteMakingApp-plugin create` | Create a new plugin |
+| `npx NoteMakingApp-plugin build` | Build for production |
+| `npx NoteMakingApp-plugin dev` | Watch mode development |
+| `npx NoteMakingApp-plugin validate` | Validate plugin.json |
+| `npx NoteMakingApp-plugin link` | Link to local NoteMakingApp |
+| `npx NoteMakingApp-plugin package` | Create distributable ZIP |
+| `npx NoteMakingApp-plugin publish` | Publish to registry |
 
 ---
 
@@ -59,7 +59,7 @@ If your plugin requires native functionality not currently available:
 
 ```bash
 # Create a new plugin
-npx lokus-plugin create my-plugin --template basic-typescript
+npx NoteMakingApp-plugin create my-plugin --template basic-typescript
 
 # Navigate to plugin directory
 cd my-plugin
@@ -68,11 +68,11 @@ cd my-plugin
 npm run build
 npm test
 
-# Link to Lokus for development
-npx lokus-plugin link
+# Link to NoteMakingApp for development
+npx NoteMakingApp-plugin link
 
 # Validate manifest
-npx lokus-plugin validate
+npx NoteMakingApp-plugin validate
 ```
 
 ---

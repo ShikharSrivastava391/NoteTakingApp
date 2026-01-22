@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://lokus.dev/schemas/contributions/commands.json",
+  "$id": "https://NoteMakingApp.dev/schemas/contributions/commands.json",
   "title": "Commands Contribution Schema",
-  "description": "Schema for command contributions in Lokus plugins",
+  "description": "Schema for command contributions in NoteMakingApp plugins",
   "type": "array",
   "items": {
     "type": "object",

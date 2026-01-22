@@ -1,4 +1,4 @@
-import { BasePlugin, PluginContext, PluginActivationContext } from 'lokus-plugin-sdk';
+import { BasePlugin, PluginContext, PluginActivationContext } from 'NoteMakingApp-plugin-sdk';
 import { {{ pluginNamePascalCase }}LanguageServer } from './language-server';
 import { {{ pluginNamePascalCase }}DocumentProvider } from './document-provider';
 

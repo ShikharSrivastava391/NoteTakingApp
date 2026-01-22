@@ -1,5 +1,5 @@
 /**
- * @fileoverview Shared data models and types for Lokus Plugin SDK
+ * @fileoverview Shared data models and types for NoteMakingApp Plugin SDK
  */
 
 import type { Disposable, Event } from './utilities.js'
@@ -376,7 +376,7 @@ export interface CompletionItem {
     insertText?: string | SnippetString
     textEdit?: TextEdit | InsertReplaceEdit
     additionalTextEdits?: TextEdit[]
-    command?: LokusCommand
+    command?: NoteMakingAppCommand
     commitCharacters?: string[]
 }
 
@@ -528,7 +528,7 @@ export interface CodeAction {
     disabled?: {
         reason: string
     }
-    command?: LokusCommand
+    command?: NoteMakingAppCommand
 }
 
 /**
@@ -537,7 +537,7 @@ export interface CodeAction {
 /**
  * Command interface (minimal)
  */
-export interface LokusCommand {
+export interface NoteMakingAppCommand {
     title: string
     command: string
     tooltip?: string
@@ -602,7 +602,7 @@ export interface CodeActionProviderMetadata {
  */
 export interface CodeActionDocumentation {
     kind: CodeActionKind
-    command: LokusCommand
+    command: NoteMakingAppCommand
 }
 
 /**

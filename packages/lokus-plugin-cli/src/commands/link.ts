@@ -8,7 +8,7 @@ import { ErrorHandler } from '../utils/error-handler';
 import { pluginValidator } from '../utils/plugin-validator';
 
 export const linkCommand = new Command('link')
-    .description('Link current plugin to local Lokus installation for development')
+    .description('Link current plugin to local NoteMakingApp installation for development')
     .action(async () => {
         try {
             const pluginDir = process.cwd();
@@ -23,7 +23,7 @@ export const linkCommand = new Command('link')
 
             // Determine plugins directory
             const homeDir = os.homedir();
-            const pluginsDir = path.join(homeDir, '.lokus', 'plugins');
+            const pluginsDir = path.join(homeDir, '.NoteMakingApp', 'plugins');
             const targetLinkPath = path.join(pluginsDir, manifest.id);
 
             // Ensure plugins directory exists

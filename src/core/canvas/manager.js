@@ -231,7 +231,7 @@ export class CanvasManager {
         version: '1.0.0',
         created: new Date().toISOString(),
         modified: new Date().toISOString(),
-        createdWith: 'Lokus',
+        createdWith: 'NoteMakingApp',
         viewport: {
           x: 0,
           y: 0,
@@ -259,7 +259,7 @@ export class CanvasManager {
         version: data.metadata?.version || '1.0.0',
         created: data.metadata?.created || new Date().toISOString(),
         modified: new Date().toISOString(),
-        createdWith: data.metadata?.createdWith || 'Lokus',
+        createdWith: data.metadata?.createdWith || 'NoteMakingApp',
         viewport: {
           x: data.metadata?.viewport?.x || 0,
           y: data.metadata?.viewport?.y || 0,
@@ -359,7 +359,7 @@ export class CanvasManager {
         version: '1.0.0',
         created: storeData.metadata?.created || new Date().toISOString(),
         modified: new Date().toISOString(),
-        createdWith: 'Lokus'
+        createdWith: 'NoteMakingApp'
       }
     };
   }
@@ -485,7 +485,7 @@ export class CanvasManager {
    * @returns {Array} - Array of canvas file paths
    */
   getAllCanvasFiles() {
-    const fileIndex = globalThis.__LOKUS_FILE_INDEX__ || [];
+    const fileIndex = globalThis.__NoteMakingApp_FILE_INDEX__ || [];
     return fileIndex.filter(f => f.path.endsWith('.canvas'));
   }
 }

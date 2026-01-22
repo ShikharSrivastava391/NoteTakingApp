@@ -7,16 +7,16 @@
 export const windowsConfig = {
   // Application settings
   app: {
-    name: 'Lokus',
-    executableName: 'lokus.exe',
-    defaultInstallPath: 'C:\\Program Files\\Lokus',
-    userDataPath: '%APPDATA%\\Lokus',
-    tempPath: '%TEMP%\\Lokus'
+    name: 'NoteMakingApp',
+    executableName: 'NoteMakingApp.exe',
+    defaultInstallPath: 'C:\\Program Files\\NoteMakingApp',
+    userDataPath: '%APPDATA%\\NoteMakingApp',
+    tempPath: '%TEMP%\\NoteMakingApp'
   },
 
   // File management
   files: {
-    defaultWorkspacePath: '%USERPROFILE%\\Documents\\Lokus',
+    defaultWorkspacePath: '%USERPROFILE%\\Documents\\NoteMakingApp',
     maxPathLength: 260,
     reservedNames: [
       'CON', 'PRN', 'AUX', 'NUL',
@@ -26,12 +26,12 @@ export const windowsConfig = {
     invalidChars: '<>:"|?*',
     associations: {
       '.md': {
-        progId: 'Lokus.Markdown',
+        progId: 'NoteMakingApp.Markdown',
         description: 'Markdown Document',
         icon: 'markdown.ico'
       },
       '.markdown': {
-        progId: 'Lokus.Markdown',
+        progId: 'NoteMakingApp.Markdown',
         description: 'Markdown Document',
         icon: 'markdown.ico'
       }
@@ -111,10 +111,10 @@ export const windowsConfig = {
       enabled: true,
       entries: [
         {
-          key: 'open_with_lokus',
-          title: 'Open with Lokus',
-          icon: '%INSTALLDIR%\\lokus.ico',
-          command: '"%INSTALLDIR%\\lokus.exe" "%1"'
+          key: 'open_with_NoteMakingApp',
+          title: 'Open with NoteMakingApp',
+          icon: '%INSTALLDIR%\\NoteMakingApp.ico',
+          command: '"%INSTALLDIR%\\NoteMakingApp.exe" "%1"'
         }
       ]
     },

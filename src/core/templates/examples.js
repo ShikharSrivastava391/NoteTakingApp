@@ -62,11 +62,11 @@ Remember, every day is a fresh start.
 - Week number: {{date.getWeek(date.now())}}
 
 ---
-*Generated with Lokus Template System*
+*Generated with NoteMakingApp Template System*
 `,
   metadata: {
     description: 'Daily note with mood tracking, goals, and schedule',
-    author: 'Lokus',
+    author: 'NoteMakingApp',
     version: '1.0.0'
   }
 };
@@ -126,7 +126,7 @@ export const projectTemplate = {
 `,
   metadata: {
     description: 'Comprehensive project documentation template',
-    author: 'Lokus',
+    author: 'NoteMakingApp',
     version: '1.0.0'
   }
 };
@@ -199,7 +199,7 @@ To be scheduled
 `,
   metadata: {
     description: 'Professional meeting notes template',
-    author: 'Lokus',
+    author: 'NoteMakingApp',
     version: '1.0.0'
   }
 };
@@ -268,7 +268,7 @@ No tasks yet. Start adding some!
 `,
   metadata: {
     description: 'Task list with priority sorting and progress tracking',
-    author: 'Lokus',
+    author: 'NoteMakingApp',
     version: '1.0.0'
   }
 };
@@ -395,7 +395,7 @@ Outlook to be determined in next review.
 `,
   metadata: {
     description: 'Comprehensive monthly business report template',
-    author: 'Lokus',
+    author: 'NoteMakingApp',
     version: '1.0.0'
   }
 };
@@ -459,7 +459,7 @@ export const blogPostTemplate = {
 `,
   metadata: {
     description: 'Interactive blog post template with prompts',
-    author: 'Lokus',
+    author: 'NoteMakingApp',
     version: '1.0.0'
   }
 };
@@ -535,7 +535,7 @@ return timeTracking.map(item => {
 `,
   metadata: {
     description: 'Weekly review and reflection template',
-    author: 'Lokus',
+    author: 'NoteMakingApp',
     version: '1.0.0'
   }
 };

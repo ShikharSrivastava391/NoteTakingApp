@@ -1,6 +1,6 @@
 /**
  * Graph Navigation Tools for MCP
- * Tools for working with Lokus knowledge graph
+ * Tools for working with NoteMakingApp knowledge graph
  */
 
 import { readFile, readdir } from "fs/promises";

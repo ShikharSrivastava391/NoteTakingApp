@@ -18,7 +18,7 @@ export interface InstallOptions {
 export const installCommand = new Command('install')
   .description('Install a plugin from registry')
   .argument('<name>', 'plugin name to install')
-  .option('-r, --registry <url>', 'registry URL', 'https://registry.lokus.dev')
+  .option('-r, --registry <url>', 'registry URL', 'https://registry.NoteMakingApp.dev')
   .option('-v, --version <version>', 'specific version to install', 'latest')
   .option('-g, --global', 'install globally')
   .option('-f, --force', 'force reinstall if already exists')
@@ -90,23 +90,23 @@ async function getPluginsDirectory(global: boolean): Promise<string> {
     // Global installation directory
     const os = require('os');
     const homeDir = os.homedir();
-    return path.join(homeDir, '.lokus', 'plugins');
+    return path.join(homeDir, '.NoteMakingApp', 'plugins');
   } else {
     // Local installation directory
     const cwd = process.cwd();
     
-    // Try to find Lokus workspace root
+    // Try to find NoteMakingApp workspace root
     let currentDir = cwd;
     while (currentDir !== path.dirname(currentDir)) {
-      const lokusConfig = path.join(currentDir, '.lokus');
-      if (await fs.pathExists(lokusConfig)) {
-        return path.join(currentDir, '.lokus', 'plugins');
+      const NoteMakingAppConfig = path.join(currentDir, '.NoteMakingApp');
+      if (await fs.pathExists(NoteMakingAppConfig)) {
+        return path.join(currentDir, '.NoteMakingApp', 'plugins');
       }
       currentDir = path.dirname(currentDir);
     }
     
     // Fallback to current directory
-    return path.join(cwd, '.lokus', 'plugins');
+    return path.join(cwd, '.NoteMakingApp', 'plugins');
   }
 }
 
@@ -117,7 +117,7 @@ async function fetchPluginInfo(registry: string, name: string, version?: string)
     
     const response = await axios.get(url, {
       headers: {
-        'User-Agent': 'lokus-plugin-cli'
+        'User-Agent': 'NoteMakingApp-plugin-cli'
       },
       timeout: 10000
     });
@@ -153,7 +153,7 @@ async function downloadPlugin(registry: string, name: string, version: string): 
     const response = await axios.get(url, {
       responseType: 'arraybuffer',
       headers: {
-        'User-Agent': 'lokus-plugin-cli'
+        'User-Agent': 'NoteMakingApp-plugin-cli'
       },
       timeout: 60000, // 1 minute timeout
       maxContentLength: 50 * 1024 * 1024 // 50MB max
@@ -185,7 +185,7 @@ async function downloadPlugin(registry: string, name: string, version: string): 
 
 async function installPlugin(packageBuffer: Buffer, installDir: string, pluginInfo: any): Promise<void> {
   // Create temporary extraction directory
-  const tempDir = path.join(require('os').tmpdir(), `lokus-plugin-${Date.now()}`);
+  const tempDir = path.join(require('os').tmpdir(), `NoteMakingApp-plugin-${Date.now()}`);
   const tempArchive = path.join(tempDir, 'package.zip');
   
   try {
@@ -209,7 +209,7 @@ async function installPlugin(packageBuffer: Buffer, installDir: string, pluginIn
       name: pluginInfo.name,
       version: pluginInfo.version,
       installedAt: new Date().toISOString(),
-      installedBy: 'lokus-plugin-cli',
+      installedBy: 'NoteMakingApp-plugin-cli',
       source: 'registry'
     };
 

@@ -10,12 +10,12 @@ import fetch from "node-fetch";
 import { matchWorkspace, matchMultipleWorkspaces, extractWorkspaceReferences } from "../workspace-matcher.js";
 
 // Context file location in user's home directory
-const CONTEXT_FILE = join(homedir(), '.lokus', 'mcp-context.json');
+const CONTEXT_FILE = join(homedir(), '.NoteMakingApp', 'mcp-context.json');
 
 export const workspaceContextTools = [
   {
     name: "list_all_workspaces",
-    description: "List all available Lokus workspaces. Use this when you need to see what workspaces are available or when the user mentions a workspace name.",
+    description: "List all available NoteMakingApp workspaces. Use this when you need to see what workspaces are available or when the user mentions a workspace name.",
     inputSchema: {
       type: "object",
       properties: {},
@@ -118,7 +118,7 @@ async function listAllWorkspaces(apiUrl) {
     return {
       content: [{
         type: "text",
-        text: "❌ API server not available. Cannot list workspaces.\n\nPlease ensure Lokus is running."
+        text: "❌ API server not available. Cannot list workspaces.\n\nPlease ensure NoteMakingApp is running."
       }]
     };
   }
@@ -142,7 +142,7 @@ async function listAllWorkspaces(apiUrl) {
       return {
         content: [{
           type: "text",
-          text: "📂 No workspaces found.\n\nYou may need to open a workspace in Lokus first."
+          text: "📂 No workspaces found.\n\nYou may need to open a workspace in NoteMakingApp first."
         }]
       };
     }
@@ -167,7 +167,7 @@ async function listAllWorkspaces(apiUrl) {
     return {
       content: [{
         type: "text",
-        text: `❌ Failed to list workspaces: ${error.message}\n\nPlease ensure Lokus is running and the API server is accessible.`
+        text: `❌ Failed to list workspaces: ${error.message}\n\nPlease ensure NoteMakingApp is running and the API server is accessible.`
       }]
     };
   }
@@ -459,11 +459,11 @@ async function loadContext() {
  * Save context to file
  */
 async function saveContext(context) {
-  const lokusDir = join(homedir(), '.lokus');
+  const NoteMakingAppDir = join(homedir(), '.NoteMakingApp');
 
-  // Ensure .lokus directory exists
+  // Ensure .NoteMakingApp directory exists
   try {
-    await mkdir(lokusDir, { recursive: true });
+    await mkdir(NoteMakingAppDir, { recursive: true });
   } catch (error) {
     // Directory might already exist
   }

@@ -1,6 +1,6 @@
 # Template System - Conditionals and Loops
 
-This document describes the conditional and loop features added to the Lokus template system.
+This document describes the conditional and loop features added to the NoteMakingApp template system.
 
 ## Overview
 
@@ -460,4 +460,4 @@ new TemplateLoops(options)
 
 ## License
 
-Part of the Lokus project.
+Part of the NoteMakingApp project.

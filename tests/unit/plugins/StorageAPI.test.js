@@ -2,7 +2,7 @@
  * StorageAPI Unit Tests
  */
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { DataAPI } from '../../../src/plugins/api/LokusPluginAPI.js';
+import { DataAPI } from '../../../src/plugins/api/NoteMakingAppPluginAPI.js';
 
 describe('StorageAPI', () => {
   let storageAPI;
@@ -65,7 +65,7 @@ describe('StorageAPI', () => {
       fallbackStorage.currentPluginId = 'test-plugin';
 
       // Set value directly in localStorage
-      localStorage.setItem('lokus_plugin_test-plugin_testKey', JSON.stringify({ value: 123 }));
+      localStorage.setItem('NoteMakingApp_plugin_test-plugin_testKey', JSON.stringify({ value: 123 }));
 
       const result = await fallbackStorage.get('testKey');
 
@@ -76,7 +76,7 @@ describe('StorageAPI', () => {
       const fallbackStorage = new DataAPI(null);
       fallbackStorage.currentPluginId = 'test-plugin';
 
-      localStorage.setItem('lokus_plugin_test-plugin_badKey', 'not valid json');
+      localStorage.setItem('NoteMakingApp_plugin_test-plugin_badKey', 'not valid json');
 
       const result = await fallbackStorage.get('badKey');
 
@@ -131,7 +131,7 @@ describe('StorageAPI', () => {
 
       await fallbackStorage.set('testKey', { stored: true });
 
-      const stored = localStorage.getItem('lokus_plugin_test-plugin_testKey');
+      const stored = localStorage.getItem('NoteMakingApp_plugin_test-plugin_testKey');
       expect(JSON.parse(stored)).toEqual({ stored: true });
     });
   });
@@ -149,11 +149,11 @@ describe('StorageAPI', () => {
       const fallbackStorage = new DataAPI(null);
       fallbackStorage.currentPluginId = 'test-plugin';
 
-      localStorage.setItem('lokus_plugin_test-plugin_deleteMe', 'value');
+      localStorage.setItem('NoteMakingApp_plugin_test-plugin_deleteMe', 'value');
 
       await fallbackStorage.delete('deleteMe');
 
-      expect(localStorage.getItem('lokus_plugin_test-plugin_deleteMe')).toBeNull();
+      expect(localStorage.getItem('NoteMakingApp_plugin_test-plugin_deleteMe')).toBeNull();
     });
   });
 

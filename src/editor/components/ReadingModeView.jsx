@@ -50,7 +50,7 @@ const ReadingModeView = ({ content, editorSettings }) => {
 
           if (href) {
             // Check if href is a valid path in the file index
-            const index = globalThis.__LOKUS_FILE_INDEX__ || [];
+            const index = globalThis.__NoteMakingApp_FILE_INDEX__ || [];
             let fileExists = index.some(f => f.path === href);
 
             // If href is not a valid path, try to resolve it
@@ -62,7 +62,7 @@ const ReadingModeView = ({ content, editorSettings }) => {
                 const i = Math.max(p.lastIndexOf('/'), p.lastIndexOf('\\'));
                 return i >= 0 ? p.slice(0, i) : '';
               };
-              const wsPath = globalThis.__LOKUS_WORKSPACE_PATH__ || '';
+              const wsPath = globalThis.__NoteMakingApp_WORKSPACE_PATH__ || '';
 
               // Check for explicit root marker (./)
               const isExplicitRoot = searchTerm.startsWith('./');
@@ -80,7 +80,7 @@ const ReadingModeView = ({ content, editorSettings }) => {
                 }
               } else {
                 const hasPath = /[/\\]/.test(searchTerm);
-                const activePath = globalThis.__LOKUS_ACTIVE_FILE__ || '';
+                const activePath = globalThis.__NoteMakingApp_ACTIVE_FILE__ || '';
                 const activeDir = dirname(activePath);
 
                 // Find all matching files
@@ -106,10 +106,10 @@ const ReadingModeView = ({ content, editorSettings }) => {
             // Emit event to open file
             try {
               const { emit } = await import('@tauri-apps/api/event');
-              await emit('lokus:open-file', href);
+              await emit('NoteMakingApp:open-file', href);
             } catch {
               try {
-                window.dispatchEvent(new CustomEvent('lokus:open-file', { detail: href }));
+                window.dispatchEvent(new CustomEvent('NoteMakingApp:open-file', { detail: href }));
               } catch {}
             }
           }

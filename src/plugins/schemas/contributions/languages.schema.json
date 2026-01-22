@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://lokus.dev/schemas/contributions/languages.json",
+  "$id": "https://NoteMakingApp.dev/schemas/contributions/languages.json",
   "title": "Languages Contribution Schema",
-  "description": "Schema for language contributions in Lokus plugins",
+  "description": "Schema for language contributions in NoteMakingApp plugins",
   "type": "array",
   "items": {
     "type": "object",

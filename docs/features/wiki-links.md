@@ -1,6 +1,6 @@
 # Wiki Links
 
-Lokus features a powerful wiki-style linking system that enables you to create interconnected networks of notes. Wiki links provide bidirectional connections between notes, automatic suggestion, and seamless navigation through your knowledge base.
+NoteMakingApp features a powerful wiki-style linking system that enables you to create interconnected networks of notes. Wiki links provide bidirectional connections between notes, automatic suggestion, and seamless navigation through your knowledge base.
 
 ## Overview
 

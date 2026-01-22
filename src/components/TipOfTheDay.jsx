@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Lightbulb, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useTips } from '../contexts/RemoteConfigContext';
 
-const STORAGE_KEY = 'lokus_tip_state';
+const STORAGE_KEY = 'NoteMakingApp_tip_state';
 
 /**
  * TipOfTheDay - Displays rotating tips from server config

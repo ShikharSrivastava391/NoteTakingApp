@@ -1,20 +1,20 @@
 # Documentation Navigation Guide
 
-This guide helps you navigate the Lokus documentation efficiently and find the information you need quickly.
+This guide helps you navigate the NoteMakingApp documentation efficiently and find the information you need quickly.
 
 ## Documentation Structure
 
 ### 📚 Main Sections
 
 #### [User Guides](./user-guide/)
-Start here if you're new to Lokus or want step-by-step guidance:
-- **[Getting Started](./user-guide/getting-started.md)** - First steps with Lokus
+Start here if you're new to NoteMakingApp or want step-by-step guidance:
+- **[Getting Started](./user-guide/getting-started.md)** - First steps with NoteMakingApp
 - **[Feature Tour](./user-guide/feature-tour.md)** - Overview of all features
 - **[Organization Strategies](./user-guide/organization-strategies.md)** - Best practices
 - **[Troubleshooting](./user-guide/troubleshooting.md)** - Common issues and solutions
 
 #### [Features Documentation](./features/)
-Comprehensive guides for each Lokus feature:
+Comprehensive guides for each NoteMakingApp feature:
 
 **Core Features**
 - **[Editor](./features/editor.md)** - Rich text editing and markdown
@@ -64,7 +64,7 @@ Plugin-specific documentation:
 
 ### 🎯 By Goal
 
-#### "I'm new to Lokus"
+#### "I'm new to NoteMakingApp"
 Start with: **[Getting Started Guide](./user-guide/getting-started.md)**
 Then explore: **[Feature Tour](./user-guide/feature-tour.md)**
 
@@ -220,9 +220,9 @@ Check: **[API Reference](./api/)** section
 
 ---
 
-**Happy exploring!** The Lokus documentation is designed to grow with you as you discover new ways to organize and connect your knowledge.
+**Happy exploring!** The NoteMakingApp documentation is designed to grow with you as you discover new ways to organize and connect your knowledge.
 
 ## Meta Navigation
 - **[Main Documentation Index](./README.md)** - Complete feature overview
 - **[Feature Template](./FEATURE_TEMPLATE.md)** - Template for new documentation
-- **Back to [Lokus](../README.md)** - Main application repository
+- **Back to [NoteMakingApp](../README.md)** - Main application repository

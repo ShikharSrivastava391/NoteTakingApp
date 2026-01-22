@@ -1,5 +1,5 @@
 /**
- * TypeScript definitions for Lokus Plugin Manifest v2
+ * TypeScript definitions for NoteMakingApp Plugin Manifest v2
  * VS Code-compatible plugin manifest specification
  */
 
@@ -152,7 +152,7 @@ export type Bugs = string | BugReporting;
  * Engine compatibility requirements
  */
 export interface Engines {
-  lokus: VersionRange;
+  NoteMakingApp: VersionRange;
   node?: VersionRange;
 }
 
@@ -450,7 +450,7 @@ export interface ThemePreview {
  * Theme compatibility information
  */
 export interface ThemeCompatibility {
-  lokusVersion?: VersionRange;
+  NoteMakingAppVersion?: VersionRange;
   languages?: LanguageId[];
   features?: ThemeFeature[];
 }
@@ -848,7 +848,7 @@ export interface PluginManifestV1 {
   name: string;
   version: SemanticVersion;
   main: string;
-  lokusVersion: VersionRange;
+  NoteMakingAppVersion: VersionRange;
 
   // Optional fields
   description?: string;
@@ -980,7 +980,7 @@ export interface MigrationPreview {
 /**
  * Extract manifest version
  */
-export type ManifestVersion<T> = T extends { manifest: infer V } ? V : T extends { lokusVersion: any } ? "1.0" : unknown;
+export type ManifestVersion<T> = T extends { manifest: infer V } ? V : T extends { NoteMakingAppVersion: any } ? "1.0" : unknown;
 
 /**
  * Check if manifest is v2

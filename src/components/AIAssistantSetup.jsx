@@ -84,7 +84,7 @@ export function AIAssistantSetup() {
           </h3>
 
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-            Connect Lokus with AI Desktop for AI-powered features. This enables your AI assistant to help you with your notes, search, and organization.
+            Connect NoteMakingApp with AI Desktop for AI-powered features. This enables your AI assistant to help you with your notes, search, and organization.
           </p>
 
           <div className="flex items-center space-x-2 mb-4">
@@ -122,7 +122,7 @@ export function AIAssistantSetup() {
             )}
 
             <a
-              href="https://docs.lokus.so/ai-integration"
+              href="https://docs.NoteMakingApp.so/ai-integration"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center text-sm text-blue-500 hover:text-blue-600 transition-colors"
@@ -143,7 +143,7 @@ export function AIAssistantSetup() {
               <ol className="text-sm text-green-700 dark:text-green-400 space-y-1 list-decimal list-inside">
                 <li>Open your AI Desktop app (not the web version)</li>
                 <li>Start a new conversation</li>
-                <li>Ask your assistant about your Lokus notes!</li>
+                <li>Ask your assistant about your NoteMakingApp notes!</li>
               </ol>
               <p className="text-xs text-green-600 dark:text-green-500 mt-2">
                 Note: You may need to restart your AI Desktop after setup.
@@ -157,7 +157,7 @@ export function AIAssistantSetup() {
             </summary>
             <div className="mt-2 p-3 bg-gray-50 dark:bg-gray-900/50 rounded-md">
               <p className="text-xs text-gray-600 dark:text-gray-400">
-                This integration allows AI Desktop to access your Lokus workspace through the Model Context Protocol (MCP).
+                This integration allows AI Desktop to access your NoteMakingApp workspace through the Model Context Protocol (MCP).
                 Your AI assistant can then help you search notes, create new content, organize information, and answer questions about your knowledge base.
                 Your data stays local and private - it only accesses when you explicitly ask.
               </p>

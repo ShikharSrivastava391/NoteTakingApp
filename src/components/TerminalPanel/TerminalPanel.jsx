@@ -80,7 +80,7 @@ export function TerminalPanel({ isOpen, onClose }) {
     terminalManager.createTerminal({
       id,
       name: `Terminal ${terminals.length + 1}`,
-      pluginId: 'lokus-core'
+      pluginId: 'NoteMakingApp-core'
     });
   };
 

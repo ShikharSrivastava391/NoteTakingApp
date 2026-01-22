@@ -19,7 +19,7 @@ const WikiLinkList = forwardRef((props, ref) => {
 
   const relPath = (p) => {
     try {
-      const ws = globalThis.__LOKUS_WORKSPACE_PATH__ || ''
+      const ws = globalThis.__NoteMakingApp_WORKSPACE_PATH__ || ''
       if (ws && p.startsWith(ws)) {
         const rel = p.slice(ws.length)
         return rel.startsWith('/') ? rel.slice(1) : rel
@@ -50,7 +50,7 @@ const WikiLinkList = forwardRef((props, ref) => {
       const to = hasClosing ? $pos.pos + 2 : $pos.pos
 
       // Open URL input modal with callback that handles insertion directly
-      window.dispatchEvent(new CustomEvent('lokus:open-image-url-modal', {
+      window.dispatchEvent(new CustomEvent('NoteMakingApp:open-image-url-modal', {
         detail: {
           onSubmit: (url) => {
             // Insert wikiLink node directly with the URL

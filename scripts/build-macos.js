@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * macOS Build Script for Lokus
+ * macOS Build Script for NoteMakingApp
  * 
  * This script handles macOS-specific build operations including:
  * - Platform validation
@@ -361,7 +361,7 @@ function verifyBuildOutputs() {
   
   const expectedOutputs = [
     {
-      path: join(PROJECT_ROOT, 'src-tauri', 'target', 'release', 'lokus'),
+      path: join(PROJECT_ROOT, 'src-tauri', 'target', 'release', 'NoteMakingApp'),
       description: 'Main executable'
     },
     {
@@ -421,34 +421,34 @@ function packageApplication() {
   }
   
   // Copy executable for direct execution
-  const exePath = join(PROJECT_ROOT, 'src-tauri', 'target', 'release', 'lokus');
+  const exePath = join(PROJECT_ROOT, 'src-tauri', 'target', 'release', 'NoteMakingApp');
   if (existsSync(exePath)) {
-    copyFileSync(exePath, join(distDir, 'lokus'));
-    executeCommand(`chmod +x "${join(distDir, 'lokus')}"`, 'Making executable runnable');
+    copyFileSync(exePath, join(distDir, 'NoteMakingApp'));
+    executeCommand(`chmod +x "${join(distDir, 'NoteMakingApp')}"`, 'Making executable runnable');
     printColor('✓ Executable copied to dist-macos/', 'green');
   }
   
   // Create a simple run script
   const runScript = `#!/bin/bash
-# Lokus Launch Script
+# NoteMakingApp Launch Script
 DIR="$( cd "$( dirname "\${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 # Try to run the app bundle first
-if [ -d "$DIR/Lokus.app" ]; then
-    echo "Starting Lokus app bundle..."
-    open "$DIR/Lokus.app"
-elif [ -f "$DIR/lokus" ]; then
-    echo "Starting Lokus executable..."
-    "$DIR/lokus"
+if [ -d "$DIR/NoteMakingApp.app" ]; then
+    echo "Starting NoteMakingApp app bundle..."
+    open "$DIR/NoteMakingApp.app"
+elif [ -f "$DIR/NoteMakingApp" ]; then
+    echo "Starting NoteMakingApp executable..."
+    "$DIR/NoteMakingApp"
 else
-    echo "Error: Lokus application not found!"
+    echo "Error: NoteMakingApp application not found!"
     exit 1
 fi
 `;
   
   if (!isDryRun) {
-    writeFileSync(join(distDir, 'run-lokus.sh'), runScript);
-    executeCommand(`chmod +x "${join(distDir, 'run-lokus.sh')}"`, 'Making run script executable');
+    writeFileSync(join(distDir, 'run-NoteMakingApp.sh'), runScript);
+    executeCommand(`chmod +x "${join(distDir, 'run-NoteMakingApp.sh')}"`, 'Making run script executable');
     printColor('✓ Launch script created', 'green');
   }
   
@@ -522,9 +522,9 @@ function printBuildSummary(distDir) {
   printColor('\nBuild Outputs:', 'blue');
   printColor(`  📁 Distribution folder: ${distDir}`, 'cyan');
   printColor(`  💿 DMG Installer: ${distDir}/*.dmg`, 'cyan');
-  printColor(`  📱 App Bundle: ${distDir}/Lokus.app`, 'cyan');
-  printColor(`  🚀 Executable: ${distDir}/lokus`, 'cyan');
-  printColor(`  📝 Launch script: ${distDir}/run-lokus.sh`, 'cyan');
+  printColor(`  📱 App Bundle: ${distDir}/NoteMakingApp.app`, 'cyan');
+  printColor(`  🚀 Executable: ${distDir}/NoteMakingApp`, 'cyan');
+  printColor(`  📝 Launch script: ${distDir}/run-NoteMakingApp.sh`, 'cyan');
   
   printColor('\nNext Steps:', 'blue');
   printColor('  • Test the application thoroughly on different macOS versions', 'cyan');
@@ -534,9 +534,9 @@ function printBuildSummary(distDir) {
   printColor('  • Set up automated distribution (GitHub Releases, etc.)', 'cyan');
   
   printColor('\nInstallation:', 'blue');
-  printColor('  • Drag Lokus.app to Applications folder', 'cyan');
+  printColor('  • Drag NoteMakingApp.app to Applications folder', 'cyan');
   printColor('  • Or run DMG installer for system-wide installation', 'cyan');
-  printColor('  • For development: use run-lokus.sh script', 'cyan');
+  printColor('  • For development: use run-NoteMakingApp.sh script', 'cyan');
   
   if (isVerbose) {
     printColor('\nDevelopment Commands:', 'blue');
@@ -574,7 +574,7 @@ function handleError(error, context = '') {
  */
 async function main() {
   try {
-    printHeader('Lokus macOS Build Script');
+    printHeader('NoteMakingApp macOS Build Script');
 
     // Load environment variables FIRST (before any other steps)
     loadProductionEnv();
@@ -632,7 +632,7 @@ process.on('SIGTERM', () => {
 
 // Show help if requested
 if (process.argv.includes('--help') || process.argv.includes('-h')) {
-  printHeader('Lokus macOS Build Script Help');
+  printHeader('NoteMakingApp macOS Build Script Help');
   printColor('Usage: npm run build:macos [options]', 'cyan');
   printColor('\nOptions:', 'blue');
   printColor('  --verbose, -v      Show detailed output', 'cyan');

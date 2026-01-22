@@ -1,6 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { PluginContext, WebviewPanel } from 'lokus-plugin-sdk';
+import { PluginContext, WebviewPanel } from 'NoteMakingApp-plugin-sdk';
 import { {{pluginNamePascalCase}}Panel } from './components/{{pluginNamePascalCase}}Panel';
 import { {{pluginNamePascalCase}}Provider } from './contexts/{{pluginNamePascalCase}}Context';
 import { GlobalStyles } from './styles/GlobalStyles';

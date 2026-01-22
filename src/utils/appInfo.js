@@ -60,7 +60,7 @@ export async function getAppInfo() {
     const isDev = typeof import.meta !== 'undefined' && import.meta.env ? import.meta.env.DEV : process.env.NODE_ENV !== 'production';
     const mode = typeof import.meta !== 'undefined' && import.meta.env ? import.meta.env.MODE : process.env.NODE_ENV || 'production';
     return {
-      name: 'Lokus',
+      name: 'NoteMakingApp',
       version: '1.0.0',
       tauriVersion: 'unknown',
       environment: mode,

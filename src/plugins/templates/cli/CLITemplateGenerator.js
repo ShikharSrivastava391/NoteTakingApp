@@ -301,7 +301,7 @@ export class CLITemplateGenerator {
     }
 
     // Create metadata file
-    const metadataPath = path.join(projectPath, '.lokus-template.json')
+    const metadataPath = path.join(projectPath, '.NoteMakingApp-template.json')
     await fs.writeFile(metadataPath, JSON.stringify(structure.metadata, null, 2))
   }
 
@@ -336,7 +336,7 @@ export class CLITemplateGenerator {
 
     await exec('git', ['init'], { cwd: projectPath })
     await exec('git', ['add', '.'], { cwd: projectPath })
-    await exec('git', ['commit', '-m', 'Initial commit from Lokus MCP template'], { cwd: projectPath })
+    await exec('git', ['commit', '-m', 'Initial commit from NoteMakingApp MCP template'], { cwd: projectPath })
   }
 
   /**

@@ -1,7 +1,7 @@
 import { invoke } from "@tauri-apps/api/core";
 import { emit } from "@tauri-apps/api/event";
 import { PluginLoader, PluginInstaller } from "../../plugins/core/PluginLoader.js";
-import { LokusPluginAPI } from "../../plugins/api/LokusPluginAPI.js";
+import { NoteMakingAppPluginAPI } from "../../plugins/api/NoteMakingAppPluginAPI.js";
 import { uiManager } from "../ui/UIManager.js";
 import { configManager } from "../config/ConfigManager.js";
 import { filesystemManager } from "../fs/FilesystemManager.js";
@@ -30,7 +30,7 @@ import analytics from "../../services/analytics.js";
  * NOT Responsible For:
  * - Plugin dependency resolution (handled by main PluginManager)
  * - Plugin manifest validation (handled by main PluginManager)
- * - Plugin API provisioning (handled by LokusPluginAPI)
+ * - Plugin API provisioning (handled by NoteMakingAppPluginAPI)
  * - Editor extension registration (handled by EditorAPI)
  *
  * @class PluginStateAdapter
@@ -55,44 +55,44 @@ class PluginStateAdapter {
     // Cache duration for plugin data (5 minutes)
     this.CACHE_DURATION = 5 * 60 * 1000;
 
-    // Initialize global lokus object for plugins
+    // Initialize global NoteMakingApp object for plugins
     if (typeof window !== 'undefined') {
-      window.lokus = window.lokus || {};
+      window.NoteMakingApp = window.NoteMakingApp || {};
       // Expose the actual instances map so plugins can register themselves
-      window.lokus.plugins = this.pluginInstances;
+      window.NoteMakingApp.plugins = this.pluginInstances;
 
       // Add helper methods that plugins might expect if they treat it as an object
-      if (!window.lokus.plugins.getPlugin) {
-        window.lokus.plugins.getPlugin = (id) => this.pluginInstances.get(id);
+      if (!window.NoteMakingApp.plugins.getPlugin) {
+        window.NoteMakingApp.plugins.getPlugin = (id) => this.pluginInstances.get(id);
       }
 
       // Initialize Event Emitter for Plugins
-      if (!window.lokus.plugins.emit) {
-        window.lokus.plugins.events = new Map();
+      if (!window.NoteMakingApp.plugins.emit) {
+        window.NoteMakingApp.plugins.events = new Map();
 
-        window.lokus.plugins.emit = (event, data) => {
-          const handlers = window.lokus.plugins.events.get(event) || [];
+        window.NoteMakingApp.plugins.emit = (event, data) => {
+          const handlers = window.NoteMakingApp.plugins.events.get(event) || [];
           handlers.forEach(h => {
             try { h(data); } catch { }
           });
         };
 
-        window.lokus.plugins.on = (event, handler) => {
-          const handlers = window.lokus.plugins.events.get(event) || [];
+        window.NoteMakingApp.plugins.on = (event, handler) => {
+          const handlers = window.NoteMakingApp.plugins.events.get(event) || [];
           handlers.push(handler);
-          window.lokus.plugins.events.set(event, handlers);
-          return () => window.lokus.plugins.off(event, handler);
+          window.NoteMakingApp.plugins.events.set(event, handlers);
+          return () => window.NoteMakingApp.plugins.off(event, handler);
         };
 
-        window.lokus.plugins.off = (event, handler) => {
-          const handlers = window.lokus.plugins.events.get(event) || [];
+        window.NoteMakingApp.plugins.off = (event, handler) => {
+          const handlers = window.NoteMakingApp.plugins.events.get(event) || [];
           const filtered = handlers.filter(h => h !== handler);
-          window.lokus.plugins.events.set(event, filtered);
+          window.NoteMakingApp.plugins.events.set(event, filtered);
         };
       }
 
       // Initialize Command Registry
-      window.lokus.commands = window.lokus.commands || {
+      window.NoteMakingApp.commands = window.NoteMakingApp.commands || {
         registry: new Map(),
         registerCommand: (arg1, arg2) => {
           let id, callback, title;
@@ -118,11 +118,11 @@ class PluginStateAdapter {
             id: id
           };
 
-          window.lokus.commands.registry.set(id, commandEntry);
-          return { dispose: () => window.lokus.commands.registry.delete(id) };
+          window.NoteMakingApp.commands.registry.set(id, commandEntry);
+          return { dispose: () => window.NoteMakingApp.commands.registry.delete(id) };
         },
         executeCommand: (id, ...args) => {
-          const entry = window.lokus.commands.registry.get(id);
+          const entry = window.NoteMakingApp.commands.registry.get(id);
           if (entry) {
             if (typeof entry.execute === 'function') {
               return entry.execute(...args);
@@ -161,7 +161,7 @@ class PluginStateAdapter {
           // Create API for plugin
           // TODO: Pass editorAPI when available
           const managers = {
-            commands: window.lokus?.commands,
+            commands: window.NoteMakingApp?.commands,
             ui: uiManager,
             workspace: {
               getWorkspaceFolders: () => this.workspacePath ? [{ uri: { path: this.workspacePath, scheme: 'file' }, name: this.workspacePath.split('/').pop(), index: 0 }] : [],
@@ -170,15 +170,15 @@ class PluginStateAdapter {
             configuration: configManager,
             filesystem: filesystemManager
           };
-          const pluginAPI = new LokusPluginAPI(managers);
+          const pluginAPI = new NoteMakingAppPluginAPI(managers);
           pluginAPI.setPluginContext(pluginInfo.id, null);
 
           // Initialize event bridge with this API instance (idempotent)
           pluginEventBridge.initialize(pluginAPI);
 
           // Listen for UI events
-          // Note: LokusPluginAPI aggregates events or we listen to specific sub-APIs?
-          // UIAPI emits 'panel-registered'. LokusPluginAPI might not bubble it up automatically.
+          // Note: NoteMakingAppPluginAPI aggregates events or we listen to specific sub-APIs?
+          // UIAPI emits 'panel-registered'. NoteMakingAppPluginAPI might not bubble it up automatically.
           // We might need to listen to pluginAPI.ui
           if (pluginAPI.ui) {
             pluginAPI.ui.on('panel-registered', (event) => {
@@ -428,14 +428,14 @@ class PluginStateAdapter {
             // Create API for plugin
             // TODO: Pass editorAPI when available
             const managers = {
-              commands: window.lokus?.commands,
+              commands: window.NoteMakingApp?.commands,
               ui: uiManager,
               workspace: {
                 getWorkspaceFolders: () => this.workspacePath ? [{ uri: { path: this.workspacePath, scheme: 'file' }, name: this.workspacePath.split('/').pop(), index: 0 }] : [],
                 getRootPath: () => this.workspacePath
               }
             };
-            const pluginAPI = new LokusPluginAPI(managers);
+            const pluginAPI = new NoteMakingAppPluginAPI(managers);
             pluginAPI.setPluginContext(pluginId, null);
 
             // Initialize event bridge with this API instance (idempotent)
@@ -546,7 +546,7 @@ class PluginStateAdapter {
 
       // 3. Create API
       const managers = {
-        commands: window.lokus?.commands,
+        commands: window.NoteMakingApp?.commands,
         ui: uiManager,
         workspace: {
           getWorkspaceFolders: () => this.workspacePath ? [{ uri: { path: this.workspacePath, scheme: 'file' }, name: this.workspacePath.split('/').pop(), index: 0 }] : [],
@@ -555,7 +555,7 @@ class PluginStateAdapter {
         configuration: configManager,
         filesystem: filesystemManager
       };
-      const pluginAPI = new LokusPluginAPI(managers);
+      const pluginAPI = new NoteMakingAppPluginAPI(managers);
       pluginAPI.setPluginContext(manifest.id, null);
 
       // Initialize event bridge with this API instance (idempotent)
@@ -565,11 +565,11 @@ class PluginStateAdapter {
       let pluginModule;
 
       // Expose SDK globally for plugins to use
-      if (!window.LokusSDK) {
+      if (!window.NoteMakingAppSDK) {
         // We need to import it if not available, but we can't easily here without dynamic import of the SDK file itself.
         // Assuming it's already loaded or we can get it from PluginLoader imports if we exposed it.
-        // For now, let's assume the plugin uses the shimmed require or global window.LokusSDK if set elsewhere.
-        // Actually, PluginLoader sets window.LokusSDK. Let's hope it's there.
+        // For now, let's assume the plugin uses the shimmed require or global window.NoteMakingAppSDK if set elsewhere.
+        // Actually, PluginLoader sets window.NoteMakingAppSDK. Let's hope it's there.
       }
 
       // 4a. Try CommonJS execution (for esbuild CJS output)
@@ -580,8 +580,8 @@ class PluginStateAdapter {
           const exports = module.exports;
           const require = (id) => {
             // Simple require shim for dev mode
-            if (id === 'lokus-plugin-sdk' || id === '@lokus/plugin-sdk') {
-              return window.LokusSDK || {};
+            if (id === 'NoteMakingApp-plugin-sdk' || id === '@NoteMakingApp/plugin-sdk') {
+              return window.NoteMakingAppSDK || {};
             }
             if (id === 'react') return window.React || { createElement: () => {} };
             if (id === 'react-dom') return window.ReactDOM || { render: () => {} };
@@ -720,7 +720,7 @@ class PluginStateAdapter {
 
       // 3. Create API
       const managers = {
-        commands: window.lokus?.commands,
+        commands: window.NoteMakingApp?.commands,
         ui: uiManager,
         workspace: {
           getWorkspaceFolders: () => this.workspacePath ? [{ uri: { path: this.workspacePath, scheme: 'file' }, name: this.workspacePath.split('/').pop(), index: 0 }] : [],
@@ -729,7 +729,7 @@ class PluginStateAdapter {
         configuration: configManager,
         filesystem: filesystemManager
       };
-      const pluginAPI = new LokusPluginAPI(managers);
+      const pluginAPI = new NoteMakingAppPluginAPI(managers);
       pluginAPI.setPluginContext(pluginId, null);
 
       // Initialize event bridge with this API instance (idempotent)

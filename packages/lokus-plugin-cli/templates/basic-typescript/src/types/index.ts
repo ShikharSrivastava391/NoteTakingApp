@@ -43,4 +43,4 @@ export type {{pluginNamePascalCase}}MenuItem = {
 };
 
 // Re-export common types from SDK
-export type { PluginContext, Logger, Command, MenuItem } from 'lokus-plugin-sdk';
+export type { PluginContext, Logger, Command, MenuItem } from 'NoteMakingApp-plugin-sdk';

@@ -21,17 +21,17 @@ const pulse = keyframes`
 
 const statusColors = {
   active: css`
-    background: var(--lokus-success-background, #22c55e);
+    background: var(--NoteMakingApp-success-background, #22c55e);
   `,
   inactive: css`
-    background: var(--lokus-secondary-background, #6b7280);
+    background: var(--NoteMakingApp-secondary-background, #6b7280);
   `,
   loading: css`
-    background: var(--lokus-warning-background, #f59e0b);
+    background: var(--NoteMakingApp-warning-background, #f59e0b);
     animation: ${pulse} 1.5s ease-in-out infinite;
   `,
   error: css`
-    background: var(--lokus-error-background, #ef4444);
+    background: var(--NoteMakingApp-error-background, #ef4444);
   `
 };
 
@@ -62,8 +62,8 @@ const Container = styled.div<{ tooltip?: string }>`
       top: 100%;
       left: 50%;
       transform: translateX(-50%);
-      background: var(--lokus-tooltip-background, #1f2937);
-      color: var(--lokus-tooltip-foreground, #ffffff);
+      background: var(--NoteMakingApp-tooltip-background, #1f2937);
+      color: var(--NoteMakingApp-tooltip-foreground, #ffffff);
       padding: 4px 8px;
       border-radius: 4px;
       font-size: 12px;
@@ -81,7 +81,7 @@ const Container = styled.div<{ tooltip?: string }>`
       transform: translateX(-50%);
       border-left: 4px solid transparent;
       border-right: 4px solid transparent;
-      border-bottom: 4px solid var(--lokus-tooltip-background, #1f2937);
+      border-bottom: 4px solid var(--NoteMakingApp-tooltip-background, #1f2937);
       z-index: 1000;
       margin-top: 1px;
       pointer-events: none;
@@ -98,7 +98,7 @@ const Indicator = styled.div<StatusIndicatorProps>`
 const Label = styled.span<{ size?: string }>`
   margin-left: 6px;
   font-size: ${props => props.size === 'small' ? '11px' : props.size === 'large' ? '14px' : '12px'};
-  color: var(--lokus-secondary-foreground);
+  color: var(--NoteMakingApp-secondary-foreground);
   text-transform: capitalize;
 `;
 

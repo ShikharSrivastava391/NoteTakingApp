@@ -125,7 +125,7 @@ export class BlockReferenceMap {
 }
 
 /**
- * Convert UUID block references to Lokus format
+ * Convert UUID block references to NoteMakingApp format
  * @param {string} content - Markdown content with ((uuid)) references
  * @param {BlockReferenceMap} blockMap
  * @param {string} currentFilePath - Current file path for relative links

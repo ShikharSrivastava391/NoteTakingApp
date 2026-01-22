@@ -1,10 +1,10 @@
 # Plugin System
 
-Lokus features a comprehensive plugin system that provides VS Code-level extensibility, allowing developers to create powerful extensions that integrate seamlessly with the application. The plugin system includes security sandboxing, a marketplace, and comprehensive APIs.
+NoteMakingApp features a comprehensive plugin system that provides VS Code-level extensibility, allowing developers to create powerful extensions that integrate seamlessly with the application. The plugin system includes security sandboxing, a marketplace, and comprehensive APIs.
 
 ## Overview
 
-The Lokus plugin system enables:
+The NoteMakingApp plugin system enables:
 - **VS Code-level extensibility** with comprehensive APIs
 - **Secure plugin execution** with runtime sandboxing
 - **Marketplace integration** for plugin discovery and installation
@@ -49,7 +49,7 @@ Every plugin requires a `plugin.json` manifest file:
   "categories": ["productivity", "editor"],
   "keywords": ["notes", "productivity"],
   "engines": {
-    "lokus": "^1.0.0"
+    "NoteMakingApp": "^1.0.0"
   },
   "permissions": [
     "filesystem:read",
@@ -215,7 +215,7 @@ Plugins are subject to strict CSP rules:
 5. **Auto-Updates** - Automatic updates with user consent
 
 ### Manual Installation
-1. **Download Plugin** - Get plugin package (.lokus-plugin file)
+1. **Download Plugin** - Get plugin package (.NoteMakingApp-plugin file)
 2. **Install via Command Palette** - Use "Install Plugin from VSIX" command
 3. **Local Development** - Install from local folder for development
 
@@ -256,7 +256,7 @@ Each plugin listing includes:
 ## MCP Integration
 
 ### Model Context Protocol Support
-Lokus supports MCP for AI assistant integrations:
+NoteMakingApp supports MCP for AI assistant integrations:
 
 #### MCP Plugin Structure
 ```json
@@ -356,7 +356,7 @@ Add debugging support to your plugin:
 Plugins can include unit tests:
 ```javascript
 // test/index.test.js
-import { test, expect } from '@lokus/plugin-test-framework';
+import { test, expect } from '@NoteMakingApp/plugin-test-framework';
 
 test('plugin command execution', async () => {
   const result = await executeCommand('myPlugin.doSomething');
@@ -373,7 +373,7 @@ test('plugin command execution', async () => {
 4. **Security Review** - Minimize permissions and validate security
 
 ### Publishing Process
-1. **Package Plugin** - Create .lokus-plugin bundle
+1. **Package Plugin** - Create .NoteMakingApp-plugin bundle
 2. **Submit to Marketplace** - Upload through developer portal
 3. **Review Process** - Automated and manual security review
 4. **Publication** - Plugin becomes available in marketplace

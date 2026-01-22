@@ -39,8 +39,8 @@ export interface PluginManifest {
   /** Plugin keywords/tags */
   readonly keywords?: string[]
 
-  /** Minimum Lokus version required */
-  readonly lokusVersion?: string
+  /** Minimum NoteMakingApp version required */
+  readonly NoteMakingAppVersion?: string
 
   /** Plugin entry point */
   readonly main?: string
@@ -146,7 +146,7 @@ export interface PluginRepository {
 }
 
 /**
- * Plugin contributions - defines what the plugin contributes to Lokus
+ * Plugin contributions - defines what the plugin contributes to NoteMakingApp
  */
 export interface PluginContributions {
   commands?: ManifestCommand[]

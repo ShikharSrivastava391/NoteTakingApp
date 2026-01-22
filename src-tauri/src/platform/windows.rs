@@ -1,4 +1,4 @@
-/// Windows-specific platform implementation for Lokus
+/// Windows-specific platform implementation for NoteMakingApp
 /// 
 /// This module provides Windows-specific implementations of file system operations,
 /// system integration, and error handling.

@@ -1,5 +1,5 @@
 /**
- * End-to-End Tests for Lokus MCP Server
+ * End-to-End Tests for NoteMakingApp MCP Server
  * 
  * These tests verify the complete MCP server functionality including:
  * - WebSocket and HTTP communication
@@ -27,7 +27,7 @@ import path from 'path';
 const MCP_WS_URL = process.env.MCP_WS_URL || 'ws://localhost:3001/mcp';
 const MCP_HTTP_URL = process.env.MCP_HTTP_URL || 'http://localhost:3001/api/mcp';
 const TEST_API_KEY = process.env.TEST_API_KEY || 'test-api-key';
-const TEST_WORKSPACE = process.env.TEST_WORKSPACE || '/tmp/lokus-test-workspace';
+const TEST_WORKSPACE = process.env.TEST_WORKSPACE || '/tmp/NoteMakingApp-test-workspace';
 
 // Skip MCP tests - they require an external MCP server running
 // These are integration tests that should be run separately
@@ -904,12 +904,12 @@ test.describe('MCP Server UI Integration', () => {
   // Skip in CI unless MCP server is explicitly configured
   test.skip(shouldSkipMCP, 'MCP Server UI tests require external MCP server - skipped in CI');
 
-  test('should be accessible through Lokus UI', async () => {
+  test('should be accessible through NoteMakingApp UI', async () => {
     const browser = await chromium.launch();
     const page = await browser.newPage();
 
     try {
-      // Navigate to Lokus (assuming it runs on localhost:8080)
+      // Navigate to NoteMakingApp (assuming it runs on localhost:8080)
       await page.goto('http://localhost:8080');
 
       // Check if MCP server status is visible in preferences

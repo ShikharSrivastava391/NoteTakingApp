@@ -12,7 +12,7 @@ import React, { memo, lazy, Suspense, useCallback, useMemo, useRef, useEffect, u
  */
 export const Loading = () => (
   <div className="flex items-center justify-center h-full select-none">
-    <div className="text-xl font-bold tracking-tight text-app-accent animate-pulse">Lokus</div>
+    <div className="text-xl font-bold tracking-tight text-app-accent animate-pulse">NoteMakingApp</div>
   </div>
 );
 

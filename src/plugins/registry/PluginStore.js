@@ -1092,7 +1092,7 @@ export class PluginStore extends EventEmitter {
 
   async setupDirectories() {
     const home = await homeDir()
-    this.config.storageDir = await join(home, '.lokus', 'registry')
+    this.config.storageDir = await join(home, '.NoteMakingApp', 'registry')
     this.config.cacheDir = await join(this.config.storageDir, 'cache')
     this.config.metadataDir = await join(this.config.storageDir, 'metadata')
 

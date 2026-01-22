@@ -1,6 +1,6 @@
 /**
  * Plugin API Manager
- * Manages plugin APIs and provides controlled access to Lokus functionality
+ * Manages plugin APIs and provides controlled access to NoteMakingApp functionality
  */
 
 // Import Tauri API directly

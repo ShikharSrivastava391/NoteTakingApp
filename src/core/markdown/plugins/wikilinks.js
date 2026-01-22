@@ -6,7 +6,7 @@
 // Helper to resolve wiki target to full path using file index
 function resolveWikiLinkPath(target) {
   try {
-    const index = globalThis.__LOKUS_FILE_INDEX__ || []
+    const index = globalThis.__NoteMakingApp_FILE_INDEX__ || []
     if (!Array.isArray(index) || !index.length || !target) return target
 
     // Remove alias part after | if present
@@ -30,7 +30,7 @@ function resolveWikiLinkPath(target) {
     }
 
     const filename = (p) => (p || '').split(/[\\/]/).pop()
-    const wsPath = globalThis.__LOKUS_WORKSPACE_PATH__ || ''
+    const wsPath = globalThis.__NoteMakingApp_WORKSPACE_PATH__ || ''
 
     // Check for explicit root marker (./) - means "root file, no same-folder preference"
     const isExplicitRoot = base.startsWith('./')
@@ -53,7 +53,7 @@ function resolveWikiLinkPath(target) {
     }
 
     // Otherwise, match by filename (with or without .md extension)
-    const activePath = globalThis.__LOKUS_ACTIVE_FILE__ || ''
+    const activePath = globalThis.__NoteMakingApp_ACTIVE_FILE__ || ''
     const activeDir = dirname(activePath)
 
     // Create name-based index
@@ -81,7 +81,7 @@ function resolveWikiLinkPath(target) {
 // Helper to resolve canvas file path using file index
 function resolveCanvasPath(canvasName) {
   try {
-    const index = globalThis.__LOKUS_FILE_INDEX__ || []
+    const index = globalThis.__NoteMakingApp_FILE_INDEX__ || []
     if (!Array.isArray(index) || !index.length || !canvasName) {
       return { exists: false, path: '', name: canvasName }
     }

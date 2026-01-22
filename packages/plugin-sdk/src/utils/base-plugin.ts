@@ -2,7 +2,7 @@
  * @fileoverview Base plugin class with common functionality
  */
 
-import type { Plugin, PluginContext, LokusAPI, Disposable } from '../types/index.js'
+import type { Plugin, PluginContext, NoteMakingAppAPI, Disposable } from '../types/index.js'
 import { DisposableStore } from './disposable-store.js'
 import { PluginLogger } from './plugin-logger.js'
 import { ConfigManager } from './config-manager.js'
@@ -13,7 +13,7 @@ import { ConfigManager } from './config-manager.js'
  */
 export abstract class BasePlugin implements Plugin {
   protected context?: PluginContext
-  protected api?: LokusAPI
+  protected api?: NoteMakingAppAPI
   protected logger?: PluginLogger
   protected config?: ConfigManager
   // protected events?: EventBus // TODO: Implement EventBus
@@ -76,9 +76,9 @@ export abstract class BasePlugin implements Plugin {
   }
 
   /**
-   * Get Lokus API
+   * Get NoteMakingApp API
    */
-  protected getAPI(): LokusAPI {
+  protected getAPI(): NoteMakingAppAPI {
     if (!this.api) {
       throw new Error('Plugin not activated')
     }

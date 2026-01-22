@@ -9,10 +9,10 @@ const PanelContainer = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
-  background: var(--lokus-background);
-  color: var(--lokus-foreground);
-  font-family: var(--lokus-font-family);
-  font-size: var(--lokus-font-size);
+  background: var(--NoteMakingApp-background);
+  color: var(--NoteMakingApp-foreground);
+  font-family: var(--NoteMakingApp-font-family);
+  font-size: var(--NoteMakingApp-font-size);
   padding: 16px;
   box-sizing: border-box;
 `;
@@ -23,14 +23,14 @@ const Header = styled.div`
   justify-content: space-between;
   margin-bottom: 16px;
   padding-bottom: 8px;
-  border-bottom: 1px solid var(--lokus-border);
+  border-bottom: 1px solid var(--NoteMakingApp-border);
 `;
 
 const Title = styled.h2`
   margin: 0;
   font-size: 18px;
   font-weight: 600;
-  color: var(--lokus-foreground);
+  color: var(--NoteMakingApp-foreground);
 `;
 
 const Content = styled.div`
@@ -46,7 +46,7 @@ const SectionTitle = styled.h3`
   margin: 0 0 8px 0;
   font-size: 14px;
   font-weight: 500;
-  color: var(--lokus-secondary-foreground);
+  color: var(--NoteMakingApp-secondary-foreground);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 `;
@@ -58,8 +58,8 @@ const ButtonGroup = styled.div`
 `;
 
 const InfoCard = styled.div`
-  background: var(--lokus-secondary-background);
-  border: 1px solid var(--lokus-border);
+  background: var(--NoteMakingApp-secondary-background);
+  border: 1px solid var(--NoteMakingApp-border);
   border-radius: 4px;
   padding: 12px;
   margin-bottom: 12px;
@@ -67,13 +67,13 @@ const InfoCard = styled.div`
 
 const InfoLabel = styled.div`
   font-size: 12px;
-  color: var(--lokus-secondary-foreground);
+  color: var(--NoteMakingApp-secondary-foreground);
   margin-bottom: 4px;
 `;
 
 const InfoValue = styled.div`
   font-size: 14px;
-  color: var(--lokus-foreground);
+  color: var(--NoteMakingApp-foreground);
   font-weight: 500;
 `;
 

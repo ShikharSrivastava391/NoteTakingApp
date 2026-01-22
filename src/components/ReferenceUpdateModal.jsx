@@ -46,7 +46,7 @@ export default function ReferenceUpdateModal({
 
   const oldName = oldPath?.split('/').pop() || ''
   const newName = newPath?.split('/').pop() || ''
-  const workspacePath = globalThis.__LOKUS_WORKSPACE_PATH__ || ''
+  const workspacePath = globalThis.__NoteMakingApp_WORKSPACE_PATH__ || ''
 
   const toggleExpanded = (path) => {
     setExpanded(prev => ({ ...prev, [path]: !prev[path] }))

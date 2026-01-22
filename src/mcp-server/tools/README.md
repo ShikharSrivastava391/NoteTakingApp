@@ -1,10 +1,10 @@
-# Lokus Editor Tools for MCP
+# NoteMakingApp Editor Tools for MCP
 
-Comprehensive editor tools that integrate with Lokus's TipTap editor through the Model Context Protocol (MCP). These tools provide direct manipulation of the editor content, formatting, and functionality.
+Comprehensive editor tools that integrate with NoteMakingApp's TipTap editor through the Model Context Protocol (MCP). These tools provide direct manipulation of the editor content, formatting, and functionality.
 
 ## Overview
 
-The editor tools bridge MCP clients with Lokus's rich text editor, enabling AI assistants and external tools to:
+The editor tools bridge MCP clients with NoteMakingApp's rich text editor, enabling AI assistants and external tools to:
 
 - Apply text formatting (bold, italic, strikethrough, etc.)
 - Insert rich content (math equations, tables, code blocks)
@@ -40,7 +40,7 @@ Apply text formatting to selected text or insert formatted text.
 Insert wiki links or regular hyperlinks.
 
 **Link types:**
-- `wiki` - Lokus wiki links `[[Page Name]]`
+- `wiki` - NoteMakingApp wiki links `[[Page Name]]`
 - `regular` - Standard hyperlinks
 
 **Example:**
@@ -230,7 +230,7 @@ console.log(response.content[0].text); // "Applied bold formatting to 'Important
 
 The tools automatically discover the active TipTap editor instance through multiple fallback methods:
 
-1. Global `__LOKUS_EDITOR_INSTANCE__`
+1. Global `__NoteMakingApp_EDITOR_INSTANCE__`
 2. Plugin API `editorAPI.getEditorInstance()`
 3. DOM element lookup (`.tiptap-area`)
 
@@ -250,7 +250,7 @@ The tools automatically discover the active TipTap editor instance through multi
 
 ### Required Extensions
 
-The tools work with Lokus's standard TipTap extensions:
+The tools work with NoteMakingApp's standard TipTap extensions:
 
 - **StarterKit** - Basic formatting and structure
 - **Math** - Inline and block math equations  
@@ -310,4 +310,4 @@ When adding new editor tools:
 
 ---
 
-*Part of the Lokus Editor ecosystem - enabling rich text editing through MCP integration.*
+*Part of the NoteMakingApp Editor ecosystem - enabling rich text editing through MCP integration.*

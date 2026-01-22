@@ -110,18 +110,18 @@ impl IrohSyncProvider {
         let workspace = self.workspace_path.as_ref().ok_or(SyncError::OperationFailed(
             "Workspace not initialized".to_string(),
         ))?;
-        Ok(workspace.join(".lokus").join("iroh-ticket.txt"))
+        Ok(workspace.join(".NoteMakingApp").join("iroh-ticket.txt"))
     }
 
     /// Save ticket to disk for persistence
     async fn save_ticket(&self, ticket: &str) -> SyncResult<()> {
         let ticket_path = self.ticket_file_path()?;
 
-        // Ensure .lokus directory exists
+        // Ensure .NoteMakingApp directory exists
         if let Some(parent) = ticket_path.parent() {
             fs::create_dir_all(parent)
                 .await
-                .map_err(|e| SyncError::FileSystem(format!("Failed to create .lokus directory: {}", e)))?;
+                .map_err(|e| SyncError::FileSystem(format!("Failed to create .NoteMakingApp directory: {}", e)))?;
         }
 
         fs::write(&ticket_path, ticket)

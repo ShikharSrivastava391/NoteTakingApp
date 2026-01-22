@@ -317,7 +317,7 @@ export function tldrawToJsonCanvas(storeData) {
       version: '1.0',
       created: new Date().toISOString(),
       modified: new Date().toISOString(),
-      createdWith: 'Lokus'
+      createdWith: 'NoteMakingApp'
     }
   };
   
@@ -418,7 +418,7 @@ function createEmptyJsonCanvas() {
       version: '1.0',
       created: new Date().toISOString(),
       modified: new Date().toISOString(),
-      createdWith: 'Lokus'
+      createdWith: 'NoteMakingApp'
     }
   };
 }

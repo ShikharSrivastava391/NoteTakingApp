@@ -1,6 +1,6 @@
 /**
- * Note Resource Provider for Lokus
- * Integrates with Lokus's note system to provide access to:
+ * Note Resource Provider for NoteMakingApp
+ * Integrates with NoteMakingApp's note system to provide access to:
  * - Markdown files and their processed content
  * - Wiki links and backlinks
  * - Note metadata and structure
@@ -32,7 +32,7 @@ export class NoteProvider {
       this.markdownCompiler = getMarkdownCompiler();
 
       // Get current workspace path
-      this.workspacePath = typeof window !== 'undefined' ? window.__LOKUS_WORKSPACE_PATH__ : null;
+      this.workspacePath = typeof window !== 'undefined' ? window.__NoteMakingApp_WORKSPACE_PATH__ : null;
 
       if (this.workspacePath) {
         await this.loadNotes();
@@ -260,7 +260,7 @@ export class NoteProvider {
       // Monitor workspace path changes
       if (typeof window !== 'undefined') {
         const checkWorkspaceChange = () => {
-          const currentPath = window.__LOKUS_WORKSPACE_PATH__;
+          const currentPath = window.__NoteMakingApp_WORKSPACE_PATH__;
           if (currentPath && currentPath !== this.workspacePath) {
             this.workspacePath = currentPath;
             this.loadNotes();
@@ -278,37 +278,37 @@ export class NoteProvider {
   async listResources() {
     const resources = [
       {
-        uri: 'lokus://notes/all',
+        uri: 'NoteMakingApp://notes/all',
         name: 'All Notes',
         description: 'Complete list of all notes in the workspace',
         mimeType: 'application/json'
       },
       {
-        uri: 'lokus://notes/metadata',
+        uri: 'NoteMakingApp://notes/metadata',
         name: 'Notes Metadata',
         description: 'Metadata for all notes including tags, titles, and statistics',
         mimeType: 'application/json'
       },
       {
-        uri: 'lokus://notes/wiki-links',
+        uri: 'NoteMakingApp://notes/wiki-links',
         name: 'Wiki Links',
         description: 'All wiki links and their relationships',
         mimeType: 'application/json'
       },
       {
-        uri: 'lokus://notes/backlinks',
+        uri: 'NoteMakingApp://notes/backlinks',
         name: 'Backlinks',
         description: 'Backlink relationships between notes',
         mimeType: 'application/json'
       },
       {
-        uri: 'lokus://notes/tags',
+        uri: 'NoteMakingApp://notes/tags',
         name: 'Note Tags',
         description: 'All tags used across notes',
         mimeType: 'application/json'
       },
       {
-        uri: 'lokus://notes/graph',
+        uri: 'NoteMakingApp://notes/graph',
         name: 'Note Graph',
         description: 'Graph representation of note relationships',
         mimeType: 'application/json'
@@ -318,7 +318,7 @@ export class NoteProvider {
     // Add individual note resources
     for (const [notePath, noteData] of this.notes) {
       resources.push({
-        uri: `lokus://notes/note/${encodeURIComponent(notePath)}`,
+        uri: `NoteMakingApp://notes/note/${encodeURIComponent(notePath)}`,
         name: `Note: ${noteData.metadata.title}`,
         description: `Content and metadata for note: ${noteData.name}`,
         mimeType: 'text/markdown'
@@ -619,8 +619,8 @@ export class NoteProvider {
    */
   getMetadata() {
     return {
-      name: 'Lokus Note Provider',
-      description: 'Provides access to Lokus notes, wiki links, and note relationships',
+      name: 'NoteMakingApp Note Provider',
+      description: 'Provides access to NoteMakingApp notes, wiki links, and note relationships',
       version: '1.0.0',
       capabilities: [
         'note-content',

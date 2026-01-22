@@ -1,6 +1,6 @@
 /**
  * BaseConfigManager - Manages base configuration per workspace
- * Saves to .lokus/.base-config in the workspace root
+ * Saves to .NoteMakingApp/.base-config in the workspace root
  */
 
 import { invoke } from '@tauri-apps/api/core';
@@ -8,7 +8,7 @@ import { invoke } from '@tauri-apps/api/core';
 export class BaseConfigManager {
   constructor(workspacePath) {
     this.workspacePath = workspacePath;
-    this.configPath = `${workspacePath}/.lokus/.base-config`;
+    this.configPath = `${workspacePath}/.NoteMakingApp/.base-config`;
     this.config = null;
   }
 
@@ -40,9 +40,9 @@ export class BaseConfigManager {
       this.config.lastUpdated = new Date().toISOString();
       const content = JSON.stringify(this.config, null, 2);
 
-      // Ensure .lokus directory exists
+      // Ensure .NoteMakingApp directory exists
       try {
-        await invoke('create_directory', { path: `${this.workspacePath}/.lokus` });
+        await invoke('create_directory', { path: `${this.workspacePath}/.NoteMakingApp` });
       } catch (e) {
         // Directory might already exist, that's fine
       }

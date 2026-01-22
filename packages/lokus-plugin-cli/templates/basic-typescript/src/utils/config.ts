@@ -1,4 +1,4 @@
-import { PluginContext } from 'lokus-plugin-sdk';
+import { PluginContext } from 'NoteMakingApp-plugin-sdk';
 import { {{pluginNamePascalCase}}Config, {{pluginNamePascalCase}}Options } from '../types';
 
 /**

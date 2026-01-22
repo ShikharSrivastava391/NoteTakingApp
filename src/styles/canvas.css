@@ -1,6 +1,6 @@
 /* Custom Canvas Styling - Shows extensive customization possibilities */
 
-/* Override tldraw default styles to match Lokus theme */
+/* Override tldraw default styles to match NoteMakingApp theme */
 .tldraw-canvas {
   /* Custom grid pattern */
   --tl-grid-size: 20px;

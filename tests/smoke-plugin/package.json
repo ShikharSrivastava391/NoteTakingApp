@@ -10,6 +10,6 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "lokus-plugin-sdk": "*"
+        "NoteMakingApp-plugin-sdk": "*"
     }
 }

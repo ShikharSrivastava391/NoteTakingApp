@@ -1,6 +1,6 @@
 # Theme System
 
-Lokus features a sophisticated theme system that provides comprehensive customization of the application's appearance. The system includes built-in light and dark themes, custom theme creation, and seamless integration with system preferences.
+NoteMakingApp features a sophisticated theme system that provides comprehensive customization of the application's appearance. The system includes built-in light and dark themes, custom theme creation, and seamless integration with system preferences.
 
 ## Overview
 

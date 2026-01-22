@@ -29,7 +29,7 @@ export async function buildPlugin(pluginDir: string, options: BuildOptions = {})
     target = 'production',
     clean = true,
     bundle = true,
-    external = ['@lokus/plugin-sdk'],
+    external = ['@NoteMakingApp/plugin-sdk'],
     define = {}
   } = options;
 
@@ -70,8 +70,8 @@ export async function buildPlugin(pluginDir: string, options: BuildOptions = {})
     external: external.concat([
       // Common Node.js modules that should be external
       'fs', 'path', 'os', 'crypto', 'util', 'events', 'stream',
-      // Lokus-specific externals
-      'lokus', 'electron'
+      // NoteMakingApp-specific externals
+      'NoteMakingApp', 'electron'
     ]),
     define: {
       'process.env.NODE_ENV': JSON.stringify(target),
@@ -383,8 +383,8 @@ export const buildCommand = new Command('build')
         // Show next steps
         logger.newLine();
         logger.info('Next steps:');
-        logger.info('  lokus-plugin test     # Run tests');
-        logger.info('  lokus-plugin package  # Package for distribution');
+        logger.info('  NoteMakingApp-plugin test     # Run tests');
+        logger.info('  NoteMakingApp-plugin package  # Package for distribution');
       }
 
     } catch (error) {

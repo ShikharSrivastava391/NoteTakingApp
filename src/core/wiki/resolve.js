@@ -31,7 +31,7 @@ function extToMime(p) {
 
 function resolveInternalTarget(target) {
   try {
-    const index = globalThis.__LOKUS_FILE_INDEX__ || []
+    const index = globalThis.__NoteMakingApp_FILE_INDEX__ || []
     if (!Array.isArray(index) || !index.length || !target) return null
     
     // Remove alias part after | if present
@@ -54,7 +54,7 @@ function resolveInternalTarget(target) {
     }
     
     // Otherwise, match by filename (with or without .md extension)
-    const activePath = globalThis.__LOKUS_ACTIVE_FILE__ || ''
+    const activePath = globalThis.__NoteMakingApp_ACTIVE_FILE__ || ''
     const activeDir = dirname(activePath)
     
     // Create name-based index
@@ -126,7 +126,7 @@ export async function resolveWikiTarget(target) {
   // Relative path within workspace (Tauri)
   try {
     const w = typeof window !== 'undefined' ? window : undefined
-    const ws = w?.__LOKUS_WORKSPACE_PATH__
+    const ws = w?.__NoteMakingApp_WORKSPACE_PATH__
     const isTauri = !!(w && (w.__TAURI_INTERNALS__?.invoke || w.__TAURI_METADATA__))
     if (ws && isTauri && hasImageExt(t)) {
       const { join } = await import('@tauri-apps/api/path')

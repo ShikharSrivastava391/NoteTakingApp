@@ -1,5 +1,5 @@
 /**
- * Filter Parser for Lokus Bases
+ * Filter Parser for NoteMakingApp Bases
  * Parses filter expressions from YAML into AST for efficient execution
  */
 

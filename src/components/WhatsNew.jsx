@@ -3,7 +3,7 @@ import { X, Sparkles, ExternalLink, ChevronRight } from 'lucide-react';
 import { useWhatsNew } from '../contexts/RemoteConfigContext';
 import { getAppInfo } from '../utils/appInfo';
 
-const STORAGE_KEY = 'lokus_last_seen_version';
+const STORAGE_KEY = 'NoteMakingApp_last_seen_version';
 
 /**
  * WhatsNew - Shows changelog/release highlights after app update
@@ -16,7 +16,7 @@ const STORAGE_KEY = 'lokus_last_seen_version';
  *       { "title": "Canvas Links", "description": "Reference canvas files from markdown" },
  *       { "title": "Improved Sync", "description": "V2 sync engine with better reliability" }
  *     ],
- *     "full_changelog_url": "https://github.com/lokus-app/lokus/releases/tag/v1.3.13"
+ *     "full_changelog_url": "https://github.com/NoteMakingApp-app/NoteMakingApp/releases/tag/v1.3.13"
  *   }
  * }
  */

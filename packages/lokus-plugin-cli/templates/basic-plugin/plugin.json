@@ -10,7 +10,7 @@
     "icon": "icon.png",
     "main": "dist/index.js",
     "engines": {
-        "lokus": "^1.0.0"
+        "NoteMakingApp": "^1.0.0"
     },
     "categories": [
         "Other"

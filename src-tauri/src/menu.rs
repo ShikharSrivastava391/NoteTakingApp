@@ -83,8 +83,8 @@ pub fn init(app: &AppHandle) -> tauri::Result<()> {
   // Platform-specific app menu
   #[cfg(target_os = "macos")]
   let app_menu = {
-    SubmenuBuilder::new(app, "Lokus")
-      .item(&MenuItemBuilder::with_id(ABOUT_ID, "About Lokus")
+    SubmenuBuilder::new(app, "NoteMakingApp")
+      .item(&MenuItemBuilder::with_id(ABOUT_ID, "About NoteMakingApp")
         .build(app)?)
       .separator()
       .item(&MenuItemBuilder::with_id(PREFERENCES_ID, "Preferences…")
@@ -219,7 +219,7 @@ pub fn init(app: &AppHandle) -> tauri::Result<()> {
       .build(app)?)
     .build()?;
 
-  // Insert menu (Lokus-specific)
+  // Insert menu (NoteMakingApp-specific)
   let insert_menu = SubmenuBuilder::new(app, "Insert")
     .item(&MenuItemBuilder::with_id(INSERT_WIKILINK_ID, "WikiLink…")
       .accelerator("CmdOrCtrl+L")
@@ -250,7 +250,7 @@ pub fn init(app: &AppHandle) -> tauri::Result<()> {
       .build(app)?)
     .build()?;
 
-  // Format menu (Lokus-specific)
+  // Format menu (NoteMakingApp-specific)
   let format_menu = SubmenuBuilder::new(app, "Format")
     .item(&MenuItemBuilder::with_id(FORMAT_BOLD_ID, "Bold")
       .accelerator("CmdOrCtrl+B")
@@ -303,7 +303,7 @@ pub fn init(app: &AppHandle) -> tauri::Result<()> {
 
   // Help menu
   let help_menu = SubmenuBuilder::new(app, "Help")
-    .item(&MenuItemBuilder::with_id(HELP_HELP_ID, "Lokus Help")
+    .item(&MenuItemBuilder::with_id(HELP_HELP_ID, "NoteMakingApp Help")
       .build(app)?)
     .item(&MenuItemBuilder::with_id(HELP_SHORTCUTS_ID, "Keyboard Shortcuts")
       .accelerator("CmdOrCtrl+/")
@@ -404,7 +404,7 @@ pub fn init(app: &AppHandle) -> tauri::Result<()> {
     match event_id {
       // App menu
       ABOUT_ID => {
-        let _ = app.emit("lokus:show-about", ());
+        let _ = app.emit("NoteMakingApp:show-about", ());
       }
       PREFERENCES_ID => {
         let _ = crate::window_manager::open_preferences_window(app.clone(), None);
@@ -412,178 +412,178 @@ pub fn init(app: &AppHandle) -> tauri::Result<()> {
       
       // File menu
       FILE_NEW_NOTE_ID => {
-        let _ = app.emit("lokus:new-file", ());
+        let _ = app.emit("NoteMakingApp:new-file", ());
       }
       FILE_NEW_FOLDER_ID => {
-        let _ = app.emit("lokus:new-folder", ());
+        let _ = app.emit("NoteMakingApp:new-folder", ());
       }
       FILE_NEW_CANVAS_ID => {
-        let _ = app.emit("lokus:new-canvas", ());
+        let _ = app.emit("NoteMakingApp:new-canvas", ());
       }
       FILE_OPEN_ID => {
-        let _ = app.emit("lokus:open-file", ());
+        let _ = app.emit("NoteMakingApp:open-file", ());
       }
       FILE_OPEN_WORKSPACE_ID => {
-        let _ = app.emit("lokus:open-workspace", ());
+        let _ = app.emit("NoteMakingApp:open-workspace", ());
       }
       FILE_CLOSE_TAB_ID => {
-        let _ = app.emit("lokus:close-tab", ());
+        let _ = app.emit("NoteMakingApp:close-tab", ());
       }
       FILE_CLOSE_WINDOW_ID => {
-        let _ = app.emit("lokus:close-window", ());
+        let _ = app.emit("NoteMakingApp:close-window", ());
       }
       FILE_SAVE_ID => {
-        let _ = app.emit("lokus:save-file", ());
+        let _ = app.emit("NoteMakingApp:save-file", ());
       }
       FILE_SAVE_AS_ID => {
-        let _ = app.emit("lokus:save-as", ());
+        let _ = app.emit("NoteMakingApp:save-as", ());
       }
       FILE_EXPORT_PDF_ID => {
-        let _ = app.emit("lokus:export-pdf", ());
+        let _ = app.emit("NoteMakingApp:export-pdf", ());
       }
       FILE_EXPORT_HTML_ID => {
-        let _ = app.emit("lokus:export-html", ());
+        let _ = app.emit("NoteMakingApp:export-html", ());
       }
       FILE_PRINT_ID => {
-        let _ = app.emit("lokus:print", ());
+        let _ = app.emit("NoteMakingApp:print", ());
       }
       
       // Edit menu
       EDIT_FIND_ID => {
-        let _ = app.emit("lokus:in-file-search", ());
+        let _ = app.emit("NoteMakingApp:in-file-search", ());
       }
       EDIT_FIND_REPLACE_ID => {
-        let _ = app.emit("lokus:find-replace", ());
+        let _ = app.emit("NoteMakingApp:find-replace", ());
       }
       EDIT_FIND_NEXT_ID => {
-        let _ = app.emit("lokus:find-next", ());
+        let _ = app.emit("NoteMakingApp:find-next", ());
       }
       EDIT_FIND_PREVIOUS_ID => {
-        let _ = app.emit("lokus:find-previous", ());
+        let _ = app.emit("NoteMakingApp:find-previous", ());
       }
       EDIT_PASTE_MATCH_STYLE_ID => {
-        let _ = app.emit("lokus:paste-match-style", ());
+        let _ = app.emit("NoteMakingApp:paste-match-style", ());
       }
       
       // View menu
       VIEW_TOGGLE_SIDEBAR_ID => {
-        let _ = app.emit("lokus:toggle-sidebar", ());
+        let _ = app.emit("NoteMakingApp:toggle-sidebar", ());
       }
       VIEW_TOGGLE_SPLIT_ID => {
-        let _ = app.emit("lokus:toggle-split-view", ());
+        let _ = app.emit("NoteMakingApp:toggle-split-view", ());
       }
       VIEW_FULL_SCREEN_ID => {
-        let _ = app.emit("lokus:toggle-fullscreen", ());
+        let _ = app.emit("NoteMakingApp:toggle-fullscreen", ());
       }
       VIEW_ACTUAL_SIZE_ID => {
-        let _ = app.emit("lokus:actual-size", ());
+        let _ = app.emit("NoteMakingApp:actual-size", ());
       }
       VIEW_ZOOM_IN_ID => {
-        let _ = app.emit("lokus:zoom-in", ());
+        let _ = app.emit("NoteMakingApp:zoom-in", ());
       }
       VIEW_ZOOM_OUT_ID => {
-        let _ = app.emit("lokus:zoom-out", ());
+        let _ = app.emit("NoteMakingApp:zoom-out", ());
       }
       VIEW_GRAPH_ID => {
-        let _ = app.emit("lokus:graph-view", ());
+        let _ = app.emit("NoteMakingApp:graph-view", ());
       }
       VIEW_KANBAN_ID => {
-        let _ = app.emit("lokus:open-kanban", ());
+        let _ = app.emit("NoteMakingApp:open-kanban", ());
       }
       VIEW_COMMAND_PALETTE_ID => {
-        let _ = app.emit("lokus:command-palette", ());
+        let _ = app.emit("NoteMakingApp:command-palette", ());
       }
       VIEW_THEME_LIGHT_ID => {
-        let _ = app.emit("lokus:theme-light", ());
+        let _ = app.emit("NoteMakingApp:theme-light", ());
       }
       VIEW_THEME_DARK_ID => {
-        let _ = app.emit("lokus:theme-dark", ());
+        let _ = app.emit("NoteMakingApp:theme-dark", ());
       }
       VIEW_THEME_AUTO_ID => {
-        let _ = app.emit("lokus:theme-auto", ());
+        let _ = app.emit("NoteMakingApp:theme-auto", ());
       }
       
       // Insert menu
       INSERT_WIKILINK_ID => {
-        let _ = app.emit("lokus:insert-wikilink", ());
+        let _ = app.emit("NoteMakingApp:insert-wikilink", ());
       }
       INSERT_MATH_ID => {
-        let _ = app.emit("lokus:insert-math", ());
+        let _ = app.emit("NoteMakingApp:insert-math", ());
       }
       INSERT_TABLE_ID => {
-        let _ = app.emit("lokus:insert-table", ());
+        let _ = app.emit("NoteMakingApp:insert-table", ());
       }
       INSERT_IMAGE_ID => {
-        let _ = app.emit("lokus:insert-image", ());
+        let _ = app.emit("NoteMakingApp:insert-image", ());
       }
       INSERT_CODE_BLOCK_ID => {
-        let _ = app.emit("lokus:insert-code-block", ());
+        let _ = app.emit("NoteMakingApp:insert-code-block", ());
       }
       INSERT_HORIZONTAL_RULE_ID => {
-        let _ = app.emit("lokus:insert-horizontal-rule", ());
+        let _ = app.emit("NoteMakingApp:insert-horizontal-rule", ());
       }
       INSERT_TASK_LIST_ID => {
-        let _ = app.emit("lokus:insert-task-list", ());
+        let _ = app.emit("NoteMakingApp:insert-task-list", ());
       }
       INSERT_H1_ID => {
-        let _ = app.emit("lokus:insert-heading", 1);
+        let _ = app.emit("NoteMakingApp:insert-heading", 1);
       }
       INSERT_H2_ID => {
-        let _ = app.emit("lokus:insert-heading", 2);
+        let _ = app.emit("NoteMakingApp:insert-heading", 2);
       }
       INSERT_H3_ID => {
-        let _ = app.emit("lokus:insert-heading", 3);
+        let _ = app.emit("NoteMakingApp:insert-heading", 3);
       }
       
       // Format menu
       FORMAT_BOLD_ID => {
-        let _ = app.emit("lokus:format-bold", ());
+        let _ = app.emit("NoteMakingApp:format-bold", ());
       }
       FORMAT_ITALIC_ID => {
-        let _ = app.emit("lokus:format-italic", ());
+        let _ = app.emit("NoteMakingApp:format-italic", ());
       }
       FORMAT_UNDERLINE_ID => {
-        let _ = app.emit("lokus:format-underline", ());
+        let _ = app.emit("NoteMakingApp:format-underline", ());
       }
       FORMAT_STRIKETHROUGH_ID => {
-        let _ = app.emit("lokus:format-strikethrough", ());
+        let _ = app.emit("NoteMakingApp:format-strikethrough", ());
       }
       FORMAT_CODE_ID => {
-        let _ = app.emit("lokus:format-code", ());
+        let _ = app.emit("NoteMakingApp:format-code", ());
       }
       FORMAT_HIGHLIGHT_ID => {
-        let _ = app.emit("lokus:format-highlight", ());
+        let _ = app.emit("NoteMakingApp:format-highlight", ());
       }
       FORMAT_CLEAR_ID => {
-        let _ = app.emit("lokus:format-clear", ());
+        let _ = app.emit("NoteMakingApp:format-clear", ());
       }
       
       // Window menu
       WINDOW_MINIMIZE_ID => {
-        let _ = app.emit("lokus:window-minimize", ());
+        let _ = app.emit("NoteMakingApp:window-minimize", ());
       }
       WINDOW_ZOOM_ID => {
-        let _ = app.emit("lokus:window-zoom", ());
+        let _ = app.emit("NoteMakingApp:window-zoom", ());
       }
       WINDOW_PREV_TAB_ID => {
-        let _ = app.emit("lokus:prev-tab", ());
+        let _ = app.emit("NoteMakingApp:prev-tab", ());
       }
       WINDOW_NEXT_TAB_ID => {
-        let _ = app.emit("lokus:next-tab", ());
+        let _ = app.emit("NoteMakingApp:next-tab", ());
       }
       
       // Help menu
       HELP_HELP_ID => {
-        let _ = app.emit("lokus:help", ());
+        let _ = app.emit("NoteMakingApp:help", ());
       }
       HELP_SHORTCUTS_ID => {
-        let _ = app.emit("lokus:shortcut-help", ());
+        let _ = app.emit("NoteMakingApp:shortcut-help", ());
       }
       HELP_RELEASE_NOTES_ID => {
-        let _ = app.emit("lokus:release-notes", ());
+        let _ = app.emit("NoteMakingApp:release-notes", ());
       }
       HELP_REPORT_ISSUE_ID => {
-        let _ = app.emit("lokus:report-issue", ());
+        let _ = app.emit("NoteMakingApp:report-issue", ());
       }
       
       _ => {

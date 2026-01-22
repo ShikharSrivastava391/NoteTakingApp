@@ -249,7 +249,7 @@ export const WikiLink = Node.create({
 
         // Let the click bubble up to Editor.jsx's handleDOMEvents
         // The editor already has a working click handler for wiki links at line 453
-        // that dispatches 'lokus:open-file' event which Workspace listens to
+        // that dispatches 'NoteMakingApp:open-file' event which Workspace listens to
       });
 
       return {

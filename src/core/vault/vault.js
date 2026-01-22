@@ -3,7 +3,7 @@ import { open } from '@tauri-apps/plugin-dialog';
 import { exists, mkdir } from '@tauri-apps/plugin-fs';
 import { join } from '@tauri-apps/api/path';
 
-const KEY = 'lokus.workspace.path';
+const KEY = 'NoteMakingApp.workspace.path';
 
 export function getSavedWorkspacePath() {
   return localStorage.getItem(KEY);
@@ -30,9 +30,9 @@ export async function createWorkspaceAt(parentDir, workspaceName) {
   }
 
   // mandatory internal folder
-  const lokusHidden = await join(workspacePath, '.lokus');
-  if (!(await exists(lokusHidden))) {
-    await mkdir(lokusHidden, { recursive: true });
+  const NoteMakingAppHidden = await join(workspacePath, '.NoteMakingApp');
+  if (!(await exists(NoteMakingAppHidden))) {
+    await mkdir(NoteMakingAppHidden, { recursive: true });
   }
 
   // a place for notes right away
@@ -42,7 +42,7 @@ export async function createWorkspaceAt(parentDir, workspaceName) {
   }
 
   // future: attachments, templates, cache, etc.
-  return { workspacePath, lokusHidden, notesDir };
+  return { workspacePath, NoteMakingAppHidden, notesDir };
 }
 
 export async function pickExistingWorkspace() {
@@ -53,10 +53,10 @@ export async function pickExistingWorkspace() {
   });
   if (!dir) return null;
 
-  // ensure .lokus exists (initialize if missing)
-  const lokusHidden = await join(dir, '.lokus');
-  if (!(await exists(lokusHidden))) {
-    await mkdir(lokusHidden, { recursive: true });
+  // ensure .NoteMakingApp exists (initialize if missing)
+  const NoteMakingAppHidden = await join(dir, '.NoteMakingApp');
+  if (!(await exists(NoteMakingAppHidden))) {
+    await mkdir(NoteMakingAppHidden, { recursive: true });
   }
   return dir;
 }

@@ -187,7 +187,7 @@ export default function MCPServerSettings() {
           MCP Server Integration
         </h2>
         <p style={{ color: 'var(--text-muted)', fontSize: '14px' }}>
-          Connect Lokus to AI assistants via Model Context Protocol
+          Connect NoteMakingApp to AI assistants via Model Context Protocol
         </p>
       </div>
 
@@ -516,10 +516,10 @@ export default function MCPServerSettings() {
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <div>
                 <div style={{ fontSize: '13px', fontWeight: '500' }}>
-                  Auto-start with Lokus
+                  Auto-start with NoteMakingApp
                 </div>
                 <p style={{ fontSize: '12px', color: 'var(--text-muted)', marginTop: '2px' }}>
-                  Automatically start MCP server when Lokus launches
+                  Automatically start MCP server when NoteMakingApp launches
                 </p>
               </div>
               <label style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>

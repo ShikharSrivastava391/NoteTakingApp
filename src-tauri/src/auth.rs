@@ -60,8 +60,8 @@ impl Default for AuthState {
 
 pub type SharedAuthState = Arc<Mutex<AuthState>>;
 
-const TOKEN_KEY: &str = "lokus_auth_token";
-const PROFILE_KEY: &str = "lokus_user_profile";
+const TOKEN_KEY: &str = "NoteMakingApp_auth_token";
+const PROFILE_KEY: &str = "NoteMakingApp_user_profile";
 
 pub struct AuthService;
 
@@ -185,7 +185,7 @@ impl AuthService {
                         <div class="icon">✅</div>
                         <div class="success">Authentication Successful!</div>
                         <div class="message">
-                            You have been successfully signed in to Lokus.<br>
+                            You have been successfully signed in to NoteMakingApp.<br>
                             This window will close automatically.
                         </div>
                     </div>
@@ -393,7 +393,7 @@ impl AuthService {
 
         // Exchange code for token
         let auth_base_url = std::env::var("AUTH_BASE_URL")
-            .unwrap_or_else(|_| "https://lokusmd.com".to_string());
+            .unwrap_or_else(|_| "https://NoteMakingAppmd.com".to_string());
 
 
         let client = reqwest::Client::new();
@@ -401,7 +401,7 @@ impl AuthService {
             .post(&format!("{}/api/auth/token", auth_base_url))
             .form(&[
                 ("grant_type", "authorization_code"),
-                ("client_id", "lokus-desktop"),
+                ("client_id", "NoteMakingApp-desktop"),
                 ("code", &code),
                 ("redirect_uri", &pkce_data.redirect_uri),
                 ("code_verifier", &pkce_data.code_verifier),
@@ -497,14 +497,14 @@ pub async fn initiate_oauth_flow(
 
     // Build OAuth URL
     let auth_base_url = std::env::var("AUTH_BASE_URL")
-        .unwrap_or_else(|_| "https://lokusmd.com".to_string());
+        .unwrap_or_else(|_| "https://NoteMakingAppmd.com".to_string());
 
     let mut auth_url = Url::parse(&format!("{}/api/auth/authorize", auth_base_url))
         .map_err(|e| format!("Invalid auth URL: {}", e))?;
 
     auth_url.query_pairs_mut()
         .append_pair("response_type", "code")
-        .append_pair("client_id", "lokus-desktop")
+        .append_pair("client_id", "NoteMakingApp-desktop")
         .append_pair("redirect_uri", &redirect_uri)
         .append_pair("scope", "read write")
         .append_pair("state", &state)
@@ -525,7 +525,7 @@ pub async fn handle_oauth_callback(
 
 async fn fetch_and_store_user_profile(token: &AuthToken) -> Result<(), String> {
     let auth_base_url = std::env::var("AUTH_BASE_URL")
-        .unwrap_or_else(|_| "https://lokusmd.com".to_string());
+        .unwrap_or_else(|_| "https://NoteMakingAppmd.com".to_string());
 
     let client = reqwest::Client::new();
     let profile_response = client
@@ -596,14 +596,14 @@ pub async fn refresh_auth_token() -> Result<(), String> {
         .ok_or("No refresh token available")?;
 
     let auth_base_url = std::env::var("AUTH_BASE_URL")
-        .unwrap_or_else(|_| "https://lokusmd.com".to_string());
+        .unwrap_or_else(|_| "https://NoteMakingAppmd.com".to_string());
 
     let client = reqwest::Client::new();
     let refresh_response = client
         .post(&format!("{}/api/auth/refresh", auth_base_url))
         .form(&[
             ("grant_type", "refresh_token"),
-            ("client_id", "lokus-desktop"),
+            ("client_id", "NoteMakingApp-desktop"),
             ("refresh_token", &refresh_token),
         ])
         .send()

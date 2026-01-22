@@ -118,7 +118,7 @@ impl KanbanBoard {
             metadata: BoardMetadata {
                 created: now.clone(),
                 modified: now,
-                created_with: String::from("Lokus"),
+                created_with: String::from("NoteMakingApp"),
             },
         }
     }

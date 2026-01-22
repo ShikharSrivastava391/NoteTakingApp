@@ -1,7 +1,7 @@
 /**
  * Extension Points API - Rich plugin extension system
  * 
- * Provides comprehensive extension points for plugins to extend Lokus functionality:
+ * Provides comprehensive extension points for plugins to extend NoteMakingApp functionality:
  * - Commands and keybindings
  * - UI components (menus, toolbars, panels, status bar)
  * - Editor features (languages, themes, formatters)

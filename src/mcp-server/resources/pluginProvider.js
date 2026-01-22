@@ -1,6 +1,6 @@
 /**
- * Plugin Resource Provider for Lokus
- * Integrates with Lokus's plugin system to provide access to:
+ * Plugin Resource Provider for NoteMakingApp
+ * Integrates with NoteMakingApp's plugin system to provide access to:
  * - Installed plugins and their states
  * - Plugin manifests and metadata
  * - Plugin activation and configuration
@@ -113,43 +113,43 @@ export class PluginProvider {
   async listResources() {
     const resources = [
       {
-        uri: 'lokus://plugins/all',
+        uri: 'NoteMakingApp://plugins/all',
         name: 'All Plugins',
         description: 'Complete list of all discovered plugins',
         mimeType: 'application/json'
       },
       {
-        uri: 'lokus://plugins/active',
+        uri: 'NoteMakingApp://plugins/active',
         name: 'Active Plugins',
         description: 'Currently active and running plugins',
         mimeType: 'application/json'
       },
       {
-        uri: 'lokus://plugins/loaded',
+        uri: 'NoteMakingApp://plugins/loaded',
         name: 'Loaded Plugins',
         description: 'Currently loaded plugins (active and inactive)',
         mimeType: 'application/json'
       },
       {
-        uri: 'lokus://plugins/registry',
+        uri: 'NoteMakingApp://plugins/registry',
         name: 'Plugin Registry',
         description: 'Plugin registry information and metadata',
         mimeType: 'application/json'
       },
       {
-        uri: 'lokus://plugins/statistics',
+        uri: 'NoteMakingApp://plugins/statistics',
         name: 'Plugin Statistics',
         description: 'Plugin system statistics and metrics',
         mimeType: 'application/json'
       },
       {
-        uri: 'lokus://plugins/errors',
+        uri: 'NoteMakingApp://plugins/errors',
         name: 'Plugin Errors',
         description: 'Plugin loading and runtime errors',
         mimeType: 'application/json'
       },
       {
-        uri: 'lokus://plugins/api-usage',
+        uri: 'NoteMakingApp://plugins/api-usage',
         name: 'Plugin API Usage',
         description: 'Plugin API usage statistics and capabilities',
         mimeType: 'application/json'
@@ -159,7 +159,7 @@ export class PluginProvider {
     // Add individual plugin resources
     for (const [pluginId, pluginState] of this.pluginStates) {
       resources.push({
-        uri: `lokus://plugins/plugin/${encodeURIComponent(pluginId)}`,
+        uri: `NoteMakingApp://plugins/plugin/${encodeURIComponent(pluginId)}`,
         name: `Plugin: ${pluginState.manifest?.name || pluginId}`,
         description: `Detailed information for plugin: ${pluginId}`,
         mimeType: 'application/json'
@@ -578,8 +578,8 @@ export class PluginProvider {
    */
   getMetadata() {
     return {
-      name: 'Lokus Plugin Provider',
-      description: 'Provides access to Lokus plugin system state and information',
+      name: 'NoteMakingApp Plugin Provider',
+      description: 'Provides access to NoteMakingApp plugin system state and information',
       version: '1.0.0',
       capabilities: [
         'plugin-listing',

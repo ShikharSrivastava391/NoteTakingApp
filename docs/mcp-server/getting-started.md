@@ -1,8 +1,8 @@
-# Getting Started with Lokus MCP Server
+# Getting Started with NoteMakingApp MCP Server
 
 ## Introduction
 
-The Lokus Model Context Protocol (MCP) server enables AI assistants to seamlessly integrate with your Lokus workspace. This guide will walk you through setting up and using the MCP server for the first time.
+The NoteMakingApp Model Context Protocol (MCP) server enables AI assistants to seamlessly integrate with your NoteMakingApp workspace. This guide will walk you through setting up and using the MCP server for the first time.
 
 ## What is MCP?
 
@@ -15,21 +15,21 @@ Model Context Protocol (MCP) is an open standard that allows AI assistants to:
 
 ## Prerequisites
 
-- Lokus installed and running
+- NoteMakingApp installed and running
 - Node.js 16+ (for JavaScript examples)
 - Python 3.8+ (for Python examples)
 - Basic understanding of JSON-RPC 2.0
 
 ## Quick Setup
 
-### 1. Enable MCP Server in Lokus
+### 1. Enable MCP Server in NoteMakingApp
 
-1. Open Lokus
+1. Open NoteMakingApp
 2. Go to **Preferences** → **Advanced** → **MCP Server**
 3. Enable "Start MCP Server"
 4. Set port (default: 3001)
 5. Configure authentication (optional but recommended)
-6. Click "Save" and restart Lokus
+6. Click "Save" and restart NoteMakingApp
 
 ### 2. Verify Server is Running
 
@@ -43,7 +43,7 @@ curl http://localhost:3001/api/mcp/health
 
 ### 3. Get API Key (Recommended)
 
-1. In Lokus, go to **Preferences** → **API Keys**
+1. In NoteMakingApp, go to **Preferences** → **API Keys**
 2. Click "Generate New Key"
 3. Give it a name (e.g., "My AI Assistant")
 4. Copy the generated key
@@ -57,11 +57,11 @@ curl http://localhost:3001/api/mcp/health
 // install: npm install ws
 const WebSocket = require('ws');
 
-async function connectToLokus() {
+async function connectToNoteMakingApp() {
   const ws = new WebSocket('ws://localhost:3001/mcp');
   
   ws.on('open', async () => {
-    console.log('Connected to Lokus MCP server');
+    console.log('Connected to NoteMakingApp MCP server');
     
     // Initialize the session
     const initMessage = {
@@ -113,7 +113,7 @@ function listResources(ws) {
   ws.send(JSON.stringify(message));
 }
 
-connectToLokus();
+connectToNoteMakingApp();
 ```
 
 ### Using Python
@@ -124,11 +124,11 @@ import asyncio
 import json
 import websockets
 
-async def connect_to_lokus():
+async def connect_to_NoteMakingApp():
     uri = "ws://localhost:3001/mcp"
     
     async with websockets.connect(uri) as ws:
-        print("Connected to Lokus MCP server")
+        print("Connected to NoteMakingApp MCP server")
         
         # Initialize session
         init_message = {
@@ -173,7 +173,7 @@ async def list_resources(ws):
     await ws.send(json.dumps(message))
 
 # Run the client
-asyncio.run(connect_to_lokus())
+asyncio.run(connect_to_NoteMakingApp())
 ```
 
 ### Using HTTP/REST
@@ -325,7 +325,7 @@ class NoteSummarizer {
     
     return new Promise((resolve, reject) => {
       this.ws.on('open', () => {
-        console.log('✅ Connected to Lokus MCP server');
+        console.log('✅ Connected to NoteMakingApp MCP server');
         this.initialize().then(resolve).catch(reject);
       });
       
@@ -476,7 +476,7 @@ class NoteSummarizer {
   disconnect() {
     if (this.ws) {
       this.ws.close();
-      console.log('👋 Disconnected from Lokus');
+      console.log('👋 Disconnected from NoteMakingApp');
     }
   }
 }
@@ -507,12 +507,12 @@ main();
 ```json
 {
   "mcpServers": {
-    "lokus": {
+    "NoteMakingApp": {
       "command": "node",
-      "args": ["path/to/lokus-mcp-client.js"],
+      "args": ["path/to/NoteMakingApp-mcp-client.js"],
       "env": {
-        "LOKUS_API_KEY": "your-api-key-here",
-        "LOKUS_MCP_URL": "ws://localhost:3001/mcp"
+        "NoteMakingApp_API_KEY": "your-api-key-here",
+        "NoteMakingApp_MCP_URL": "ws://localhost:3001/mcp"
       }
     }
   }
@@ -521,22 +521,22 @@ main();
 
 2. Place it in Claude's configuration directory
 3. Restart Claude Desktop
-4. Use natural language to interact with your Lokus workspace
+4. Use natural language to interact with your NoteMakingApp workspace
 
 ### OpenAI GPT Integration
 
 ```python
 import openai
-from lokus_mcp_client import LokusMCPClient
+from NoteMakingApp_mcp_client import NoteMakingAppMCPClient
 
-class LokusGPTIntegration:
-    def __init__(self, openai_key, lokus_api_key):
+class NoteMakingAppGPTIntegration:
+    def __init__(self, openai_key, NoteMakingApp_api_key):
         self.openai = openai.OpenAI(api_key=openai_key)
-        self.lokus = LokusMCPClient(api_key=lokus_api_key)
+        self.NoteMakingApp = NoteMakingAppMCPClient(api_key=NoteMakingApp_api_key)
     
     async def chat_with_context(self, user_message):
-        # Search relevant content in Lokus
-        search_results = await self.lokus.search_files(user_message)
+        # Search relevant content in NoteMakingApp
+        search_results = await self.NoteMakingApp.search_files(user_message)
         
         # Build context from search results
         context = "\n".join([
@@ -562,8 +562,8 @@ class LokusGPTIntegration:
 
 **Connection Refused**
 ```bash
-# Check if Lokus is running
-ps aux | grep lokus
+# Check if NoteMakingApp is running
+ps aux | grep NoteMakingApp
 
 # Check if MCP server is enabled in preferences
 # Verify port configuration (default: 3001)
@@ -574,7 +574,7 @@ ps aux | grep lokus
 # Verify API key is correct
 curl -H "X-API-Key: your-key" http://localhost:3001/api/mcp/resources/list
 
-# Check key permissions in Lokus preferences
+# Check key permissions in NoteMakingApp preferences
 ```
 
 **WebSocket Connection Drops**
@@ -582,7 +582,7 @@ curl -H "X-API-Key: your-key" http://localhost:3001/api/mcp/resources/list
 // Implement reconnection logic
 ws.on('close', () => {
   console.log('Connection closed, reconnecting...');
-  setTimeout(() => connectToLokus(), 5000);
+  setTimeout(() => connectToNoteMakingApp(), 5000);
 });
 ```
 
@@ -624,19 +624,19 @@ curl -X POST http://localhost:3001/api/mcp/logging/setLevel \
 
 ## Community
 
-- **GitHub**: [github.com/lokus-ai/lokus](https://github.com/lokus-ai/lokus)
-- **Discord**: [discord.gg/lokus](https://discord.gg/lokus)
-- **Discussions**: [github.com/lokus-ai/lokus/discussions](https://github.com/lokus-ai/lokus/discussions)
+- **GitHub**: [github.com/NoteMakingApp-ai/NoteMakingApp](https://github.com/NoteMakingApp-ai/NoteMakingApp)
+- **Discord**: [discord.gg/NoteMakingApp](https://discord.gg/NoteMakingApp)
+- **Discussions**: [github.com/NoteMakingApp-ai/NoteMakingApp/discussions](https://github.com/NoteMakingApp-ai/NoteMakingApp/discussions)
 
 ## Support
 
 If you run into issues:
 
 1. Check this documentation
-2. Search existing [GitHub issues](https://github.com/lokus-ai/lokus/issues)
-3. Join our [Discord community](https://discord.gg/lokus)
+2. Search existing [GitHub issues](https://github.com/NoteMakingApp-ai/NoteMakingApp/issues)
+3. Join our [Discord community](https://discord.gg/NoteMakingApp)
 4. Create a new issue with:
-   - Lokus version
+   - NoteMakingApp version
    - Operating system
    - Steps to reproduce
    - Expected vs actual behavior

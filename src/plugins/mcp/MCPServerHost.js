@@ -1,7 +1,7 @@
 /**
  * MCP Server Host
  * 
- * Hosts and manages MCP servers within Lokus
+ * Hosts and manages MCP servers within NoteMakingApp
  * Provides process management, IPC communication, and health monitoring
  * Supports both internal (Web Worker) and external (subprocess) MCP servers
  */

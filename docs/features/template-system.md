@@ -1,6 +1,6 @@
 # Template System
 
-The Template System provides a powerful way to create, manage, and use reusable content templates directly within Lokus. Templates support dynamic variables, smart markdown compilation, and seamless integration with the Command Palette for an efficient workflow.
+The Template System provides a powerful way to create, manage, and use reusable content templates directly within NoteMakingApp. Templates support dynamic variables, smart markdown compilation, and seamless integration with the Command Palette for an efficient workflow.
 
 ## Overview
 
@@ -309,5 +309,5 @@ Templates preserve special variables during processing:
 - **Content**: Document and cursor positioning
 - **System**: User and environment information  
 - **Utility**: Random values and identifiers
-- **Application**: Lokus-specific information
+- **Application**: NoteMakingApp-specific information
 - **Document**: Current file context

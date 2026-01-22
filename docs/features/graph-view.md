@@ -1,6 +1,6 @@
 # Graph View
 
-Lokus features a sophisticated graph visualization system that shows the relationships between your notes, creating a visual knowledge map of your connected ideas and content. The graph view uses force-directed layout algorithms to create intuitive visualizations of your note network.
+NoteMakingApp features a sophisticated graph visualization system that shows the relationships between your notes, creating a visual knowledge map of your connected ideas and content. The graph view uses force-directed layout algorithms to create intuitive visualizations of your note network.
 
 ## Overview
 

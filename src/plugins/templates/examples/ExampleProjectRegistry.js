@@ -51,7 +51,7 @@ export class ExampleProjectRegistry {
       documentation: 'Demonstrates the fundamentals of creating an MCP server plugin with file system access. Perfect for beginners learning MCP plugin development.',
       metadata: {
         version: '1.0.0',
-        author: 'Lokus Team',
+        author: 'NoteMakingApp Team',
         license: 'MIT',
         keywords: ['mcp', 'file', 'server', 'basic', 'beginner'],
         estimatedTime: '30 minutes',
@@ -86,7 +86,7 @@ export class ExampleProjectRegistry {
       documentation: 'A comprehensive AI assistant plugin that showcases advanced MCP features including AI integration, custom UI panels, and sophisticated prompt handling.',
       metadata: {
         version: '1.0.0',
-        author: 'Lokus Team',
+        author: 'NoteMakingApp Team',
         license: 'MIT',
         keywords: ['ai', 'assistant', 'writing', 'chat', 'prompts', 'gpt'],
         estimatedTime: '2-3 hours',
@@ -129,7 +129,7 @@ export class ExampleProjectRegistry {
       documentation: 'Shows how to create a data provider plugin that connects to external databases and APIs, with proper caching and security considerations.',
       metadata: {
         version: '1.0.0',
-        author: 'Lokus Team',
+        author: 'NoteMakingApp Team',
         license: 'MIT',
         keywords: ['database', 'data', 'provider', 'cache', 'api', 'sql'],
         estimatedTime: '2-4 hours',
@@ -171,7 +171,7 @@ export class ExampleProjectRegistry {
       documentation: 'Demonstrates how to create a collection of utility tools packaged as a single MCP plugin. Great for learning tool development patterns.',
       metadata: {
         version: '1.0.0',
-        author: 'Lokus Team',
+        author: 'NoteMakingApp Team',
         license: 'MIT',
         keywords: ['tools', 'utilities', 'development', 'formatter', 'validator'],
         estimatedTime: '1-2 hours',
@@ -210,7 +210,7 @@ export class ExampleProjectRegistry {
       documentation: 'Advanced example showing how to coordinate multiple MCP servers within a single plugin, with shared state management and inter-server communication.',
       metadata: {
         version: '1.0.0',
-        author: 'Lokus Team',
+        author: 'NoteMakingApp Team',
         license: 'MIT',
         keywords: ['enterprise', 'multi-server', 'coordination', 'advanced', 'architecture'],
         estimatedTime: '4-6 hours',
@@ -425,7 +425,7 @@ export class ExampleProjectRegistry {
     await this.copyDirectory(sourceDirectory, targetDirectory)
     
     // Create example metadata file
-    const metadataPath = path.join(targetDirectory, '.lokus-example.json')
+    const metadataPath = path.join(targetDirectory, '.NoteMakingApp-example.json')
     await fs.writeFile(metadataPath, JSON.stringify({
       ...example,
       downloadedAt: new Date().toISOString(),

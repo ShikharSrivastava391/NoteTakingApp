@@ -2,7 +2,7 @@
  * @fileoverview Plugin logging utility
  */
 
-import type { LokusAPI, Disposable } from '../types/index.js'
+import type { NoteMakingAppAPI, Disposable } from '../types/index.js'
 import { LogLevel } from '../types/index.js'
 
 // Re-export LogLevel for convenience
@@ -21,7 +21,7 @@ export class PluginLogger implements Disposable {
 
   constructor(
     private pluginId: string,
-    private api: LokusAPI,
+    private api: NoteMakingAppAPI,
     options?: LoggerOptions
   ) {
     this.logLevel = options?.level || LogLevel.INFO

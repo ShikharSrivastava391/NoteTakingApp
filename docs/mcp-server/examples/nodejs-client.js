@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
 /**
- * Lokus MCP Node.js Client Example
+ * NoteMakingApp MCP Node.js Client Example
  * 
- * This example demonstrates how to connect to a Lokus MCP server using Node.js.
+ * This example demonstrates how to connect to a NoteMakingApp MCP server using Node.js.
  * It includes resource discovery, tool execution, and real-time subscriptions.
  * 
  * Requirements:
@@ -14,8 +14,8 @@
  *   node nodejs-client.js --interactive
  * 
  * Environment Variables:
- *   LOKUS_API_KEY: Your Lokus API key
- *   LOKUS_MCP_URL: MCP server URL (default: ws://localhost:3001/mcp)
+ *   NoteMakingApp_API_KEY: Your NoteMakingApp API key
+ *   NoteMakingApp_MCP_URL: MCP server URL (default: ws://localhost:3001/mcp)
  */
 
 const WebSocket = require('ws');
@@ -24,15 +24,15 @@ const readline = require('readline');
 const { EventEmitter } = require('events');
 
 /**
- * Lokus MCP Client for Node.js
+ * NoteMakingApp MCP Client for Node.js
  */
-class LokusMCPClient extends EventEmitter {
+class NoteMakingAppMCPClient extends EventEmitter {
   constructor(options = {}) {
     super();
     
-    this.websocketUrl = options.websocketUrl || process.env.LOKUS_MCP_URL || 'ws://localhost:3001/mcp';
+    this.websocketUrl = options.websocketUrl || process.env.NoteMakingApp_MCP_URL || 'ws://localhost:3001/mcp';
     this.httpUrl = options.httpUrl || 'http://localhost:3001/api/mcp';
-    this.apiKey = options.apiKey || process.env.LOKUS_API_KEY;
+    this.apiKey = options.apiKey || process.env.NoteMakingApp_API_KEY;
     
     this.ws = null;
     this.messageId = 1;
@@ -59,7 +59,7 @@ class LokusMCPClient extends EventEmitter {
     }
     
     this.connectionState = 'connecting';
-    this.logger.info(`🔌 Connecting to Lokus MCP server at ${this.websocketUrl}`);
+    this.logger.info(`🔌 Connecting to NoteMakingApp MCP server at ${this.websocketUrl}`);
     
     try {
       const headers = {};
@@ -81,7 +81,7 @@ class LokusMCPClient extends EventEmitter {
           clearTimeout(timeout);
           this.connectionState = 'connected';
           this.reconnectAttempts = 0;
-          this.logger.info('✅ Connected to Lokus MCP server');
+          this.logger.info('✅ Connected to NoteMakingApp MCP server');
           
           try {
             await this.initialize();
@@ -151,9 +151,9 @@ class LokusMCPClient extends EventEmitter {
         prompts: { listChanged: true }
       },
       clientInfo: {
-        name: 'Lokus Node.js MCP Client',
+        name: 'NoteMakingApp Node.js MCP Client',
         version: '1.0.0',
-        description: 'Node.js example client for Lokus MCP server'
+        description: 'Node.js example client for NoteMakingApp MCP server'
       }
     });
     
@@ -356,7 +356,7 @@ class LokusMCPClient extends EventEmitter {
 /**
  * Example application that demonstrates MCP capabilities
  */
-class LokusExplorer {
+class NoteMakingAppExplorer {
   constructor(client) {
     this.client = client;
     this.logger = console;
@@ -496,7 +496,7 @@ This file demonstrates the MCP protocol capabilities:
 
 ## Statistics
 - Timestamp: ${timestamp}
-- Client: Lokus Node.js MCP Client
+- Client: NoteMakingApp Node.js MCP Client
 - Protocol: MCP 2024-11-05
 - Resources found: ${resources.length}
 - Tools available: ${tools.length}
@@ -631,15 +631,15 @@ async function main() {
   const debug = args.includes('--debug');
   
   // Configuration
-  const websocketUrl = process.env.LOKUS_MCP_URL || 'ws://localhost:3001/mcp';
-  const apiKey = process.env.LOKUS_API_KEY;
+  const websocketUrl = process.env.NoteMakingApp_MCP_URL || 'ws://localhost:3001/mcp';
+  const apiKey = process.env.NoteMakingApp_API_KEY;
   
   if (!apiKey) {
-    console.warn('⚠️  No API key found. Set LOKUS_API_KEY environment variable for authentication');
+    console.warn('⚠️  No API key found. Set NoteMakingApp_API_KEY environment variable for authentication');
   }
   
   // Create client
-  const client = new LokusMCPClient({
+  const client = new NoteMakingAppMCPClient({
     websocketUrl,
     apiKey
   });
@@ -658,7 +658,7 @@ async function main() {
     await client.connect();
     
     // Create explorer
-    const explorer = new LokusExplorer(client);
+    const explorer = new NoteMakingAppExplorer(client);
     
     if (interactive) {
       await explorer.interactiveMode();
@@ -694,4 +694,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { LokusMCPClient, LokusExplorer };
+module.exports = { NoteMakingAppMCPClient, NoteMakingAppExplorer };

@@ -1,6 +1,6 @@
 # Infinite Canvas
 
-Lokus features a powerful infinite canvas system built on TLDraw that provides a spatial workspace for visual note-taking, diagramming, and creative organization. The canvas offers unlimited space for arranging and connecting ideas visually.
+NoteMakingApp features a powerful infinite canvas system built on TLDraw that provides a spatial workspace for visual note-taking, diagramming, and creative organization. The canvas offers unlimited space for arranging and connecting ideas visually.
 
 ## Overview
 
@@ -171,7 +171,7 @@ Pre-built templates for common use cases:
 - **PDF** - Multi-page PDF documents
 - **JSON** - Raw canvas data for backup/migration
 
-## Integration with Lokus Features
+## Integration with NoteMakingApp Features
 
 ### Note System Integration
 - **Bidirectional Links** - Canvas elements can link to workspace notes

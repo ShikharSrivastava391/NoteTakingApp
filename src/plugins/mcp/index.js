@@ -48,7 +48,7 @@ export {
 /**
  * MCP Integration Helper
  * 
- * Provides high-level integration functions for setting up MCP in Lokus
+ * Provides high-level integration functions for setting up MCP in NoteMakingApp
  */
 export class MCPIntegration {
   constructor(pluginManager, securityManager) {

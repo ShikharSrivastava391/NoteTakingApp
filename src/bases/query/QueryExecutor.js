@@ -1,5 +1,5 @@
 /**
- * Query Executor for Lokus Bases
+ * Query Executor for NoteMakingApp Bases
  * Executes filters against note collections with sorting, grouping, and pagination
  */
 

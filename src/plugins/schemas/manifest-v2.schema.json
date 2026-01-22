@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://lokus.dev/schemas/manifest-v2.json",
-  "title": "Lokus Plugin Manifest v2",
-  "description": "Schema for Lokus plugin manifest files following VS Code extension model",
+  "$id": "https://NoteMakingApp.dev/schemas/manifest-v2.json",
+  "title": "NoteMakingApp Plugin Manifest v2",
+  "description": "Schema for NoteMakingApp plugin manifest files following VS Code extension model",
   "type": "object",
   "required": [
     "manifest",
@@ -55,12 +55,12 @@
     },
     "engines": {
       "type": "object",
-      "required": ["lokus"],
+      "required": ["NoteMakingApp"],
       "properties": {
-        "lokus": {
+        "NoteMakingApp": {
           "type": "string",
           "pattern": "^(\\^|~|>=|>|<|<=|=)?\\d+\\.\\d+\\.\\d+",
-          "description": "Compatible Lokus version range"
+          "description": "Compatible NoteMakingApp version range"
         },
         "node": {
           "type": "string",
@@ -296,7 +296,7 @@
         }
       },
       "additionalProperties": false,
-      "description": "Plugin contributions to Lokus functionality"
+      "description": "Plugin contributions to NoteMakingApp functionality"
     },
     "capabilities": {
       "type": "object",

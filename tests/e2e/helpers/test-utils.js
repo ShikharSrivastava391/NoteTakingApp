@@ -30,7 +30,7 @@ export async function injectTauriMock(page) {
 export async function disableTour(page) {
   await page.addInitScript(() => {
     // Set localStorage to mark tour as seen
-    localStorage.setItem('lokus:config', JSON.stringify({ hasSeenProductTour: true }));
+    localStorage.setItem('NoteMakingApp:config', JSON.stringify({ hasSeenProductTour: true }));
   });
 }
 
@@ -77,7 +77,7 @@ export async function waitForEditorLoad(page, options = {}) {
  * Returns true if editor is available, false to skip the test.
  */
 export async function setupWorkspaceAndEditor(page, testInfo) {
-  const workspacePath = process.env.LOKUS_TEST_WORKSPACE || '/tmp/lokus-e2e-test';
+  const workspacePath = process.env.NoteMakingApp_TEST_WORKSPACE || '/tmp/NoteMakingApp-e2e-test';
 
   // Navigate with test mode
   await page.goto(`/?testMode=true&workspacePath=${encodeURIComponent(workspacePath)}`);

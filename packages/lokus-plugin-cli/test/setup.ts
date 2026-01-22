@@ -13,4 +13,4 @@ global.console = {
 
 // Set test environment
 process.env.NODE_ENV = 'test';
-process.env.LOKUS_DEBUG = 'false';
+process.env.NoteMakingApp_DEBUG = 'false';

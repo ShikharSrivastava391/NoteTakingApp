@@ -2,7 +2,7 @@
 
 ## Overview
 
-This guide covers how to develop, extend, and contribute to the Lokus MCP (Model Context Protocol) server. Whether you're adding new features, creating plugins, or contributing to the core system, this document will help you get started.
+This guide covers how to develop, extend, and contribute to the NoteMakingApp MCP (Model Context Protocol) server. Whether you're adding new features, creating plugins, or contributing to the core system, this document will help you get started.
 
 ## Table of Contents
 
@@ -29,8 +29,8 @@ This guide covers how to develop, extend, and contribute to the Lokus MCP (Model
 
 ```bash
 # Clone the repository
-git clone https://github.com/lokus-ai/lokus.git
-cd lokus
+git clone https://github.com/NoteMakingApp-ai/NoteMakingApp.git
+cd NoteMakingApp
 
 # Install dependencies
 npm install
@@ -66,7 +66,7 @@ Create a `.env` file with development settings:
 NODE_ENV=development
 MCP_SERVER_PORT=3001
 MCP_SERVER_HOST=localhost
-DEBUG=lokus:mcp:*
+DEBUG=NoteMakingApp:mcp:*
 
 # Security Settings
 MCP_ENABLE_CORS=true
@@ -77,7 +77,7 @@ PLUGIN_DEV_MODE=true
 PLUGIN_HOT_RELOAD=true
 
 # Testing
-TEST_WORKSPACE_PATH=/tmp/lokus-test-workspace
+TEST_WORKSPACE_PATH=/tmp/NoteMakingApp-test-workspace
 TEST_API_KEY=dev-test-key-12345
 ```
 
@@ -105,7 +105,7 @@ npm run mcp:dev
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    Lokus Application                         │
+│                    NoteMakingApp Application                         │
 ├─────────────────────────────────────────────────────────────┤
 │  ┌─────────────┐  ┌─────────────┐  ┌─────────────────────┐  │
 │  │   Editor    │  │   Plugin    │  │    MCP Server       │  │
@@ -208,7 +208,7 @@ export class MCPServerHost extends EventEmitter {
 
 ### Plugin Integration
 
-MCP plugins follow the standard Lokus plugin architecture:
+MCP plugins follow the standard NoteMakingApp plugin architecture:
 
 ```javascript
 // Example MCP Plugin Structure
@@ -1071,7 +1071,7 @@ test(mcp): add integration tests for tool execution
 
 1. **Fork and Branch**
    ```bash
-   git fork https://github.com/lokus-ai/lokus.git
+   git fork https://github.com/NoteMakingApp-ai/NoteMakingApp.git
    git checkout -b feature/my-new-feature
    ```
 
@@ -1141,18 +1141,18 @@ When reporting bugs:
 
 ### Documentation
 - [MCP Specification](https://spec.modelcontextprotocol.org/)
-- [Lokus Plugin API](../plugins/README.md)
+- [NoteMakingApp Plugin API](../plugins/README.md)
 - [Testing Guide](./testing.md)
 
 ### Tools
 - [MCP Inspector](https://github.com/modelcontextprotocol/inspector)
 - [MCP Client Library](https://npmjs.com/package/@modelcontextprotocol/client)
-- [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=lokus.mcp-dev)
+- [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=NoteMakingApp.mcp-dev)
 
 ### Community
-- [Discord Server](https://discord.gg/lokus)
-- [GitHub Discussions](https://github.com/lokus-ai/lokus/discussions)
-- [Developer Forum](https://forum.lokus.ai/c/development)
+- [Discord Server](https://discord.gg/NoteMakingApp)
+- [GitHub Discussions](https://github.com/NoteMakingApp-ai/NoteMakingApp/discussions)
+- [Developer Forum](https://forum.NoteMakingApp.ai/c/development)
 
 ---
 

@@ -51,7 +51,7 @@ impl SecureStorage {
             ))
         })?;
 
-        let base_path = home_dir.join(".lokus").join("secure");
+        let base_path = home_dir.join(".NoteMakingApp").join("secure");
 
         // Create secure directory with restrictive permissions
         if !base_path.exists() {

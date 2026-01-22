@@ -1,6 +1,6 @@
 # Advanced Graph Performance Optimizations
 
-This document describes the advanced performance optimization system implemented for the Lokus graph view, designed to handle massive graphs with 10,000+ nodes smoothly.
+This document describes the advanced performance optimization system implemented for the NoteMakingApp graph view, designed to handle massive graphs with 10,000+ nodes smoothly.
 
 ## 🚀 Performance Features
 

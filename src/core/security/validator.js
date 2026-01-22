@@ -123,7 +123,7 @@ export function isValidFileExtension(extension, allowedExtensions = []) {
 
   const normalizedExt = extension.toLowerCase().replace(/^\./, '');
   
-  // Default allowed extensions for Lokus
+  // Default allowed extensions for NoteMakingApp
   const defaultAllowed = ['md', 'txt', 'json', 'canvas', 'html', 'css', 'js', 'jsx'];
   const allowed = allowedExtensions.length > 0 ? allowedExtensions : defaultAllowed;
   

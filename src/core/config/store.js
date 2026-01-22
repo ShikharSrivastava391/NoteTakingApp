@@ -25,9 +25,9 @@ async function initTauriModules() {
   }
 }
 
-const APP_DIR = "Lokus";
+const APP_DIR = "NoteMakingApp";
 const GLOBAL_CONFIG = "config.json";
-const BROWSER_KEY = "lokus:config";
+const BROWSER_KEY = "NoteMakingApp:config";
 
 async function ensureDir(p) {
   await initTauriModules();

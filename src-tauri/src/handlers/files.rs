@@ -26,7 +26,7 @@ async fn read_directory_contents_with_depth(path: &Path, depth: usize) -> Result
     const MAX_DEPTH: usize = 10;
 
     // Directories and files to exclude from file tree
-    const EXCLUDED_NAMES: &[&str] = &[".lokus", "node_modules", ".git", ".DS_Store"];
+    const EXCLUDED_NAMES: &[&str] = &[".NoteMakingApp", "node_modules", ".git", ".DS_Store"];
 
     if depth > MAX_DEPTH {
         return Ok(vec![]);
@@ -176,7 +176,7 @@ pub fn save_file_version_manual(path: String, content: String) -> Result<(), Str
 fn save_file_version(file_path: &str, content: &str) -> Result<(), String> {
     let path = Path::new(file_path);
 
-    // Find workspace root by looking for .lokus directory
+    // Find workspace root by looking for .NoteMakingApp directory
     let workspace_root = find_workspace_root(path)?;
 
     // Get relative path from workspace root
@@ -195,7 +195,7 @@ fn save_file_version(file_path: &str, content: &str) -> Result<(), String> {
     ).map(|_| ())
 }
 
-// Helper function to find workspace root containing .lokus directory
+// Helper function to find workspace root containing .NoteMakingApp directory
 fn find_workspace_root(start_path: &Path) -> Result<PathBuf, String> {
     let mut current = start_path;
 
@@ -204,22 +204,22 @@ fn find_workspace_root(start_path: &Path) -> Result<PathBuf, String> {
         current = current.parent().ok_or("Cannot find parent directory")?;
     }
 
-    // Traverse up the directory tree looking for .lokus
+    // Traverse up the directory tree looking for .NoteMakingApp
     while let Some(parent) = current.parent() {
-        let lokus_dir = current.join(".lokus");
-        if lokus_dir.exists() && lokus_dir.is_dir() {
+        let NoteMakingApp_dir = current.join(".NoteMakingApp");
+        if NoteMakingApp_dir.exists() && NoteMakingApp_dir.is_dir() {
             return Ok(current.to_path_buf());
         }
         current = parent;
     }
 
     // Check the root level
-    let lokus_dir = current.join(".lokus");
-    if lokus_dir.exists() && lokus_dir.is_dir() {
+    let NoteMakingApp_dir = current.join(".NoteMakingApp");
+    if NoteMakingApp_dir.exists() && NoteMakingApp_dir.is_dir() {
         return Ok(current.to_path_buf());
     }
 
-    Err("Workspace root not found (no .lokus directory)".to_string())
+    Err("Workspace root not found (no .NoteMakingApp directory)".to_string())
 }
 
 #[tauri::command]

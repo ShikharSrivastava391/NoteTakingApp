@@ -4,7 +4,7 @@
 
 import { describe, test, expect, beforeEach, afterEach, vi } from 'vitest';
 import CommandRegistry, { commandRegistry } from '../../../src/plugins/registry/CommandRegistry.js';
-import { CommandsAPI } from '../../../src/plugins/api/LokusPluginAPI.js';
+import { CommandsAPI } from '../../../src/plugins/api/NoteMakingAppPluginAPI.js';
 
 describe('CommandRegistry', () => {
   let registry;

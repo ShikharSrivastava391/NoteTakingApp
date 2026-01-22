@@ -14,7 +14,7 @@ export class FileToolsPlugin {
     this.pluginId = 'file-tools';
     this.name = 'File Tools Plugin';
     this.version = '1.0.0';
-    this.description = 'Provides file operation tools for Lokus workspace management';
+    this.description = 'Provides file operation tools for NoteMakingApp workspace management';
     this.mcpIntegration = null;
     this.registered = false;
     this.logger = console;

@@ -75,23 +75,23 @@ class DevServer {
           const ws = new WebSocket('ws://${this.host}:${this.port}');
           
           ws.onopen = function() {
-            console.log('[Lokus Plugin Dev] Connected to dev server');
+            console.log('[NoteMakingApp Plugin Dev] Connected to dev server');
           };
           
           ws.onmessage = function(event) {
             const data = JSON.parse(event.data);
-            console.log('[Lokus Plugin Dev]', data.type, data.message);
+            console.log('[NoteMakingApp Plugin Dev]', data.type, data.message);
             
             if (data.type === 'reload') {
-              console.log('[Lokus Plugin Dev] Reloading plugin...');
-              window.postMessage({ type: 'lokus-plugin-reload' }, '*');
+              console.log('[NoteMakingApp Plugin Dev] Reloading plugin...');
+              window.postMessage({ type: 'NoteMakingApp-plugin-reload' }, '*');
             } else if (data.type === 'error') {
-              console.error('[Lokus Plugin Dev] Build error:', data.message);
+              console.error('[NoteMakingApp Plugin Dev] Build error:', data.message);
             }
           };
           
           ws.onclose = function() {
-            console.log('[Lokus Plugin Dev] Disconnected from dev server');
+            console.log('[NoteMakingApp Plugin Dev] Disconnected from dev server');
             // Try to reconnect after 3 seconds
             setTimeout(() => {
               window.location.reload();
@@ -99,7 +99,7 @@ class DevServer {
           };
           
           ws.onerror = function(error) {
-            console.error('[Lokus Plugin Dev] WebSocket error:', error);
+            console.error('[NoteMakingApp Plugin Dev] WebSocket error:', error);
           };
         })();
       `);
@@ -151,7 +151,7 @@ class DevServer {
       
       ws.send(JSON.stringify({
         type: 'connected',
-        message: 'Connected to Lokus Plugin Dev Server'
+        message: 'Connected to NoteMakingApp Plugin Dev Server'
       }));
 
       ws.on('close', () => {

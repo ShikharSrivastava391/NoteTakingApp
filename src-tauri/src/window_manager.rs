@@ -87,7 +87,7 @@ pub fn open_workspace_window(app: AppHandle, workspace_path: String) -> Result<(
   // Build window with platform-specific titlebar style to match main window
   #[cfg(target_os = "macos")]
   let win = WebviewWindowBuilder::new(&app, &label, url)
-    .title(format!("Lokus — {}", workspace_name))
+    .title(format!("NoteMakingApp — {}", workspace_name))
     .inner_size(1200.0, 800.0)
     .title_bar_style(TitleBarStyle::Overlay)
     .build()
@@ -95,7 +95,7 @@ pub fn open_workspace_window(app: AppHandle, workspace_path: String) -> Result<(
 
   #[cfg(not(target_os = "macos"))]
   let win = WebviewWindowBuilder::new(&app, &label, url)
-    .title(format!("Lokus — {}", workspace_name))
+    .title(format!("NoteMakingApp — {}", workspace_name))
     .inner_size(1200.0, 800.0)
     .decorations(true)
     .build()
@@ -169,7 +169,7 @@ pub fn open_launcher_window(app: AppHandle) -> Result<(), String> {
   // Build window with platform-specific titlebar style to match main window
   #[cfg(target_os = "macos")]
   let builder = WebviewWindowBuilder::new(&app, &label, url)
-    .title("Lokus")
+    .title("NoteMakingApp")
     .inner_size(900.0, 700.0)
     .min_inner_size(600.0, 500.0)
     .center()
@@ -177,7 +177,7 @@ pub fn open_launcher_window(app: AppHandle) -> Result<(), String> {
 
   #[cfg(not(target_os = "macos"))]
   let builder = WebviewWindowBuilder::new(&app, &label, url)
-    .title("Lokus")
+    .title("NoteMakingApp")
     .inner_size(900.0, 700.0)
     .min_inner_size(600.0, 500.0)
     .center()

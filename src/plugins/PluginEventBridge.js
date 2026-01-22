@@ -26,7 +26,7 @@ class PluginEventBridge extends EventEmitter {
   /**
    * Initialize with plugin API reference
    * Call this after plugin system is ready
-   * @param {LokusPluginAPI} pluginAPI - The main plugin API instance
+   * @param {NoteMakingAppPluginAPI} pluginAPI - The main plugin API instance
    */
   initialize(pluginAPI) {
     if (this.initialized) {

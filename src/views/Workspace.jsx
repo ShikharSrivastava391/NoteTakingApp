@@ -9,7 +9,7 @@ import { DndContext, DragOverlay, useDraggable, useDroppable, useSensor, useSens
 import { DraggableTab } from "./DraggableTab";
 import { Menu, FilePlus2, FolderPlus, Search, LayoutGrid, FolderMinus, Puzzle, FolderOpen, FilePlus, Layers, Package, Network, /* Mail, */ Database, Trello, FileText, FolderTree, Grid2X2, PanelRightOpen, PanelRightClose, Plus, Calendar, FoldVertical, SquareSplitHorizontal, FilePlus as FilePlusCorner, SquareKanban, RefreshCw, Terminal, Trash2, X, Copy, Scissors, Check } from "lucide-react";
 import { ColoredFileIcon } from "../components/FileIcon.jsx";
-import LokusLogo from "../components/LokusLogo.jsx";
+import NoteMakingAppLogo from "../components/NoteMakingAppLogo.jsx";
 import { ProfessionalGraphView } from "./ProfessionalGraphView.jsx";
 import Editor from "../editor";
 import ResponsiveStatusBar from "../components/StatusBar/ResponsiveStatusBar.jsx";
@@ -107,26 +107,26 @@ const EditorModeSwitcher = () => {
     };
 
     // Listen for custom event
-    window.addEventListener('lokusEditorModeChange', handleModeChange);
+    window.addEventListener('NoteMakingAppEditorModeChange', handleModeChange);
 
     // Get initial mode
-    if (window.__LOKUS_EDITOR_MODE__) {
-      setEditorMode(window.__LOKUS_EDITOR_MODE__);
+    if (window.__NoteMakingApp_EDITOR_MODE__) {
+      setEditorMode(window.__NoteMakingApp_EDITOR_MODE__);
     }
 
     return () => {
-      window.removeEventListener('lokusEditorModeChange', handleModeChange);
+      window.removeEventListener('NoteMakingAppEditorModeChange', handleModeChange);
     };
   }, []);
 
   const handleModeChange = (mode) => {
-    if (window.__LOKUS_SET_EDITOR_MODE__) {
-      window.__LOKUS_SET_EDITOR_MODE__(mode);
+    if (window.__NoteMakingApp_SET_EDITOR_MODE__) {
+      window.__NoteMakingApp_SET_EDITOR_MODE__(mode);
     }
     setEditorMode(mode);
 
     // Dispatch event so other components can listen
-    window.dispatchEvent(new CustomEvent('lokusEditorModeChange', { detail: mode }));
+    window.dispatchEvent(new CustomEvent('NoteMakingAppEditorModeChange', { detail: mode }));
   };
 
   return (
@@ -1945,7 +1945,7 @@ function WorkspaceWithScope({ path }) {
     try { isTauri = !!(window.__TAURI_INTERNALS__ || window.__TAURI_METADATA__); } catch { }
 
     if (isTauri) {
-      const sub = listen('lokus:markdown-config-changed', async () => {
+      const sub = listen('NoteMakingApp:markdown-config-changed', async () => {
         try {
           const markdownSyntaxConfig = (await import('../core/markdown/syntax-config.js')).default;
           await markdownSyntaxConfig.init();
@@ -1978,11 +1978,11 @@ function WorkspaceWithScope({ path }) {
       }).catch(err => {
       });
 
-      try { window.__LOKUS_WORKSPACE_PATH__ = path; } catch { }
+      try { window.__NoteMakingApp_WORKSPACE_PATH__ = path; } catch { }
       invoke("read_workspace_files", { workspacePath: path })
         .then(files => {
           const filterIgnored = (entries) => {
-            const ignoredNames = ['.lokus', '.DS_Store'];
+            const ignoredNames = ['.NoteMakingApp', '.DS_Store'];
             return entries
               .filter(entry => !ignoredNames.includes(entry.name))
               .map(entry => {
@@ -2003,7 +2003,7 @@ function WorkspaceWithScope({ path }) {
             }
           };
           walk(tree);
-          try { window.__LOKUS_FILE_INDEX__ = flat; } catch { }
+          try { window.__NoteMakingApp_FILE_INDEX__ = flat; } catch { }
 
           // Initialize reference manager for tracking file links
           referenceManager.init(path);
@@ -2025,7 +2025,7 @@ function WorkspaceWithScope({ path }) {
   // Fetch content for active file
   useEffect(() => {
     if (activeFile) {
-      try { window.__LOKUS_ACTIVE_FILE__ = activeFile; } catch { }
+      try { window.__NoteMakingApp_ACTIVE_FILE__ = activeFile; } catch { }
 
       // Skip loading content for special views and binary files
       if (
@@ -2120,17 +2120,17 @@ function WorkspaceWithScope({ path }) {
 
     let isTauri = false; try { isTauri = !!(window.__TAURI_INTERNALS__ || window.__TAURI_METADATA__); } catch { }
     if (isTauri) {
-      const un1 = listen('lokus:open-file', (e) => openPath(String(e.payload || ''), true));
-      const un2 = listen('lokus:open-file-new-tab', (e) => openPath(String(e.payload || ''), false));
+      const un1 = listen('NoteMakingApp:open-file', (e) => openPath(String(e.payload || ''), true));
+      const un2 = listen('NoteMakingApp:open-file-new-tab', (e) => openPath(String(e.payload || ''), false));
       return () => { un1.then(u => u()); un2.then(u => u()); };
     } else {
       const onDom1 = (e) => openPath(String(e.detail || ''), true);
       const onDom2 = (e) => openPath(String(e.detail || ''), false);
-      window.addEventListener('lokus:open-file', onDom1);
-      window.addEventListener('lokus:open-file-new-tab', onDom2);
+      window.addEventListener('NoteMakingApp:open-file', onDom1);
+      window.addEventListener('NoteMakingApp:open-file-new-tab', onDom2);
       return () => {
-        window.removeEventListener('lokus:open-file', onDom1);
-        window.removeEventListener('lokus:open-file-new-tab', onDom2);
+        window.removeEventListener('NoteMakingApp:open-file', onDom1);
+        window.removeEventListener('NoteMakingApp:open-file-new-tab', onDom2);
       };
     }
   }, []);
@@ -2163,8 +2163,8 @@ function WorkspaceWithScope({ path }) {
     };
 
     // Listen for wiki link creation events
-    window.addEventListener('lokus:wiki-link-created', handleWikiLinkCreated);
-    document.addEventListener('lokus:wiki-link-created', handleWikiLinkCreated);
+    window.addEventListener('NoteMakingApp:wiki-link-created', handleWikiLinkCreated);
+    document.addEventListener('NoteMakingApp:wiki-link-created', handleWikiLinkCreated);
 
     // Listen for block scroll requests (from wiki link clicks)
     const handleScrollToBlock = (e) => {
@@ -2254,12 +2254,12 @@ function WorkspaceWithScope({ path }) {
       attemptScroll(600, 3)
     }
 
-    window.addEventListener('lokus:scroll-to-block', handleScrollToBlock)
+    window.addEventListener('NoteMakingApp:scroll-to-block', handleScrollToBlock)
 
     return () => {
-      window.removeEventListener('lokus:wiki-link-created', handleWikiLinkCreated);
-      document.removeEventListener('lokus:wiki-link-created', handleWikiLinkCreated);
-      window.removeEventListener('lokus:scroll-to-block', handleScrollToBlock)
+      window.removeEventListener('NoteMakingApp:wiki-link-created', handleWikiLinkCreated);
+      document.removeEventListener('NoteMakingApp:wiki-link-created', handleWikiLinkCreated);
+      window.removeEventListener('NoteMakingApp:scroll-to-block', handleScrollToBlock)
     };
   }, [activeFile]);
 
@@ -2295,7 +2295,7 @@ function WorkspaceWithScope({ path }) {
 
       // Resolve path if it's not absolute (just a canvas name)
       if (canvasPath && !canvasPath.startsWith('/') && !canvasPath.includes('/')) {
-        const fileIndex = globalThis.__LOKUS_FILE_INDEX__ || [];
+        const fileIndex = globalThis.__NoteMakingApp_FILE_INDEX__ || [];
         const canvasFileName = canvasPath.endsWith('.canvas') ? canvasPath : `${canvasPath}.canvas`;
 
         const matchedFile = fileIndex.find(file => {
@@ -2323,12 +2323,12 @@ function WorkspaceWithScope({ path }) {
 
     window.addEventListener('canvas-link-hover', handleCanvasLinkHover);
     window.addEventListener('canvas-link-hover-end', handleCanvasLinkHoverEnd);
-    window.addEventListener('lokus:open-canvas', handleOpenCanvas);
+    window.addEventListener('NoteMakingApp:open-canvas', handleOpenCanvas);
 
     return () => {
       window.removeEventListener('canvas-link-hover', handleCanvasLinkHover);
       window.removeEventListener('canvas-link-hover-end', handleCanvasLinkHoverEnd);
-      window.removeEventListener('lokus:open-canvas', handleOpenCanvas);
+      window.removeEventListener('NoteMakingApp:open-canvas', handleOpenCanvas);
     };
   }, []);
 
@@ -2368,8 +2368,8 @@ function WorkspaceWithScope({ path }) {
     try { isTauri = !!(window.__TAURI_INTERNALS__ || window.__TAURI_METADATA__); } catch { }
 
     if (isTauri) {
-      const nextTabSub = listen('lokus:next-tab', handleNextTab);
-      const prevTabSub = listen('lokus:prev-tab', handlePrevTab);
+      const nextTabSub = listen('NoteMakingApp:next-tab', handleNextTab);
+      const prevTabSub = listen('NoteMakingApp:prev-tab', handlePrevTab);
       return () => {
         nextTabSub.then(u => u());
         prevTabSub.then(u => u());
@@ -2378,12 +2378,12 @@ function WorkspaceWithScope({ path }) {
       const onNextTab = () => handleNextTab();
       const onPrevTab = () => handlePrevTab();
 
-      window.addEventListener('lokus:next-tab', onNextTab);
-      window.addEventListener('lokus:prev-tab', onPrevTab);
+      window.addEventListener('NoteMakingApp:next-tab', onNextTab);
+      window.addEventListener('NoteMakingApp:prev-tab', onPrevTab);
 
       return () => {
-        window.removeEventListener('lokus:next-tab', onNextTab);
-        window.removeEventListener('lokus:prev-tab', onPrevTab);
+        window.removeEventListener('NoteMakingApp:next-tab', onNextTab);
+        window.removeEventListener('NoteMakingApp:prev-tab', onPrevTab);
       };
     }
   }, [openTabs, activeFile]);
@@ -3625,7 +3625,7 @@ function WorkspaceWithScope({ path }) {
       const data = await graphProcessorRef.current.buildGraphFromWorkspace({
         includeNonMarkdown: false,
         maxDepth: 10,
-        excludePatterns: ['.git', 'node_modules', '.lokus', '.DS_Store']
+        excludePatterns: ['.git', 'node_modules', '.NoteMakingApp', '.DS_Store']
       });
 
       setGraphData(data);
@@ -3968,50 +3968,50 @@ function WorkspaceWithScope({ path }) {
   useEffect(() => {
     let isTauri = false; try { isTauri = !!(window.__TAURI_INTERNALS__ || window.__TAURI_METADATA__); } catch { }
     const addDom = (name, fn) => { const h = (event) => fn(event); window.addEventListener(name, h); return () => window.removeEventListener(name, h); };
-    const unlistenSave = isTauri ? listen("lokus:save-file", handleSave) : Promise.resolve(addDom('lokus:save-file', handleSave));
-    const unlistenClose = isTauri ? listen("lokus:close-tab", () => {
+    const unlistenSave = isTauri ? listen("NoteMakingApp:save-file", handleSave) : Promise.resolve(addDom('NoteMakingApp:save-file', handleSave));
+    const unlistenClose = isTauri ? listen("NoteMakingApp:close-tab", () => {
       if (stateRef.current.activeFile) {
         handleTabClose(stateRef.current.activeFile);
       }
-    }) : Promise.resolve(addDom('lokus:close-tab', () => {
+    }) : Promise.resolve(addDom('NoteMakingApp:close-tab', () => {
       if (stateRef.current.activeFile) handleTabClose(stateRef.current.activeFile);
     }));
-    const unlistenNewFile = isTauri ? listen("lokus:new-file", handleCreateFile) : Promise.resolve(addDom('lokus:new-file', handleCreateFile));
-    const unlistenNewFolder = isTauri ? listen("lokus:new-folder", handleCreateFolder) : Promise.resolve(addDom('lokus:new-folder', handleCreateFolder));
-    const unlistenToggleSidebar = isTauri ? listen("lokus:toggle-sidebar", () => setShowLeft(v => !v)) : Promise.resolve(addDom('lokus:toggle-sidebar', () => setShowLeft(v => !v)));
-    const unlistenCommandPalette = isTauri ? listen("lokus:command-palette", () => {
+    const unlistenNewFile = isTauri ? listen("NoteMakingApp:new-file", handleCreateFile) : Promise.resolve(addDom('NoteMakingApp:new-file', handleCreateFile));
+    const unlistenNewFolder = isTauri ? listen("NoteMakingApp:new-folder", handleCreateFolder) : Promise.resolve(addDom('NoteMakingApp:new-folder', handleCreateFolder));
+    const unlistenToggleSidebar = isTauri ? listen("NoteMakingApp:toggle-sidebar", () => setShowLeft(v => !v)) : Promise.resolve(addDom('NoteMakingApp:toggle-sidebar', () => setShowLeft(v => !v)));
+    const unlistenCommandPalette = isTauri ? listen("NoteMakingApp:command-palette", () => {
       // Don't open command palette when graph view is active
       const isGraphActive = stateRef.current.activeFile === '__graph__' ||
         stateRef.current.activeFile?.startsWith('__graph__');
       if (!isGraphActive) {
         setShowCommandPalette(true);
       }
-    }) : Promise.resolve(addDom('lokus:command-palette', () => {
+    }) : Promise.resolve(addDom('NoteMakingApp:command-palette', () => {
       const isGraphActive = stateRef.current.activeFile === '__graph__' ||
         stateRef.current.activeFile?.startsWith('__graph__');
       if (!isGraphActive) {
         setShowCommandPalette(true);
       }
     }));
-    const unlistenInFileSearch = isTauri ? listen("lokus:in-file-search", () => setShowInFileSearch(true)) : Promise.resolve(addDom('lokus:in-file-search', () => setShowInFileSearch(true)));
-    const unlistenGlobalSearch = isTauri ? listen("lokus:global-search", () => setShowGlobalSearch(true)) : Promise.resolve(addDom('lokus:global-search', () => setShowGlobalSearch(true)));
-    const unlistenGraphView = isTauri ? listen("lokus:graph-view", handleOpenGraphView) : Promise.resolve(addDom('lokus:graph-view', handleOpenGraphView));
-    const unlistenShortcutHelp = isTauri ? listen("lokus:shortcut-help", () => {
+    const unlistenInFileSearch = isTauri ? listen("NoteMakingApp:in-file-search", () => setShowInFileSearch(true)) : Promise.resolve(addDom('NoteMakingApp:in-file-search', () => setShowInFileSearch(true)));
+    const unlistenGlobalSearch = isTauri ? listen("NoteMakingApp:global-search", () => setShowGlobalSearch(true)) : Promise.resolve(addDom('NoteMakingApp:global-search', () => setShowGlobalSearch(true)));
+    const unlistenGraphView = isTauri ? listen("NoteMakingApp:graph-view", handleOpenGraphView) : Promise.resolve(addDom('NoteMakingApp:graph-view', handleOpenGraphView));
+    const unlistenShortcutHelp = isTauri ? listen("NoteMakingApp:shortcut-help", () => {
       setShowShortcutHelp(true);
-    }) : Promise.resolve(addDom('lokus:shortcut-help', () => {
+    }) : Promise.resolve(addDom('NoteMakingApp:shortcut-help', () => {
       setShowShortcutHelp(true);
     }));
-    const unlistenRefreshFiles = isTauri ? listen("lokus:refresh-files", handleRefreshFiles) : Promise.resolve(addDom('lokus:refresh-files', handleRefreshFiles));
-    const unlistenNewCanvas = isTauri ? listen("lokus:new-canvas", handleCreateCanvas) : Promise.resolve(addDom('lokus:new-canvas', handleCreateCanvas));
-    const unlistenDailyNote = isTauri ? listen("lokus:daily-note", handleOpenDailyNote) : Promise.resolve(addDom('lokus:daily-note', handleOpenDailyNote));
+    const unlistenRefreshFiles = isTauri ? listen("NoteMakingApp:refresh-files", handleRefreshFiles) : Promise.resolve(addDom('NoteMakingApp:refresh-files', handleRefreshFiles));
+    const unlistenNewCanvas = isTauri ? listen("NoteMakingApp:new-canvas", handleCreateCanvas) : Promise.resolve(addDom('NoteMakingApp:new-canvas', handleCreateCanvas));
+    const unlistenDailyNote = isTauri ? listen("NoteMakingApp:daily-note", handleOpenDailyNote) : Promise.resolve(addDom('NoteMakingApp:daily-note', handleOpenDailyNote));
     // unlistenOpenKanban removed - no longer using FullKanban
-    const unlistenReopenClosedTab = isTauri ? listen("lokus:reopen-closed-tab", handleReopenClosedTab) : Promise.resolve(addDom('lokus:reopen-closed-tab', handleReopenClosedTab));
+    const unlistenReopenClosedTab = isTauri ? listen("NoteMakingApp:reopen-closed-tab", handleReopenClosedTab) : Promise.resolve(addDom('NoteMakingApp:reopen-closed-tab', handleReopenClosedTab));
 
     // Split editor shortcuts
-    const unlistenToggleSplitView = isTauri ? listen("lokus:toggle-split-view", handleToggleSplitView) : Promise.resolve(addDom('lokus:toggle-split-view', handleToggleSplitView));
-    const unlistenToggleSplitDirection = isTauri ? listen("lokus:toggle-split-direction", toggleSplitDirection) : Promise.resolve(addDom('lokus:toggle-split-direction', toggleSplitDirection));
-    const unlistenResetPaneSize = isTauri ? listen("lokus:reset-pane-size", resetPaneSize) : Promise.resolve(addDom('lokus:reset-pane-size', resetPaneSize));
-    const unlistenToggleSyncScrolling = isTauri ? listen("lokus:toggle-sync-scrolling", () => setSyncScrolling(prev => !prev)) : Promise.resolve(addDom('lokus:toggle-sync-scrolling', () => setSyncScrolling(prev => !prev)));
+    const unlistenToggleSplitView = isTauri ? listen("NoteMakingApp:toggle-split-view", handleToggleSplitView) : Promise.resolve(addDom('NoteMakingApp:toggle-split-view', handleToggleSplitView));
+    const unlistenToggleSplitDirection = isTauri ? listen("NoteMakingApp:toggle-split-direction", toggleSplitDirection) : Promise.resolve(addDom('NoteMakingApp:toggle-split-direction', toggleSplitDirection));
+    const unlistenResetPaneSize = isTauri ? listen("NoteMakingApp:reset-pane-size", resetPaneSize) : Promise.resolve(addDom('NoteMakingApp:reset-pane-size', resetPaneSize));
+    const unlistenToggleSyncScrolling = isTauri ? listen("NoteMakingApp:toggle-sync-scrolling", () => setSyncScrolling(prev => !prev)) : Promise.resolve(addDom('NoteMakingApp:toggle-sync-scrolling', () => setSyncScrolling(prev => !prev)));
 
     // Template picker event listener
     const handleTemplatePicker = (event) => {
@@ -4200,113 +4200,113 @@ function WorkspaceWithScope({ path }) {
     };
 
     // File menu events
-    const unlistenExportPdf = isTauri ? listen("lokus:export-pdf", handleExportPdf) : Promise.resolve(addDom('lokus:export-pdf', handleExportPdf));
+    const unlistenExportPdf = isTauri ? listen("NoteMakingApp:export-pdf", handleExportPdf) : Promise.resolve(addDom('NoteMakingApp:export-pdf', handleExportPdf));
 
-    const unlistenPrint = isTauri ? listen("lokus:print", () => {
+    const unlistenPrint = isTauri ? listen("NoteMakingApp:print", () => {
       window.print();
-    }) : Promise.resolve(addDom('lokus:print', () => { window.print(); }));
+    }) : Promise.resolve(addDom('NoteMakingApp:print', () => { window.print(); }));
 
     // Additional missing file menu events
-    const unlistenShowAbout = isTauri ? listen("lokus:show-about", () => {
+    const unlistenShowAbout = isTauri ? listen("NoteMakingApp:show-about", () => {
       setShowAboutDialog(true);
-    }) : Promise.resolve(addDom('lokus:show-about', () => { setShowAboutDialog(true); }));
+    }) : Promise.resolve(addDom('NoteMakingApp:show-about', () => { setShowAboutDialog(true); }));
 
-    const unlistenSaveAs = isTauri ? listen("lokus:save-as", handleSaveAs) : Promise.resolve(addDom('lokus:save-as', handleSaveAs));
+    const unlistenSaveAs = isTauri ? listen("NoteMakingApp:save-as", handleSaveAs) : Promise.resolve(addDom('NoteMakingApp:save-as', handleSaveAs));
 
-    const unlistenExportHtml = isTauri ? listen("lokus:export-html", handleExportHtml) : Promise.resolve(addDom('lokus:export-html', handleExportHtml));
+    const unlistenExportHtml = isTauri ? listen("NoteMakingApp:export-html", handleExportHtml) : Promise.resolve(addDom('NoteMakingApp:export-html', handleExportHtml));
 
-    const unlistenCloseWindow = isTauri ? listen("lokus:close-window", () => handleWindowAction('close')) : Promise.resolve(addDom('lokus:close-window', () => handleWindowAction('close')));
+    const unlistenCloseWindow = isTauri ? listen("NoteMakingApp:close-window", () => handleWindowAction('close')) : Promise.resolve(addDom('NoteMakingApp:close-window', () => handleWindowAction('close')));
 
-    const unlistenOpenWorkspace = isTauri ? listen("lokus:open-workspace", (event) => {
+    const unlistenOpenWorkspace = isTauri ? listen("NoteMakingApp:open-workspace", (event) => {
       handleOpenWorkspace();
-    }) : Promise.resolve(addDom('lokus:open-workspace', handleOpenWorkspace));
+    }) : Promise.resolve(addDom('NoteMakingApp:open-workspace', handleOpenWorkspace));
 
     // Edit menu events
-    const unlistenUndo = isTauri ? listen("lokus:edit-undo", () => handleEditorEdit('undo')) : Promise.resolve(addDom('lokus:edit-undo', () => handleEditorEdit('undo')));
-    const unlistenRedo = isTauri ? listen("lokus:edit-redo", () => handleEditorEdit('redo')) : Promise.resolve(addDom('lokus:edit-redo', () => handleEditorEdit('redo')));
-    const unlistenCut = isTauri ? listen("lokus:edit-cut", () => handleEditorEdit('cut')) : Promise.resolve(addDom('lokus:edit-cut', () => handleEditorEdit('cut')));
-    const unlistenCopy = isTauri ? listen("lokus:edit-copy", () => handleEditorEdit('copy')) : Promise.resolve(addDom('lokus:edit-copy', () => handleEditorEdit('copy')));
-    const unlistenPaste = isTauri ? listen("lokus:edit-paste", () => handleEditorEdit('paste')) : Promise.resolve(addDom('lokus:edit-paste', () => handleEditorEdit('paste')));
-    const unlistenSelectAll = isTauri ? listen("lokus:edit-select-all", () => handleEditorEdit('select-all')) : Promise.resolve(addDom('lokus:edit-select-all', () => handleEditorEdit('select-all')));
-    const unlistenFindReplace = isTauri ? listen("lokus:find-replace", () => setShowInFileSearch(true)) : Promise.resolve(addDom('lokus:find-replace', () => setShowInFileSearch(true)));
+    const unlistenUndo = isTauri ? listen("NoteMakingApp:edit-undo", () => handleEditorEdit('undo')) : Promise.resolve(addDom('NoteMakingApp:edit-undo', () => handleEditorEdit('undo')));
+    const unlistenRedo = isTauri ? listen("NoteMakingApp:edit-redo", () => handleEditorEdit('redo')) : Promise.resolve(addDom('NoteMakingApp:edit-redo', () => handleEditorEdit('redo')));
+    const unlistenCut = isTauri ? listen("NoteMakingApp:edit-cut", () => handleEditorEdit('cut')) : Promise.resolve(addDom('NoteMakingApp:edit-cut', () => handleEditorEdit('cut')));
+    const unlistenCopy = isTauri ? listen("NoteMakingApp:edit-copy", () => handleEditorEdit('copy')) : Promise.resolve(addDom('NoteMakingApp:edit-copy', () => handleEditorEdit('copy')));
+    const unlistenPaste = isTauri ? listen("NoteMakingApp:edit-paste", () => handleEditorEdit('paste')) : Promise.resolve(addDom('NoteMakingApp:edit-paste', () => handleEditorEdit('paste')));
+    const unlistenSelectAll = isTauri ? listen("NoteMakingApp:edit-select-all", () => handleEditorEdit('select-all')) : Promise.resolve(addDom('NoteMakingApp:edit-select-all', () => handleEditorEdit('select-all')));
+    const unlistenFindReplace = isTauri ? listen("NoteMakingApp:find-replace", () => setShowInFileSearch(true)) : Promise.resolve(addDom('NoteMakingApp:find-replace', () => setShowInFileSearch(true)));
 
     // View menu events
-    const unlistenZoomIn = isTauri ? listen("lokus:zoom-in", () => handleViewAction('zoom-in')) : Promise.resolve(addDom('lokus:zoom-in', () => handleViewAction('zoom-in')));
-    const unlistenZoomOut = isTauri ? listen("lokus:zoom-out", () => handleViewAction('zoom-out')) : Promise.resolve(addDom('lokus:zoom-out', () => handleViewAction('zoom-out')));
-    const unlistenActualSize = isTauri ? listen("lokus:actual-size", () => handleViewAction('actual-size')) : Promise.resolve(addDom('lokus:actual-size', () => handleViewAction('actual-size')));
-    const unlistenFullscreen = isTauri ? listen("lokus:toggle-fullscreen", () => handleViewAction('fullscreen')) : Promise.resolve(addDom('lokus:toggle-fullscreen', () => handleViewAction('fullscreen')));
+    const unlistenZoomIn = isTauri ? listen("NoteMakingApp:zoom-in", () => handleViewAction('zoom-in')) : Promise.resolve(addDom('NoteMakingApp:zoom-in', () => handleViewAction('zoom-in')));
+    const unlistenZoomOut = isTauri ? listen("NoteMakingApp:zoom-out", () => handleViewAction('zoom-out')) : Promise.resolve(addDom('NoteMakingApp:zoom-out', () => handleViewAction('zoom-out')));
+    const unlistenActualSize = isTauri ? listen("NoteMakingApp:actual-size", () => handleViewAction('actual-size')) : Promise.resolve(addDom('NoteMakingApp:actual-size', () => handleViewAction('actual-size')));
+    const unlistenFullscreen = isTauri ? listen("NoteMakingApp:toggle-fullscreen", () => handleViewAction('fullscreen')) : Promise.resolve(addDom('NoteMakingApp:toggle-fullscreen', () => handleViewAction('fullscreen')));
 
     // Theme switching events - COMPLETED TODO: Connected to theme manager
-    const unlistenThemeLight = isTauri ? listen("lokus:theme-light", async () => {
+    const unlistenThemeLight = isTauri ? listen("NoteMakingApp:theme-light", async () => {
       await setGlobalActiveTheme('minimal-light');
-    }) : Promise.resolve(addDom('lokus:theme-light', async () => {
+    }) : Promise.resolve(addDom('NoteMakingApp:theme-light', async () => {
       await setGlobalActiveTheme('minimal-light');
     }));
 
-    const unlistenThemeDark = isTauri ? listen("lokus:theme-dark", async () => {
+    const unlistenThemeDark = isTauri ? listen("NoteMakingApp:theme-dark", async () => {
       await setGlobalActiveTheme('dracula');
-    }) : Promise.resolve(addDom('lokus:theme-dark', async () => {
+    }) : Promise.resolve(addDom('NoteMakingApp:theme-dark', async () => {
       await setGlobalActiveTheme('dracula');
     }));
 
-    const unlistenThemeAuto = isTauri ? listen("lokus:theme-auto", async () => {
+    const unlistenThemeAuto = isTauri ? listen("NoteMakingApp:theme-auto", async () => {
       const preferredTheme = getSystemPreferredTheme();
       await setGlobalActiveTheme(preferredTheme === 'light' ? 'minimal-light' : 'dracula');
       setupSystemThemeListener();
-    }) : Promise.resolve(addDom('lokus:theme-auto', async () => {
+    }) : Promise.resolve(addDom('NoteMakingApp:theme-auto', async () => {
       const preferredTheme = getSystemPreferredTheme();
       await setGlobalActiveTheme(preferredTheme === 'light' ? 'minimal-light' : 'dracula');
       setupSystemThemeListener();
     }));
 
     // Insert menu events
-    const unlistenInsertWikiLink = isTauri ? listen("lokus:insert-wikilink", () => handleEditorInsert('wikilink')) : Promise.resolve(addDom('lokus:insert-wikilink', () => handleEditorInsert('wikilink')));
-    const unlistenInsertMathInline = isTauri ? listen("lokus:insert-math-inline", () => handleEditorInsert('math-inline')) : Promise.resolve(addDom('lokus:insert-math-inline', () => handleEditorInsert('math-inline')));
-    const unlistenInsertMathBlock = isTauri ? listen("lokus:insert-math-block", () => handleEditorInsert('math-block')) : Promise.resolve(addDom('lokus:insert-math-block', () => handleEditorInsert('math-block')));
+    const unlistenInsertWikiLink = isTauri ? listen("NoteMakingApp:insert-wikilink", () => handleEditorInsert('wikilink')) : Promise.resolve(addDom('NoteMakingApp:insert-wikilink', () => handleEditorInsert('wikilink')));
+    const unlistenInsertMathInline = isTauri ? listen("NoteMakingApp:insert-math-inline", () => handleEditorInsert('math-inline')) : Promise.resolve(addDom('NoteMakingApp:insert-math-inline', () => handleEditorInsert('math-inline')));
+    const unlistenInsertMathBlock = isTauri ? listen("NoteMakingApp:insert-math-block", () => handleEditorInsert('math-block')) : Promise.resolve(addDom('NoteMakingApp:insert-math-block', () => handleEditorInsert('math-block')));
 
     // Handle single math insertion event from menu (defaults to inline)
-    const unlistenInsertMath = isTauri ? listen("lokus:insert-math", () => handleEditorInsert('math-inline')) : Promise.resolve(addDom('lokus:insert-math', () => handleEditorInsert('math-inline')));
+    const unlistenInsertMath = isTauri ? listen("NoteMakingApp:insert-math", () => handleEditorInsert('math-inline')) : Promise.resolve(addDom('NoteMakingApp:insert-math', () => handleEditorInsert('math-inline')));
 
     // Heading insertion events
-    const unlistenInsertHeading = isTauri ? listen("lokus:insert-heading", (event) => {
+    const unlistenInsertHeading = isTauri ? listen("NoteMakingApp:insert-heading", (event) => {
       const level = event.payload || 1;
       handleEditorInsert('heading', { level });
-    }) : Promise.resolve(addDom('lokus:insert-heading', (event) => {
+    }) : Promise.resolve(addDom('NoteMakingApp:insert-heading', (event) => {
       const level = event.detail || 1;
       handleEditorInsert('heading', { level });
     }));
-    const unlistenInsertTable = isTauri ? listen("lokus:insert-table", () => handleEditorInsert('table')) : Promise.resolve(addDom('lokus:insert-table', () => handleEditorInsert('table')));
-    const unlistenInsertImage = isTauri ? listen("lokus:insert-image", () => handleEditorInsert('image')) : Promise.resolve(addDom('lokus:insert-image', () => handleEditorInsert('image')));
-    const unlistenInsertCodeBlock = isTauri ? listen("lokus:insert-code-block", () => handleEditorInsert('code-block')) : Promise.resolve(addDom('lokus:insert-code-block', () => handleEditorInsert('code-block')));
-    const unlistenInsertHorizontalRule = isTauri ? listen("lokus:insert-horizontal-rule", () => handleEditorInsert('horizontal-rule')) : Promise.resolve(addDom('lokus:insert-horizontal-rule', () => handleEditorInsert('horizontal-rule')));
-    const unlistenInsertBlockquote = isTauri ? listen("lokus:insert-blockquote", () => handleEditorInsert('blockquote')) : Promise.resolve(addDom('lokus:insert-blockquote', () => handleEditorInsert('blockquote')));
-    const unlistenInsertBulletList = isTauri ? listen("lokus:insert-bullet-list", () => handleEditorInsert('bullet-list')) : Promise.resolve(addDom('lokus:insert-bullet-list', () => handleEditorInsert('bullet-list')));
-    const unlistenInsertOrderedList = isTauri ? listen("lokus:insert-ordered-list", () => handleEditorInsert('ordered-list')) : Promise.resolve(addDom('lokus:insert-ordered-list', () => handleEditorInsert('ordered-list')));
-    const unlistenInsertTaskList = isTauri ? listen("lokus:insert-task-list", () => handleEditorInsert('task-list')) : Promise.resolve(addDom('lokus:insert-task-list', () => handleEditorInsert('task-list')));
+    const unlistenInsertTable = isTauri ? listen("NoteMakingApp:insert-table", () => handleEditorInsert('table')) : Promise.resolve(addDom('NoteMakingApp:insert-table', () => handleEditorInsert('table')));
+    const unlistenInsertImage = isTauri ? listen("NoteMakingApp:insert-image", () => handleEditorInsert('image')) : Promise.resolve(addDom('NoteMakingApp:insert-image', () => handleEditorInsert('image')));
+    const unlistenInsertCodeBlock = isTauri ? listen("NoteMakingApp:insert-code-block", () => handleEditorInsert('code-block')) : Promise.resolve(addDom('NoteMakingApp:insert-code-block', () => handleEditorInsert('code-block')));
+    const unlistenInsertHorizontalRule = isTauri ? listen("NoteMakingApp:insert-horizontal-rule", () => handleEditorInsert('horizontal-rule')) : Promise.resolve(addDom('NoteMakingApp:insert-horizontal-rule', () => handleEditorInsert('horizontal-rule')));
+    const unlistenInsertBlockquote = isTauri ? listen("NoteMakingApp:insert-blockquote", () => handleEditorInsert('blockquote')) : Promise.resolve(addDom('NoteMakingApp:insert-blockquote', () => handleEditorInsert('blockquote')));
+    const unlistenInsertBulletList = isTauri ? listen("NoteMakingApp:insert-bullet-list", () => handleEditorInsert('bullet-list')) : Promise.resolve(addDom('NoteMakingApp:insert-bullet-list', () => handleEditorInsert('bullet-list')));
+    const unlistenInsertOrderedList = isTauri ? listen("NoteMakingApp:insert-ordered-list", () => handleEditorInsert('ordered-list')) : Promise.resolve(addDom('NoteMakingApp:insert-ordered-list', () => handleEditorInsert('ordered-list')));
+    const unlistenInsertTaskList = isTauri ? listen("NoteMakingApp:insert-task-list", () => handleEditorInsert('task-list')) : Promise.resolve(addDom('NoteMakingApp:insert-task-list', () => handleEditorInsert('task-list')));
 
     // Format menu events
-    const unlistenFormatBold = isTauri ? listen("lokus:format-bold", () => handleEditorFormat('bold')) : Promise.resolve(addDom('lokus:format-bold', () => handleEditorFormat('bold')));
-    const unlistenFormatItalic = isTauri ? listen("lokus:format-italic", () => handleEditorFormat('italic')) : Promise.resolve(addDom('lokus:format-italic', () => handleEditorFormat('italic')));
-    const unlistenFormatUnderline = isTauri ? listen("lokus:format-underline", () => handleEditorFormat('underline')) : Promise.resolve(addDom('lokus:format-underline', () => handleEditorFormat('underline')));
-    const unlistenFormatStrikethrough = isTauri ? listen("lokus:format-strikethrough", () => handleEditorFormat('strikethrough')) : Promise.resolve(addDom('lokus:format-strikethrough', () => handleEditorFormat('strikethrough')));
-    const unlistenFormatCode = isTauri ? listen("lokus:format-code", () => handleEditorFormat('code')) : Promise.resolve(addDom('lokus:format-code', () => handleEditorFormat('code')));
-    const unlistenFormatHighlight = isTauri ? listen("lokus:format-highlight", () => handleEditorFormat('highlight')) : Promise.resolve(addDom('lokus:format-highlight', () => handleEditorFormat('highlight')));
-    const unlistenFormatSuperscript = isTauri ? listen("lokus:format-superscript", () => handleEditorFormat('superscript')) : Promise.resolve(addDom('lokus:format-superscript', () => handleEditorFormat('superscript')));
-    const unlistenFormatSubscript = isTauri ? listen("lokus:format-subscript", () => handleEditorFormat('subscript')) : Promise.resolve(addDom('lokus:format-subscript', () => handleEditorFormat('subscript')));
-    const unlistenFormatClear = isTauri ? listen("lokus:format-clear", () => handleEditorFormat('clear-formatting')) : Promise.resolve(addDom('lokus:format-clear', () => handleEditorFormat('clear-formatting')));
+    const unlistenFormatBold = isTauri ? listen("NoteMakingApp:format-bold", () => handleEditorFormat('bold')) : Promise.resolve(addDom('NoteMakingApp:format-bold', () => handleEditorFormat('bold')));
+    const unlistenFormatItalic = isTauri ? listen("NoteMakingApp:format-italic", () => handleEditorFormat('italic')) : Promise.resolve(addDom('NoteMakingApp:format-italic', () => handleEditorFormat('italic')));
+    const unlistenFormatUnderline = isTauri ? listen("NoteMakingApp:format-underline", () => handleEditorFormat('underline')) : Promise.resolve(addDom('NoteMakingApp:format-underline', () => handleEditorFormat('underline')));
+    const unlistenFormatStrikethrough = isTauri ? listen("NoteMakingApp:format-strikethrough", () => handleEditorFormat('strikethrough')) : Promise.resolve(addDom('NoteMakingApp:format-strikethrough', () => handleEditorFormat('strikethrough')));
+    const unlistenFormatCode = isTauri ? listen("NoteMakingApp:format-code", () => handleEditorFormat('code')) : Promise.resolve(addDom('NoteMakingApp:format-code', () => handleEditorFormat('code')));
+    const unlistenFormatHighlight = isTauri ? listen("NoteMakingApp:format-highlight", () => handleEditorFormat('highlight')) : Promise.resolve(addDom('NoteMakingApp:format-highlight', () => handleEditorFormat('highlight')));
+    const unlistenFormatSuperscript = isTauri ? listen("NoteMakingApp:format-superscript", () => handleEditorFormat('superscript')) : Promise.resolve(addDom('NoteMakingApp:format-superscript', () => handleEditorFormat('superscript')));
+    const unlistenFormatSubscript = isTauri ? listen("NoteMakingApp:format-subscript", () => handleEditorFormat('subscript')) : Promise.resolve(addDom('NoteMakingApp:format-subscript', () => handleEditorFormat('subscript')));
+    const unlistenFormatClear = isTauri ? listen("NoteMakingApp:format-clear", () => handleEditorFormat('clear-formatting')) : Promise.resolve(addDom('NoteMakingApp:format-clear', () => handleEditorFormat('clear-formatting')));
 
     // Window menu events
-    const unlistenWindowMinimize = isTauri ? listen("lokus:window-minimize", () => handleWindowAction('minimize')) : Promise.resolve(addDom('lokus:window-minimize', () => handleWindowAction('minimize')));
-    const unlistenWindowClose = isTauri ? listen("lokus:window-close", () => handleWindowAction('close')) : Promise.resolve(addDom('lokus:window-close', () => handleWindowAction('close')));
+    const unlistenWindowMinimize = isTauri ? listen("NoteMakingApp:window-minimize", () => handleWindowAction('minimize')) : Promise.resolve(addDom('NoteMakingApp:window-minimize', () => handleWindowAction('minimize')));
+    const unlistenWindowClose = isTauri ? listen("NoteMakingApp:window-close", () => handleWindowAction('close')) : Promise.resolve(addDom('NoteMakingApp:window-close', () => handleWindowAction('close')));
 
     // Additional window menu events
-    const unlistenWindowZoom = isTauri ? listen("lokus:window-zoom", () => handleWindowAction('zoom')) : Promise.resolve(addDom('lokus:window-zoom', () => handleWindowAction('zoom')));
+    const unlistenWindowZoom = isTauri ? listen("NoteMakingApp:window-zoom", () => handleWindowAction('zoom')) : Promise.resolve(addDom('NoteMakingApp:window-zoom', () => handleWindowAction('zoom')));
 
     // Help menu events
-    const unlistenHelp = isTauri ? listen("lokus:help", () => handleHelpAction('help')) : Promise.resolve(addDom('lokus:help', () => handleHelpAction('help')));
-    const unlistenKeyboardShortcuts = isTauri ? listen("lokus:keyboard-shortcuts", () => handleHelpAction('keyboard-shortcuts')) : Promise.resolve(addDom('lokus:keyboard-shortcuts', () => handleHelpAction('keyboard-shortcuts')));
-    const unlistenReleaseNotes = isTauri ? listen("lokus:release-notes", () => handleHelpAction('release-notes')) : Promise.resolve(addDom('lokus:release-notes', () => handleHelpAction('release-notes')));
-    const unlistenReportIssue = isTauri ? listen("lokus:report-issue", () => handleHelpAction('report-issue')) : Promise.resolve(addDom('lokus:report-issue', () => handleHelpAction('report-issue')));
+    const unlistenHelp = isTauri ? listen("NoteMakingApp:help", () => handleHelpAction('help')) : Promise.resolve(addDom('NoteMakingApp:help', () => handleHelpAction('help')));
+    const unlistenKeyboardShortcuts = isTauri ? listen("NoteMakingApp:keyboard-shortcuts", () => handleHelpAction('keyboard-shortcuts')) : Promise.resolve(addDom('NoteMakingApp:keyboard-shortcuts', () => handleHelpAction('keyboard-shortcuts')));
+    const unlistenReleaseNotes = isTauri ? listen("NoteMakingApp:release-notes", () => handleHelpAction('release-notes')) : Promise.resolve(addDom('NoteMakingApp:release-notes', () => handleHelpAction('release-notes')));
+    const unlistenReportIssue = isTauri ? listen("NoteMakingApp:report-issue", () => handleHelpAction('report-issue')) : Promise.resolve(addDom('NoteMakingApp:report-issue', () => handleHelpAction('report-issue')));
 
     return () => {
       unlistenSave.then(f => { if (typeof f === 'function') f(); });
@@ -4490,9 +4490,9 @@ function WorkspaceWithScope({ path }) {
       }
   };
 
-  window.addEventListener('lokus:insert-template', handleInsertTemplate);
+  window.addEventListener('NoteMakingApp:insert-template', handleInsertTemplate);
   return () => {
-    window.removeEventListener('lokus:insert-template', handleInsertTemplate);
+    window.removeEventListener('NoteMakingApp:insert-template', handleInsertTemplate);
   };
 }, []);
   return (
@@ -4636,7 +4636,7 @@ function WorkspaceWithScope({ path }) {
                 if (icon) icon.style.color = showLeft ? 'white' : 'black';
               }}
             >
-              <LokusLogo className="w-6 h-6" style={{ color: showLeft ? 'white' : 'black' }} />
+              <NoteMakingAppLogo className="w-6 h-6" style={{ color: showLeft ? 'white' : 'black' }} />
             </button>
 
             {/* Activity Bar - VS Code Style */}
@@ -5258,9 +5258,9 @@ function WorkspaceWithScope({ path }) {
                             {/* Header Section */}
                             <div className="text-center mb-10">
                               <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-app-accent/20 to-app-accent/10 border border-app-accent/20 flex items-center justify-center">
-                                <LokusLogo className="w-10 h-10 text-app-accent" />
+                                <NoteMakingAppLogo className="w-10 h-10 text-app-accent" />
                               </div>
-                              <h1 className="text-3xl font-bold text-app-text mb-2">Welcome to Lokus</h1>
+                              <h1 className="text-3xl font-bold text-app-text mb-2">Welcome to NoteMakingApp</h1>
                               <p className="text-app-muted text-lg">Your modern knowledge management platform</p>
                             </div>
 

@@ -8,8 +8,8 @@ import { logger } from '../utils/logger';
 import { ErrorHandler } from '../utils/error-handler';
 
 export const loginCommand = new Command('login')
-    .description('Login to the Lokus Plugin Registry')
-    .option('-r, --registry <url>', 'registry URL', process.env.LOKUS_REGISTRY_URL || 'https://lokusmd.com')
+    .description('Login to the NoteMakingApp Plugin Registry')
+    .option('-r, --registry <url>', 'registry URL', process.env.NoteMakingApp_REGISTRY_URL || 'https://NoteMakingAppmd.com')
     .option('-t, --token <token>', 'authentication token')
     .action(async (options) => {
         try {
@@ -20,7 +20,7 @@ export const loginCommand = new Command('login')
 
             if (!token) {
                 logger.info(`Logging in to ${chalk.cyan(registryUrl)}`);
-                logger.info('You can generate a token at https://lokusmd.com/dashboard/settings/tokens');
+                logger.info('You can generate a token at https://NoteMakingAppmd.com/dashboard/settings/tokens');
 
                 const answers = await inquirer.prompt([{
                     type: 'password',
@@ -39,7 +39,7 @@ export const loginCommand = new Command('login')
                 await axios.get(`${registryUrl}/api/v1/registry/check-auth`, {
                     headers: {
                         'Authorization': `Bearer ${token}`,
-                        'User-Agent': 'lokus-plugin-cli'
+                        'User-Agent': 'NoteMakingApp-plugin-cli'
                     },
                     timeout: 10000
                 });
@@ -57,7 +57,7 @@ export const loginCommand = new Command('login')
             }
 
             // Save token
-            const configPath = path.join(require('os').homedir(), '.lokus', 'config.json');
+            const configPath = path.join(require('os').homedir(), '.NoteMakingApp', 'config.json');
             await fs.ensureDir(path.dirname(configPath));
 
             interface Config {

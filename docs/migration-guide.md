@@ -1,6 +1,6 @@
 # Migration Guide
 
-Welcome to Lokus! This guide will help you migrate your notes from other platforms.
+Welcome to NoteMakingApp! This guide will help you migrate your notes from other platforms.
 
 ## 📝 Table of Contents
 
@@ -15,12 +15,12 @@ Welcome to Lokus! This guide will help you migrate your notes from other platfor
 
 ### ✨ Great News: Obsidian Vaults Are Already Compatible!
 
-Lokus uses the same markdown-based format as Obsidian, which means **you don't need to migrate at all**!
+NoteMakingApp uses the same markdown-based format as Obsidian, which means **you don't need to migrate at all**!
 
 ### Quick Start
 
-1. **Open your Obsidian vault in Lokus**
-   - Launch Lokus
+1. **Open your Obsidian vault in NoteMakingApp**
+   - Launch NoteMakingApp
    - Select "Open Workspace"
    - Navigate to your Obsidian vault folder
    - Click "Open"
@@ -42,28 +42,28 @@ Lokus uses the same markdown-based format as Obsidian, which means **you don't n
 ### Differences to Be Aware Of
 
 ⚠️ **Plugin-Specific Syntax**
-- Obsidian community plugins may add custom syntax that won't render in Lokus
+- Obsidian community plugins may add custom syntax that won't render in NoteMakingApp
 - Dataview queries won't execute (they'll display as code blocks)
 - Canvas files (.canvas) are not supported
 
 ⚠️ **Theme Differences**
-- Lokus has its own theme system
+- NoteMakingApp has its own theme system
 - Custom CSS snippets from Obsidian won't apply
-- You can create equivalent themes in Lokus
+- You can create equivalent themes in NoteMakingApp
 
 ### Running Both Side-by-Side
 
-You can use Lokus and Obsidian with the same vault simultaneously:
-- Changes made in Lokus will be visible in Obsidian
-- Changes made in Obsidian will be visible in Lokus
+You can use NoteMakingApp and Obsidian with the same vault simultaneously:
+- Changes made in NoteMakingApp will be visible in Obsidian
+- Changes made in Obsidian will be visible in NoteMakingApp
 - Both apps use plain markdown files
 
 ### Recommended Workflow
 
-1. **Test First**: Open your vault in Lokus and browse your notes
+1. **Test First**: Open your vault in NoteMakingApp and browse your notes
 2. **Check Compatibility**: Look for any plugin-specific syntax
 3. **Gradual Transition**: Use both apps during the transition period
-4. **Full Switch**: When comfortable, switch completely to Lokus
+4. **Full Switch**: When comfortable, switch completely to NoteMakingApp
 
 ---
 
@@ -71,7 +71,7 @@ You can use Lokus and Obsidian with the same vault simultaneously:
 
 ### Overview
 
-Logseq uses an outline-based structure with special syntax that needs conversion. Lokus provides an **automatic importer** to handle this.
+Logseq uses an outline-based structure with special syntax that needs conversion. NoteMakingApp provides an **automatic importer** to handle this.
 
 ### Preparation
 
@@ -83,7 +83,7 @@ Before importing, ensure:
 ### Import Process
 
 1. **Launch Import Wizard**
-   - Open Lokus
+   - Open NoteMakingApp
    - Click "Import Notes" (File menu or preferences)
 
 2. **Select Platform**
@@ -108,7 +108,7 @@ Before importing, ensure:
 
 ### What Gets Converted
 
-| Logseq Feature | Lokus Equivalent |
+| Logseq Feature | NoteMakingApp Equivalent |
 |----------------|------------------|
 | Outline structure | Standard markdown paragraphs |
 | `property:: value` | YAML frontmatter |
@@ -137,7 +137,7 @@ Before importing, ensure:
 
 ### Overview
 
-Roam uses a JSON export format that requires conversion. Lokus provides an **automatic importer** to handle this complex transformation.
+Roam uses a JSON export format that requires conversion. NoteMakingApp provides an **automatic importer** to handle this complex transformation.
 
 ### Preparation
 
@@ -153,7 +153,7 @@ Roam uses a JSON export format that requires conversion. Lokus provides an **aut
 ### Import Process
 
 1. **Launch Import Wizard**
-   - Open Lokus
+   - Open NoteMakingApp
    - Click "Import Notes"
 
 2. **Select Platform**
@@ -177,7 +177,7 @@ Roam uses a JSON export format that requires conversion. Lokus provides an **aut
 
 ### What Gets Converted
 
-| Roam Feature | Lokus Equivalent |
+| Roam Feature | NoteMakingApp Equivalent |
 |--------------|------------------|
 | Pages | Individual markdown files |
 | Blocks | Paragraphs and lists |
@@ -227,9 +227,9 @@ Roam uses a JSON export format that requires conversion. Lokus provides an **aut
 **Import is slow**
 - Large vaults (1000+ notes) may take several minutes
 - This is normal - conversion is CPU-intensive
-- Don't close Lokus during import
+- Don't close NoteMakingApp during import
 
-**Lokus crashes during import**
+**NoteMakingApp crashes during import**
 - Try importing smaller batches
 - Check available disk space
 - Report the issue on GitHub
@@ -256,7 +256,7 @@ Roam uses a JSON export format that requires conversion. Lokus provides an **aut
 If you encounter issues:
 
 1. **Check the import results**: Look for specific errors and warnings
-2. **Search existing issues**: Visit [GitHub Issues](https://github.com/lokus-ai/lokus/issues)
+2. **Search existing issues**: Visit [GitHub Issues](https://github.com/NoteMakingApp-ai/NoteMakingApp/issues)
 3. **Create a new issue**: Include:
    - Platform you're migrating from
    - Error messages
@@ -275,11 +275,11 @@ Yes, but be careful of duplicates. The importer doesn't check for existing files
 
 No! The importer reads your source files but never modifies them. Your original notes remain untouched.
 
-### Can I use Lokus with my existing vault?
+### Can I use NoteMakingApp with my existing vault?
 
 If you're coming from Obsidian: **Yes!** Just open the vault directly.
 
-If you're coming from Logseq/Roam: Import first, then use the new folder with Lokus.
+If you're coming from Logseq/Roam: Import first, then use the new folder with NoteMakingApp.
 
 ### What about attachments?
 
@@ -291,11 +291,11 @@ If you're coming from Logseq/Roam: Import first, then use the new folder with Lo
 
 The import creates new files but doesn't delete anything. To "undo":
 1. Delete the imported files
-2. Or simply don't open that folder in Lokus
+2. Or simply don't open that folder in NoteMakingApp
 
 ### How do I keep my notes in sync after import?
 
-Lokus doesn't have built-in sync (yet), but you can use:
+NoteMakingApp doesn't have built-in sync (yet), but you can use:
 - iCloud Drive
 - Dropbox
 - Git (for version control)
@@ -317,12 +317,12 @@ Lokus doesn't have built-in sync (yet), but you can use:
 1. **Verify thoroughly**: Check random samples throughout your vault
 2. **Fix critical issues first**: Start with frequently-used notes
 3. **Update links gradually**: You don't need to fix everything at once
-4. **Customize Lokus**: Set up themes, preferences to match your workflow
+4. **Customize NoteMakingApp**: Set up themes, preferences to match your workflow
 5. **Keep backups**: Maintain your original export for at least a month
 
-### Making the Most of Lokus
+### Making the Most of NoteMakingApp
 
-- Explore Lokus-specific features (kanban, templates, etc.)
+- Explore NoteMakingApp-specific features (kanban, templates, etc.)
 - Join the community for tips and support
 - Report bugs and request features
 - Customize your workspace and theme
@@ -331,7 +331,7 @@ Lokus doesn't have built-in sync (yet), but you can use:
 
 ## Platform Comparison
 
-| Feature | Obsidian | Logseq | Roam | Lokus |
+| Feature | Obsidian | Logseq | Roam | NoteMakingApp |
 |---------|----------|--------|------|-------|
 | File Format | Markdown | Markdown | JSON | Markdown |
 | Wiki Links | ✅ | ✅ | ✅ | ✅ |
@@ -352,8 +352,8 @@ Lokus doesn't have built-in sync (yet), but you can use:
 After successfully migrating:
 
 1. **Set up your workspace**: Customize folders, preferences, themes
-2. **Learn Lokus features**: Explore kanban boards, templates, shortcuts
+2. **Learn NoteMakingApp features**: Explore kanban boards, templates, shortcuts
 3. **Join the community**: Get help, share tips, request features
 4. **Provide feedback**: Help improve the migration experience
 
-Welcome to Lokus! 🚀
+Welcome to NoteMakingApp! 🚀

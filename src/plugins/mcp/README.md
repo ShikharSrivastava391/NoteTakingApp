@@ -1,6 +1,6 @@
 # MCP (Model Context Protocol) Plugin System
 
-This module implements comprehensive support for the Model Context Protocol (MCP) in Lokus, enabling developers to create AI-powered plugins with standardized resource discovery, tool execution, and prompt template management.
+This module implements comprehensive support for the Model Context Protocol (MCP) in NoteMakingApp, enabling developers to create AI-powered plugins with standardized resource discovery, tool execution, and prompt template management.
 
 ## Overview
 
@@ -18,7 +18,7 @@ The MCP Plugin System provides:
 
 ```javascript
 // my-mcp-plugin.js
-import { MCPResourceBuilder, MCPToolBuilder } from '@lokus/plugins/mcp'
+import { MCPResourceBuilder, MCPToolBuilder } from '@NoteMakingApp/plugins/mcp'
 
 export class MyMCPPlugin {
   async activate(mcpAPI) {
@@ -392,7 +392,7 @@ console.log('My resources:', resources)
 Use the enhanced manifest validator:
 
 ```javascript
-import { validateManifestEnhanced } from '@lokus/plugins/core/PluginManifest'
+import { validateManifestEnhanced } from '@NoteMakingApp/plugins/core/PluginManifest'
 
 const result = validateManifestEnhanced(manifest)
 if (!result.valid) {
@@ -416,4 +416,4 @@ When contributing to the MCP system:
 
 ## License
 
-This MCP implementation is part of the Lokus project and follows the same license terms.
+This MCP implementation is part of the NoteMakingApp project and follows the same license terms.

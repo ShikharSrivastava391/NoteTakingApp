@@ -7,13 +7,13 @@
 
 // In-memory filesystem
 const mockFileSystem = new Map();
-const mockDirectories = new Set(['/tmp/lokus-e2e-test']);
+const mockDirectories = new Set(['/tmp/NoteMakingApp-e2e-test']);
 
 // Initialize with some test files
 function initMockFileSystem() {
-  const workspacePath = '/tmp/lokus-e2e-test';
+  const workspacePath = '/tmp/NoteMakingApp-e2e-test';
   mockDirectories.add(workspacePath);
-  mockDirectories.add(`${workspacePath}/.lokus`);
+  mockDirectories.add(`${workspacePath}/.NoteMakingApp`);
   mockDirectories.add(`${workspacePath}/notes`);
 
   // Create initial test files with content useful for testing
@@ -63,7 +63,7 @@ $E = mc^2$
 Some math: $\\int_0^1 x^2 dx$
 `);
 
-  mockFileSystem.set(`${workspacePath}/.lokus/config.json`, JSON.stringify({ theme: 'light' }));
+  mockFileSystem.set(`${workspacePath}/.NoteMakingApp/config.json`, JSON.stringify({ theme: 'light' }));
 }
 
 // Mock implementations for Tauri commands
@@ -224,11 +224,11 @@ const mockCommands = {
 
   // Workspace operations
   validate_workspace_path: async ({ path }) => {
-    return mockDirectories.has(path) || path.startsWith('/tmp/lokus');
+    return mockDirectories.has(path) || path.startsWith('/tmp/NoteMakingApp');
   },
 
   get_validated_workspace_path: async () => {
-    return '/tmp/lokus-e2e-test';
+    return '/tmp/NoteMakingApp-e2e-test';
   },
 
   save_last_workspace: async ({ path }) => {
@@ -295,7 +295,7 @@ const mockCommands = {
 
   // API operations
   api_get_current_workspace: async () => {
-    return '/tmp/lokus-e2e-test';
+    return '/tmp/NoteMakingApp-e2e-test';
   },
 
   // Platform operations

@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useReducer, useEffect } from 'react';
-import { PluginContext } from 'lokus-plugin-sdk';
+import { PluginContext } from 'NoteMakingApp-plugin-sdk';
 
 // State types
 interface {{pluginNamePascalCase}}State {

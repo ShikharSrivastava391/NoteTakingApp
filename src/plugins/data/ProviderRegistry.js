@@ -1,7 +1,7 @@
 /**
  * Data Provider Registry
  * 
- * Central registry for managing all data providers in Lokus.
+ * Central registry for managing all data providers in NoteMakingApp.
  * Handles provider registration, discovery, selection, and lifecycle management.
  * Provides fallback mechanisms and error handling for robust data operations.
  */
@@ -436,7 +436,7 @@ export class ProviderRegistry extends EventEmitter {
     try {
       const configs = Object.fromEntries(this.providerConfigs)
       // In a real implementation, this would save to persistent storage
-      // localStorage.setItem('lokus-provider-configs', JSON.stringify(configs))
+      // localStorage.setItem('NoteMakingApp-provider-configs', JSON.stringify(configs))
       
     } catch { }
   }

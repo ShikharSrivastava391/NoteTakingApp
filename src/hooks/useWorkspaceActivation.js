@@ -93,7 +93,7 @@ export function useWorkspaceActivation() {
       : Promise.resolve(() => {});
 
     const unlistenForceWelcomePromise = isTauri
-      ? listen("lokus:force-welcome", () => {
+      ? listen("NoteMakingApp:force-welcome", () => {
           setPath(null);
           setIsInitialized(true);
         })

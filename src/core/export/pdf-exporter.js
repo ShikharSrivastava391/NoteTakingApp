@@ -90,7 +90,7 @@ export class PDFExporter {
           subject: metadata.subject || '',
           author: metadata.author || '',
           keywords: metadata.keywords || '',
-          creator: 'Lokus',
+          creator: 'NoteMakingApp',
         });
       }
 
@@ -153,7 +153,7 @@ export class PDFExporter {
           subject: metadata.subject || '',
           author: metadata.author || '',
           keywords: metadata.keywords || '',
-          creator: 'Lokus',
+          creator: 'NoteMakingApp',
         });
       }
 

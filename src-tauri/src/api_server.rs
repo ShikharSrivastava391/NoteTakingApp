@@ -1,5 +1,5 @@
 /// HTTP API Server for MCP Integration
-/// Provides REST endpoints for MCP to interact with Lokus
+/// Provides REST endpoints for MCP to interact with NoteMakingApp
 use axum::{
     extract::State,
     http::StatusCode,

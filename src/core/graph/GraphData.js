@@ -48,7 +48,7 @@ export class GraphData {
       enablePersistence: options.enablePersistence !== false,
       enableRealTimeSync: options.enableRealTimeSync !== false,
       maxCacheSize: options.maxCacheSize || 10000,
-      indexedDBName: options.indexedDBName || 'lokus-graph-db',
+      indexedDBName: options.indexedDBName || 'NoteMakingApp-graph-db',
       ...options
     };
 

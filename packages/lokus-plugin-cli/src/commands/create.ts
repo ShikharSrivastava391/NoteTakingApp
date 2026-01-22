@@ -24,16 +24,16 @@ export const pluginTemplates: Record<string, PluginTemplate> = {
     templateDir: 'basic-plugin',
     permissions: [],
     dependencies: {
-      'lokus-plugin-sdk': '^1.0.0'
+      'NoteMakingApp-plugin-sdk': '^1.0.0'
     }
   },
   'ui-extension': {
     name: 'UI Extension',
-    description: 'Extends Lokus UI with custom components and views',
+    description: 'Extends NoteMakingApp UI with custom components and views',
     templateDir: 'ui-extension-plugin',
     permissions: ['ui:notifications', 'ui:dialogs'],
     dependencies: {
-      'lokus-plugin-sdk': '^1.0.0',
+      'NoteMakingApp-plugin-sdk': '^1.0.0',
       'react': '^18.0.0',
       '@types/react': '^18.0.0'
     }
@@ -44,7 +44,7 @@ export const pluginTemplates: Record<string, PluginTemplate> = {
     templateDir: 'language-support-plugin',
     permissions: ['editor:read', 'editor:write'],
     dependencies: {
-      'lokus-plugin-sdk': '^1.0.0',
+      'NoteMakingApp-plugin-sdk': '^1.0.0',
       'vscode-languageserver': '^8.0.0',
       'vscode-languageserver-textdocument': '^1.0.0'
     }
@@ -55,7 +55,7 @@ export const pluginTemplates: Record<string, PluginTemplate> = {
     templateDir: 'theme-plugin',
     permissions: [],
     dependencies: {
-      'lokus-plugin-sdk': '^1.0.0'
+      'NoteMakingApp-plugin-sdk': '^1.0.0'
     }
   },
   'debugger': {
@@ -64,7 +64,7 @@ export const pluginTemplates: Record<string, PluginTemplate> = {
     templateDir: 'debug-adapter-plugin',
     permissions: ['debug:access', 'terminal:access'],
     dependencies: {
-      'lokus-plugin-sdk': '^1.0.0',
+      'NoteMakingApp-plugin-sdk': '^1.0.0',
       'vscode-debugadapter': '^1.50.0'
     }
   },
@@ -74,7 +74,7 @@ export const pluginTemplates: Record<string, PluginTemplate> = {
     templateDir: 'task-provider-plugin',
     permissions: ['terminal:access', 'filesystem:read'],
     dependencies: {
-      'lokus-plugin-sdk': '^1.0.0'
+      'NoteMakingApp-plugin-sdk': '^1.0.0'
     }
   },
   'command': {
@@ -83,7 +83,7 @@ export const pluginTemplates: Record<string, PluginTemplate> = {
     templateDir: 'command-plugin',
     permissions: ['workspace:read', 'workspace:write'],
     dependencies: {
-      'lokus-plugin-sdk': '^1.0.0'
+      'NoteMakingApp-plugin-sdk': '^1.0.0'
     }
   },
   'react-panel': {
@@ -92,7 +92,7 @@ export const pluginTemplates: Record<string, PluginTemplate> = {
     templateDir: 'react-ui-panel',
     permissions: ['ui:panel'],
     dependencies: {
-      'lokus-plugin-sdk': '^1.0.0',
+      'NoteMakingApp-plugin-sdk': '^1.0.0',
       'react': '^18.2.0',
       'react-dom': '^18.2.0',
       'styled-components': '^6.1.0'
@@ -235,11 +235,11 @@ async function createPluginFromTemplate(
     author: options.author,
     main: options.typescript ? 'dist/index.js' : 'src/index.js',
     engines: {
-      lokus: '^1.0.0'
+      NoteMakingApp: '^1.0.0'
     },
     permissions: template.permissions,
     categories: getPluginCategories(template.name),
-    keywords: [pluginName, 'lokus', 'plugin'],
+    keywords: [pluginName, 'NoteMakingApp', 'plugin'],
     contributes: getPluginContributions(template.name)
   };
 
@@ -257,12 +257,12 @@ async function createPluginFromTemplate(
       ...(options.typescript ? {
         'build': 'tsc',
         'build:watch': 'tsc --watch',
-        'dev': 'lokus-plugin dev',
+        'dev': 'NoteMakingApp-plugin dev',
         'test': 'jest',
         'lint': 'eslint src/**/*.ts',
         'lint:fix': 'eslint src/**/*.ts --fix'
       } : {
-        'dev': 'lokus-plugin dev',
+        'dev': 'NoteMakingApp-plugin dev',
         'test': 'jest',
         'lint': 'eslint src/**/*.js',
         'lint:fix': 'eslint src/**/*.js --fix'
@@ -411,7 +411,7 @@ async function installDependencies(targetDir: string): Promise<void> {
 }
 
 export const createCommand = new Command('create')
-  .description('Create a new Lokus plugin')
+  .description('Create a new NoteMakingApp plugin')
   .argument('[name]', 'plugin name')
   .option('-t, --template <template>', 'plugin template to use')
   .option('-a, --author <author>', 'plugin author')
@@ -424,7 +424,7 @@ export const createCommand = new Command('create')
     try {
       await ErrorHandler.validateNodeEnvironment();
 
-      logger.header('🚀 Create Lokus Plugin');
+      logger.header('🚀 Create NoteMakingApp Plugin');
 
       let pluginDetails;
 
@@ -437,7 +437,7 @@ export const createCommand = new Command('create')
           pluginName: name,
           template: options.template || 'basic',
           author: options.author || 'Unknown',
-          description: options.description || 'A Lokus plugin',
+          description: options.description || 'A NoteMakingApp plugin',
           typescript: options.typescript !== false,
           initGit: options.git !== false,
           installDeps: options.install !== false
@@ -522,13 +522,13 @@ export const createCommand = new Command('create')
       if (!installDeps) {
         logger.info('  npm install');
       }
-      logger.info('  lokus-plugin dev');
+      logger.info('  NoteMakingApp-plugin dev');
       logger.newLine();
 
       logger.info('Documentation:');
-      logger.info('  📖 Plugin Development: https://lokus.dev/docs/plugin-development');
-      logger.info('  🔌 Plugin API: https://lokus.dev/docs/plugin-api');
-      logger.info('  💬 Community: https://discord.gg/lokus');
+      logger.info('  📖 Plugin Development: https://NoteMakingApp.dev/docs/plugin-development');
+      logger.info('  🔌 Plugin API: https://NoteMakingApp.dev/docs/plugin-api');
+      logger.info('  💬 Community: https://discord.gg/NoteMakingApp');
 
     } catch (error) {
       ErrorHandler.handleError(error);

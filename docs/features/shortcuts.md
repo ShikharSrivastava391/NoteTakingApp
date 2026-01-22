@@ -1,6 +1,6 @@
 # Keyboard Shortcuts
 
-Lokus provides comprehensive keyboard shortcuts for efficient navigation and operation. The shortcut system includes universal shortcuts that work across the application, context-specific shortcuts for different features, and customizable key bindings.
+NoteMakingApp provides comprehensive keyboard shortcuts for efficient navigation and operation. The shortcut system includes universal shortcuts that work across the application, context-specific shortcuts for different features, and customizable key bindings.
 
 ## Overview
 

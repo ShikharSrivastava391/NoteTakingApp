@@ -18,7 +18,7 @@ export const PLUGIN_MANIFEST_SCHEMA = {
     'name',         // Human-readable plugin name (string)
     'version',      // Semantic version (string)
     'main',         // Main entry file (string)
-    'lokusVersion'  // Compatible Lokus version range (string)
+    'NoteMakingAppVersion'  // Compatible NoteMakingApp version range (string)
   ],
 
   // Optional fields
@@ -50,7 +50,7 @@ export const PLUGIN_MANIFEST_SCHEMA = {
     name: 'string',
     version: 'string',
     main: 'string',
-    lokusVersion: 'string',
+    NoteMakingAppVersion: 'string',
     description: 'string',
     author: ['string', 'object'],
     license: 'string',
@@ -299,11 +299,11 @@ export class ManifestValidator {
       }
     }
 
-    // Validate Lokus version format
-    if (manifest.lokusVersion) {
+    // Validate NoteMakingApp version format
+    if (manifest.NoteMakingAppVersion) {
       // Allow version ranges like "^1.0.0", ">=1.0.0", "1.0.0", etc.
-      if (!/^[\^~>=<]*\d+\.\d+\.\d+/.test(manifest.lokusVersion)) {
-        this.addError('lokusVersion must be a valid version range')
+      if (!/^[\^~>=<]*\d+\.\d+\.\d+/.test(manifest.NoteMakingAppVersion)) {
+        this.addError('NoteMakingAppVersion must be a valid version range')
       }
     }
 
@@ -866,9 +866,9 @@ export function createManifestTemplate(options = {}) {
     id: options.id || 'my-plugin',
     name: options.name || 'My Plugin',
     version: options.version || '1.0.0',
-    description: options.description || 'A Lokus plugin',
+    description: options.description || 'A NoteMakingApp plugin',
     main: options.main || 'index.js',
-    lokusVersion: options.lokusVersion || '^1.0.0',
+    NoteMakingAppVersion: options.NoteMakingAppVersion || '^1.0.0',
     author: options.author || 'Plugin Developer',
     license: options.license || 'MIT',
     keywords: options.keywords || [],
@@ -890,9 +890,9 @@ export function createManifestV2Template(options = {}) {
     displayName: options.displayName || options.name || 'My Plugin',
     version: options.version || '1.0.0',
     publisher: options.publisher || 'my-publisher',
-    description: options.description || 'A Lokus plugin',
+    description: options.description || 'A NoteMakingApp plugin',
     engines: {
-      lokus: options.lokusVersion || '^1.0.0',
+      NoteMakingApp: options.NoteMakingAppVersion || '^1.0.0',
       ...(options.nodeVersion && { node: options.nodeVersion })
     },
     categories: options.categories || ['Other'],

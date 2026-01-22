@@ -7,7 +7,7 @@
  */
 
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { LokusPluginAPI } from '../../src/plugins/api/LokusPluginAPI.js';
+import { NoteMakingAppPluginAPI } from '../../src/plugins/api/NoteMakingAppPluginAPI.js';
 import terminalManager from '../../src/plugins/managers/TerminalManager.js';
 import outputChannelManager from '../../src/plugins/managers/OutputChannelManager.js';
 
@@ -21,7 +21,7 @@ describe('Plugin Lifecycle Integration', () => {
     disposables = [];
 
     // Create API instance with real managers
-    api = new LokusPluginAPI({
+    api = new NoteMakingAppPluginAPI({
       terminal: terminalManager,
       outputChannel: outputChannelManager
     });

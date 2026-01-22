@@ -1,6 +1,6 @@
 # Temporarily disabled - requires CLAUDE_CODE_OAUTH_TOKEN secret
 # To enable: add CLAUDE_CODE_OAUTH_TOKEN to repository secrets at:
-# https://github.com/lokus-ai/lokus/settings/secrets/actions
+# https://github.com/NoteMakingApp-ai/NoteMakingApp/settings/secrets/actions
 
 # name: Claude Code Review
 

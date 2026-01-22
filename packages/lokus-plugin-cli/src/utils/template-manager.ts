@@ -73,7 +73,7 @@ export class TemplateManager {
       pluginNameKebabCase: this.toKebabCase(pluginName),
       pluginNameConstantCase: this.toConstantCase(pluginName),
       author: context.author || 'Unknown',
-      description: context.description || 'A Lokus plugin',
+      description: context.description || 'A NoteMakingApp plugin',
       typescript: context.typescript ?? true,
       currentYear: new Date().getFullYear(),
       currentDate: new Date().toISOString().split('T')[0],

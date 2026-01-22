@@ -812,7 +812,7 @@ export const ProfessionalGraphView = ({ isVisible = true, workspacePath, onOpenF
     const canvas = containerRef.current?.querySelector('canvas');
     if (canvas) {
       const link = document.createElement('a');
-      link.download = `lokus-graph-${Date.now()}.png`;
+      link.download = `NoteMakingApp-graph-${Date.now()}.png`;
       link.href = canvas.toDataURL();
       link.click();
     }

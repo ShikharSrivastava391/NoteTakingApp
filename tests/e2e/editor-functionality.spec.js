@@ -4,7 +4,7 @@ import { join } from 'path';
 import { injectTauriMock, disableTour, dismissTourOverlay } from './helpers/test-utils.js';
 
 // Test workspace path - use tmp directory for tests
-const TEST_WORKSPACE = '/tmp/lokus-e2e-test';
+const TEST_WORKSPACE = '/tmp/NoteMakingApp-e2e-test';
 
 /**
  * Editor Functionality E2E Tests

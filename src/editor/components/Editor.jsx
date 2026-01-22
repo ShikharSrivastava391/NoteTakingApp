@@ -78,7 +78,7 @@ const Editor = forwardRef(({ content, onContentChange, onEditorReady, isLoading 
   const [editorMode, setEditorMode] = useState(() => {
     // Try to load mode from localStorage
     try {
-      const activeFile = globalThis.__LOKUS_ACTIVE_FILE__;
+      const activeFile = globalThis.__NoteMakingApp_ACTIVE_FILE__;
       if (activeFile) {
         const saved = localStorage.getItem(`editor-mode:${activeFile}`);
         return saved || 'edit';
@@ -404,7 +404,7 @@ const Editor = forwardRef(({ content, onContentChange, onEditorReady, isLoading 
     const setupListener = async () => {
       try {
         const { listen } = await import('@tauri-apps/api/event');
-        unlisten = await listen('lokus:custom-symbols-changed', (event) => {
+        unlisten = await listen('NoteMakingApp:custom-symbols-changed', (event) => {
           if (event.payload?.symbols) {
             setCustomSymbols(event.payload.symbols);
           }
@@ -423,7 +423,7 @@ const Editor = forwardRef(({ content, onContentChange, onEditorReady, isLoading 
   // Persist editor mode changes
   useEffect(() => {
     try {
-      const activeFile = globalThis.__LOKUS_ACTIVE_FILE__;
+      const activeFile = globalThis.__NoteMakingApp_ACTIVE_FILE__;
       if (activeFile) {
         localStorage.setItem(`editor-mode:${activeFile}`, editorMode);
       }
@@ -463,8 +463,8 @@ const Editor = forwardRef(({ content, onContentChange, onEditorReady, isLoading 
   // Expose editorMode to parent via window global for sidebar access
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      window.__LOKUS_EDITOR_MODE__ = editorMode;
-      window.__LOKUS_SET_EDITOR_MODE__ = setEditorMode;
+      window.__NoteMakingApp_EDITOR_MODE__ = editorMode;
+      window.__NoteMakingApp_SET_EDITOR_MODE__ = setEditorMode;
     }
   }, [editorMode]);
 
@@ -515,7 +515,7 @@ const Tiptap = forwardRef(({ extensions, content, onContentChange, editorSetting
 
     tagIndexTimeoutRef.current = setTimeout(() => {
       try {
-        const activeFile = globalThis.__LOKUS_ACTIVE_FILE__;
+        const activeFile = globalThis.__NoteMakingApp_ACTIVE_FILE__;
         if (activeFile) {
           // Import tagManager and index the content
           import('../../core/tags/tag-manager.js').then(({ default: tagManager }) => {
@@ -586,7 +586,7 @@ const Tiptap = forwardRef(({ extensions, content, onContentChange, editorSetting
 
             // Resolve path if it's just a canvas name
             if (canvasPath && !canvasPath.startsWith('/') && !canvasPath.includes('/')) {
-              const fileIndex = globalThis.__LOKUS_FILE_INDEX__ || [];
+              const fileIndex = globalThis.__NoteMakingApp_FILE_INDEX__ || [];
               const canvasFileName = canvasPath.endsWith('.canvas') ? canvasPath : `${canvasPath}.canvas`;
               const matchedFile = fileIndex.find(file => {
                 const fileName = file.name || file.path.split('/').pop();
@@ -602,9 +602,9 @@ const Tiptap = forwardRef(({ extensions, content, onContentChange, editorSetting
               (async () => {
                 try {
                   const { emit } = await import('@tauri-apps/api/event');
-                  await emit('lokus:open-file', canvasPath);
+                  await emit('NoteMakingApp:open-file', canvasPath);
                 } catch {
-                  window.dispatchEvent(new CustomEvent('lokus:open-file', { detail: canvasPath }));
+                  window.dispatchEvent(new CustomEvent('NoteMakingApp:open-file', { detail: canvasPath }));
                 }
               })();
             }
@@ -639,7 +639,7 @@ const Tiptap = forwardRef(({ extensions, content, onContentChange, editorSetting
           }
 
           // Check if this is a resolved file path that exists in the index
-          const index = globalThis.__LOKUS_FILE_INDEX__ || [];
+          const index = globalThis.__NoteMakingApp_FILE_INDEX__ || [];
           let fileExists = index.some(f => f.path === cleanHref);
 
           // If href is not a valid path, try to resolve it using the file index
@@ -652,7 +652,7 @@ const Tiptap = forwardRef(({ extensions, content, onContentChange, editorSetting
               const i = Math.max(p.lastIndexOf('/'), p.lastIndexOf('\\'));
               return i >= 0 ? p.slice(0, i) : '';
             };
-            const wsPath = globalThis.__LOKUS_WORKSPACE_PATH__ || '';
+            const wsPath = globalThis.__NoteMakingApp_WORKSPACE_PATH__ || '';
 
             // Check for explicit root marker (./)
             const isExplicitRoot = searchTerm.startsWith('./');
@@ -671,7 +671,7 @@ const Tiptap = forwardRef(({ extensions, content, onContentChange, editorSetting
               }
             } else {
               const hasPath = /[/\\]/.test(searchTerm);
-              const activePath = globalThis.__LOKUS_ACTIVE_FILE__ || '';
+              const activePath = globalThis.__NoteMakingApp_ACTIVE_FILE__ || '';
               const activeDir = dirname(activePath);
 
               // Find all matching files
@@ -700,18 +700,18 @@ const Tiptap = forwardRef(({ extensions, content, onContentChange, editorSetting
             try {
               const { emit } = await import('@tauri-apps/api/event');
               // Use different event based on modifier key
-              const eventName = openInNewTab ? 'lokus:open-file-new-tab' : 'lokus:open-file';
+              const eventName = openInNewTab ? 'NoteMakingApp:open-file-new-tab' : 'NoteMakingApp:open-file';
               await emit(eventName, cleanHref);  // Use clean path without ^blockid
             } catch {
               try {
-                const eventName = openInNewTab ? 'lokus:open-file-new-tab' : 'lokus:open-file';
+                const eventName = openInNewTab ? 'NoteMakingApp:open-file-new-tab' : 'NoteMakingApp:open-file';
                 window.dispatchEvent(new CustomEvent(eventName, { detail: cleanHref }));  // Use clean path
               } catch { }
             }
 
             // If block reference, also emit scroll event
             if (hasBlockRef && blockId) {
-              window.dispatchEvent(new CustomEvent('lokus:scroll-to-block', { detail: blockId }));
+              window.dispatchEvent(new CustomEvent('NoteMakingApp:scroll-to-block', { detail: blockId }));
             }
           })();
           return true;
@@ -797,23 +797,23 @@ const Tiptap = forwardRef(({ extensions, content, onContentChange, editorSetting
     };
 
     document.addEventListener('keydown', handleKeyDown);
-    window.addEventListener('lokus:open-task-modal', handleTaskModalEvent);
+    window.addEventListener('NoteMakingApp:open-task-modal', handleTaskModalEvent);
     window.addEventListener('wiki-link-hover', handleWikiLinkHover);
     window.addEventListener('wiki-link-hover-end', handleWikiLinkHoverEnd);
     window.addEventListener('open-image-insert-modal', handleImageInsertModalEvent);
-    window.addEventListener('lokus:open-image-url-modal', handleImageUrlModalEvent);
+    window.addEventListener('NoteMakingApp:open-image-url-modal', handleImageUrlModalEvent);
     window.addEventListener('open-math-formula-modal', handleMathFormulaModalEvent);
-    window.addEventListener('lokus:insert-template', handleInsertTemplate);
+    window.addEventListener('NoteMakingApp:insert-template', handleInsertTemplate);
 
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
-      window.removeEventListener('lokus:open-task-modal', handleTaskModalEvent);
+      window.removeEventListener('NoteMakingApp:open-task-modal', handleTaskModalEvent);
       window.removeEventListener('wiki-link-hover', handleWikiLinkHover);
       window.removeEventListener('wiki-link-hover-end', handleWikiLinkHoverEnd);
       window.removeEventListener('open-image-insert-modal', handleImageInsertModalEvent);
-      window.removeEventListener('lokus:open-image-url-modal', handleImageUrlModalEvent);
+      window.removeEventListener('NoteMakingApp:open-image-url-modal', handleImageUrlModalEvent);
       window.removeEventListener('open-math-formula-modal', handleMathFormulaModalEvent);
-      window.removeEventListener('lokus:insert-template', handleInsertTemplate);
+      window.removeEventListener('NoteMakingApp:insert-template', handleInsertTemplate);
     };
   }, [editor]);
 
@@ -934,15 +934,15 @@ const Tiptap = forwardRef(({ extensions, content, onContentChange, editorSetting
         break;
       case 'find':
         // Trigger in-file search
-        window.dispatchEvent(new CustomEvent('lokus:toggle-search'));
+        window.dispatchEvent(new CustomEvent('NoteMakingApp:toggle-search'));
         break;
       case 'findAndReplace':
         // Trigger in-file search with replace mode
-        window.dispatchEvent(new CustomEvent('lokus:toggle-search', { detail: { replaceMode: true } }));
+        window.dispatchEvent(new CustomEvent('NoteMakingApp:toggle-search', { detail: { replaceMode: true } }));
         break;
       case 'commandPalette':
         // Dispatch event to open command palette
-        window.dispatchEvent(new CustomEvent('lokus:command-palette'));
+        window.dispatchEvent(new CustomEvent('NoteMakingApp:command-palette'));
         break;
       case 'insertTable':
         insertTestTable();
@@ -1016,8 +1016,8 @@ const Tiptap = forwardRef(({ extensions, content, onContentChange, editorSetting
                 .run()
 
               // Write back to file (if activeFile is available)
-              if (typeof window !== 'undefined' && window.__LOKUS_ACTIVE_FILE__) {
-                const activeFile = window.__LOKUS_ACTIVE_FILE__
+              if (typeof window !== 'undefined' && window.__NoteMakingApp_ACTIVE_FILE__) {
+                const activeFile = window.__NoteMakingApp_ACTIVE_FILE__
 
                 // Calculate line number from position
                 let lineNumber = 1
@@ -1037,7 +1037,7 @@ const Tiptap = forwardRef(({ extensions, content, onContentChange, editorSetting
             }
 
             // Format reference
-            const activeFile = window.__LOKUS_ACTIVE_FILE__ || ''
+            const activeFile = window.__NoteMakingApp_ACTIVE_FILE__ || ''
             const fileName = activeFile.split('/').pop()?.replace('.md', '') || 'Unknown'
             const reference = `[[${fileName}^${blockId}]]`
 
@@ -1119,8 +1119,8 @@ const Tiptap = forwardRef(({ extensions, content, onContentChange, editorSetting
         isOpen={isWikiLinkModalOpen}
         onClose={() => setIsWikiLinkModalOpen(false)}
         onSelectFile={handleSelectFile}
-        workspacePath={globalThis.__LOKUS_WORKSPACE_PATH__}
-        currentFile={globalThis.__LOKUS_ACTIVE_FILE__}
+        workspacePath={globalThis.__NoteMakingApp_WORKSPACE_PATH__}
+        currentFile={globalThis.__NoteMakingApp_ACTIVE_FILE__}
       />
 
       {/* Task Creation Modal */}
@@ -1136,10 +1136,10 @@ const Tiptap = forwardRef(({ extensions, content, onContentChange, editorSetting
         onClose={() => setIsExportModalOpen(false)}
         htmlContent={editor?.getHTML()}
         currentFile={{
-          name: globalThis.__LOKUS_ACTIVE_FILE__?.name || 'untitled',
-          path: globalThis.__LOKUS_ACTIVE_FILE__?.path,
+          name: globalThis.__NoteMakingApp_ACTIVE_FILE__?.name || 'untitled',
+          path: globalThis.__NoteMakingApp_ACTIVE_FILE__?.path,
         }}
-        workspacePath={globalThis.__LOKUS_WORKSPACE_PATH__}
+        workspacePath={globalThis.__NoteMakingApp_WORKSPACE_PATH__}
         exportType="single"
       />
 
@@ -1156,7 +1156,7 @@ const Tiptap = forwardRef(({ extensions, content, onContentChange, editorSetting
       <ImageViewerModal
         isOpen={imageViewerState.isOpen}
         imagePath={imageViewerState.imagePath}
-        allImageFiles={globalThis.__LOKUS_ALL_IMAGE_FILES__ || []}
+        allImageFiles={globalThis.__NoteMakingApp_ALL_IMAGE_FILES__ || []}
         onClose={() => setImageViewerState({ isOpen: false, imagePath: null })}
       />
 
@@ -1168,7 +1168,7 @@ const Tiptap = forwardRef(({ extensions, content, onContentChange, editorSetting
           imageInsertModalState.onInsert?.(data);
           setImageInsertModalState({ isOpen: false, onInsert: null });
         }}
-        workspacePath={globalThis.__LOKUS_WORKSPACE_PATH__}
+        workspacePath={globalThis.__NoteMakingApp_WORKSPACE_PATH__}
       />
 
       {/* Image URL Modal - for importing images from URL via ![[ dropdown */}

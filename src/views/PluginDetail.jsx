@@ -518,7 +518,7 @@ function RatingsTab({ plugin }) {
     const fetchRatings = async () => {
       try {
         const pluginId = plugin.slug || plugin.id;
-        const response = await fetch(`https://lokusmd.com/api/v1/registry/plugin/${pluginId}/ratings`);
+        const response = await fetch(`https://NoteMakingAppmd.com/api/v1/registry/plugin/${pluginId}/ratings`);
         if (response.ok) {
           const data = await response.json();
           setRatings(data.ratings || []);

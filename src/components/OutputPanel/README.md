@@ -112,7 +112,7 @@ The component listens to these OutputChannelManager events:
 
 ```js
 // In your plugin
-const channel = lokus.output.createOutputChannel('My Plugin');
+const channel = NoteMakingApp.output.createOutputChannel('My Plugin');
 
 channel.appendLine('Plugin initialized');
 channel.appendLine('Processing file...');

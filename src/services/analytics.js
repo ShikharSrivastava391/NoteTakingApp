@@ -1,5 +1,5 @@
 /**
- * Privacy-First Analytics Service for Lokus
+ * Privacy-First Analytics Service for NoteMakingApp
  *
  * This service provides a privacy-respecting analytics wrapper for Umami.
  *
@@ -36,7 +36,7 @@ class AnalyticsService {
     this.initialized = false;
     this.isDevelopment = import.meta.env.DEV;
     this.websiteId = import.meta.env.VITE_UMAMI_WEBSITE_ID || '';
-    this.apiEndpoint = import.meta.env.VITE_UMAMI_API_ENDPOINT || 'https://analytics.lokusmd.com';
+    this.apiEndpoint = import.meta.env.VITE_UMAMI_API_ENDPOINT || 'https://analytics.NoteMakingAppmd.com';
 
     // Session-based rate limiting - track what's been sent this session
     this.sessionEvents = new Set();
@@ -59,7 +59,7 @@ class AnalyticsService {
    */
   loadPreferences() {
     try {
-      const prefs = localStorage.getItem('lokus-analytics-preferences');
+      const prefs = localStorage.getItem('NoteMakingApp-analytics-preferences');
       if (prefs) {
         const { enabled } = JSON.parse(prefs);
         this.enabled = enabled !== false; // Default to enabled
@@ -79,7 +79,7 @@ class AnalyticsService {
    */
   savePreferences() {
     try {
-      localStorage.setItem('lokus-analytics-preferences', JSON.stringify({
+      localStorage.setItem('NoteMakingApp-analytics-preferences', JSON.stringify({
         enabled: this.enabled,
         lastUpdated: new Date().toISOString()
       }));
@@ -154,11 +154,11 @@ class AnalyticsService {
       const payload = {
         type: 'event',
         payload: {
-          hostname: 'lokus.app',
+          hostname: 'NoteMakingApp.app',
           language: navigator.language || 'en-US',
           referrer: '',
           screen: `${window.screen.width}x${window.screen.height}`,
-          title: 'Lokus',
+          title: 'NoteMakingApp',
           url: '/',
           website: this.websiteId,
           name: eventName,

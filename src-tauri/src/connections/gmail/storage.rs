@@ -3,9 +3,9 @@ use keyring::Entry;
 use crate::connections::gmail::models::{GmailToken, GmailProfile, GmailError};
 use serde_json;
 
-const GMAIL_TOKEN_KEY: &str = "lokus_gmail_token";
-const GMAIL_PROFILE_KEY: &str = "lokus_gmail_profile";
-const SERVICE_NAME: &str = "com.lokus.app.gmail";
+const GMAIL_TOKEN_KEY: &str = "NoteMakingApp_gmail_token";
+const GMAIL_PROFILE_KEY: &str = "NoteMakingApp_gmail_profile";
+const SERVICE_NAME: &str = "com.NoteMakingApp.app.gmail";
 
 pub struct GmailStorage;
 
@@ -162,7 +162,7 @@ impl GmailStorage {
     // File-based storage for development mode (keychain workaround)
     fn get_dev_token_path() -> Result<PathBuf, GmailError> {
         let home_dir = dirs::home_dir().ok_or_else(|| GmailError::Storage("Failed to get home directory".to_string()))?;
-        let app_dir = home_dir.join(".lokus").join("gmail");
+        let app_dir = home_dir.join(".NoteMakingApp").join("gmail");
         if !app_dir.exists() {
             std::fs::create_dir_all(&app_dir)
                 .map_err(|e| GmailError::Storage(format!("Failed to create Gmail app directory: {}", e)))?;
@@ -202,7 +202,7 @@ impl GmailStorage {
 
     fn get_dev_profile_path() -> Result<PathBuf, GmailError> {
         let home_dir = dirs::home_dir().ok_or_else(|| GmailError::Storage("Failed to get home directory".to_string()))?;
-        let app_dir = home_dir.join(".lokus").join("gmail");
+        let app_dir = home_dir.join(".NoteMakingApp").join("gmail");
         if !app_dir.exists() {
             std::fs::create_dir_all(&app_dir)
                 .map_err(|e| GmailError::Storage(format!("Failed to create Gmail app directory: {}", e)))?;

@@ -1,4 +1,4 @@
-const KEY = "lokus.recents";
+const KEY = "NoteMakingApp.recents";
 
 export const readRecents = () => {
   try { return JSON.parse(localStorage.getItem(KEY) || "[]"); }

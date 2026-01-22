@@ -45,14 +45,14 @@ export const DEFAULT_CONFIG = {
   // Registry endpoints
   registries: {
     primary: {
-      name: 'Lokus Official Registry',
-      url: 'https://registry.lokus.dev',
+      name: 'NoteMakingApp Official Registry',
+      url: 'https://registry.NoteMakingApp.dev',
       enabled: true,
       priority: 1,
       verified: true,
       mirrors: [
-        'https://registry-eu.lokus.dev',
-        'https://registry-asia.lokus.dev'
+        'https://registry-eu.NoteMakingApp.dev',
+        'https://registry-asia.NoteMakingApp.dev'
       ]
     }
   },
@@ -87,8 +87,8 @@ export const DEFAULT_CONFIG = {
     sandboxMode: true,
     permissionPrompts: true,
     trustedPublishers: [
-      'lokus-official',
-      'lokus-community'
+      'NoteMakingApp-official',
+      'NoteMakingApp-community'
     ],
     blockedPublishers: [],
     maxPackageSize: 100 * 1024 * 1024, // 100MB
@@ -111,7 +111,7 @@ export const DEFAULT_CONFIG = {
     maxConcurrentDownloads: 3,
     useProxy: false,
     proxyUrl: null,
-    userAgent: 'Lokus-Plugin-Client/1.0'
+    userAgent: 'NoteMakingApp-Plugin-Client/1.0'
   },
 
   // Cache settings
@@ -484,17 +484,17 @@ export class RegistryConfig extends EventEmitter {
   async switchEnvironment(env) {
     const environments = {
       [REGISTRY_ENV.PRODUCTION]: {
-        'registries.primary.url': 'https://registry.lokus.dev',
+        'registries.primary.url': 'https://registry.NoteMakingApp.dev',
         'security.level': SECURITY_LEVEL.STANDARD,
         'analytics.enabled': true
       },
       [REGISTRY_ENV.STAGING]: {
-        'registries.primary.url': 'https://staging-registry.lokus.dev',
+        'registries.primary.url': 'https://staging-registry.NoteMakingApp.dev',
         'security.level': SECURITY_LEVEL.STANDARD,
         'analytics.enabled': false
       },
       [REGISTRY_ENV.DEVELOPMENT]: {
-        'registries.primary.url': 'https://dev-registry.lokus.dev',
+        'registries.primary.url': 'https://dev-registry.NoteMakingApp.dev',
         'security.level': SECURITY_LEVEL.PERMISSIVE,
         'analytics.enabled': false,
         'developer.enableDeveloperMode': true
@@ -614,7 +614,7 @@ export class RegistryConfig extends EventEmitter {
   async setupConfigPath() {
     if (!this.configPath) {
       const home = await homeDir()
-      this.configPath = await join(home, '.lokus', 'registry-config.json')
+      this.configPath = await join(home, '.NoteMakingApp', 'registry-config.json')
     }
   }
 

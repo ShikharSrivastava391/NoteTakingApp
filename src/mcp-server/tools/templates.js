@@ -1,6 +1,6 @@
 /**
  * Template Management Tools for MCP
- * Tools for creating and managing templates in Lokus
+ * Tools for creating and managing templates in NoteMakingApp
  */
 
 import { readFile, writeFile, readdir, stat, mkdir, unlink } from "fs/promises";
@@ -236,7 +236,7 @@ async function createTemplate(templatesDir, args) {
       content: [
         {
           type: "text",
-          text: `Template "${name}" created successfully!\n\nID: ${id}\nFile: ${filePath}\n\n**Important**: The template has been created as a file, but to see it in the UI:\n1. Open Template Manager in Lokus\n2. Click the "Refresh" button\n3. The template will now appear in the list\n\nAlternatively, restart the Lokus app to load the new template.`
+          text: `Template "${name}" created successfully!\n\nID: ${id}\nFile: ${filePath}\n\n**Important**: The template has been created as a file, but to see it in the UI:\n1. Open Template Manager in NoteMakingApp\n2. Click the "Refresh" button\n3. The template will now appear in the list\n\nAlternatively, restart the NoteMakingApp app to load the new template.`
         }
       ]
     };

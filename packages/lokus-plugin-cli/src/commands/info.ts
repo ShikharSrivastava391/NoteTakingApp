@@ -17,7 +17,7 @@ export interface InfoOptions {
 export const infoCommand = new Command('info')
   .description('Show plugin information')
   .argument('<name>', 'plugin name to get info for')
-  .option('-r, --registry <url>', 'registry URL', 'https://registry.lokus.dev')
+  .option('-r, --registry <url>', 'registry URL', 'https://registry.NoteMakingApp.dev')
   .option('-l, --local', 'show local installation info only')
   .option('--json', 'output as JSON')
   .option('--versions', 'show all available versions')
@@ -87,24 +87,24 @@ async function getLocalPluginInfo(name: string): Promise<any | null> {
 async function getGlobalPluginDir(name: string): Promise<string> {
   const os = require('os');
   const homeDir = os.homedir();
-  return path.join(homeDir, '.lokus', 'plugins', name);
+  return path.join(homeDir, '.NoteMakingApp', 'plugins', name);
 }
 
 async function getLocalPluginDir(name: string): Promise<string | null> {
   const cwd = process.cwd();
   
-  // Try to find Lokus workspace root
+  // Try to find NoteMakingApp workspace root
   let currentDir = cwd;
   while (currentDir !== path.dirname(currentDir)) {
-    const lokusConfig = path.join(currentDir, '.lokus');
-    if (await fs.pathExists(lokusConfig)) {
-      return path.join(currentDir, '.lokus', 'plugins', name);
+    const NoteMakingAppConfig = path.join(currentDir, '.NoteMakingApp');
+    if (await fs.pathExists(NoteMakingAppConfig)) {
+      return path.join(currentDir, '.NoteMakingApp', 'plugins', name);
     }
     currentDir = path.dirname(currentDir);
   }
   
   // Check current directory
-  const localPluginDir = path.join(cwd, '.lokus', 'plugins', name);
+  const localPluginDir = path.join(cwd, '.NoteMakingApp', 'plugins', name);
   if (await fs.pathExists(localPluginDir)) {
     return localPluginDir;
   }
@@ -157,7 +157,7 @@ async function getRegistryPluginInfo(registry: string, name: string, includeVers
     const response = await axios.get(url, {
       params,
       headers: {
-        'User-Agent': 'lokus-plugin-cli'
+        'User-Agent': 'NoteMakingApp-plugin-cli'
       },
       timeout: 10000
     });
@@ -318,6 +318,6 @@ function displayPluginInfo(combinedInfo: any, localInfo: any, registryInfo: any)
   if (!localInfo && registryInfo) {
     logger.newLine();
     logger.info(chalk.bold('Installation:'));
-    logger.info(`  lokus-plugin install ${info.name}`);
+    logger.info(`  NoteMakingApp-plugin install ${info.name}`);
   }
 }

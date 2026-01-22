@@ -43,7 +43,7 @@ function CrashTest() {
       throw new Error('Test Handled Error - This is intentional for testing crash reporting');
     } catch (error) {
       Sentry.captureException(error);
-      alert('Error captured and sent to GlitchTip! Check the dashboard at crash.lokusmd.com');
+      alert('Error captured and sent to GlitchTip! Check the dashboard at crash.NoteMakingAppmd.com');
     }
   };
 
@@ -143,7 +143,7 @@ function CrashTest() {
       </div>
 
       <div style={{ marginTop: '10px', fontSize: '10px', opacity: 0.9 }}>
-        Check crash.lokusmd.com for reports
+        Check crash.NoteMakingAppmd.com for reports
       </div>
     </div>
   );

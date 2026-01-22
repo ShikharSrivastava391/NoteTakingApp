@@ -1,5 +1,5 @@
 #!/bin/bash
-# Build Lokus for Linux using Docker
+# Build NoteMakingApp for Linux using Docker
 
 set -e
 
@@ -10,7 +10,7 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m'
 
-echo -e "${BLUE}Building Lokus for Linux in Docker...${NC}\n"
+echo -e "${BLUE}Building NoteMakingApp for Linux in Docker...${NC}\n"
 
 # Check if Docker is running
 if ! docker info &> /dev/null; then
@@ -20,9 +20,9 @@ if ! docker info &> /dev/null; then
 fi
 
 # Check if image exists
-if ! docker images | grep -q "lokus-linux-builder"; then
+if ! docker images | grep -q "NoteMakingApp-linux-builder"; then
     echo -e "${YELLOW}Linux builder image not found. Building...${NC}"
-    docker build -t lokus-linux-builder -f docker/Dockerfile.linux-builder .
+    docker build -t NoteMakingApp-linux-builder -f docker/Dockerfile.linux-builder .
 fi
 
 # Get project root
@@ -42,7 +42,7 @@ docker run --rm \
     -w /app \
     -e GOOGLE_CLIENT_ID="${GOOGLE_CLIENT_ID}" \
     -e GOOGLE_CLIENT_SECRET="${GOOGLE_CLIENT_SECRET}" \
-    lokus-linux-builder \
+    NoteMakingApp-linux-builder \
     bash -c "
         set -e
         echo '📦 Installing npm dependencies...'

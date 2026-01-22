@@ -1,4 +1,4 @@
-# Lokus MCP Integration Guide
+# NoteMakingApp MCP Integration Guide
 
 > **Connect AI assistants to your knowledge base**
 
@@ -23,7 +23,7 @@
 
 ## Introduction
 
-Lokus includes a built-in MCP (Model Context Protocol) server that provides **68+ sophisticated tools** for AI assistants to interact with your knowledge base. The server auto-starts with Lokus and requires zero configuration.
+NoteMakingApp includes a built-in MCP (Model Context Protocol) server that provides **68+ sophisticated tools** for AI assistants to interact with your knowledge base. The server auto-starts with NoteMakingApp and requires zero configuration.
 
 ### Key Features
 
@@ -42,7 +42,7 @@ Lokus includes a built-in MCP (Model Context Protocol) server that provides **68
 
 ### Model Context Protocol
 
-MCP is an open standard created for AI assistants to interact with external tools and data sources. Think of it as a universal adapter that lets any AI assistant talk to Lokus.
+MCP is an open standard created for AI assistants to interact with external tools and data sources. Think of it as a universal adapter that lets any AI assistant talk to NoteMakingApp.
 
 ### Why MCP?
 
@@ -65,14 +65,14 @@ MCP is an open standard created for AI assistants to interact with external tool
 ```
 ┌─────────────────────────────────────┐
 │     AI Assistant (Your AI CLI/Desktop)     │
-│     (Uses Lokus MCP tools)          │
+│     (Uses NoteMakingApp MCP tools)          │
 └──────────────┬──────────────────────┘
                │
                │ MCP Protocol
                │
 ┌──────────────▼──────────────────────┐
-│      Lokus MCP Server               │
-│      (Auto-starts with Lokus)       │
+│      NoteMakingApp MCP Server               │
+│      (Auto-starts with NoteMakingApp)       │
 ├─────────────────────────────────────┤
 │  ┌───────────┐  ┌───────────┐     │
 │  │  Stdio    │  │   HTTP    │     │
@@ -101,9 +101,9 @@ MCP is an open standard created for AI assistants to interact with external tool
 
 ### Automatic Setup
 
-**On first launch, Lokus automatically:**
+**On first launch, NoteMakingApp automatically:**
 
-1. ✅ Extracts MCP server to `~/.lokus/mcp-server/`
+1. ✅ Extracts MCP server to `~/.NoteMakingApp/mcp-server/`
 2. ✅ Creates Desktop AI config (if applicable)
 3. ✅ Creates CLI config (if applicable)
 4. ✅ Starts HTTP server on port 3456
@@ -117,7 +117,7 @@ MCP is an open standard created for AI assistants to interact with external tool
 
 #### Check Server Status
 
-**In Lokus:**
+**In NoteMakingApp:**
 - Look at status bar (bottom)
 - Should show "MCP: Running" with green indicator
 - If red, click for diagnostics
@@ -128,24 +128,24 @@ MCP is an open standard created for AI assistants to interact with external tool
 curl http://localhost:3456/health
 
 # Should return:
-# {"status":"ok","server":"lokus-mcp","version":"1.3.1"}
+# {"status":"ok","server":"NoteMakingApp-mcp","version":"1.3.1"}
 ```
 
 #### Check Configuration Files
 
 **Desktop Config (stdio):**
 ```bash
-cat ~/.lokus/mcp-server/claude_desktop_config.json
+cat ~/.NoteMakingApp/mcp-server/claude_desktop_config.json
 ```
 
 Should contain:
 ```json
 {
   "mcpServers": {
-    "lokus": {
+    "NoteMakingApp": {
       "command": "node",
       "args": [
-        "/Users/yourname/.lokus/mcp-server/index.js"
+        "/Users/yourname/.NoteMakingApp/mcp-server/index.js"
       ]
     }
   }
@@ -154,14 +154,14 @@ Should contain:
 
 **CLI Config (HTTP):**
 ```bash
-cat ~/.lokus/mcp-server/cline_mcp_settings.json
+cat ~/.NoteMakingApp/mcp-server/cline_mcp_settings.json
 ```
 
 Should contain:
 ```json
 {
   "mcpServers": {
-    "lokus": {
+    "NoteMakingApp": {
       "url": "http://localhost:3456/mcp"
     }
   }
@@ -175,7 +175,7 @@ Should contain:
 1. **Open AI assistant**
 2. **Ask it to list available tools:**
    ```
-   "What tools do you have from Lokus?"
+   "What tools do you have from NoteMakingApp?"
    ```
 3. **Try a simple command:**
    ```
@@ -187,7 +187,7 @@ Should contain:
 
 ## Tool Categories
 
-Lokus provides 68+ tools across 6 categories:
+NoteMakingApp provides 68+ tools across 6 categories:
 
 ### 1. Note Management (11 tools)
 
@@ -312,7 +312,7 @@ Tools for content creation and formatting.
 
 ### Server Settings
 
-Located at: `~/.lokus/mcp-server/config.json`
+Located at: `~/.NoteMakingApp/mcp-server/config.json`
 
 ```json
 {
@@ -328,7 +328,7 @@ Located at: `~/.lokus/mcp-server/config.json`
   },
   "logging": {
     "level": "info",
-    "file": "~/.lokus/mcp-server/logs/server.log"
+    "file": "~/.NoteMakingApp/mcp-server/logs/server.log"
   },
   "workspace": {
     "autoDetect": true,
@@ -339,19 +339,19 @@ Located at: `~/.lokus/mcp-server/config.json`
 
 ### Desktop AI Configuration
 
-**Location:** `~/.lokus/mcp-server/claude_desktop_config.json`
+**Location:** `~/.NoteMakingApp/mcp-server/claude_desktop_config.json`
 
 **Default Configuration:**
 ```json
 {
   "mcpServers": {
-    "lokus": {
+    "NoteMakingApp": {
       "command": "node",
       "args": [
-        "~/.lokus/mcp-server/index.js"
+        "~/.NoteMakingApp/mcp-server/index.js"
       ],
       "env": {
-        "LOKUS_WORKSPACE": "/path/to/your/workspace"
+        "NoteMakingApp_WORKSPACE": "/path/to/your/workspace"
       }
     }
   }
@@ -362,13 +362,13 @@ Located at: `~/.lokus/mcp-server/config.json`
 ```json
 {
   "mcpServers": {
-    "lokus": {
+    "NoteMakingApp": {
       "command": "node",
-      "args": ["~/.lokus/mcp-server/index.js"],
+      "args": ["~/.NoteMakingApp/mcp-server/index.js"],
       "env": {
-        "LOKUS_WORKSPACE": "/custom/workspace",
-        "LOKUS_LOG_LEVEL": "debug",
-        "LOKUS_CACHE_SIZE": "1000"
+        "NoteMakingApp_WORKSPACE": "/custom/workspace",
+        "NoteMakingApp_LOG_LEVEL": "debug",
+        "NoteMakingApp_CACHE_SIZE": "1000"
       }
     }
   }
@@ -379,13 +379,13 @@ Located at: `~/.lokus/mcp-server/config.json`
 
 ### CLI Configuration
 
-**Location:** `~/.lokus/mcp-server/cline_mcp_settings.json`
+**Location:** `~/.NoteMakingApp/mcp-server/cline_mcp_settings.json`
 
 **Default Configuration:**
 ```json
 {
   "mcpServers": {
-    "lokus": {
+    "NoteMakingApp": {
       "url": "http://localhost:3456/mcp",
       "transport": "http"
     }
@@ -397,7 +397,7 @@ Located at: `~/.lokus/mcp-server/config.json`
 ```json
 {
   "mcpServers": {
-    "lokus": {
+    "NoteMakingApp": {
       "url": "http://localhost:9999/mcp",
       "transport": "http",
       "headers": {
@@ -412,18 +412,18 @@ Located at: `~/.lokus/mcp-server/config.json`
 
 | Variable | Description | Default |
 |----------|-------------|---------|
-| `LOKUS_WORKSPACE` | Workspace path | Auto-detected |
-| `LOKUS_MCP_PORT` | HTTP server port | 3456 |
-| `LOKUS_LOG_LEVEL` | Logging level | info |
-| `LOKUS_CACHE_SIZE` | Cache size (MB) | 500 |
-| `LOKUS_AUTO_START` | Auto-start server | true |
+| `NoteMakingApp_WORKSPACE` | Workspace path | Auto-detected |
+| `NoteMakingApp_MCP_PORT` | HTTP server port | 3456 |
+| `NoteMakingApp_LOG_LEVEL` | Logging level | info |
+| `NoteMakingApp_CACHE_SIZE` | Cache size (MB) | 500 |
+| `NoteMakingApp_AUTO_START` | Auto-start server | true |
 
 **Set environment variables:**
 ```bash
 # In your shell config (~/.bashrc, ~/.zshrc)
-export LOKUS_WORKSPACE="/path/to/workspace"
-export LOKUS_MCP_PORT=3456
-export LOKUS_LOG_LEVEL="debug"
+export NoteMakingApp_WORKSPACE="/path/to/workspace"
+export NoteMakingApp_MCP_PORT=3456
+export NoteMakingApp_LOG_LEVEL="debug"
 ```
 
 ---
@@ -436,7 +436,7 @@ export LOKUS_LOG_LEVEL="debug"
 
 **AI Response:**
 ```
-I'll analyze your research notes using Lokus tools:
+I'll analyze your research notes using NoteMakingApp tools:
 
 1. Using search_content to find all research notes...
    Found 24 research notes
@@ -538,8 +538,8 @@ Would you like me to create template notes for these topics?
 Running workspace maintenance:
 
 1. Using backup_workspace...
-   Created backup: lokus-backup-2025-10-15-14-30.zip
-   Location: ~/.lokus/backups/
+   Created backup: NoteMakingApp-backup-2025-10-15-14-30.zip
+   Location: ~/.NoteMakingApp/backups/
    Size: 45.2 MB
 
 2. Using analyze_workspace_health...
@@ -604,12 +604,12 @@ PDF exported successfully! Would you like me to open it?
 
 ### Building Custom Tools
 
-You can extend Lokus MCP with custom tools.
+You can extend NoteMakingApp MCP with custom tools.
 
 #### Tool Structure
 
 ```javascript
-// ~/.lokus/mcp-server/tools/custom/myTool.js
+// ~/.NoteMakingApp/mcp-server/tools/custom/myTool.js
 
 export default class MyCustomTool {
   constructor(workspacePath) {
@@ -664,7 +664,7 @@ export default class MyCustomTool {
 #### Registering Custom Tools
 
 ```javascript
-// ~/.lokus/mcp-server/index.js
+// ~/.NoteMakingApp/mcp-server/index.js
 
 import MyCustomTool from './tools/custom/myTool.js';
 
@@ -734,23 +734,23 @@ curl -X POST http://localhost:3456/mcp \
 
 3. **Check server logs**
    ```bash
-   tail -f ~/.lokus/mcp-server/logs/server.log
+   tail -f ~/.NoteMakingApp/mcp-server/logs/server.log
    ```
 
-4. **Restart Lokus**
+4. **Restart NoteMakingApp**
    - Quit completely (Cmd/Ctrl+Q)
    - Relaunch
 
 5. **Rebuild server**
-   - Delete `~/.lokus/mcp-server/`
-   - Restart Lokus (rebuilds automatically)
+   - Delete `~/.NoteMakingApp/mcp-server/`
+   - Restart NoteMakingApp (rebuilds automatically)
 
 [📹 Placeholder: Troubleshooting server issues]
 
 ### Tools Not Working
 
 **Symptoms:**
-- AI doesn't see Lokus tools
+- AI doesn't see NoteMakingApp tools
 - Tools return errors
 - Partial results
 
@@ -759,7 +759,7 @@ curl -X POST http://localhost:3456/mcp \
 1. **Verify AI configuration**
    ```bash
    # Check config exists
-   cat ~/.lokus/mcp-server/claude_desktop_config.json
+   cat ~/.NoteMakingApp/mcp-server/claude_desktop_config.json
    ```
 
 2. **Test tool individually**
@@ -775,12 +775,12 @@ curl -X POST http://localhost:3456/mcp \
 
 4. **Review tool logs**
    ```bash
-   grep ERROR ~/.lokus/mcp-server/logs/server.log
+   grep ERROR ~/.NoteMakingApp/mcp-server/logs/server.log
    ```
 
 5. **Clear tool cache**
    ```bash
-   rm -rf ~/.lokus/mcp-server/cache/
+   rm -rf ~/.NoteMakingApp/mcp-server/cache/
    ```
 
 ### Performance Issues
@@ -794,12 +794,12 @@ curl -X POST http://localhost:3456/mcp \
 
 1. **Reduce cache size**
    ```bash
-   export LOKUS_CACHE_SIZE=250  # Default: 500 MB
+   export NoteMakingApp_CACHE_SIZE=250  # Default: 500 MB
    ```
 
 2. **Lower log level**
    ```bash
-   export LOKUS_LOG_LEVEL=error  # Default: info
+   export NoteMakingApp_LOG_LEVEL=error  # Default: info
    ```
 
 3. **Limit workspace scope**
@@ -810,7 +810,7 @@ curl -X POST http://localhost:3456/mcp \
 4. **Enable Quantum indexing**
    - Preferences → Performance → Enable Quantum
 
-5. **Update Lokus**
+5. **Update NoteMakingApp**
    - Latest version has performance improvements
 
 [📹 Placeholder: Performance optimization]
@@ -835,8 +835,8 @@ curl -X POST http://localhost:3456/mcp \
 
 3. **Try alternative port**
    ```bash
-   export LOKUS_MCP_PORT=9999
-   # Restart Lokus
+   export NoteMakingApp_MCP_PORT=9999
+   # Restart NoteMakingApp
    ```
 
 4. **Check for port conflicts**
@@ -904,12 +904,12 @@ If required:
 - **MCP Specification**: https://modelcontextprotocol.io/
 - **Tool Reference**: `/docs/mcp-server/API.md`
 - **Development Guide**: `/docs/mcp-server/development-guide.md`
-- **Community Examples**: https://github.com/lokus-ai/lokus/discussions
+- **Community Examples**: https://github.com/NoteMakingApp-ai/NoteMakingApp/discussions
 
 ---
 
 **Last Updated:** October 2025
 **Version:** 1.3.1
-**Support:** https://github.com/lokus-ai/lokus/issues
+**Support:** https://github.com/NoteMakingApp-ai/NoteMakingApp/issues
 
 [📹 Note: Replace all video placeholders with actual tutorials]

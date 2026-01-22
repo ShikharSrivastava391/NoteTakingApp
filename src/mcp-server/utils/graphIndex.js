@@ -1,5 +1,5 @@
 /**
- * Graph Index for Lokus MCP Server
+ * Graph Index for NoteMakingApp MCP Server
  *
  * Builds and maintains a persistent index of wiki links between notes.
  * Provides graph traversal, path finding, and cluster detection.
@@ -17,7 +17,7 @@ const WIKI_LINK_REGEX = /\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g;
 export class GraphIndex {
   constructor(workspacePath) {
     this.workspacePath = workspacePath;
-    this.indexPath = join(workspacePath, '.lokus', 'mcp-graph-index.json');
+    this.indexPath = join(workspacePath, '.NoteMakingApp', 'mcp-graph-index.json');
     this.graph = null;
     this.lastBuilt = null;
   }

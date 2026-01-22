@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-File Synchronization Tool using Lokus MCP Server
+File Synchronization Tool using NoteMakingApp MCP Server
 
 This example demonstrates how to create a file synchronization tool that:
 - Monitors a local directory for changes
-- Syncs changes with Lokus workspace via MCP
+- Syncs changes with NoteMakingApp workspace via MCP
 - Handles conflict resolution
 - Provides bidirectional sync capabilities
 - Supports real-time updates via WebSocket subscriptions
@@ -97,7 +97,7 @@ class MCPFileSyncClient:
             # Initialize session
             await self.initialize()
             
-            logger.info("Connected to Lokus MCP server")
+            logger.info("Connected to NoteMakingApp MCP server")
             return True
             
         except Exception as e:
@@ -119,9 +119,9 @@ class MCPFileSyncClient:
                 'tools': {'listChanged': True}
             },
             'clientInfo': {
-                'name': 'Lokus File Sync Tool',
+                'name': 'NoteMakingApp File Sync Tool',
                 'version': '1.0.0',
-                'description': 'Bidirectional file synchronization with Lokus workspace'
+                'description': 'Bidirectional file synchronization with NoteMakingApp workspace'
             }
         })
         
@@ -291,7 +291,7 @@ class FileSyncManager:
         self.mcp_client = mcp_client
         
         # Metadata tracking
-        self.metadata_file = self.local_dir / '.lokus-sync-metadata.json'
+        self.metadata_file = self.local_dir / '.NoteMakingApp-sync-metadata.json'
         self.file_metadata: Dict[str, FileMetadata] = {}
         
         # File watcher
@@ -735,7 +735,7 @@ class FileSyncManager:
     async def print_status(self):
         """Print current sync status"""
         print(f"""
-📁 **Lokus File Sync Status**
+📁 **NoteMakingApp File Sync Status**
 
 **Configuration:**
 • Local Directory: {self.local_dir}
@@ -764,7 +764,7 @@ class FileSyncManager:
 
 async def main():
     """Main application entry point"""
-    parser = argparse.ArgumentParser(description='Lokus File Synchronization Tool')
+    parser = argparse.ArgumentParser(description='NoteMakingApp File Synchronization Tool')
     parser.add_argument('--local-dir', required=True, help='Local directory to sync')
     parser.add_argument('--remote-dir', default='/workspace/synced', help='Remote directory path')
     parser.add_argument('--mcp-url', default='ws://localhost:3001/mcp', help='MCP server URL')
@@ -778,9 +778,9 @@ async def main():
     args = parser.parse_args()
     
     # Get API key from environment if not provided
-    api_key = args.api_key or os.getenv('LOKUS_API_KEY')
+    api_key = args.api_key or os.getenv('NoteMakingApp_API_KEY')
     if not api_key:
-        logger.error("API key required. Use --api-key or set LOKUS_API_KEY environment variable")
+        logger.error("API key required. Use --api-key or set NoteMakingApp_API_KEY environment variable")
         sys.exit(1)
     
     # Create MCP client

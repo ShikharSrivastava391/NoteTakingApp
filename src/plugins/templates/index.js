@@ -228,7 +228,7 @@ export class TemplateSystemIntegration {
     }
 
     // Create metadata file
-    const metadataPath = path.join(targetDirectory, '.lokus-template.json')
+    const metadataPath = path.join(targetDirectory, '.NoteMakingApp-template.json')
     await fs.writeFile(metadataPath, JSON.stringify(structure.metadata, null, 2))
   }
 

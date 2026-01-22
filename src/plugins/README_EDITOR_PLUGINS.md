@@ -1,10 +1,10 @@
 # Editor Plugin System - Developer Guide
 
-This guide covers how to create powerful editor plugins using Lokus's enhanced TipTap integration system.
+This guide covers how to create powerful editor plugins using NoteMakingApp's enhanced TipTap integration system.
 
 ## Overview
 
-The Lokus editor plugin system provides comprehensive extensibility for the TipTap editor, allowing plugins to:
+The NoteMakingApp editor plugin system provides comprehensive extensibility for the TipTap editor, allowing plugins to:
 
 - **Custom Nodes & Marks**: Create new content types and text formatting
 - **Extensions**: Add functionality and behavior to the editor
@@ -739,7 +739,7 @@ Enable debug mode for detailed logging:
 
 ```javascript
 // Set debug flag
-window.__LOKUS_DEBUG_PLUGINS__ = true
+window.__NoteMakingApp_DEBUG_PLUGINS__ = true
 
 // Enable verbose logging
 console.log('Plugin debug mode enabled')
@@ -754,4 +754,4 @@ console.log('Plugin debug mode enabled')
 
 ---
 
-This guide covers the core concepts and features of the Lokus editor plugin system. For more advanced use cases and detailed API documentation, refer to the source code and example implementations.
+This guide covers the core concepts and features of the NoteMakingApp editor plugin system. For more advanced use cases and detailed API documentation, refer to the source code and example implementations.

@@ -5,8 +5,8 @@
  * and intelligent text processing capabilities.
  */
 
-import { BasePlugin } from '@lokus/plugin-core'
-import { MCPResourceBuilder, MCPToolBuilder, MCPPromptBuilder } from '@lokus/mcp'
+import { BasePlugin } from '@NoteMakingApp/plugin-core'
+import { MCPResourceBuilder, MCPToolBuilder, MCPPromptBuilder } from '@NoteMakingApp/mcp'
 import { WritingAssistant } from './WritingAssistant.js'
 import { ChatInterface } from './ChatInterface.js'
 import { PromptLibrary } from './PromptLibrary.js'

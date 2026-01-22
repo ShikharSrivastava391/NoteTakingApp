@@ -93,7 +93,7 @@ export class GraphDataProcessor {
     const {
       includeNonMarkdown = false,
       maxDepth = 10,
-      excludePatterns = ['.git', 'node_modules', '.lokus'],
+      excludePatterns = ['.git', 'node_modules', '.NoteMakingApp'],
       onProgress = null
     } = options;
 
@@ -141,7 +141,7 @@ export class GraphDataProcessor {
 
       // Store workspace path globally (but NOT file index - Workspace.jsx manages that)
       if (typeof globalThis !== 'undefined') {
-        globalThis.__LOKUS_WORKSPACE_PATH__ = this.workspacePath;
+        globalThis.__NoteMakingApp_WORKSPACE_PATH__ = this.workspacePath;
       }
       
       // If no files found, this is a problem

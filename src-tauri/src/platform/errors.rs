@@ -1,4 +1,4 @@
-/// Platform-specific error handling for Lokus
+/// Platform-specific error handling for NoteMakingApp
 /// 
 /// This module provides comprehensive error types and handling for different platforms,
 /// ensuring appropriate error messages and codes for each operating system.

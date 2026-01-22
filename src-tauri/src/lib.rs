@@ -110,15 +110,15 @@ fn validate_path_internal(path: &str) -> bool {
         return false;
     }
 
-    // Check if it's a valid Lokus workspace or can be initialized as one
-    let lokus_dir = workspace_path.join(".lokus");
-    if lokus_dir.exists() {
-        // It's already a Lokus workspace
-        return lokus_dir.is_dir();
+    // Check if it's a valid NoteMakingApp workspace or can be initialized as one
+    let NoteMakingApp_dir = workspace_path.join(".NoteMakingApp");
+    if NoteMakingApp_dir.exists() {
+        // It's already a NoteMakingApp workspace
+        return NoteMakingApp_dir.is_dir();
     }
 
-    // If no .lokus folder, check if we can create one (write permissions)
-    match std::fs::create_dir(&lokus_dir) {
+    // If no .NoteMakingApp folder, check if we can create one (write permissions)
+    match std::fs::create_dir(&NoteMakingApp_dir) {
         Ok(_) => {
             // Successfully created, keep it for workspace initialization
             true
@@ -392,7 +392,7 @@ pub fn run() {
   let log_config = logging::LoggingConfig {
     log_dir: dirs::home_dir()
       .unwrap_or_default()
-      .join(".lokus")
+      .join(".NoteMakingApp")
       .join("logs"),
     max_days_retained: 7,
     sentry_enabled: std::env::var("VITE_ENABLE_CRASH_REPORTS")
@@ -404,7 +404,7 @@ pub fn run() {
 
   let _ = logging::init_logging(log_config);
 
-  tracing::info!("Lokus starting...");
+  tracing::info!("NoteMakingApp starting...");
 
   // Initialize Sentry for crash reporting (desktop only)
   #[cfg(desktop)]
@@ -866,7 +866,7 @@ pub fn run() {
         
         // If this is a plugin-dev link, try to open devtools (debug only)
         #[cfg(debug_assertions)]
-        if payload.contains("lokus://plugin-dev") {
+        if payload.contains("NoteMakingApp://plugin-dev") {
           if let Some(window) = app_handle_deep_link.get_webview_window("main") {
             window.open_devtools();
           }

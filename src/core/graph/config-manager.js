@@ -1,7 +1,7 @@
 /**
  * Graph Config Manager - Handles loading and saving graph visualization settings
  *
- * Stores settings in .lokus/graph-config.json per workspace
+ * Stores settings in .NoteMakingApp/graph-config.json per workspace
  * Provides Obsidian-style configuration for graph customization
  */
 
@@ -54,19 +54,19 @@ export function getDefaultConfig() {
  * Get the config file path for a workspace
  */
 async function getConfigPath(workspacePath) {
-  return await join(workspacePath, '.lokus', 'graph-config.json');
+  return await join(workspacePath, '.NoteMakingApp', 'graph-config.json');
 }
 
 /**
- * Ensure .lokus directory exists
+ * Ensure .NoteMakingApp directory exists
  */
-async function ensureLokusDir(workspacePath) {
-  const lokusDir = await join(workspacePath, '.lokus');
+async function ensureNoteMakingAppDir(workspacePath) {
+  const NoteMakingAppDir = await join(workspacePath, '.NoteMakingApp');
 
   try {
-    const dirExists = await exists(lokusDir);
+    const dirExists = await exists(NoteMakingAppDir);
     if (!dirExists) {
-      await mkdir(lokusDir, { recursive: true });
+      await mkdir(NoteMakingAppDir, { recursive: true });
     }
   } catch { }
 }
@@ -109,8 +109,8 @@ export async function saveGraphConfig(workspacePath, config) {
   }
 
   try {
-    // Ensure .lokus directory exists
-    await ensureLokusDir(workspacePath);
+    // Ensure .NoteMakingApp directory exists
+    await ensureNoteMakingAppDir(workspacePath);
 
     // Get config path
     const configPath = await getConfigPath(workspacePath);

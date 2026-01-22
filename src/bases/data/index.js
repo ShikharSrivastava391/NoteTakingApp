@@ -1,6 +1,6 @@
 // src/bases/data/index.js
 /**
- * Lokus Bases Data System - Main entry point
+ * NoteMakingApp Bases Data System - Main entry point
  * Provides a unified interface to the property and file data system
  */
 
@@ -62,7 +62,7 @@ export class BasesDataManager {
       await this.propertyIndexer.initialize(workspacePath, {
         recursive: true,
         includeExtensions: ['.md', '.markdown'],
-        excludePatterns: ['.lokus', 'node_modules', '.git', '.DS_Store'],
+        excludePatterns: ['.NoteMakingApp', 'node_modules', '.git', '.DS_Store'],
         ...options.scanOptions
       });
 

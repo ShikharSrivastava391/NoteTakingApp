@@ -1,6 +1,6 @@
 # Clipboard Integration
 
-Lokus features intelligent clipboard integration that provides smart paste functionality, automatic format conversion, and seamless content transfer between applications. The clipboard system enhances productivity by understanding content types and applying appropriate transformations.
+NoteMakingApp features intelligent clipboard integration that provides smart paste functionality, automatic format conversion, and seamless content transfer between applications. The clipboard system enhances productivity by understanding content types and applying appropriate transformations.
 
 ## Overview
 
@@ -138,7 +138,7 @@ Multi-stage content processing:
 ## Clipboard Operations
 
 ### Copy Operations
-Enhanced copying from within Lokus:
+Enhanced copying from within NoteMakingApp:
 - **Rich Copy** - Copy with formatting preserved
 - **Markdown Copy** - Copy as clean markdown source
 - **HTML Copy** - Copy as formatted HTML

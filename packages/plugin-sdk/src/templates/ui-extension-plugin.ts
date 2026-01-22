@@ -106,7 +106,7 @@ export class UIExtensionPluginTemplate implements TemplateGenerator {
     return JSON.stringify({
       name: config.id,
       version: config.version || '1.0.0',
-      description: config.description || 'A Lokus UI extension plugin',
+      description: config.description || 'A NoteMakingApp UI extension plugin',
       main: config.typescript ? 'dist/index.js' : 'src/index.js',
       scripts: {
         ...(config.typescript && {
@@ -118,11 +118,11 @@ export class UIExtensionPluginTemplate implements TemplateGenerator {
         lint: 'eslint src/**/*.{js,ts}',
         'lint:fix': 'eslint src/**/*.{js,ts} --fix'
       },
-      keywords: ['lokus', 'plugin', 'ui', 'extension'],
+      keywords: ['NoteMakingApp', 'plugin', 'ui', 'extension'],
       author: config.author || '',
       license: 'MIT',
       dependencies: {
-        '@lokus/plugin-sdk': '^1.0.0'
+        '@NoteMakingApp/plugin-sdk': '^1.0.0'
       },
       devDependencies: {
         ...(config.typescript && {
@@ -142,7 +142,7 @@ export class UIExtensionPluginTemplate implements TemplateGenerator {
       id: config.id,
       version: config.version || '1.0.0',
       name: config.name,
-      description: config.description || 'A Lokus UI extension plugin',
+      description: config.description || 'A NoteMakingApp UI extension plugin',
       author: config.author || '',
       main: config.typescript ? 'dist/index.js' : 'src/index.js',
       activationEvents: ['onView:' + config.id],
@@ -198,14 +198,14 @@ export class UIExtensionPluginTemplate implements TemplateGenerator {
   }
 
   private generateTypeScriptMain(config: TemplateConfig): string {
-    return `import { Plugin, PluginContext, LokusAPI, WebviewPanel } from '@lokus/plugin-sdk'
+    return `import { Plugin, PluginContext, NoteMakingAppAPI, WebviewPanel } from '@NoteMakingApp/plugin-sdk'
 import * as path from 'path'
 
 /**
  * ${config.name} UI Extension Plugin
  */
 export default class ${this.toPascalCase(config.name || 'UIExtension')}Plugin implements Plugin {
-  private api?: LokusAPI
+  private api?: NoteMakingAppAPI
   private context?: PluginContext
   private panel?: WebviewPanel
 
@@ -888,7 +888,7 @@ section {
   private generateReadme(config: TemplateConfig): string {
     return `# ${config.name}
 
-${config.description || 'A Lokus UI extension plugin'}
+${config.description || 'A NoteMakingApp UI extension plugin'}
 
 ## Features
 

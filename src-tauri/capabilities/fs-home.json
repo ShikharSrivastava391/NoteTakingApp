@@ -4,7 +4,7 @@
   "description": "Filesystem permissions and HOME scope for all application windows.",
   "windows": [
     "main",
-    "ws-lokus-workspace",
+    "ws-NoteMakingApp-workspace",
     "prefs",
     "ws-*",
     "launcher-*"

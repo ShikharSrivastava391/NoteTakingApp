@@ -536,7 +536,7 @@ export class PluginPublisher extends EventEmitter {
       license = 'MIT',
       description = '',
       version = '1.0.0',
-      lokusVersion = '^1.0.0'
+      NoteMakingAppVersion = '^1.0.0'
     } = options
 
     const id = name.toLowerCase().replace(/[^a-z0-9-]/g, '-')
@@ -551,7 +551,7 @@ export class PluginPublisher extends EventEmitter {
       author: typeof author === 'string' ? { name: author } : author,
       license,
       engines: {
-        lokus: lokusVersion
+        NoteMakingApp: NoteMakingAppVersion
       },
       categories: this.getDefaultCategories(type),
       keywords: [],
@@ -871,7 +871,7 @@ export class PluginPublisher extends EventEmitter {
 
   async setupDirectories() {
     // Setup will be handled by the calling code
-    this.config.buildDir = this.config.buildDir || '/tmp/lokus-builds'
+    this.config.buildDir = this.config.buildDir || '/tmp/NoteMakingApp-builds'
     this.config.outputDir = this.config.outputDir || './dist'
   }
 
@@ -916,10 +916,10 @@ export default class {{manifest.name}}Plugin {
 
 ## Installation
 
-Install via the Lokus Plugin Registry:
+Install via the NoteMakingApp Plugin Registry:
 
 \`\`\`
-lokus plugin install {{manifest.id}}
+NoteMakingApp plugin install {{manifest.id}}
 \`\`\`
 
 ## Usage

@@ -1,8 +1,8 @@
-# Lokus Plugin System Architecture
+# NoteMakingApp Plugin System Architecture
 
 ## Overview
 
-Lokus has a **three-layer plugin architecture** designed for separation of concerns and extensibility. Each layer serves a distinct purpose and should not be confused with one another.
+NoteMakingApp has a **three-layer plugin architecture** designed for separation of concerns and extensibility. Each layer serves a distinct purpose and should not be confused with one another.
 
 ## The Three Plugin Systems
 
@@ -16,7 +16,7 @@ Lokus has a **three-layer plugin architecture** designed for separation of conce
 - Dependency resolution with topological sorting
 - Plugin lifecycle management (load, activate, deactivate, unload, reload)
 - Plugin security validation
-- API provisioning via `LokusPluginAPI`
+- API provisioning via `NoteMakingAppPluginAPI`
 - Mock plugin support for browser testing
 - Error handling and recovery
 
@@ -130,7 +130,7 @@ Lokus has a **three-layer plugin architecture** designed for separation of conce
             │
     ┌───────▼──────────────────────────────┐
     │      Plugin API Layer                │
-    │  (LokusPluginAPI, EditorAPI, etc.)   │
+    │  (NoteMakingAppPluginAPI, EditorAPI, etc.)   │
     └───────┬──────────────────────────────┘
             │
             │
@@ -194,7 +194,7 @@ Lokus has a **three-layer plugin architecture** designed for separation of conce
   "license": "MIT",
 
   "engines": {
-    "lokus": "^1.0.0"
+    "NoteMakingApp": "^1.0.0"
   },
 
   "main": "index.js",
@@ -309,7 +309,7 @@ Lokus has a **three-layer plugin architecture** designed for separation of conce
 ### For Core Developers
 
 1. **Adding New APIs:**
-   - Add to `LokusPluginAPI` or specialized API class
+   - Add to `NoteMakingAppPluginAPI` or specialized API class
    - Define required permissions
    - Document in JSDoc
    - Add TypeScript types to SDK
@@ -358,7 +358,7 @@ If you're updating plugins that use the old plugin system:
    import { uiAPI } from '../api/UIAPI.js'
 
    // New
-   import { BasePlugin } from '@lokus/plugin-sdk'
+   import { BasePlugin } from '@NoteMakingApp/plugin-sdk'
    ```
 
 2. **Use Base Class:**
@@ -373,7 +373,7 @@ If you're updating plugins that use the old plugin system:
 
 3. **Update Manifest:**
    - Migrate from v1 to v2 format
-   - Add `engines.lokus` field
+   - Add `engines.NoteMakingApp` field
    - Declare permissions explicitly
 
 ---
@@ -418,7 +418,7 @@ If you're updating plugins that use the old plugin system:
 - Plugin Security: `src/plugins/security/PluginSecurityManager.js`
 - Manifest Schema: `src/plugins/schemas/manifest-v2.schema.json`
 - Plugin SDK: `packages/plugin-sdk/`
-- Plugin CLI: `packages/lokus-plugin-cli/`
+- Plugin CLI: `packages/NoteMakingApp-plugin-cli/`
 
 ---
 

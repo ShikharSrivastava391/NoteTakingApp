@@ -102,7 +102,7 @@ function openFileLinkPicker({ editor, range }) {
   try {
     // Get file index for suggestions
     const getIndex = () => {
-      const list = (globalThis.__LOKUS_FILE_INDEX__ || [])
+      const list = (globalThis.__NoteMakingApp_FILE_INDEX__ || [])
       return Array.isArray(list) ? list : []
     };
 
@@ -134,7 +134,7 @@ function openFileLinkPicker({ editor, range }) {
 function getCurrentFileName() {
   // Get the current file name from the workspace context
   try {
-    const activeFile = window.__LOKUS_ACTIVE_FILE__;
+    const activeFile = window.__NoteMakingApp_ACTIVE_FILE__;
     if (activeFile) {
       // Extract filename from full path and remove extension
       const fileName = activeFile.split('/').pop() || 'Untitled';
@@ -282,7 +282,7 @@ function createKanbanBoardPicker({ editor, range, onInsertTask = false }) {
           editor.chain().focus().deleteRange(range).insertContent(`@task[${board}] `).run();
         } else {
           // Open the board file
-          window.dispatchEvent(new CustomEvent('lokus:open-file', {
+          window.dispatchEvent(new CustomEvent('NoteMakingApp:open-file', {
             detail: { path: `kanban/${board}.kanban` }
           }));
         }
@@ -436,7 +436,7 @@ function createFilePicker(files, onSelect) {
 
     // Get relative path (remove workspace path)
     const getRelativePath = (fullPath) => {
-      const workspace = globalThis.__LOKUS_WORKSPACE_PATH__ || '';
+      const workspace = globalThis.__NoteMakingApp_WORKSPACE_PATH__ || '';
       if (workspace && fullPath.startsWith(workspace)) {
         return fullPath.slice(workspace.length).replace(/^\//, '');
       }

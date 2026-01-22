@@ -320,7 +320,7 @@ export function demoAllToasts() {
     showEnhancedToast({
       id: "demo-survey",
       title: "Quick Survey",
-      message: "Help us improve Lokus (2 min)",
+      message: "Help us improve NoteMakingApp (2 min)",
       variant: "survey",
       link: {
         url: "https://example.com/survey",

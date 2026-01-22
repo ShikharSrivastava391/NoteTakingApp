@@ -1,5 +1,5 @@
 #!/bin/bash
-# Build Lokus for All Platforms Locally
+# Build NoteMakingApp for All Platforms Locally
 
 set -e
 
@@ -17,7 +17,7 @@ PROJECT_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$PROJECT_ROOT"
 
 echo -e "${BOLD}${BLUE}═══════════════════════════════════════════════${NC}"
-echo -e "${BOLD}${BLUE}  Lokus Multi-Platform Local Build${NC}"
+echo -e "${BOLD}${BLUE}  NoteMakingApp Multi-Platform Local Build${NC}"
 echo -e "${BOLD}${BLUE}═══════════════════════════════════════════════${NC}\n"
 
 # Check if .env.production exists

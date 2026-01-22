@@ -113,7 +113,7 @@ pub fn git_init(workspace_path: String) -> Result<String, String> {
     // Create initial commit so the branch exists
     // This prevents the "src refspec does not match any existing object" error
 
-    let signature = Signature::now("Lokus", "noreply@lokus.app")
+    let signature = Signature::now("NoteMakingApp", "noreply@NoteMakingApp.app")
         .map_err(|e| format!("Failed to create signature: {}", e))?;
 
     // Create empty tree for initial commit
@@ -426,7 +426,7 @@ pub async fn git_pull(
             // Auto-resolve technical files
             for (path, conflict) in conflicts_to_resolve {
                 // Check if this is a technical/internal file
-                let is_technical = path.starts_with(".lokus/")
+                let is_technical = path.starts_with(".NoteMakingApp/")
                     || path.starts_with(".git/")
                     || path.starts_with("node_modules/")
                     || path == ".DS_Store"

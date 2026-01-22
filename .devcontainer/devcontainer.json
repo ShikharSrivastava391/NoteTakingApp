@@ -1,5 +1,5 @@
 {
-  "name": "Lokus Development Environment",
+  "name": "NoteMakingApp Development Environment",
   "build": {
     "dockerfile": "Dockerfile",
     "args": {

@@ -1,5 +1,5 @@
 /**
- * @fileoverview Comprehensive TypeScript type definitions for Lokus Plugin SDK
+ * @fileoverview Comprehensive TypeScript type definitions for NoteMakingApp Plugin SDK
  *
  * This file exports all the type definitions needed for plugin development,
  * providing type safety and IntelliSense support for the entire plugin API.
@@ -119,7 +119,7 @@ export * from './api/terminal.js';
 
 // 8. API Common
 export type {
-    LokusAPI,
+    NoteMakingAppAPI,
     APIVersion,
     APICompatibility,
     APIRequestOptions,

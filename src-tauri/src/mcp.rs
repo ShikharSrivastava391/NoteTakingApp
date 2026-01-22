@@ -49,7 +49,7 @@ impl MCPServerManager {
 
         // Use extracted bundle path
         let home = dirs::home_dir().ok_or("Could not find home directory")?;
-        let server_script = home.join(".lokus").join("mcp-server").join("http-server.js");
+        let server_script = home.join(".NoteMakingApp").join("mcp-server").join("http-server.js");
 
         // Verify the script exists
         if !server_script.exists() {
@@ -103,7 +103,7 @@ impl MCPServerManager {
     pub fn start_server(&self, port: Option<u16>) -> Result<MCPServerStatus, String> {
         // Try extracted bundle first (production)
         let home = dirs::home_dir().ok_or("Could not find home directory")?;
-        let bundle_script = home.join(".lokus").join("mcp-server").join("http-server.js");
+        let bundle_script = home.join(".NoteMakingApp").join("mcp-server").join("http-server.js");
 
         if bundle_script.exists() {
             return self.start_server_with_script(bundle_script, port);

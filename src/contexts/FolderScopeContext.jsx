@@ -20,7 +20,7 @@ export function FolderScopeProvider({ children, workspacePath }) {
   // Load persisted scope settings
   useEffect(() => {
     try {
-      const saved = localStorage.getItem('lokus-folder-scope');
+      const saved = localStorage.getItem('NoteMakingApp-folder-scope');
       if (saved) {
         const { recentScopes: savedRecent } = JSON.parse(saved);
         if (savedRecent) setRecentScopes(savedRecent);
@@ -33,7 +33,7 @@ export function FolderScopeProvider({ children, workspacePath }) {
   // Save scope settings
   const saveSettings = useCallback((newRecentScopes) => {
     try {
-      localStorage.setItem('lokus-folder-scope', JSON.stringify({
+      localStorage.setItem('NoteMakingApp-folder-scope', JSON.stringify({
         recentScopes: newRecentScopes
       }));
     } catch (error) {

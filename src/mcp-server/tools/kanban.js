@@ -1,6 +1,6 @@
 /**
  * Kanban Board Tools for MCP
- * Tools for working with Lokus Kanban boards
+ * Tools for working with NoteMakingApp Kanban boards
  */
 
 import { readFile, writeFile, readdir, mkdir } from "fs/promises";
@@ -181,7 +181,7 @@ export async function executeKanbanTool(tool, args, workspace, apiUrl) {
 }
 
 async function listBoards(workspace) {
-  const kanbanDir = join(workspace, '.lokus', 'kanban');
+  const kanbanDir = join(workspace, '.NoteMakingApp', 'kanban');
 
   try {
     const entries = await readdir(kanbanDir, { withFileTypes: true });
@@ -231,7 +231,7 @@ async function listBoards(workspace) {
 }
 
 async function getBoard(workspace, boardId) {
-  const boardPath = join(workspace, '.lokus', 'kanban', `${boardId}.json`);
+  const boardPath = join(workspace, '.NoteMakingApp', 'kanban', `${boardId}.json`);
 
   try {
     const content = await readFile(boardPath, 'utf-8');
@@ -273,7 +273,7 @@ async function getBoard(workspace, boardId) {
 }
 
 async function createBoard(workspace, { name, columns, dateType, startDate, endDate, additionalColumns = [] }) {
-  const kanbanDir = join(workspace, '.lokus', 'kanban');
+  const kanbanDir = join(workspace, '.NoteMakingApp', 'kanban');
   await mkdir(kanbanDir, { recursive: true });
 
   const boardId = name.toLowerCase().replace(/[^a-z0-9]/g, '-');
@@ -293,7 +293,7 @@ async function createBoard(workspace, { name, columns, dateType, startDate, endD
     metadata: {
       created: now,
       modified: now,
-      created_with: "Lokus MCP"
+      created_with: "NoteMakingApp MCP"
     }
   };
 
@@ -362,7 +362,7 @@ function generateDateColumns(dateType, startDateStr, endDateStr) {
 }
 
 async function addCard(workspace, { boardId, column, card }) {
-  const boardPath = join(workspace, '.lokus', 'kanban', `${boardId}.json`);
+  const boardPath = join(workspace, '.NoteMakingApp', 'kanban', `${boardId}.json`);
 
   try {
     const content = await readFile(boardPath, 'utf-8');
@@ -411,7 +411,7 @@ async function addCard(workspace, { boardId, column, card }) {
 }
 
 async function moveCard(workspace, { boardId, cardId, fromColumn, toColumn }) {
-  const boardPath = join(workspace, '.lokus', 'kanban', `${boardId}.json`);
+  const boardPath = join(workspace, '.NoteMakingApp', 'kanban', `${boardId}.json`);
 
   try {
     const content = await readFile(boardPath, 'utf-8');
@@ -454,7 +454,7 @@ async function moveCard(workspace, { boardId, cardId, fromColumn, toColumn }) {
 }
 
 async function updateCard(workspace, { boardId, cardId, updates }) {
-  const boardPath = join(workspace, '.lokus', 'kanban', `${boardId}.json`);
+  const boardPath = join(workspace, '.NoteMakingApp', 'kanban', `${boardId}.json`);
 
   try {
     const content = await readFile(boardPath, 'utf-8');
@@ -500,7 +500,7 @@ async function updateCard(workspace, { boardId, cardId, updates }) {
 }
 
 async function getBoardStats(workspace, boardId) {
-  const boardPath = join(workspace, '.lokus', 'kanban', `${boardId}.json`);
+  const boardPath = join(workspace, '.NoteMakingApp', 'kanban', `${boardId}.json`);
 
   try {
     const content = await readFile(boardPath, 'utf-8');

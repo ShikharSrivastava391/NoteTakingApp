@@ -477,7 +477,7 @@ export default function CommandPalette({
       analytics.trackFeatureUsed('templates')
 
       // Dispatch event to insert template into editor
-      window.dispatchEvent(new CustomEvent('lokus:insert-template', {
+      window.dispatchEvent(new CustomEvent('NoteMakingApp:insert-template', {
         detail: {
           template,
           content: htmlContent
@@ -488,7 +488,7 @@ export default function CommandPalette({
       setOpen(false)
     } catch (err) {
       // Fallback to raw template content
-      window.dispatchEvent(new CustomEvent('lokus:insert-template', {
+      window.dispatchEvent(new CustomEvent('NoteMakingApp:insert-template', {
         detail: {
           template,
           content: template.content
@@ -614,7 +614,7 @@ Best regards,
       if (!subject && fileName) {
         subject = `Content from ${fileName}`
       } else if (!subject) {
-        subject = 'Email from Lokus'
+        subject = 'Email from NoteMakingApp'
       }
 
       return {
@@ -1021,7 +1021,7 @@ Best regards,
               ? gmailCommand.recipients.join(', ')
               : gmailCommand.recipients || gmailCommand.recipient
             const fileName = gmailCommand.fileName || 'content'
-            const subject = gmailCommand.subject || `Email from Lokus`
+            const subject = gmailCommand.subject || `Email from NoteMakingApp`
 
             runCommandWithHistory(
               () => handleSendEmailSmart(gmailCommand),

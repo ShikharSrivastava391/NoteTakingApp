@@ -1,5 +1,5 @@
 /**
- * GraphDatabase - Advanced in-memory graph database for Lokus
+ * GraphDatabase - Advanced in-memory graph database for NoteMakingApp
  * 
  * A high-performance, event-driven graph database optimized for real-time wiki link tracking.
  * Provides O(1) lookups, bidirectional indexing, and incremental updates for maximum efficiency.
@@ -14,7 +14,7 @@
  * - Incremental edge updates without full rebuilds
  * - Production-ready error handling and logging
  * 
- * @author Lokus Team
+ * @author NoteMakingApp Team
  * @version 1.0.0
  */
 

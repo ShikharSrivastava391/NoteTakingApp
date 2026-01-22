@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://lokus.dev/schemas/contributions/menus.json",
+  "$id": "https://NoteMakingApp.dev/schemas/contributions/menus.json",
   "title": "Menus Contribution Schema",
-  "description": "Schema for menu contributions in Lokus plugins",
+  "description": "Schema for menu contributions in NoteMakingApp plugins",
   "type": "object",
   "patternProperties": {
     "^(commandPalette|editor/context|editor/title|editor/title/context|explorer/context|scm/title|scm/resourceGroup/context|scm/resourceState/context|scm/change/title|view/title|view/item/context|menuBar|touchBar|webview/context|comments/commentThread/context|comments/comment/title|comments/comment/context|timeline/title|timeline/item/context|extension/context|file/newFile)$": {

@@ -1,6 +1,6 @@
 
 // Simple smoke test plugin to verify API fixes
-// We use 'lokus' global which is exposed by the new loader (or should be)
+// We use 'NoteMakingApp' global which is exposed by the new loader (or should be)
 // But wait, the loader exposes 'pluginAPI' to the factory function or 'this.api' in class.
 // Let's assume standard class-based structure which the CLI generates.
 

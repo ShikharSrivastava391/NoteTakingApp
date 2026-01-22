@@ -268,7 +268,7 @@ export class PluginRuntime {
       commands: new Map(),
       statusBarItems: new Map(),
       configuration: {},
-      extensionPath: `~/.lokus/plugins/${pluginId}`,
+      extensionPath: `~/.NoteMakingApp/plugins/${pluginId}`,
       globalState: new Map(),
       workspaceState: new Map()
     }
@@ -403,15 +403,15 @@ export class PluginRuntime {
           await this.registerStatusBarComponent(pluginId, statusBarConfig, pluginInstance);
         } else {
           // Try to get plugin from global window object (for TimeTracker style plugins)
-          if (typeof window !== 'undefined' && window.lokus && window.lokus.plugins) {
-            const windowPlugin = window.lokus.plugins.get(pluginId);
+          if (typeof window !== 'undefined' && window.NoteMakingApp && window.NoteMakingApp.plugins) {
+            const windowPlugin = window.NoteMakingApp.plugins.get(pluginId);
             if (windowPlugin) {
               await this.registerStatusBarComponent(pluginId, statusBarConfig, windowPlugin);
             }
           }
 
-          // Also check lokusPluginComponents for registered components
-          if (typeof window !== 'undefined' && window.lokusPluginComponents && window.lokusPluginComponents[pluginId]) {
+          // Also check NoteMakingAppPluginComponents for registered components
+          if (typeof window !== 'undefined' && window.NoteMakingAppPluginComponents && window.NoteMakingAppPluginComponents[pluginId]) {
             await this.registerStatusBarComponent(pluginId, statusBarConfig, null);
           }
         }
@@ -488,8 +488,8 @@ export class PluginRuntime {
         info: (...args) => postMessage({ type: 'log', data: { message: '[INFO] ' + args.join(' ') } })
       };
 
-      // Mock lokus API for plugins
-      const lokus = {
+      // Mock NoteMakingApp API for plugins
+      const NoteMakingApp = {
         workspace: {
           getWorkspaceFolders: () => callApi('workspace.getWorkspaceFolders'),
           openTextDocument: (path) => callApi('workspace.openTextDocument', [path]),
@@ -584,8 +584,8 @@ export class PluginRuntime {
               // SECURITY FIX: Use Function constructor instead of eval() for safer code execution
               // This still allows code execution but provides better scoping and is less prone to injection
               // For complete security, plugin code should be validated and sandboxed before reaching here
-              const pluginFunction = new Function('lokus', 'console', 'module', 'exports', code);
-              pluginFunction(lokus, console, module, exports);
+              const pluginFunction = new Function('NoteMakingApp', 'console', 'module', 'exports', code);
+              pluginFunction(NoteMakingApp, console, module, exports);
             } catch (error) {
               postMessage({
                 type: 'error',

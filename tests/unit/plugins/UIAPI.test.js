@@ -4,7 +4,7 @@
  */
 
 import { describe, it, expect, beforeEach, vi } from 'vitest';
-import { UIAPI } from '../../../src/plugins/api/LokusPluginAPI.js';
+import { UIAPI } from '../../../src/plugins/api/NoteMakingAppPluginAPI.js';
 
 // Mock Tauri dialog plugin
 vi.mock('@tauri-apps/plugin-dialog', () => ({

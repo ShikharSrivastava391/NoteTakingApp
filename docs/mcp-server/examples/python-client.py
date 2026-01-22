@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Lokus MCP Python Client Example
+NoteMakingApp MCP Python Client Example
 
-This example demonstrates how to connect to a Lokus MCP server using Python.
+This example demonstrates how to connect to a NoteMakingApp MCP server using Python.
 It includes resource discovery, tool execution, and real-time subscriptions.
 
 Requirements:
@@ -12,8 +12,8 @@ Usage:
     python python-client.py
 
 Environment Variables:
-    LOKUS_API_KEY: Your Lokus API key
-    LOKUS_MCP_URL: MCP server URL (default: ws://localhost:3001/mcp)
+    NoteMakingApp_API_KEY: Your NoteMakingApp API key
+    NoteMakingApp_MCP_URL: MCP server URL (default: ws://localhost:3001/mcp)
 """
 
 import asyncio
@@ -34,8 +34,8 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-class LokusMCPClient:
-    """Lokus MCP Client for Python"""
+class NoteMakingAppMCPClient:
+    """NoteMakingApp MCP Client for Python"""
     
     def __init__(self, 
                  websocket_url: str = "ws://localhost:3001/mcp",
@@ -51,7 +51,7 @@ class LokusMCPClient:
         """
         self.websocket_url = websocket_url
         self.http_url = http_url
-        self.api_key = api_key or os.getenv('LOKUS_API_KEY')
+        self.api_key = api_key or os.getenv('NoteMakingApp_API_KEY')
         
         self.ws = None
         self.message_id = 1
@@ -74,7 +74,7 @@ class LokusMCPClient:
                 ping_interval=30
             )
             
-            logger.info(f"Connected to Lokus MCP server at {self.websocket_url}")
+            logger.info(f"Connected to NoteMakingApp MCP server at {self.websocket_url}")
             
             # Start message handler
             asyncio.create_task(self._handle_messages())
@@ -105,9 +105,9 @@ class LokusMCPClient:
                 'prompts': {'listChanged': True}
             },
             'clientInfo': {
-                'name': 'Lokus Python MCP Client',
+                'name': 'NoteMakingApp Python MCP Client',
                 'version': '1.0.0',
-                'description': 'Python example client for Lokus MCP server'
+                'description': 'Python example client for NoteMakingApp MCP server'
             }
         })
         
@@ -296,10 +296,10 @@ class LokusMCPClient:
 
 
 # Example usage and demonstration
-class LokusExplorer:
-    """Example application that explores a Lokus workspace"""
+class NoteMakingAppExplorer:
+    """Example application that explores a NoteMakingApp workspace"""
     
-    def __init__(self, client: LokusMCPClient):
+    def __init__(self, client: NoteMakingAppMCPClient):
         self.client = client
         
         # Register event handlers
@@ -420,7 +420,7 @@ This file demonstrates the MCP protocol capabilities:
 
 ## Statistics
 - Timestamp: {timestamp}
-- Client: Lokus Python MCP Client
+- Client: NoteMakingApp Python MCP Client
 - Protocol: MCP 2024-11-05
 """
             
@@ -492,17 +492,17 @@ This file demonstrates the MCP protocol capabilities:
 
 async def main():
     """Main application entry point"""
-    logger.info("🚀 Lokus MCP Python Client Example")
+    logger.info("🚀 NoteMakingApp MCP Python Client Example")
     
     # Get configuration from environment or use defaults
-    websocket_url = os.getenv('LOKUS_MCP_URL', 'ws://localhost:3001/mcp')
-    api_key = os.getenv('LOKUS_API_KEY')
+    websocket_url = os.getenv('NoteMakingApp_MCP_URL', 'ws://localhost:3001/mcp')
+    api_key = os.getenv('NoteMakingApp_API_KEY')
     
     if not api_key:
-        logger.warning("⚠️  No API key found. Set LOKUS_API_KEY environment variable for authentication")
+        logger.warning("⚠️  No API key found. Set NoteMakingApp_API_KEY environment variable for authentication")
     
     # Create and connect client
-    client = LokusMCPClient(websocket_url=websocket_url, api_key=api_key)
+    client = NoteMakingAppMCPClient(websocket_url=websocket_url, api_key=api_key)
     
     try:
         # Connect to server
@@ -512,7 +512,7 @@ async def main():
             return 1
         
         # Create explorer
-        explorer = LokusExplorer(client)
+        explorer = NoteMakingAppExplorer(client)
         
         # Check command line arguments
         if len(sys.argv) > 1 and sys.argv[1] == '--interactive':

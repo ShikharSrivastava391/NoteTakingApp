@@ -1,6 +1,6 @@
 # Hello World Plugin
 
-A simple example plugin that demonstrates the basic capabilities of the Lokus plugin system.
+A simple example plugin that demonstrates the basic capabilities of the NoteMakingApp plugin system.
 
 ## Features
 
@@ -42,13 +42,13 @@ hello-world/
 
 ```javascript
 // Success notification
-lokus.notifications.success('Operation successful!', 'Success', 3000);
+NoteMakingApp.notifications.success('Operation successful!', 'Success', 3000);
 
 // Error notification
-lokus.notifications.error('Something went wrong', 'Error', 5000);
+NoteMakingApp.notifications.error('Something went wrong', 'Error', 5000);
 
 // Custom notification
-lokus.notifications.show({
+NoteMakingApp.notifications.show({
   type: 'info',
   title: 'Custom Notification',
   message: 'This is a custom notification',
@@ -59,7 +59,7 @@ lokus.notifications.show({
 ### Register Commands
 
 ```javascript
-lokus.commands.register({
+NoteMakingApp.commands.register({
   id: 'myPlugin.myCommand',
   name: 'My Command',
   shortcut: 'Mod-Shift-C',
@@ -73,12 +73,12 @@ lokus.commands.register({
 ### Add Slash Commands
 
 ```javascript
-lokus.editor.addSlashCommand({
+NoteMakingApp.editor.addSlashCommand({
   name: 'mycommand',
   description: 'Insert something',
   icon: '✨',
   execute: async () => {
-    await lokus.editor.insertNode('paragraph', {}, 'Content here');
+    await NoteMakingApp.editor.insertNode('paragraph', {}, 'Content here');
   }
 });
 ```
@@ -87,19 +87,19 @@ lokus.editor.addSlashCommand({
 
 ```javascript
 // Get current selection
-const selection = await lokus.editor.getSelection();
+const selection = await NoteMakingApp.editor.getSelection();
 
 // Insert content
-await lokus.editor.insertNode('paragraph', {}, 'Text content');
+await NoteMakingApp.editor.insertNode('paragraph', {}, 'Text content');
 
 // Replace selection
-await lokus.editor.replaceSelection('New text');
+await NoteMakingApp.editor.replaceSelection('New text');
 ```
 
 ### Add Toolbar Items
 
 ```javascript
-lokus.editor.addToolbarItem({
+NoteMakingApp.editor.addToolbarItem({
   id: 'my-button',
   title: 'My Button',
   icon: '🚀',

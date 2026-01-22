@@ -1,4 +1,4 @@
-import { BasePlugin, PluginContext } from '@lokus/plugin-sdk'
+import { BasePlugin, PluginContext } from '@NoteMakingApp/plugin-sdk'
 
 /**
  * Hello World Plugin - A simple example plugin

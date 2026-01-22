@@ -97,9 +97,9 @@ export class MCPClient extends EventEmitter {
       
       // Initialize MCP session
       const initResponse = await this.protocol.initialize({
-        name: clientInfo.name || `Lokus MCP Client (${this.clientId})`,
+        name: clientInfo.name || `NoteMakingApp MCP Client (${this.clientId})`,
         version: clientInfo.version || '1.0.0',
-        description: clientInfo.description || 'Lokus MCP Client',
+        description: clientInfo.description || 'NoteMakingApp MCP Client',
         ...clientInfo
       })
       

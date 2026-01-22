@@ -13,7 +13,7 @@ import {
   clearPluginStatusItems,
   getAllStatusItems
 } from '../../../src/hooks/usePluginStatusItems.js';
-import { UIAPI } from '../../../src/plugins/api/LokusPluginAPI.js';
+import { UIAPI } from '../../../src/plugins/api/NoteMakingAppPluginAPI.js';
 
 describe('usePluginStatusItems', () => {
   afterEach(() => {

@@ -8,7 +8,7 @@ pub const MCP_SERVER_CODE: &str = include_str!("../resources/mcp-bundle/mcp-serv
 /// Launcher script for stdio transport
 pub const MCP_INDEX_CODE: &str = r#"#!/usr/bin/env node
 /**
- * Lokus MCP Server Launcher (stdio transport)
+ * NoteMakingApp MCP Server Launcher (stdio transport)
  * Auto-generated bundled version
  */
 require('./mcp-server.js');
@@ -21,11 +21,11 @@ pub const MCP_HTTP_SERVER_CODE: &str = include_str!("../resources/mcp-bundle/htt
 use std::fs;
 use std::path::PathBuf;
 
-/// Extract the embedded MCP server to ~/.lokus/mcp-server/
+/// Extract the embedded MCP server to ~/.NoteMakingApp/mcp-server/
 /// All files are self-contained bundles - no external dependencies needed
 pub fn extract_mcp_server() -> Result<PathBuf, String> {
     let home = dirs::home_dir().ok_or("Could not find home directory")?;
-    let mcp_dir = home.join(".lokus").join("mcp-server");
+    let mcp_dir = home.join(".NoteMakingApp").join("mcp-server");
 
     // Create directory if it doesn't exist
     fs::create_dir_all(&mcp_dir)

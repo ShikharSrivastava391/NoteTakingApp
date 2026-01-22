@@ -1,6 +1,6 @@
 # Platform Architecture Guide
 
-This directory contains all platform-specific code for Lokus, ensuring clean separation between different operating systems while maintaining shared functionality.
+This directory contains all platform-specific code for NoteMakingApp, ensuring clean separation between different operating systems while maintaining shared functionality.
 
 ## Directory Structure
 

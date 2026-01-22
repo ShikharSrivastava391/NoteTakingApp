@@ -1,7 +1,7 @@
 /**
- * Lokus MCP Client - Stdio Configuration Helper
+ * NoteMakingApp MCP Client - Stdio Configuration Helper
  *
- * Simple client that helps users configure their AI assistant to connect to Lokus via MCP.
+ * Simple client that helps users configure their AI assistant to connect to NoteMakingApp via MCP.
  * No server management needed - just provides connection instructions.
  */
 
@@ -12,7 +12,7 @@ class MCPClient {
   }
 
   /**
-   * Check if the user has likely configured their AI assistant with Lokus MCP
+   * Check if the user has likely configured their AI assistant with NoteMakingApp MCP
    * This is informational only - we can't actually verify the assistant config
    * @returns {Object} Configuration status
    */
@@ -43,10 +43,10 @@ class MCPClient {
    */
   getConnectionInstructions() {
     return {
-      command: 'claude mcp add lokus',
+      command: 'claude mcp add NoteMakingApp',
       args: 'node src/mcp-server/stdio-server.js',
-      fullCommand: 'claude mcp add lokus node src/mcp-server/stdio-server.js',
-      description: 'This connects your AI assistant to your Lokus workspace via stdio'
+      fullCommand: 'claude mcp add NoteMakingApp node src/mcp-server/stdio-server.js',
+      description: 'This connects your AI assistant to your NoteMakingApp workspace via stdio'
     }
   }
 

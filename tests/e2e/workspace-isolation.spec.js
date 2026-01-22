@@ -25,7 +25,7 @@ test.describe('Workspace Isolation', () => {
     }
     
     // Check that workspace path is being tracked (only in workspace mode)
-    const workspacePath = await page.evaluate(() => window.__LOKUS_WORKSPACE_PATH__);
+    const workspacePath = await page.evaluate(() => window.__NoteMakingApp_WORKSPACE_PATH__);
     if (workspacePath) {
       expect(workspacePath).toBeDefined();
     }

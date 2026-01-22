@@ -1,6 +1,6 @@
 /**
- * Theme Resource Provider for Lokus
- * Integrates with Lokus's theme management system to provide access to:
+ * Theme Resource Provider for NoteMakingApp
+ * Integrates with NoteMakingApp's theme management system to provide access to:
  * - Current active theme and theme configurations
  * - Available themes (built-in and custom)
  * - Theme tokens and CSS variables
@@ -161,31 +161,31 @@ export class ThemeProvider {
   async listResources() {
     const resources = [
       {
-        uri: 'lokus://themes/current',
+        uri: 'NoteMakingApp://themes/current',
         name: 'Current Theme',
         description: 'Currently active theme configuration and tokens',
         mimeType: 'application/json'
       },
       {
-        uri: 'lokus://themes/available',
+        uri: 'NoteMakingApp://themes/available',
         name: 'Available Themes',
         description: 'List of all available themes (built-in and custom)',
         mimeType: 'application/json'
       },
       {
-        uri: 'lokus://themes/tokens',
+        uri: 'NoteMakingApp://themes/tokens',
         name: 'Theme Tokens',
         description: 'Current theme tokens and CSS variables',
         mimeType: 'application/json'
       },
       {
-        uri: 'lokus://themes/applied',
+        uri: 'NoteMakingApp://themes/applied',
         name: 'Applied Theme',
         description: 'Currently applied CSS variables and their values',
         mimeType: 'application/json'
       },
       {
-        uri: 'lokus://themes/directory',
+        uri: 'NoteMakingApp://themes/directory',
         name: 'Theme Directory',
         description: 'Theme directory path and information',
         mimeType: 'application/json'
@@ -195,7 +195,7 @@ export class ThemeProvider {
     // Add individual theme resources
     for (const theme of this.availableThemes) {
       resources.push({
-        uri: `lokus://themes/theme/${encodeURIComponent(theme.id)}`,
+        uri: `NoteMakingApp://themes/theme/${encodeURIComponent(theme.id)}`,
         name: `Theme: ${theme.name}`,
         description: `Configuration and tokens for theme: ${theme.name}`,
         mimeType: 'application/json'
@@ -501,8 +501,8 @@ export class ThemeProvider {
    */
   getMetadata() {
     return {
-      name: 'Lokus Theme Provider',
-      description: 'Provides access to Lokus theme configurations, tokens, and customization',
+      name: 'NoteMakingApp Theme Provider',
+      description: 'Provides access to NoteMakingApp theme configurations, tokens, and customization',
       version: '1.0.0',
       capabilities: [
         'current-theme',

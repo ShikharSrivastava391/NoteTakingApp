@@ -5,8 +5,8 @@
  * that provides file system access through resources and tools.
  */
 
-import { BasePlugin } from '@lokus/plugin-core'
-import { MCPResourceBuilder, MCPToolBuilder } from '@lokus/mcp'
+import { BasePlugin } from '@NoteMakingApp/plugin-core'
+import { MCPResourceBuilder, MCPToolBuilder } from '@NoteMakingApp/mcp'
 import { FileServer } from './FileServer.js'
 
 export class BasicFileServerPlugin extends BasePlugin {

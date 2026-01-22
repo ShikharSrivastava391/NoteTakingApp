@@ -239,7 +239,7 @@ export class PropertyScanner {
     const {
       recursive = true,
       includeExtensions = ['.md', '.markdown'],
-      excludePatterns = ['.lokus', 'node_modules', '.git'],
+      excludePatterns = ['.NoteMakingApp', 'node_modules', '.git'],
       maxFiles = 1000
     } = options;
 

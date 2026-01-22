@@ -719,8 +719,8 @@ export class PluginInstaller extends EventEmitter {
 
   async setupDirectories() {
     const home = await homeDir()
-    this.config.pluginDir = await join(home, '.lokus', 'plugins')
-    this.config.tempDir = await join(home, '.lokus', 'temp')
+    this.config.pluginDir = await join(home, '.NoteMakingApp', 'plugins')
+    this.config.tempDir = await join(home, '.NoteMakingApp', 'temp')
 
     for (const dir of [this.config.pluginDir, this.config.tempDir]) {
       if (!(await exists(dir))) {

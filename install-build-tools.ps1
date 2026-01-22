@@ -1,4 +1,3 @@
-# Simple Windows Build Tools Installation Script for Lokus
 
 Write-Host "Installing Visual Studio Build Tools..." -ForegroundColor Cyan
 

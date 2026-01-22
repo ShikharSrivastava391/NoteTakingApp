@@ -1,6 +1,6 @@
 # File Management
 
-Lokus provides comprehensive file management capabilities that allow you to organize, navigate, and manipulate your workspace files efficiently. The file management system includes a sophisticated file explorer, workspace organization, and seamless integration with all application features.
+NoteMakingApp provides comprehensive file management capabilities that allow you to organize, navigate, and manipulate your workspace files efficiently. The file management system includes a sophisticated file explorer, workspace organization, and seamless integration with all application features.
 
 ## Overview
 

@@ -92,7 +92,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
           GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
-          VITE_AUTH_BASE_URL: https://lokusmd.com
+          VITE_AUTH_BASE_URL: https://NoteMakingAppmd.com
           TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
           TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
           APPLE_CERTIFICATE: ${{ secrets.APPLE_CERTIFICATE }}
@@ -111,18 +111,18 @@ jobs:
         with:
           includeUpdaterJson: true
           tagName: ${{ github.ref_name }}
-          releaseName: 'Lokus ${{ github.ref_name }}'
+          releaseName: 'NoteMakingApp ${{ github.ref_name }}'
           releaseBody: |
-            🚀 **Lokus ${{ github.ref_name }}**
+            🚀 **NoteMakingApp ${{ github.ref_name }}**
             
-            See [CHANGELOG.md](https://github.com/lokus-ai/lokus/blob/main/CHANGELOG.md) for full details.
+            See [CHANGELOG.md](https://github.com/NoteMakingApp-ai/NoteMakingApp/blob/main/CHANGELOG.md) for full details.
             
             ---
             
             ## 📦 Installation
             
             **🍎 macOS**
-            - Download `Lokus_x64.app.tar.gz` or `.dmg`
+            - Download `NoteMakingApp_x64.app.tar.gz` or `.dmg`
             - Apple Silicon: Universal binary included
             
             **🪟 Windows**
@@ -136,7 +136,7 @@ jobs:
             
             ---
             
-            **Full Changelog**: https://github.com/lokus-ai/lokus/compare/${{ github.event.before }}...${{ github.ref_name }}
+            **Full Changelog**: https://github.com/NoteMakingApp-ai/NoteMakingApp/compare/${{ github.event.before }}...${{ github.ref_name }}
           releaseDraft: false
           prerelease: ${{ contains(github.ref_name, 'beta') || contains(github.ref_name, 'alpha') || contains(github.ref_name, 'rc') }}
 
@@ -207,7 +207,7 @@ jobs:
         env:
           GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
           GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
-          VITE_AUTH_BASE_URL: https://lokusmd.com
+          VITE_AUTH_BASE_URL: https://NoteMakingAppmd.com
           VITE_SENTRY_DSN: ${{ secrets.VITE_SENTRY_DSN }}
           VITE_ENABLE_CRASH_REPORTS: 'true'
           VITE_SENTRY_ENVIRONMENT: 'production'
@@ -223,8 +223,8 @@ jobs:
           APPLE_APPSTORE_SIGNING_IDENTITY: ${{ secrets.APPLE_APPSTORE_SIGNING_IDENTITY }}
           APPLE_INSTALLER_SIGNING_IDENTITY: ${{ secrets.APPLE_INSTALLER_SIGNING_IDENTITY }}
         run: |
-          APP_PATH="src-tauri/target/release/bundle/macos/Lokus.app"
-          PKG_PATH="src-tauri/target/release/Lokus-${{ github.ref_name }}-appstore.pkg"
+          APP_PATH="src-tauri/target/release/bundle/macos/NoteMakingApp.app"
+          PKG_PATH="src-tauri/target/release/NoteMakingApp-${{ github.ref_name }}-appstore.pkg"
 
           # Embed provisioning profile
           cp ~/Library/MobileDevice/Provisioning\ Profiles/embedded.provisionprofile \
@@ -247,5 +247,5 @@ jobs:
       - name: Upload App Store Package
         uses: softprops/action-gh-release@v1
         with:
-          files: src-tauri/target/release/Lokus-${{ github.ref_name }}-appstore.pkg
+          files: src-tauri/target/release/NoteMakingApp-${{ github.ref_name }}-appstore.pkg
           tag_name: ${{ github.ref_name }}

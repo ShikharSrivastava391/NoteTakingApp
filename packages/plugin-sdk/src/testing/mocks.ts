@@ -3,7 +3,7 @@
  */
 
 import type {
-  LokusAPI,
+  NoteMakingAppAPI,
   PluginContext,
   CommandAPI,
   EditorAPI,
@@ -25,9 +25,9 @@ import type {
 } from '../types/index.js'
 
 /**
- * Mock Lokus API for testing
+ * Mock NoteMakingApp API for testing
  */
-export class MockLokusAPI implements LokusAPI {
+export class MockNoteMakingAppAPI implements NoteMakingAppAPI {
   public readonly commands: MockCommandAPI
   public readonly editor: MockEditorAPI
   public readonly ui: MockUIAPI
@@ -633,18 +633,18 @@ export function createMockContext(
   return {
     pluginId,
     manifest,
-    api: new MockLokusAPI(pluginId, manifest, permissions),
+    api: new MockNoteMakingAppAPI(pluginId, manifest, permissions),
     storageUri: '/mock/storage',
     globalStorageUri: '/mock/global-storage',
     assetUri: '/mock/assets',
     logPath: '/mock/logs',
     extensionMode: 2, // Development
     environment: {
-      lokusVersion: '1.0.0',
+      NoteMakingAppVersion: '1.0.0',
       nodeVersion: '18.0.0',
       platform: 'darwin',
       arch: 'x64',
-      appName: 'Lokus',
+      appName: 'NoteMakingApp',
       appVersion: '1.0.0',
       appRoot: '/mock/app',
       userDataDir: '/mock/userdata',

@@ -21,7 +21,7 @@ export class Logger {
   }
 
   debug(message: string): void {
-    if (process.env.DEBUG || process.env.LOKUS_DEBUG) {
+    if (process.env.DEBUG || process.env.NoteMakingApp_DEBUG) {
       console.log(chalk.gray('🐛'), message);
     }
   }

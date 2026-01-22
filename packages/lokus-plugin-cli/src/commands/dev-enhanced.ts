@@ -19,8 +19,8 @@ export const devEnhancedCommand = new Command('dev')
 
       logger.header('🚀 Starting Development Mode');
       logger.info(`Watching for changes in ${chalk.cyan(pluginDir)}...`);
-      logger.info(`Tip: Run ${chalk.cyan('lokus-plugin link')} to link this plugin to Lokus App.`);
-      logger.info(`🔥 Hot Reloading is active. Changes will automatically reload the plugin in Lokus.`);
+      logger.info(`Tip: Run ${chalk.cyan('NoteMakingApp-plugin link')} to link this plugin to NoteMakingApp App.`);
+      logger.info(`🔥 Hot Reloading is active. Changes will automatically reload the plugin in NoteMakingApp.`);
 
       const buildOptions = {
         outDir: options.outDir || 'dist',

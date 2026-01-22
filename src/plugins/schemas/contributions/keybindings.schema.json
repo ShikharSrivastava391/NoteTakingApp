@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://lokus.dev/schemas/contributions/keybindings.json",
+  "$id": "https://NoteMakingApp.dev/schemas/contributions/keybindings.json",
   "title": "Keybindings Contribution Schema",
-  "description": "Schema for keybinding contributions in Lokus plugins",
+  "description": "Schema for keybinding contributions in NoteMakingApp plugins",
   "type": "array",
   "items": {
     "type": "object",

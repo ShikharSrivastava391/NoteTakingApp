@@ -51,7 +51,7 @@ export class ErrorHandler {
 
     logger.newLine();
     logger.info('If this problem persists, please report it at:');
-    logger.info(chalk.cyan('https://github.com/lokus/lokus/issues'));
+    logger.info(chalk.cyan('https://github.com/NoteMakingApp/NoteMakingApp/issues'));
   }
 
   static createError(name: string, message: string): Error {

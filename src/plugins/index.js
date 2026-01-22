@@ -1,5 +1,5 @@
 /**
- * Lokus Plugin System
+ * NoteMakingApp Plugin System
  * Main entry point for the plugin architecture
  */
 
@@ -116,7 +116,7 @@ export { EventEmitter } from '../utils/EventEmitter.js'
 
 /**
  * Initialize the plugin system
- * This function sets up the plugin system and integrates it with Lokus
+ * This function sets up the plugin system and integrates it with NoteMakingApp
  */
 export async function initializePluginSystem(editorAPI = null, options = {}) {
   try {

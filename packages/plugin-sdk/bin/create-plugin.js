@@ -9,8 +9,8 @@ const fs = require('fs-extra')
 const program = new Command()
 
 program
-  .name('create-lokus-plugin')
-  .description('Create a new Lokus plugin from template')
+  .name('create-NoteMakingApp-plugin')
+  .description('Create a new NoteMakingApp plugin from template')
   .version('1.0.0')
 
 program
@@ -62,7 +62,7 @@ async function getConfig(name, options) {
       type: 'input',
       name: 'description',
       message: 'Plugin description:',
-      default: 'A Lokus plugin'
+      default: 'A NoteMakingApp plugin'
     },
     {
       type: 'input',
@@ -155,11 +155,11 @@ async function generateTemplate(config) {
       lint: 'eslint src/**/*.{js,ts}',
       'lint:fix': 'eslint src/**/*.{js,ts} --fix'
     },
-    keywords: ['lokus', 'plugin'],
+    keywords: ['NoteMakingApp', 'plugin'],
     author: config.author,
     license: 'MIT',
     dependencies: {
-      '@lokus/plugin-sdk': '^1.0.0'
+      '@NoteMakingApp/plugin-sdk': '^1.0.0'
     },
     devDependencies: {
       ...(config.typescript && {
@@ -246,7 +246,7 @@ dist/
 
 function generateMainFile(config) {
   if (config.typescript) {
-    return `import { BasePlugin, PluginContext } from '@lokus/plugin-sdk'
+    return `import { BasePlugin, PluginContext } from '@NoteMakingApp/plugin-sdk'
 
 /**
  * ${config.name} Plugin
@@ -285,7 +285,7 @@ export default class ${toPascalCase(config.name)}Plugin extends BasePlugin {
 }
 `
   } else {
-    return `const { BasePlugin } = require('@lokus/plugin-sdk')
+    return `const { BasePlugin } = require('@NoteMakingApp/plugin-sdk')
 
 /**
  * ${config.name} Plugin
@@ -338,7 +338,7 @@ ${config.description}
 1. Clone this repository
 2. Run \`npm install\`
 ${config.typescript ? '3. Run `npm run build`' : ''}
-4. Install the plugin in Lokus
+4. Install the plugin in NoteMakingApp
 
 ## Development
 

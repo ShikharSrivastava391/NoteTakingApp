@@ -1,6 +1,6 @@
 # Math Rendering
 
-Lokus includes comprehensive mathematical equation support powered by KaTeX, enabling you to write and render complex mathematical expressions directly in your notes. The math rendering system supports both inline and display-style equations with LaTeX syntax.
+NoteMakingApp includes comprehensive mathematical equation support powered by KaTeX, enabling you to write and render complex mathematical expressions directly in your notes. The math rendering system supports both inline and display-style equations with LaTeX syntax.
 
 ## Overview
 

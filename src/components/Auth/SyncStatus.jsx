@@ -23,7 +23,7 @@ export default function SyncStatus() {
 
     // Technical patterns to hide from users (app internals they shouldn't touch)
     const technicalPatterns = [
-      /^\.lokus\//,           // .lokus/ folder (app config, state, cache)
+      /^\.NoteMakingApp\//,           // .NoteMakingApp/ folder (app config, state, cache)
       /^\.git\//,             // .git/ folder (version control internals)
       /^node_modules\//,      // node_modules (dependencies)
       /^\.DS_Store$/,         // macOS metadata
@@ -211,7 +211,7 @@ export default function SyncStatus() {
       await invoke('git_commit', {
         workspace_path: workspacePath,
         message: 'Auto-sync workspace',
-        author_name: syncSettings.authorName || syncSettings.username || 'Lokus',
+        author_name: syncSettings.authorName || syncSettings.username || 'NoteMakingApp',
         author_email: syncSettings.authorEmail || `${syncSettings.username}@users.noreply.github.com`
       });
 

@@ -10,7 +10,7 @@ async function build() {
         entryPoints: ['src/index.ts'],
         bundle: true,
         outfile: 'dist/index.js',
-        external: ['lokus', 'react', 'react-dom', 'electron'],
+        external: ['NoteMakingApp', 'react', 'react-dom', 'electron'],
         format: 'cjs',
         platform: 'node',
         target: 'es2020',

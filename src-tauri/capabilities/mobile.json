@@ -29,7 +29,7 @@
           "path": "$TEMP/**"
         },
         {
-          "path": "$HOME/.lokus/**"
+          "path": "$HOME/.NoteMakingApp/**"
         }
       ]
     },

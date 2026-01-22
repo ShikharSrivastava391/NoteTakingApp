@@ -71,7 +71,7 @@ pub fn get_themes_directory() -> Result<PathBuf, ThemeError> {
     let home_dir = dirs::home_dir()
         .ok_or_else(|| ThemeError::Validation("Could not find home directory".to_string()))?;
 
-    let themes_dir = home_dir.join(".lokus").join("themes");
+    let themes_dir = home_dir.join(".NoteMakingApp").join("themes");
 
     // Create directory if it doesn't exist
     if !themes_dir.exists() {

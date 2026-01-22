@@ -97,7 +97,7 @@ impl PlatformAwareClipboard {
         let platform_specific_help = match platform_info.platform.as_str() {
             "macos" => {
                 if original_error.contains("permission") {
-                    " (On macOS, ensure Lokus has accessibility permissions in System Preferences > Security & Privacy > Privacy > Accessibility)"
+                    " (On macOS, ensure NoteMakingApp has accessibility permissions in System Preferences > Security & Privacy > Privacy > Accessibility)"
                 } else {
                     " (On macOS, try using Cmd+C/Cmd+V if direct access fails)"
                 }

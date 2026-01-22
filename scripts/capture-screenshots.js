@@ -45,7 +45,7 @@ async function captureFeatureScreenshots() {
     await page.waitForTimeout(1000);
     
     // Add sample content
-    const sampleContent = `# Welcome to Lokus
+    const sampleContent = `# Welcome to NoteMakingApp
 
 This is a **sample note** demonstrating various features.
 

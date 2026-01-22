@@ -1,6 +1,6 @@
 # Template System
 
-Lokus includes a powerful template system that helps you create reusable content with dynamic variables, conditional logic, and advanced date operations.
+NoteMakingApp includes a powerful template system that helps you create reusable content with dynamic variables, conditional logic, and advanced date operations.
 
 ## Quick Start
 
@@ -86,7 +86,7 @@ Templates are stored as individual markdown files in your templates directory:
 - Default location: `/Users/[username]/Desktop/My Knowledge Base/templates/`
 - Each template is a `.md` file with YAML frontmatter
 - Edit templates directly in any text editor
-- Changes sync automatically with Lokus
+- Changes sync automatically with NoteMakingApp
 
 ## Template Structure
 

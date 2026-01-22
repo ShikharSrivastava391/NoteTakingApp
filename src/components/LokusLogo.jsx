@@ -1,6 +1,6 @@
 import React from 'react';
 
-const LokusLogo = ({ className = "w-5 h-5", color = "currentColor" }) => {
+const NoteMakingAppLogo = ({ className = "w-5 h-5", color = "currentColor" }) => {
   return (
     <svg 
       viewBox="0 0 480 495" 
@@ -13,4 +13,4 @@ const LokusLogo = ({ className = "w-5 h-5", color = "currentColor" }) => {
   );
 };
 
-export default LokusLogo;
+export default NoteMakingAppLogo;

@@ -1,6 +1,6 @@
 # Universal Markdown Compiler
 
-The Universal Markdown Compiler is a sophisticated middleware system that provides intelligent markdown detection and compilation capabilities across the entire Lokus application. It operates independently of TipTap to ensure reliable and consistent markdown processing for both paste operations and template systems.
+The Universal Markdown Compiler is a sophisticated middleware system that provides intelligent markdown detection and compilation capabilities across the entire NoteMakingApp application. It operates independently of TipTap to ensure reliable and consistent markdown processing for both paste operations and template systems.
 
 ## Architecture Overview
 

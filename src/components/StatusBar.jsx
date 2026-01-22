@@ -42,9 +42,9 @@ export default function StatusBar({ activeFile, unsavedChanges, openTabs = [], e
   };
 
   const handleExecuteCommand = async (commandId) => {
-    if (typeof window !== 'undefined' && window.lokus && window.lokus.commands) {
+    if (typeof window !== 'undefined' && window.NoteMakingApp && window.NoteMakingApp.commands) {
       // Execute via global command registry
-      window.lokus.commands.executeCommand(commandId);
+      window.NoteMakingApp.commands.executeCommand(commandId);
     } else {
     }
   };

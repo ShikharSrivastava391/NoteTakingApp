@@ -135,7 +135,7 @@ const EditorPane = ({
       return (
         <div className="flex-1 bg-app-panel overflow-hidden">
           <KanbanBoard
-            workspacePath={window.__LOKUS_WORKSPACE_PATH__ || ''}
+            workspacePath={window.__NoteMakingApp_WORKSPACE_PATH__ || ''}
             onFileOpen={onFileChange}
           />
         </div>
@@ -179,7 +179,7 @@ const EditorPane = ({
         <div className="flex-1 h-full overflow-hidden">
           <ProfessionalGraphView 
             isVisible={true}
-            workspacePath={window.__LOKUS_WORKSPACE_PATH__ || ''}
+            workspacePath={window.__NoteMakingApp_WORKSPACE_PATH__ || ''}
             onOpenFile={onFileChange}
           />
         </div>

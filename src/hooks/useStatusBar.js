@@ -101,8 +101,8 @@ export function useStatusBar() {
       const { component, position = 'right', priority = 0 } = config;
 
       // Check if the plugin has registered its components globally
-      if (typeof window !== 'undefined' && window.lokusPluginComponents) {
-        const pluginComponents = window.lokusPluginComponents[pluginId];
+      if (typeof window !== 'undefined' && window.NoteMakingAppPluginComponents) {
+        const pluginComponents = window.NoteMakingAppPluginComponents[pluginId];
 
         if (pluginComponents && pluginComponents[component]) {
           const Component = pluginComponents[component];
@@ -128,9 +128,9 @@ export function useStatusBar() {
       } else {
       }
 
-      // Check window.lokus.plugins for component access
-      if (typeof window !== 'undefined' && window.lokus && window.lokus.plugins) {
-        const plugin = window.lokus.plugins.get(pluginId);
+      // Check window.NoteMakingApp.plugins for component access
+      if (typeof window !== 'undefined' && window.NoteMakingApp && window.NoteMakingApp.plugins) {
+        const plugin = window.NoteMakingApp.plugins.get(pluginId);
         if (plugin) {
           // For TimeTracker plugin specifically, look for exported components
           if (pluginId === 'TimeTracker' && component === 'TimeTrackerStatus') {
@@ -262,7 +262,7 @@ export function useStatusBar() {
   // Expose the API globally for plugin access
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      window.lokusStatusBar = {
+      window.NoteMakingAppStatusBar = {
         addItem,
         removeItem,
         updateItem

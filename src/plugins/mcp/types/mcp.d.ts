@@ -531,7 +531,7 @@ export interface PluginManifest {
   version: string
   description?: string
   main: string
-  lokusVersion: string
+  NoteMakingAppVersion: string
   author?: string | AuthorInfo
   license?: string
   homepage?: string

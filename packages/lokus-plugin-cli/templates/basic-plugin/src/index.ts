@@ -1,9 +1,9 @@
-import { BasePlugin, PluginContext, PluginActivationContext } from 'lokus-plugin-sdk';
+import { BasePlugin, PluginContext, PluginActivationContext } from 'NoteMakingApp-plugin-sdk';
 
 /**
  * {{pluginNamePascalCase}} - {{description}}
  *
- * A basic Lokus plugin that demonstrates the fundamental plugin structure
+ * A basic NoteMakingApp plugin that demonstrates the fundamental plugin structure
  * and lifecycle methods.
  *
  * @author {{author}}
@@ -38,7 +38,7 @@ export class {{pluginNamePascalCase}} extends BasePlugin {
 
   /**
    * Plugin deactivation lifecycle method.
-   * Called when the plugin is deactivated or Lokus is shutting down.
+   * Called when the plugin is deactivated or NoteMakingApp is shutting down.
    */
   async deactivate(): Promise<void> {
     this.logger.info('Deactivating {{pluginNamePascalCase}} plugin...');

@@ -304,19 +304,19 @@ export class DocumentationGenerator {
 
   private async generateCustomCSS(): Promise<string> {
     return `
-/* Custom documentation styles for Lokus plugins */
+/* Custom documentation styles for NoteMakingApp plugins */
 :root {
-  --lokus-primary: #0066cc;
-  --lokus-secondary: #4ecdc4;
-  --lokus-accent: #ff6b6b;
-  --lokus-background: #ffffff;
-  --lokus-surface: #f8fafc;
-  --lokus-text: #1e293b;
-  --lokus-text-muted: #64748b;
+  --NoteMakingApp-primary: #0066cc;
+  --NoteMakingApp-secondary: #4ecdc4;
+  --NoteMakingApp-accent: #ff6b6b;
+  --NoteMakingApp-background: #ffffff;
+  --NoteMakingApp-surface: #f8fafc;
+  --NoteMakingApp-text: #1e293b;
+  --NoteMakingApp-text-muted: #64748b;
 }
 
 .plugin-header {
-  background: linear-gradient(135deg, var(--lokus-primary), var(--lokus-secondary));
+  background: linear-gradient(135deg, var(--NoteMakingApp-primary), var(--NoteMakingApp-secondary));
   color: white;
   padding: 2rem;
   border-radius: 8px;
@@ -343,7 +343,7 @@ export class DocumentationGenerator {
 }
 
 .feature-card {
-  background: var(--lokus-surface);
+  background: var(--NoteMakingApp-surface);
   border: 1px solid #e2e8f0;
   border-radius: 8px;
   padding: 1.5rem;
@@ -351,11 +351,11 @@ export class DocumentationGenerator {
 
 .feature-card h3 {
   margin: 0 0 0.5rem 0;
-  color: var(--lokus-primary);
+  color: var(--NoteMakingApp-primary);
 }
 
 .api-section {
-  border-left: 4px solid var(--lokus-primary);
+  border-left: 4px solid var(--NoteMakingApp-primary);
   padding-left: 1rem;
   margin: 1.5rem 0;
 }
@@ -371,10 +371,10 @@ export class DocumentationGenerator {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --lokus-background: #0f172a;
-    --lokus-surface: #1e293b;
-    --lokus-text: #f8fafc;
-    --lokus-text-muted: #cbd5e1;
+    --NoteMakingApp-background: #0f172a;
+    --NoteMakingApp-surface: #1e293b;
+    --NoteMakingApp-text: #f8fafc;
+    --NoteMakingApp-text-muted: #cbd5e1;
   }
 }
 `;
@@ -418,7 +418,7 @@ export class DocumentationGenerator {
 ## Installation
 
 \`\`\`bash
-lokus-plugin install {{name}}
+NoteMakingApp-plugin install {{name}}
 \`\`\`
 
 ## Features
@@ -476,7 +476,7 @@ Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md)
 
 ---
 
-Generated with [Lokus Plugin CLI](https://lokus.dev/cli)
+Generated with [NoteMakingApp Plugin CLI](https://NoteMakingApp.dev/cli)
 `;
 
     const context = {
@@ -567,7 +567,7 @@ Generated with [Lokus Plugin CLI](https://lokus.dev/cli)
       const basicExample = `# Basic Example
 
 \`\`\`typescript
-import { PluginContext } from '@lokus/plugin-sdk';
+import { PluginContext } from '@NoteMakingApp/plugin-sdk';
 import { ${this.toPascalCase(await this.getPluginName())} } from '${await this.getPluginName()}';
 
 // Initialize the plugin
@@ -596,8 +596,8 @@ await plugin.activate();
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 2rem; }
     .container { max-width: 1200px; margin: 0 auto; }
     .nav { display: flex; gap: 1rem; margin-bottom: 2rem; }
-    .nav a { color: var(--lokus-primary); text-decoration: none; padding: 0.5rem 1rem; border-radius: 4px; }
-    .nav a:hover { background: var(--lokus-surface); }
+    .nav a { color: var(--NoteMakingApp-primary); text-decoration: none; padding: 0.5rem 1rem; border-radius: 4px; }
+    .nav a:hover { background: var(--NoteMakingApp-surface); }
   </style>
 </head>
 <body>

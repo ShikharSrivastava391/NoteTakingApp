@@ -1,4 +1,4 @@
-import { PluginContext, WebviewPanel, Disposable } from 'lokus-plugin-sdk';
+import { PluginContext, WebviewPanel, Disposable } from 'NoteMakingApp-plugin-sdk';
 
 export class {{ pluginNamePascalCase }}Panel implements Disposable {
   private webviewPanel ?: WebviewPanel;

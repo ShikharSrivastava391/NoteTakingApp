@@ -3,18 +3,18 @@
 ## Enabling V2
 
 ### For New Installations
-V2 is automatically enabled for new installations (no existing `.lokus/iroh` directory).
+V2 is automatically enabled for new installations (no existing `.NoteMakingApp/iroh` directory).
 
 ### For Existing Installations
 
 #### Option 1: Environment Variable
 ```bash
 # Windows
-set LOKUS_USE_IROH_V2=true
+set NoteMakingApp_USE_IROH_V2=true
 npm run tauri dev
 
 # macOS/Linux
-LOKUS_USE_IROH_V2=true npm run tauri dev
+NoteMakingApp_USE_IROH_V2=true npm run tauri dev
 ```
 
 #### Option 2: Migration Command
@@ -198,10 +198,10 @@ function SyncStatusV2() {
 If needed, you can rollback to V1:
 ```bash
 # Remove V2 environment variable
-unset LOKUS_USE_IROH_V2
+unset NoteMakingApp_USE_IROH_V2
 
 # Or set to false
-LOKUS_USE_IROH_V2=false npm run tauri dev
+NoteMakingApp_USE_IROH_V2=false npm run tauri dev
 ```
 
 The V1 state is preserved during migration, so your sync will continue working.

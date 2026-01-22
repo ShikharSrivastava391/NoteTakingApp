@@ -1,4 +1,4 @@
-/// Linux-specific platform implementation for Lokus
+/// Linux-specific platform implementation for NoteMakingApp
 /// 
 /// This module provides Linux-specific implementations of file system operations,
 /// system integration, and error handling using common Linux desktop environments

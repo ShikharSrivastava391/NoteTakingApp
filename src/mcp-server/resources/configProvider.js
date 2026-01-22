@@ -1,6 +1,6 @@
 /**
- * Configuration Resource Provider for Lokus
- * Integrates with Lokus's configuration system to provide access to:
+ * Configuration Resource Provider for NoteMakingApp
+ * Integrates with NoteMakingApp's configuration system to provide access to:
  * - Global configuration settings
  * - Workspace-specific configurations
  * - User preferences and customizations
@@ -74,7 +74,7 @@ export class ConfigProvider {
         return this.workspaceConfigs.get(workspacePath);
       }
 
-      // In Lokus, workspace configs are stored in .lokus/config.json within the workspace
+      // In NoteMakingApp, workspace configs are stored in .NoteMakingApp/config.json within the workspace
       // For now, we'll simulate this or use the workspace-specific settings
       const workspaceConfig = {
         workspacePath,
@@ -125,31 +125,31 @@ export class ConfigProvider {
   async listResources() {
     const resources = [
       {
-        uri: 'lokus://config/global',
+        uri: 'NoteMakingApp://config/global',
         name: 'Global Configuration',
         description: 'Global application configuration and settings',
         mimeType: 'application/json'
       },
       {
-        uri: 'lokus://config/paths',
+        uri: 'NoteMakingApp://config/paths',
         name: 'Configuration Paths',
         description: 'Paths to configuration files and directories',
         mimeType: 'application/json'
       },
       {
-        uri: 'lokus://config/preferences',
+        uri: 'NoteMakingApp://config/preferences',
         name: 'User Preferences',
         description: 'User preferences and customizations',
         mimeType: 'application/json'
       },
       {
-        uri: 'lokus://config/environment',
+        uri: 'NoteMakingApp://config/environment',
         name: 'Environment Information',
         description: 'Runtime environment and system information',
         mimeType: 'application/json'
       },
       {
-        uri: 'lokus://config/features',
+        uri: 'NoteMakingApp://config/features',
         name: 'Feature Flags',
         description: 'Enabled features and experimental settings',
         mimeType: 'application/json'
@@ -159,7 +159,7 @@ export class ConfigProvider {
     // Add workspace-specific configurations
     for (const [workspacePath, config] of this.workspaceConfigs) {
       resources.push({
-        uri: `lokus://config/workspace/${encodeURIComponent(workspacePath)}`,
+        uri: `NoteMakingApp://config/workspace/${encodeURIComponent(workspacePath)}`,
         name: `Workspace Config: ${workspacePath.split('/').pop()}`,
         description: `Configuration for workspace: ${workspacePath}`,
         mimeType: 'application/json'
@@ -480,8 +480,8 @@ export class ConfigProvider {
    */
   getMetadata() {
     return {
-      name: 'Lokus Configuration Provider',
-      description: 'Provides access to Lokus configuration settings and preferences',
+      name: 'NoteMakingApp Configuration Provider',
+      description: 'Provides access to NoteMakingApp configuration settings and preferences',
       version: '1.0.0',
       capabilities: [
         'global-config',

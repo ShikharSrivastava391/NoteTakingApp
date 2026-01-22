@@ -1,8 +1,8 @@
 import { {{pluginNamePascalCase}} } from '../index';
-import { PluginContext, PluginLogger } from 'lokus-plugin-sdk';
+import { PluginContext, PluginLogger } from 'NoteMakingApp-plugin-sdk';
 
 // Mock the plugin SDK
-jest.mock('lokus-plugin-sdk', () => ({
+jest.mock('NoteMakingApp-plugin-sdk', () => ({
   PluginContext: jest.fn(),
   PluginLogger: jest.fn().mockImplementation(() => ({
     info: jest.fn(),

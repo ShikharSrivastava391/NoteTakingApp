@@ -2,7 +2,7 @@
  * Platform Detection and Utilities
  * 
  * Provides cross-platform utilities for detecting the current operating system
- * and handling platform-specific behaviors throughout the Lokus application.
+ * and handling platform-specific behaviors throughout the NoteMakingApp application.
  */
 
 // Platform detection constants

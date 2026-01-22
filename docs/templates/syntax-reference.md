@@ -1,6 +1,6 @@
 # Template Syntax Reference
 
-Complete reference for Lokus template syntax and features.
+Complete reference for NoteMakingApp template syntax and features.
 
 ## Variables
 

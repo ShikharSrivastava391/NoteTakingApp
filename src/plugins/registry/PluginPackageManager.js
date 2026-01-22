@@ -58,7 +58,7 @@ export class PluginPackageManager extends EventEmitter {
       extractTimeout: 60000,   // 1 minute
       retryAttempts: 1,
       retryDelay: 500,
-      tempDirectory: '/tmp/lokus-plugins',
+      tempDirectory: '/tmp/NoteMakingApp-plugins',
       backupOnUpdate: true,
       autoResolveDependencies: true,
       allowPrerelease: false,

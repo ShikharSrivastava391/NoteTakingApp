@@ -1,4 +1,4 @@
-//! Platform-specific clipboard operations for Lokus
+//! Platform-specific clipboard operations for NoteMakingApp
 //! 
 //! This module provides clipboard functionality that respects platform-specific
 //! behaviors and limitations while maintaining a consistent API.

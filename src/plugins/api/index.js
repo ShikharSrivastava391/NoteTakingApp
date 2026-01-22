@@ -1,16 +1,16 @@
 /**
- * Lokus Plugin API - Export for plugins to import
- * This file acts as the '@lokus/plugin-api' package that plugins import
+ * NoteMakingApp Plugin API - Export for plugins to import
+ * This file acts as the '@NoteMakingApp/plugin-api' package that plugins import
  */
 
-import LokusPluginAPI from './LokusPluginAPI.js';
+import NoteMakingAppPluginAPI from './NoteMakingAppPluginAPI.js';
 
 // Export the main Plugin API class as the default
-export default LokusPluginAPI;
+export default NoteMakingAppPluginAPI;
 
 // Named exports for specific components
 export {
-  LokusPluginAPI as PluginAPI,
+  NoteMakingAppPluginAPI as PluginAPI,
   EditorAPI,
   UIAPI,
   FilesystemAPI,
@@ -19,7 +19,7 @@ export {
   ClipboardAPI,
   NotificationsAPI,
   DataAPI
-} from './LokusPluginAPI.js';
+} from './NoteMakingAppPluginAPI.js';
 
 // This is what plugins import when they do:
-// import { PluginAPI } from '@lokus/plugin-api';
+// import { PluginAPI } from '@NoteMakingApp/plugin-api';

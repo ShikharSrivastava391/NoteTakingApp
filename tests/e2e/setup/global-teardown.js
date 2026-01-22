@@ -8,7 +8,7 @@ import { promises as fs } from 'fs';
 export default async function globalTeardown() {
   console.log('🧹 Cleaning up E2E test environment...');
   
-  const globalTestWorkspace = process.env.LOKUS_GLOBAL_TEST_WORKSPACE;
+  const globalTestWorkspace = process.env.NoteMakingApp_GLOBAL_TEST_WORKSPACE;
   
   if (globalTestWorkspace) {
     try {

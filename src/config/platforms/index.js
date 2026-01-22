@@ -11,13 +11,13 @@ import { macosConfig } from './macos.config.js';
 // Default configuration for unsupported platforms
 const defaultConfig = {
   app: {
-    name: 'Lokus',
-    defaultInstallPath: '/opt/lokus',
-    userDataPath: '~/.config/lokus',
-    tempPath: '/tmp/lokus'
+    name: 'NoteMakingApp',
+    defaultInstallPath: '/opt/NoteMakingApp',
+    userDataPath: '~/.config/NoteMakingApp',
+    tempPath: '/tmp/NoteMakingApp'
   },
   files: {
-    defaultWorkspacePath: '~/Documents/Lokus',
+    defaultWorkspacePath: '~/Documents/NoteMakingApp',
     maxPathLength: 4096,
     invalidChars: '\0'
   },

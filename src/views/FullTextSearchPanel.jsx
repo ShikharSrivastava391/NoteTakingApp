@@ -32,7 +32,7 @@ const FullTextSearchPanel = ({ isOpen, onClose, onResultClick, workspacePath }) 
 
   // Load search history from localStorage
   useEffect(() => {
-    const saved = localStorage.getItem('lokus-search-history');
+    const saved = localStorage.getItem('NoteMakingApp-search-history');
     if (saved) {
       try {
         const history = JSON.parse(saved);
@@ -53,7 +53,7 @@ const FullTextSearchPanel = ({ isOpen, onClose, onResultClick, workspacePath }) 
     ].slice(0, 20);
 
     setSearchHistory(updated);
-    localStorage.setItem('lokus-search-history', JSON.stringify(updated));
+    localStorage.setItem('NoteMakingApp-search-history', JSON.stringify(updated));
   }, [searchHistory]);
 
   // Perform search

@@ -18,7 +18,7 @@ export const Folding = Extension.create({
 
   addOptions() {
     return {
-      storageKey: 'lokus-fold-state', // localStorage key prefix
+      storageKey: 'NoteMakingApp-fold-state', // localStorage key prefix
     };
   },
 
@@ -97,7 +97,7 @@ export const Folding = Extension.create({
         state: {
           init(_, state) {
             // Load folded sections from localStorage
-            const filePath = globalThis.__LOKUS_ACTIVE_FILE__;
+            const filePath = globalThis.__NoteMakingApp_ACTIVE_FILE__;
             if (filePath) {
               const storageKey = `${extension.options.storageKey}:${filePath}`;
               const stored = localStorage.getItem(storageKey);
@@ -180,7 +180,7 @@ export const Folding = Extension.create({
                 }
 
                 // Save to localStorage
-                const filePath = globalThis.__LOKUS_ACTIVE_FILE__;
+                const filePath = globalThis.__NoteMakingApp_ACTIVE_FILE__;
                 if (filePath) {
                   const storageKey = `${extension.options.storageKey}:${filePath}`;
                   const positions = Array.from(extension.storage.foldedSections);
@@ -288,7 +288,7 @@ export const Folding = Extension.create({
   },
 
   saveFoldState() {
-    const filePath = globalThis.__LOKUS_ACTIVE_FILE__;
+    const filePath = globalThis.__NoteMakingApp_ACTIVE_FILE__;
     if (filePath) {
       const storageKey = `${this.options.storageKey}:${filePath}`;
       const positions = Array.from(this.storage.foldedSections);

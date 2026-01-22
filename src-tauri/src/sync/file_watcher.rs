@@ -99,7 +99,7 @@ impl FileWatcher {
     /// Check if a path should be excluded from watching
     fn should_exclude_path(path: &Path) -> bool {
         // Directories and files to exclude (matches pattern from handlers/files.rs:29)
-        const EXCLUDED_NAMES: &[&str] = &[".lokus", "node_modules", ".git", ".DS_Store"];
+        const EXCLUDED_NAMES: &[&str] = &[".NoteMakingApp", "node_modules", ".git", ".DS_Store"];
 
         // Check each component of the path
         for component in path.components() {
@@ -166,7 +166,7 @@ mod tests {
 
     #[test]
     fn test_should_exclude_path() {
-        assert!(FileWatcher::should_exclude_path(Path::new("/workspace/.lokus/data")));
+        assert!(FileWatcher::should_exclude_path(Path::new("/workspace/.NoteMakingApp/data")));
         assert!(FileWatcher::should_exclude_path(Path::new("/workspace/node_modules/package")));
         assert!(FileWatcher::should_exclude_path(Path::new("/workspace/.git/config")));
         assert!(FileWatcher::should_exclude_path(Path::new("/workspace/.DS_Store")));

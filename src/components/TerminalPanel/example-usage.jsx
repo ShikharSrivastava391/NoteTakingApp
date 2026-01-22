@@ -28,7 +28,7 @@ export function BasicTerminalExample() {
 
     // Simulate some output
     setTimeout(() => {
-      terminalManager.writeOutput(terminal.id, 'Welcome to Lokus Terminal!', 'stdout');
+      terminalManager.writeOutput(terminal.id, 'Welcome to NoteMakingApp Terminal!', 'stdout');
       terminalManager.writeOutput(terminal.id, 'Type commands below...', 'stdout');
     }, 100);
   };

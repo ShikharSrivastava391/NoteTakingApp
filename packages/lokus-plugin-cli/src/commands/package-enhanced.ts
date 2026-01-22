@@ -268,7 +268,7 @@ export class PluginPackager {
       description: this.manifest.description,
       author: this.manifest.author,
       main: this.manifest.main,
-      engines: this.manifest.engines || { lokus: '^1.0.0' },
+      engines: this.manifest.engines || { NoteMakingApp: '^1.0.0' },
       permissions: this.manifest.permissions || [],
       categories: this.manifest.categories || ['Other'],
       keywords: this.manifest.keywords || [],
@@ -455,7 +455,7 @@ export const packageEnhancedCommand = new Command('package')
   .option('--include-source', 'include source code in package')
   .option('--include-docs', 'include documentation in package')
   .option('--include-tests', 'include tests in package')
-  .option('--marketplace <name>', 'target marketplace (lokus, vscode, chrome)')
+  .option('--marketplace <name>', 'target marketplace (NoteMakingApp, vscode, chrome)')
   .option('--prerelease', 'mark as prerelease version')
   .option('--dry-run', 'perform a dry run without creating files')
   .action(async (options: PackageOptions) => {
@@ -502,8 +502,8 @@ export const packageEnhancedCommand = new Command('package')
       if (options.marketplace) {
         logger.info('Next steps for marketplace deployment:');
         switch (options.marketplace) {
-          case 'lokus':
-            logger.info('  1. Visit https://marketplace.lokus.dev');
+          case 'NoteMakingApp':
+            logger.info('  1. Visit https://marketplace.NoteMakingApp.dev');
             logger.info('  2. Sign in with your account');
             logger.info('  3. Upload the package file');
             break;

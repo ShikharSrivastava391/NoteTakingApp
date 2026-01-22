@@ -34,7 +34,7 @@ export const AUTH_METHODS = {
 // Use localhost in development for testing, production URL in builds
 const DEFAULT_REGISTRY_URL = import.meta.env.DEV
   ? 'http://localhost:3001/api/v1/registry'
-  : 'https://lokusmd.com/api/v1/registry';
+  : 'https://NoteMakingAppmd.com/api/v1/registry';
 
 export class RegistryAPI extends EventEmitter {
   constructor(config = {}) {
@@ -220,7 +220,7 @@ export class RegistryAPI extends EventEmitter {
       const response = await fetch(url, {
         method: 'GET',
         headers: {
-          'User-Agent': 'Lokus-Plugin-Client/1.0'
+          'User-Agent': 'NoteMakingApp-Plugin-Client/1.0'
         }
       });
 
@@ -668,7 +668,7 @@ export class RegistryAPI extends EventEmitter {
 
   buildHeaders(additionalHeaders = {}, skipAuth = false) {
     const headers = {
-      'User-Agent': 'Lokus-Plugin-Client/1.0',
+      'User-Agent': 'NoteMakingApp-Plugin-Client/1.0',
       'Accept': 'application/json',
       ...additionalHeaders
     }

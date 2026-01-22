@@ -2,7 +2,7 @@
  * MCP Plugin Manager
  * 
  * Manages MCP-enabled plugins with specialized lifecycle management
- * Provides integration between Lokus plugin system and MCP protocol
+ * Provides integration between NoteMakingApp plugin system and MCP protocol
  * Handles MCP server registration, discovery, and communication
  */
 

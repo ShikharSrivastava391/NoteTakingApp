@@ -194,13 +194,13 @@ export const performanceConfigs = {
   }
 }
 
-// Integration with Lokus features
-export const lokusIntegrations = {
+// Integration with NoteMakingApp features
+export const NoteMakingAppIntegrations = {
   // Link to markdown files
   markdownLinks: {
     enabled: true,
     onLinkClick: (path) => {
-      // Integration with Lokus file system
+      // Integration with NoteMakingApp file system
     }
   },
   

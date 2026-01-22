@@ -192,13 +192,13 @@ export default function AIAssistant() {
                   <li>Try these commands:</li>
                 </ol>
                 <ul className="text-sm text-green-700 dark:text-green-400 mt-2 ml-6 space-y-1">
-                  <li>• "What notes do I have in my Lokus workspace?"</li>
+                  <li>• "What notes do I have in my NoteMakingApp workspace?"</li>
                   <li>• "Search for notes about [topic]"</li>
                   <li>• "Create a new note called [name]"</li>
                   <li>• "Show me my workspace info"</li>
                 </ul>
                 <p className="text-xs text-green-600 dark:text-green-500 mt-3">
-                  Note: If Claude doesn't respond to Lokus commands, restart Claude Desktop.
+                  Note: If Claude doesn't respond to NoteMakingApp commands, restart Claude Desktop.
                 </p>
               </div>
             )}
@@ -246,7 +246,7 @@ export default function AIAssistant() {
         </summary>
         <div className="mt-2 p-3 bg-app-panel/20 rounded-md">
           <p className="text-xs text-app-muted">
-            This integration uses the Model Context Protocol (MCP) to allow Claude Desktop to interact with your Lokus workspace.
+            This integration uses the Model Context Protocol (MCP) to allow Claude Desktop to interact with your NoteMakingApp workspace.
             The connection is local and secure - your data never leaves your computer unless you explicitly share it in a conversation.
             The MCP server runs locally and provides Claude with tools to list, read, create, and search your notes.
           </p>

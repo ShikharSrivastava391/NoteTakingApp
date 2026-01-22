@@ -260,7 +260,7 @@ export class MCPProtocol extends EventEmitter {
       protocolVersion: this.protocolVersion,
       capabilities: this.capabilities,
       clientInfo: {
-        name: clientInfo.name || 'Lokus Plugin',
+        name: clientInfo.name || 'NoteMakingApp Plugin',
         version: clientInfo.version || '1.0.0',
         ...clientInfo
       }
@@ -496,7 +496,7 @@ export class MCPProtocol extends EventEmitter {
       protocolVersion: this.protocolVersion,
       capabilities: this.capabilities,
       serverInfo: {
-        name: `Lokus MCP Server (${this.serverId})`,
+        name: `NoteMakingApp MCP Server (${this.serverId})`,
         version: '1.0.0'
       }
     }

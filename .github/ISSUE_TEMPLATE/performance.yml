@@ -6,7 +6,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thank you for helping us improve Lokus performance! ⚡
+        Thank you for helping us improve NoteMakingApp performance! ⚡
 
   - type: dropdown
     id: performance-type
@@ -41,7 +41,7 @@ body:
       label: Steps to Reproduce
       description: How can we reproduce this performance issue?
       placeholder: |
-        1. Open Lokus
+        1. Open NoteMakingApp
         2. Load a large file (>1MB)
         3. Start typing...
         4. Notice lag after 30 seconds
@@ -75,7 +75,7 @@ body:
         - OS: [e.g. macOS 13.0, Windows 11, Ubuntu 22.04]
         - RAM: [e.g. 16GB]
         - CPU: [e.g. Intel i7, M1 Pro]
-        - Lokus version: [e.g. 1.0.0]
+        - NoteMakingApp version: [e.g. 1.0.0]
         - File size being processed: [e.g. 50MB markdown file]
     validations:
       required: true

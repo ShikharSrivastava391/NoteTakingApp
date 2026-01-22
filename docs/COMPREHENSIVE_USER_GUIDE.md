@@ -1,10 +1,10 @@
-# Lokus Comprehensive User Guide
+# NoteMakingApp Comprehensive User Guide
 
 **Version:** 1.3.1
 **Last Updated:** October 2025
 **Status:** Production Ready
 
-> **Note:** This guide covers all features as of v1.3.1. Lokus has evolved significantly with major new capabilities including Bases (database views), MCP AI integration, OAuth authentication, and advanced performance optimizations.
+> **Note:** This guide covers all features as of v1.3.1. NoteMakingApp has evolved significantly with major new capabilities including Bases (database views), MCP AI integration, OAuth authentication, and advanced performance optimizations.
 
 ---
 
@@ -28,13 +28,13 @@
 
 ## Introduction
 
-### What is Lokus?
+### What is NoteMakingApp?
 
-Lokus is a **lightning-fast, privacy-first knowledge management system** built with Tauri (Rust) and React. It combines the power of local-first markdown editing with advanced features like database views, AI integration, and knowledge graphs—all without requiring plugins or cloud dependencies.
+NoteMakingApp is a **lightning-fast, privacy-first knowledge management system** built with Tauri (Rust) and React. It combines the power of local-first markdown editing with advanced features like database views, AI integration, and knowledge graphs—all without requiring plugins or cloud dependencies.
 
-### Why Lokus?
+### Why NoteMakingApp?
 
-| Traditional Tools | Lokus |
+| Traditional Tools | NoteMakingApp |
 |-------------------|-------|
 | ❌ Requires 10+ plugins | ✅ Everything built-in |
 | ❌ Slow, bloated (100MB+) | ✅ Fast, lightweight (~10MB) |
@@ -63,7 +63,7 @@ Lokus is a **lightning-fast, privacy-first knowledge management system** built w
 ```bash
 # Download .dmg from releases
 # Or use Homebrew (coming soon)
-brew install lokus
+brew install NoteMakingApp
 ```
 
 #### Windows
@@ -77,16 +77,16 @@ brew install lokus
 
 ```bash
 # AppImage (universal)
-wget https://github.com/lokus-ai/lokus/releases/latest/download/lokus.AppImage
-chmod +x lokus.AppImage
-./lokus.AppImage
+wget https://github.com/NoteMakingApp-ai/NoteMakingApp/releases/latest/download/NoteMakingApp.AppImage
+chmod +x NoteMakingApp.AppImage
+./NoteMakingApp.AppImage
 ```
 
 #### Build from Source
 
 ```bash
-git clone https://github.com/lokus-ai/lokus.git
-cd lokus
+git clone https://github.com/NoteMakingApp-ai/NoteMakingApp.git
+cd NoteMakingApp
 npm install
 npm run tauri dev  # Development
 npm run tauri build  # Production
@@ -107,7 +107,7 @@ my-workspace/
 ├── kanban/            # Kanban board data
 ├── canvas/            # Canvas files
 ├── templates/         # Note templates
-├── .lokus/            # Lokus metadata (hidden)
+├── .NoteMakingApp/            # NoteMakingApp metadata (hidden)
 │   ├── bases/        # Database configurations
 │   ├── graph/        # Graph data cache
 │   └── config.json   # Workspace settings
@@ -318,11 +318,11 @@ Create different perspectives:
 
 ## MCP AI Integration
 
-> **New in v1.3!** Model Context Protocol enables AI assistants to interact with Lokus.
+> **New in v1.3!** Model Context Protocol enables AI assistants to interact with NoteMakingApp.
 
 ### What is MCP?
 
-MCP (Model Context Protocol) is a standardized way for AI tools to interact with applications. Lokus includes a built-in MCP server with **68+ tools** for AI assistants.
+MCP (Model Context Protocol) is a standardized way for AI tools to interact with applications. NoteMakingApp includes a built-in MCP server with **68+ tools** for AI assistants.
 
 ### Supported AI Tools
 
@@ -333,8 +333,8 @@ MCP (Model Context Protocol) is a standardized way for AI tools to interact with
 ### Auto-Start Feature
 
 **Zero Configuration Required!**
-- MCP server starts automatically when Lokus launches
-- Desktop config created at `~/.lokus/mcp-server/`
+- MCP server starts automatically when NoteMakingApp launches
+- Desktop config created at `~/.NoteMakingApp/mcp-server/`
 - HTTP server runs on `localhost:3456`
 - Both transports available simultaneously
 
@@ -424,7 +424,7 @@ MCP (Model Context Protocol) is a standardized way for AI tools to interact with
 
 [📹 Placeholder: MCP integration setup and usage]
 
-### Using AI Assistants with Lokus
+### Using AI Assistants with NoteMakingApp
 
 #### Example Workflows
 
@@ -451,12 +451,12 @@ AI: "Find gaps in my knowledge base about [topic]"
 #### Desktop Configuration
 Automatically created at:
 ```
-~/.lokus/mcp-server/claude_desktop_config.json
+~/.NoteMakingApp/mcp-server/claude_desktop_config.json
 ```
 
 #### CLI Configuration
 ```
-~/.lokus/mcp-server/cline_mcp_settings.json
+~/.NoteMakingApp/mcp-server/cline_mcp_settings.json
 ```
 
 [📹 Placeholder: Advanced MCP workflows]
@@ -553,7 +553,7 @@ Supported variables:
 
 ### Graph Visualization
 
-Lokus includes powerful graph visualization for understanding connections between your notes.
+NoteMakingApp includes powerful graph visualization for understanding connections between your notes.
 
 #### Graph Types
 
@@ -715,7 +715,7 @@ kanban/
 
 ### Infinite Canvas
 
-Lokus includes an infinite canvas for visual brainstorming and diagram creation.
+NoteMakingApp includes an infinite canvas for visual brainstorming and diagram creation.
 
 #### Canvas Features
 
@@ -765,7 +765,7 @@ Lokus includes an infinite canvas for visual brainstorming and diagram creation.
 #### Signing In
 
 1. Click "Sign In" in status bar
-2. Browser opens to Lokus web platform
+2. Browser opens to NoteMakingApp web platform
 3. Complete authentication
 4. Automatically returns to app
 5. Authenticated! ✓
@@ -1000,13 +1000,13 @@ workspace/
 **App Won't Start**
 - Check system requirements
 - Verify no conflicting processes
-- Clear cache: `~/.lokus/cache/`
+- Clear cache: `~/.NoteMakingApp/cache/`
 - Reinstall if needed
 
 **Workspace Won't Open**
 - Verify folder exists and is accessible
 - Check permissions (read/write)
-- Look for corrupted `.lokus` folder
+- Look for corrupted `.NoteMakingApp` folder
 - Try creating new workspace
 
 **Slow Performance**
@@ -1036,10 +1036,10 @@ workspace/
 
 ### Getting Help
 
-- **Documentation**: https://docs.lokus.ai
-- **GitHub Issues**: https://github.com/lokus-ai/lokus/issues
-- **Community**: https://discord.gg/lokus
-- **Email**: support@lokus.ai
+- **Documentation**: https://docs.NoteMakingApp.ai
+- **GitHub Issues**: https://github.com/NoteMakingApp-ai/NoteMakingApp/issues
+- **Community**: https://discord.gg/NoteMakingApp
+- **Email**: support@NoteMakingApp.ai
 
 ---
 
@@ -1090,6 +1090,6 @@ For plugin development, see:
 
 **Last Updated:** October 2025
 **Version:** 1.3.1
-**Contributors:** Lokus Development Team
+**Contributors:** NoteMakingApp Development Team
 
 [📹 Note: All video placeholders should be replaced with actual video tutorials]

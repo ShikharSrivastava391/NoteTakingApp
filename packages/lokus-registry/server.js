@@ -33,7 +33,7 @@ const upload = multer({
 
 // Routes
 app.get('/', (req, res) => {
-    res.json({ status: 'online', service: 'Lokus Plugin Registry' });
+    res.json({ status: 'online', service: 'NoteMakingApp Plugin Registry' });
 });
 
 app.post('/api/v1/registry/publish', upload.single('file'), async (req, res) => {

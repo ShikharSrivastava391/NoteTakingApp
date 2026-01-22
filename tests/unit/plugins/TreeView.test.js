@@ -6,7 +6,7 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { waitFor } from '@testing-library/react';
 import { TreeDataProviderAdapter } from '../../../src/plugins/api/TreeDataProvider.js';
-import { UIAPI } from '../../../src/plugins/api/LokusPluginAPI.js';
+import { UIAPI } from '../../../src/plugins/api/NoteMakingAppPluginAPI.js';
 import { treeViewRegistry } from '../../../src/plugins/registry/TreeViewRegistry.js';
 
 // Mock the tree view registry to ensure events fire synchronously in tests

@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useRemoteConfig } from '../hooks/useRemoteConfig';
 import { showEnhancedToast, toast } from './ui/enhanced-toast';
 
-const DISMISSED_STORAGE_KEY = 'lokus_dismissed_announcements';
+const DISMISSED_STORAGE_KEY = 'NoteMakingApp_dismissed_announcements';
 
 /**
  * Get dismissed announcement IDs from localStorage

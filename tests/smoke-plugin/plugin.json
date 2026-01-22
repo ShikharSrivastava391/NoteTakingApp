@@ -9,8 +9,8 @@
         "ui",
         "notifications"
     ],
-    "author": "Lokus Team",
+    "author": "NoteMakingApp Team",
     "engines": {
-        "lokus": "^1.0.0"
+        "NoteMakingApp": "^1.0.0"
     }
 }

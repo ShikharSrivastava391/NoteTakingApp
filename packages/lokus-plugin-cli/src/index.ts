@@ -22,8 +22,8 @@ const program = new Command()
 program.configureHelp({} as any);
 
 program
-  .name('lokus-plugin')
-  .description('Official CLI tool for developing Lokus plugins')
+  .name('NoteMakingApp-plugin')
+  .description('Official CLI tool for developing NoteMakingApp plugins')
   .version('2.0.0')
   .configureOutput({
     writeOut: (str) => process.stdout.write(chalk.cyan(str)),
@@ -57,11 +57,11 @@ program
     }
 
     if (opts.silent) {
-      process.env.LOKUS_CLI_SILENT = 'true';
+      process.env.NoteMakingApp_CLI_SILENT = 'true';
     }
 
     if (opts.verbose) {
-      process.env.LOKUS_CLI_VERBOSE = 'true';
+      process.env.NoteMakingApp_CLI_VERBOSE = 'true';
     }
   });
 
@@ -77,7 +77,7 @@ program.exitOverride((err) => {
 
   console.error(chalk.red('Error:'), err.message)
 
-  if (process.env.LOKUS_CLI_VERBOSE === 'true' && err.stack) {
+  if (process.env.NoteMakingApp_CLI_VERBOSE === 'true' && err.stack) {
     console.error(chalk.gray('Stack trace:'))
     console.error(chalk.gray(err.stack))
   }
@@ -88,7 +88,7 @@ program.exitOverride((err) => {
 // Handle uncaught exceptions
 process.on('uncaughtException', (error) => {
   console.error(chalk.red('Uncaught Exception:'), error.message)
-  if (process.env.LOKUS_CLI_VERBOSE === 'true') {
+  if (process.env.NoteMakingApp_CLI_VERBOSE === 'true') {
     console.error(chalk.gray(error.stack))
   }
   process.exit(1)
@@ -96,7 +96,7 @@ process.on('uncaughtException', (error) => {
 
 process.on('unhandledRejection', (reason, promise) => {
   console.error(chalk.red('Unhandled Rejection:'), reason)
-  if (process.env.LOKUS_CLI_VERBOSE === 'true') {
+  if (process.env.NoteMakingApp_CLI_VERBOSE === 'true') {
     console.error(chalk.gray('Promise:'), promise)
   }
   process.exit(1)

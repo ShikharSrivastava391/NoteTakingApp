@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://lokus.dev/schemas/contributions/configuration.json",
+  "$id": "https://NoteMakingApp.dev/schemas/contributions/configuration.json",
   "title": "Configuration Contribution Schema",
-  "description": "Schema for configuration contributions in Lokus plugins",
+  "description": "Schema for configuration contributions in NoteMakingApp plugins",
   "type": "object",
   "properties": {
     "title": {

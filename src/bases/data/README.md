@@ -1,10 +1,10 @@
-# Lokus Bases Data System
+# NoteMakingApp Bases Data System
 
-A comprehensive property and file data system for Lokus Bases that efficiently scans, indexes, and manages properties from markdown files with YAML frontmatter.
+A comprehensive property and file data system for NoteMakingApp Bases that efficiently scans, indexes, and manages properties from markdown files with YAML frontmatter.
 
 ## Overview
 
-The Lokus Bases Data System consists of four main components that work together to provide a powerful property-based file management system:
+The NoteMakingApp Bases Data System consists of four main components that work together to provide a powerful property-based file management system:
 
 1. **PropertyTypes** - Type detection, validation, and conversion
 2. **PropertyScanner** - YAML frontmatter scanning and extraction
@@ -101,7 +101,7 @@ const properties = await scanner.scanFile('/path/to/file.md');
 const allProperties = await scanner.scanDirectory('/workspace', {
   recursive: true,
   includeExtensions: ['.md', '.markdown'],
-  excludePatterns: ['.lokus', 'node_modules']
+  excludePatterns: ['.NoteMakingApp', 'node_modules']
 });
 
 // Watch for changes
@@ -373,4 +373,4 @@ const filter = {
 
 ---
 
-*This system forms the foundation of Lokus Bases' powerful property-based file management capabilities, enabling users to organize, search, and analyze their knowledge base with unprecedented flexibility and speed.*
+*This system forms the foundation of NoteMakingApp Bases' powerful property-based file management capabilities, enabling users to organize, search, and analyze their knowledge base with unprecedented flexibility and speed.*

@@ -1,6 +1,6 @@
 # Plugin Marketplace
 
-Lokus features an integrated plugin marketplace that provides a centralized hub for discovering, installing, and managing plugins. The marketplace offers a curated selection of high-quality plugins with comprehensive information, ratings, and seamless installation.
+NoteMakingApp features an integrated plugin marketplace that provides a centralized hub for discovering, installing, and managing plugins. The marketplace offers a curated selection of high-quality plugins with comprehensive information, ratings, and seamless installation.
 
 ## Overview
 
@@ -32,7 +32,7 @@ The marketplace interface includes:
 
 ### Featured Plugins
 The marketplace highlights exceptional plugins:
-- **Editor's Choice** - Plugins selected by the Lokus team
+- **Editor's Choice** - Plugins selected by the NoteMakingApp team
 - **Community Favorites** - Most popular plugins by user ratings
 - **New and Notable** - Recently published high-quality plugins
 - **Essential Tools** - Must-have plugins for common workflows
@@ -103,7 +103,7 @@ Each plugin listing displays:
 - **Rating and Review Count** - Community feedback indicators
 - **Download Count** - Popularity metrics
 - **Last Updated** - Recency of updates
-- **Compatibility** - Supported Lokus versions
+- **Compatibility** - Supported NoteMakingApp versions
 
 ### Detailed Plugin Pages
 Click any plugin to view comprehensive information:
@@ -116,7 +116,7 @@ Click any plugin to view comprehensive information:
 
 #### Technical Information
 - **Version History** - Complete changelog and version information
-- **System Requirements** - Minimum system and Lokus version requirements
+- **System Requirements** - Minimum system and NoteMakingApp version requirements
 - **Dependencies** - Required or optional plugin dependencies
 - **Permissions** - Security permissions requested by plugin
 - **File Size** - Plugin download and installed size
@@ -327,7 +327,7 @@ Support for users with visual impairments:
 
 **Plugin installation failing:**
 - Verify sufficient disk space for installation
-- Check plugin compatibility with current Lokus version
+- Check plugin compatibility with current NoteMakingApp version
 - Review requested permissions and approve if acceptable
 - Try installing dependencies manually first
 

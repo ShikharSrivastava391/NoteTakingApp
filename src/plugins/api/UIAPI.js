@@ -1,7 +1,7 @@
 /**
  * UIAPI.js - Comprehensive UI Plugin Interface
  * 
- * Provides a flexible system for plugins to extend the Lokus UI with:
+ * Provides a flexible system for plugins to extend the NoteMakingApp UI with:
  * - Custom panels (sidebar-left, sidebar-right, bottom, floating, modal)
  * - Context menus and toolbars
  * - Command palette items
@@ -645,7 +645,7 @@ export class UIAPI extends EventEmitter {
     };
 
     try {
-      localStorage.setItem('lokus-ui-layout', JSON.stringify(layout));
+      localStorage.setItem('NoteMakingApp-ui-layout', JSON.stringify(layout));
     } catch { }
   }
 
@@ -656,7 +656,7 @@ export class UIAPI extends EventEmitter {
     if (!this.settings.enablePersistence) return;
 
     try {
-      const saved = localStorage.getItem('lokus-ui-layout');
+      const saved = localStorage.getItem('NoteMakingApp-ui-layout');
       if (saved) {
         const layout = JSON.parse(saved);
         this.panelLayout = { ...this.getDefaultLayout(), ...layout };
@@ -864,7 +864,7 @@ export class UIAPI extends EventEmitter {
    */
   savePanelState(panelId, state) {
     try {
-      const key = `lokus-panel-${panelId}`;
+      const key = `NoteMakingApp-panel-${panelId}`;
       localStorage.setItem(key, JSON.stringify(state));
     } catch { }
   }
@@ -874,7 +874,7 @@ export class UIAPI extends EventEmitter {
    */
   loadPanelState(panelId) {
     try {
-      const key = `lokus-panel-${panelId}`;
+      const key = `NoteMakingApp-panel-${panelId}`;
       const saved = localStorage.getItem(key);
       return saved ? JSON.parse(saved) : null;
     } catch (error) {

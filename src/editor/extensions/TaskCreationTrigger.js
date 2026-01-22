@@ -15,7 +15,7 @@ const TaskCreationTrigger = Extension.create({
 
           // Emit event to open the task creation modal
           setTimeout(() => {
-            window.dispatchEvent(new CustomEvent('lokus:open-task-modal'))
+            window.dispatchEvent(new CustomEvent('NoteMakingApp:open-task-modal'))
           }, 10)
         },
       }),

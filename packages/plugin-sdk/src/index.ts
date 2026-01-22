@@ -1,11 +1,11 @@
 /**
- * @fileoverview Lokus Plugin SDK - Main Entry Point
+ * @fileoverview NoteMakingApp Plugin SDK - Main Entry Point
  * 
- * This is the main entry point for the Lokus Plugin SDK, providing everything
- * developers need to create powerful plugins for Lokus.
+ * This is the main entry point for the NoteMakingApp Plugin SDK, providing everything
+ * developers need to create powerful plugins for NoteMakingApp.
  * 
  * @version 1.0.0
- * @author Lokus Team
+ * @author NoteMakingApp Team
  * @license MIT
  */
 
@@ -26,7 +26,7 @@ export type {
   Plugin,
   PluginContext,
   PluginManifest,
-  LokusAPI,
+  NoteMakingAppAPI,
   Disposable,
   Permission,
   CommandAPI,
@@ -54,7 +54,7 @@ export {
 export const SDK_VERSION = '1.0.0'
 
 /**
- * Supported Lokus API version
+ * Supported NoteMakingApp API version
  */
 export const SUPPORTED_API_VERSION = '1.0.0'
 
@@ -62,11 +62,11 @@ export const SUPPORTED_API_VERSION = '1.0.0'
  * SDK metadata
  */
 export const SDK_INFO = {
-  name: '@lokus/plugin-sdk',
+  name: '@NoteMakingApp/plugin-sdk',
   version: SDK_VERSION,
-  description: 'Official Plugin Development Kit for Lokus',
-  homepage: 'https://lokus.dev/docs/plugin-development',
-  repository: 'https://github.com/lokus/lokus',
+  description: 'Official Plugin Development Kit for NoteMakingApp',
+  homepage: 'https://NoteMakingApp.dev/docs/plugin-development',
+  repository: 'https://github.com/NoteMakingApp/NoteMakingApp',
   license: 'MIT',
   supportedApiVersion: SUPPORTED_API_VERSION
 } as const
@@ -219,7 +219,7 @@ export namespace DevMode {
    * Check if running in development mode
    */
   export function isEnabled(): boolean {
-    return process.env['NODE_ENV'] === 'development' || process.env['LOKUS_DEV'] === 'true'
+    return process.env['NODE_ENV'] === 'development' || process.env['NoteMakingApp_DEV'] === 'true'
   }
 
   /**

@@ -1,7 +1,7 @@
 /**
  * Base Parser
  * Parse and convert .base YAML files to/from JavaScript objects
- * Handles syntax errors gracefully and supports all Lokus base features
+ * Handles syntax errors gracefully and supports all NoteMakingApp base features
  */
 
 import { DEFAULT_BASE_TEMPLATE, BASE_PROPERTY_TYPES } from './BaseSchema.js'
@@ -578,7 +578,7 @@ export class BaseParser {
     const name = baseDefinition.name || 'Unnamed Base'
     const description = baseDefinition.description || ''
 
-    return `# Lokus Base: ${name}\n` +
+    return `# NoteMakingApp Base: ${name}\n` +
            (description ? `# ${description}\n` : '') +
            `# Generated: ${now}\n` +
            `# Version: ${baseDefinition.version || '1.0.0'}\n\n`

@@ -44,7 +44,7 @@ export class BaseImporter {
   /**
    * Main import method - must be implemented by subclasses
    * @param {string} sourcePath - Path to source files/export
-   * @param {string} destPath - Destination folder in Lokus
+   * @param {string} destPath - Destination folder in NoteMakingApp
    * @returns {Promise<Object>} Import results
    */
   async import(sourcePath, destPath) {

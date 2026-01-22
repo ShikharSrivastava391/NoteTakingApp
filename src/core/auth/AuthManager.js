@@ -7,9 +7,9 @@ class AuthManager {
     this.listeners = new Set();
     this.user = null;
     this.isAuthenticated = false;
-    // Always use production backend (lokusmd.com)
+    // Always use production backend (NoteMakingAppmd.com)
     const env = typeof import.meta !== 'undefined' && import.meta.env ? import.meta.env : process.env;
-    this.authBaseUrl = env.VITE_AUTH_BASE_URL || 'https://lokusmd.com';
+    this.authBaseUrl = env.VITE_AUTH_BASE_URL || 'https://NoteMakingAppmd.com';
 
     // Throttling for auth checks to prevent excessive calls
     this.checkInProgress = false;
@@ -31,7 +31,7 @@ class AuthManager {
     try {
       await onOpenUrl((urls) => {
         for (const url of urls) {
-          if (url.startsWith('lokus://auth-callback')) {
+          if (url.startsWith('NoteMakingApp://auth-callback')) {
             this.handleDeepLinkCallback(url);
           }
         }

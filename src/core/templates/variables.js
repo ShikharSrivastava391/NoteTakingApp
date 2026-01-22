@@ -96,7 +96,7 @@ export class BuiltinVariables {
     this.register('randomInt', () => Math.floor(Math.random() * 100));
     
     // Application variables
-    this.register('app.name', () => 'Lokus');
+    this.register('app.name', () => 'NoteMakingApp');
     this.register('app.version', () => '1.0.0');
     
     // Document variables (these might be overridden by context)

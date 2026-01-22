@@ -31,7 +31,7 @@ impl OfflineQueue {
     fn get_queue_file_path() -> Result<PathBuf, GmailError> {
         let home_dir = dirs::home_dir()
             .ok_or_else(|| GmailError::Storage("Failed to get home directory".to_string()))?;
-        let app_dir = home_dir.join(".lokus").join("gmail");
+        let app_dir = home_dir.join(".NoteMakingApp").join("gmail");
         if !app_dir.exists() {
             std::fs::create_dir_all(&app_dir)
                 .map_err(|e| GmailError::Storage(format!("Failed to create Gmail app directory: {}", e)))?;

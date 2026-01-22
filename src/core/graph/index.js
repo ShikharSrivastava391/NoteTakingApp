@@ -1,5 +1,5 @@
 /**
- * Graph Core Module - Main exports for the Lokus graph system
+ * Graph Core Module - Main exports for the NoteMakingApp graph system
  * 
  * This module provides the complete graph processing and visualization system with
  * advanced performance optimizations for handling massive graphs smoothly:

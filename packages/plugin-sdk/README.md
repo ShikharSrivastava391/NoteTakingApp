@@ -1,28 +1,28 @@
-# @lokus/plugin-sdk
+# @NoteMakingApp/plugin-sdk
 
-[![npm version](https://badge.fury.io/js/%40lokus%2Fplugin-sdk.svg)](https://badge.fury.io/js/%40lokus%2Fplugin-sdk)
+[![npm version](https://badge.fury.io/js/%40NoteMakingApp%2Fplugin-sdk.svg)](https://badge.fury.io/js/%40NoteMakingApp%2Fplugin-sdk)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-> **Official Plugin Development Kit (PDK) for Lokus** - Build powerful plugins with TypeScript-first development experience.
+> **Official Plugin Development Kit (PDK) for NoteMakingApp** - Build powerful plugins with TypeScript-first development experience.
 
 ## 🚀 Quick Start
 
 ### Installation
 
 ```bash
-npm install lokus-plugin-sdk
+npm install NoteMakingApp-plugin-sdk
 ```
 
 > **Tip:** The easiest way to start is using the **CLI**, which sets up the SDK for you:
 > ```bash
-> npx lokus-plugin-cli create my-plugin
+> npx NoteMakingApp-plugin-cli create my-plugin
 > ```
 
 ### Create Your First Plugin
 
 ```typescript
-import { BasePlugin, PluginContext } from '@lokus/plugin-sdk'
+import { BasePlugin, PluginContext } from '@NoteMakingApp/plugin-sdk'
 
 export default class MyPlugin extends BasePlugin {
   async activate(context: PluginContext): Promise<void> {
@@ -65,7 +65,7 @@ export default class MyPlugin extends BasePlugin {
 - **Test Utils**: Helper functions for plugin testing
 
 ### 📚 **TypeScript Definitions**
-- **Complete API Coverage**: All Lokus APIs with full type safety
+- **Complete API Coverage**: All NoteMakingApp APIs with full type safety
 - **Extension Points**: Commands, UI, Editor, Workspace, etc.
 - **Event System**: Type-safe event handling
 - **Configuration**: Strongly-typed plugin configuration
@@ -76,15 +76,15 @@ export default class MyPlugin extends BasePlugin {
 
 ```bash
 # Using npm
-npx @lokus/plugin-sdk create my-awesome-plugin
+npx @NoteMakingApp/plugin-sdk create my-awesome-plugin
 
 # Using the SDK directly
-import { PluginSDK } from '@lokus/plugin-sdk'
+import { PluginSDK } from '@NoteMakingApp/plugin-sdk'
 
 await PluginSDK.createFromTemplate('ui-extension', {
   name: 'My Awesome Plugin',
   id: 'my-awesome-plugin',
-  description: 'An awesome plugin for Lokus',
+  description: 'An awesome plugin for NoteMakingApp',
   author: 'Your Name',
   outputDir: './my-awesome-plugin',
   typescript: true,
@@ -110,12 +110,12 @@ await PluginSDK.createFromTemplate('ui-extension', {
 
 ```typescript
 import type { 
-  LokusAPI,
+  NoteMakingAppAPI,
   CommandAPI,
   EditorAPI, 
   UIAPI,
   WorkspaceAPI 
-} from '@lokus/plugin-sdk'
+} from '@NoteMakingApp/plugin-sdk'
 
 // Access APIs through plugin context
 export default class MyPlugin extends BasePlugin {
@@ -191,7 +191,7 @@ export default class MyPlugin extends BasePlugin {
 ### Unit Testing
 
 ```typescript
-import { createMockContext, MockLokusAPI } from '@lokus/plugin-sdk/testing'
+import { createMockContext, MockNoteMakingAppAPI } from '@NoteMakingApp/plugin-sdk/testing'
 import MyPlugin from '../src/MyPlugin'
 
 describe('MyPlugin', () => {
@@ -215,7 +215,7 @@ describe('MyPlugin', () => {
   test('should register commands', async () => {
     await plugin.activate(mockContext)
     
-    const mockAPI = mockContext.api as MockLokusAPI
+    const mockAPI = mockContext.api as MockNoteMakingAppAPI
     const commands = await mockAPI.commands.getAll()
     
     expect(commands).toHaveLength(1)
@@ -227,7 +227,7 @@ describe('MyPlugin', () => {
 ### Integration Testing
 
 ```typescript
-import { TestUtils } from '@lokus/plugin-sdk/testing'
+import { TestUtils } from '@NoteMakingApp/plugin-sdk/testing'
 
 describe('MyPlugin Integration', () => {
   test('should work with real API', async () => {
@@ -250,7 +250,7 @@ describe('MyPlugin Integration', () => {
 ### Development Mode
 
 ```typescript
-import { DevMode } from '@lokus/plugin-sdk'
+import { DevMode } from '@NoteMakingApp/plugin-sdk'
 
 export default class MyPlugin extends BasePlugin {
   async activate(context: PluginContext) {
@@ -305,7 +305,7 @@ Create a `plugin.json` manifest:
 
 ```json
 {
-  "extends": "@lokus/plugin-sdk/tsconfig.base.json",
+  "extends": "@NoteMakingApp/plugin-sdk/tsconfig.base.json",
   "compilerOptions": {
     "outDir": "./dist",
     "rootDir": "./src"
@@ -322,11 +322,11 @@ Create a `plugin.json` manifest:
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc --watch",
-    "dev": "lokus-plugin-dev --watch",
+    "dev": "NoteMakingApp-plugin-dev --watch",
     "test": "jest",
     "test:watch": "jest --watch",
-    "package": "lokus-plugin-package",
-    "publish": "lokus-plugin-publish"
+    "package": "NoteMakingApp-plugin-package",
+    "publish": "NoteMakingApp-plugin-publish"
   }
 }
 ```
@@ -390,7 +390,7 @@ await TestUtils.withRealAPI(async (api) => {
 
 ### Basic Command Plugin
 ```typescript
-import { BasePlugin, PluginContext } from '@lokus/plugin-sdk'
+import { BasePlugin, PluginContext } from '@NoteMakingApp/plugin-sdk'
 
 export default class HelloWorldPlugin extends BasePlugin {
   async activate(context: PluginContext) {
@@ -415,7 +415,7 @@ export default class HelloWorldPlugin extends BasePlugin {
 
 ### UI Extension Plugin
 ```typescript
-import { EnhancedBasePlugin, PluginContext } from '@lokus/plugin-sdk'
+import { EnhancedBasePlugin, PluginContext } from '@NoteMakingApp/plugin-sdk'
 
 export default class DashboardPlugin extends EnhancedBasePlugin {
   async activate(context: PluginContext) {
@@ -508,11 +508,11 @@ export default class DashboardPlugin extends EnhancedBasePlugin {
   "type": "node",
   "request": "launch",
   "name": "Debug Plugin",
-  "program": "${workspaceFolder}/node_modules/@lokus/plugin-sdk/bin/debug.js",
+  "program": "${workspaceFolder}/node_modules/@NoteMakingApp/plugin-sdk/bin/debug.js",
   "args": ["--plugin", "${workspaceFolder}"],
   "env": {
     "NODE_ENV": "development",
-    "LOKUS_DEV": "true"
+    "NoteMakingApp_DEV": "true"
   }
 }
 ```
@@ -544,7 +544,7 @@ npm run package
 ### Publish to Marketplace
 ```bash
 npm run publish
-# Publishes to Lokus Plugin Marketplace
+# Publishes to NoteMakingApp Plugin Marketplace
 ```
 
 ## 🤝 Contributing
@@ -553,15 +553,15 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 
 ## 📄 License
 
-MIT © [Lokus Team](https://lokus.dev)
+MIT © [NoteMakingApp Team](https://NoteMakingApp.dev)
 
 ## 🔗 Links
 
-- [Documentation](https://lokus.dev/docs/plugin-development)
-- [API Reference](https://lokus.dev/api)
-- [Plugin Marketplace](https://marketplace.lokus.dev)
-- [GitHub Repository](https://github.com/lokus/lokus)
-- [Community Discord](https://discord.gg/lokus)
+- [Documentation](https://NoteMakingApp.dev/docs/plugin-development)
+- [API Reference](https://NoteMakingApp.dev/api)
+- [Plugin Marketplace](https://marketplace.NoteMakingApp.dev)
+- [GitHub Repository](https://github.com/NoteMakingApp/NoteMakingApp)
+- [Community Discord](https://discord.gg/NoteMakingApp)
 
 ---
 

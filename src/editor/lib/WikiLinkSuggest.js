@@ -10,7 +10,7 @@ import { debounce } from '../../core/search/index.js'
 import blockIdManager from '../../core/blocks/block-id-manager.js'
 
 function getIndex() {
-  const list = (globalThis.__LOKUS_FILE_INDEX__ || [])
+  const list = (globalThis.__NoteMakingApp_FILE_INDEX__ || [])
   return Array.isArray(list) ? list : []
 }
 
@@ -242,7 +242,7 @@ const WikiLinkSuggest = Extension.create({
           return shouldAllow
         },
         items: async ({ query, editor }) => {
-          const active = (globalThis.__LOKUS_ACTIVE_FILE__ || '')
+          const active = (globalThis.__NoteMakingApp_ACTIVE_FILE__ || '')
 
           // Clean query: remove leading [ if present (happens when typing [[)
           const cleanQuery = query.startsWith('[') ? query.slice(1) : query
@@ -450,7 +450,7 @@ const WikiLinkSuggest = Extension.create({
             const fullPath = props.path || ''
 
             // Build relative path from workspace for the link text
-            const wsPath = globalThis.__LOKUS_WORKSPACE_PATH__ || ''
+            const wsPath = globalThis.__NoteMakingApp_WORKSPACE_PATH__ || ''
             let relativePath = fullPath
             if (wsPath && fullPath.startsWith(wsPath)) {
               relativePath = fullPath.slice(wsPath.length).replace(/^[/\\]/, '')
@@ -648,7 +648,7 @@ const WikiLinkSuggest = Extension.create({
           return false
         },
         items: async ({ query }) => {
-          const active = (globalThis.__LOKUS_ACTIVE_FILE__ || '')
+          const active = (globalThis.__NoteMakingApp_ACTIVE_FILE__ || '')
           const idx = getIndex()
 
           // Image file extensions
@@ -889,7 +889,7 @@ const WikiLinkSuggest = Extension.create({
           return isAfterCanvasBracket && !isInList
         },
         items: async ({ query }) => {
-          const active = (globalThis.__LOKUS_ACTIVE_FILE__ || '')
+          const active = (globalThis.__NoteMakingApp_ACTIVE_FILE__ || '')
           const idx = getIndex()
 
           // Filter to only canvas files

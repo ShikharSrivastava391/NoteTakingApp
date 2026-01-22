@@ -1,7 +1,7 @@
 /**
  * Base Schema Definitions
- * Defines the complete schema for Lokus .base files
- * Based on Obsidian Bases functionality but adapted for Lokus architecture
+ * Defines the complete schema for NoteMakingApp .base files
+ * Based on Obsidian Bases functionality but adapted for NoteMakingApp architecture
  */
 
 /**
@@ -53,7 +53,7 @@ export const FILTER_OPERATORS = {
   IS_EMPTY: 'is-empty',
   IS_NOT_EMPTY: 'is-not-empty',
 
-  // Lokus-specific operations
+  // NoteMakingApp-specific operations
   TAGGED_WITH: 'taggedWith',
   NOT_TAGGED_WITH: 'not-taggedWith',
   IN_FOLDER: 'inFolder',
@@ -156,7 +156,7 @@ export const FORMULA_FUNCTIONS = {
   SORT: 'sort',
   UNIQUE: 'unique',
 
-  // Lokus-specific functions
+  // NoteMakingApp-specific functions
   NOTE_TITLE: 'noteTitle',
   NOTE_PATH: 'notePath',
   NOTE_TAGS: 'noteTags',

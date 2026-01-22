@@ -1,11 +1,11 @@
 {
-  "name": "@lokus/mcp-server",
+  "name": "@NoteMakingApp/mcp-server",
   "version": "1.0.0",
-  "description": "Lokus MCP Server - Bundled with Lokus App",
+  "description": "NoteMakingApp MCP Server - Bundled with NoteMakingApp App",
   "type": "module",
   "main": "index.js",
   "bin": {
-    "lokus-mcp": "./index.js"
+    "NoteMakingApp-mcp": "./index.js"
   },
   "engines": {
     "node": ">=18.0.0"
@@ -15,11 +15,11 @@
     "node-fetch": "^3.3.2"
   },
   "keywords": [
-    "lokus",
+    "NoteMakingApp",
     "mcp",
     "note-taking",
     "knowledge-base"
   ],
-  "author": "Lokus Team",
+  "author": "NoteMakingApp Team",
   "license": "FCL-1.0-MIT"
 }

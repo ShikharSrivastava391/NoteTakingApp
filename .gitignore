@@ -79,8 +79,8 @@ coverage/
 temp/
 
 # Test workspace (user testing area - not part of codebase)
-Lokus-Full-Scale-Test/
-/Lokus-Full-Scale-Test/
+NoteMakingApp-Full-Scale-Test/
+/NoteMakingApp-Full-Scale-Test/
 
 # MCP server test files
 test-mcp-server.js
@@ -91,7 +91,7 @@ test-complete-mcp.js
 openapi.yaml
 
 # User workspace state file
-.lokus-active-workspaces.json
+.NoteMakingApp-active-workspaces.json
 
 
 # Personal files
@@ -113,7 +113,7 @@ test-email*.md
 *VERIFICATION_*.md
 *QUANTUM_*.md
 *PERFORMANCE_*.md
-*LOKUS_QUANTUM*.md
+*NoteMakingApp_QUANTUM*.md
 Progress.md
 *DOCUMENTATION_UPDATE*.md
 *DUAL_CONFIG*.md
@@ -144,9 +144,9 @@ Progress.md
 
 nul
 Guide-To-Fix-Domain.md
-packages/lokus-plugin-cli/my-react-plugin-sixteen
-packages/lokus-plugin-cli/my-react-plugin-ten
-packages/lokus-plugin-cli/test-plugin
+packages/NoteMakingApp-plugin-cli/my-react-plugin-sixteen
+packages/NoteMakingApp-plugin-cli/my-react-plugin-ten
+packages/NoteMakingApp-plugin-cli/test-plugin
 *.tgz
 test-plugins/*/package-lock.json
 test-plugin-v3/package-lock.json

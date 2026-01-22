@@ -1,6 +1,6 @@
 # Search System
 
-Lokus provides a comprehensive search system that enables you to quickly find information across your entire workspace. The search system includes global workspace search, in-file search, and advanced filtering capabilities.
+NoteMakingApp provides a comprehensive search system that enables you to quickly find information across your entire workspace. The search system includes global workspace search, in-file search, and advanced filtering capabilities.
 
 ## Overview
 

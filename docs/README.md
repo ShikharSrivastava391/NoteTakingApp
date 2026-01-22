@@ -1,11 +1,11 @@
-# Lokus Documentation
+# NoteMakingApp Documentation
 
-Welcome to the comprehensive documentation for Lokus, a modern note-taking application built with React, TipTap, and Tauri. This documentation covers all features, development guides, and API references.
+Welcome to the comprehensive documentation for NoteMakingApp, a modern note-taking application built with React, TipTap, and Tauri. This documentation covers all features, development guides, and API references.
 
 ## 📚 Documentation Structure
 
 ### User Guides
-Learn how to use Lokus effectively with step-by-step guides and examples.
+Learn how to use NoteMakingApp effectively with step-by-step guides and examples.
 
 #### Core Features
 - **[Editor](./features/editor.md)** - Rich text editing with TipTap
@@ -65,13 +65,13 @@ Complete API documentation for all public interfaces.
 
 ### For Developers
 1. **[Development Setup](./developer/getting-started.md)** - Local development environment
-2. **[Contributing](./developer/contributing.md)** - How to contribute to Lokus
+2. **[Contributing](./developer/contributing.md)** - How to contribute to NoteMakingApp
 3. **[Building](./developer/building.md)** - Build and distribution process
 
 ## 📖 Feature Categories
 
 ### Core Functionality
-Essential features that form the foundation of Lokus:
+Essential features that form the foundation of NoteMakingApp:
 - Rich text editor with markdown support
 - File and workspace management
 - Search and navigation

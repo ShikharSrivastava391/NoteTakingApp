@@ -74,11 +74,11 @@ try {
 
   // Copy package.json (minimal version)
   const packageJson = {
-    name: "@lokus/mcp-server",
+    name: "@NoteMakingApp/mcp-server",
     version: "1.0.0",
     main: "mcp-server.js",
     type: "commonjs",
-    description: "Lokus MCP Server - Bundled for production"
+    description: "NoteMakingApp MCP Server - Bundled for production"
   };
 
   fs.writeFileSync(
@@ -89,7 +89,7 @@ try {
   // Create a launcher script
   const launcher = `#!/usr/bin/env node
 /**
- * Lokus MCP Server Launcher
+ * NoteMakingApp MCP Server Launcher
  * Auto-generated bundled version
  */
 require('./mcp-server.js');

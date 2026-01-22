@@ -83,11 +83,11 @@ export class PluginSandbox {
       ReferenceError: ReferenceError,
       SyntaxError: SyntaxError,
       // Plugin API
-      lokusAPI: this.api,
+      NoteMakingAppAPI: this.api,
       api: this.api, // Alias for SDK compatibility
-      lokus: window.lokus, // Expose global lokus object
+      NoteMakingApp: window.NoteMakingApp, // Expose global NoteMakingApp object
       // VS Code compatibility aliases
-      vscode: window.lokus, // Alias vscode to lokus for compatibility
+      vscode: window.NoteMakingApp, // Alias vscode to NoteMakingApp for compatibility
 
       // Merge provided context data
       ...contextData
@@ -283,8 +283,8 @@ export class PluginLoader {
       }
 
       // Expose SDK globally for plugins to use
-      if (!window.LokusSDK) {
-        window.LokusSDK = PluginSDK;
+      if (!window.NoteMakingAppSDK) {
+        window.NoteMakingAppSDK = PluginSDK;
       }
 
       const rawCode = await readTextFile(mainPath);
@@ -296,7 +296,7 @@ export class PluginLoader {
         const module = { exports: {} };
         const exports = module.exports;
         const require = (id) => {
-          if (id === '@lokus/plugin-sdk' || id === 'lokus-plugin-sdk') {
+          if (id === '@NoteMakingApp/plugin-sdk' || id === 'NoteMakingApp-plugin-sdk') {
             return PluginSDK;
           }
           if (id === 'react') {
@@ -381,11 +381,11 @@ export class PluginLoader {
 
   /**
    * Transform plugin code to handle imports
-   * Rewrites 'lokus-plugin-sdk' and '@lokus/plugin-sdk' imports to use global window.LokusSDK
+   * Rewrites 'NoteMakingApp-plugin-sdk' and '@NoteMakingApp/plugin-sdk' imports to use global window.NoteMakingAppSDK
    */
   transformPluginCode(code, pluginId, mainPath) {
-    // Support both 'lokus-plugin-sdk' and '@lokus/plugin-sdk' package names
-    const sdkPatterns = ['lokus-plugin-sdk', '@lokus/plugin-sdk'];
+    // Support both 'NoteMakingApp-plugin-sdk' and '@NoteMakingApp/plugin-sdk' package names
+    const sdkPatterns = ['NoteMakingApp-plugin-sdk', '@NoteMakingApp/plugin-sdk'];
     let transformed = code;
 
     for (const sdkName of sdkPatterns) {
@@ -394,19 +394,19 @@ export class PluginLoader {
       // 1. Handle "import { ... } from 'sdk-name'"
       transformed = transformed.replace(
         new RegExp(`import\\s+\\{\\s*([^}]+)\\s*\\}\\s+from\\s+['"]${escapedName}['"];?`, 'g'),
-        'const { $1 } = window.LokusSDK;'
+        'const { $1 } = window.NoteMakingAppSDK;'
       );
 
       // 2. Handle "import * as SDK from 'sdk-name'"
       transformed = transformed.replace(
         new RegExp(`import\\s+\\*\\s+as\\s+(\\w+)\\s+from\\s+['"]${escapedName}['"];?`, 'g'),
-        'const $1 = window.LokusSDK;'
+        'const $1 = window.NoteMakingAppSDK;'
       );
 
       // 3. Handle "import SDK from 'sdk-name'" (default import)
       transformed = transformed.replace(
         new RegExp(`import\\s+(\\w+)\\s+from\\s+['"]${escapedName}['"];?`, 'g'),
-        'const $1 = window.LokusSDK;'
+        'const $1 = window.NoteMakingAppSDK;'
       );
 
       // 4. Handle side-effect import "import 'sdk-name'"
@@ -519,11 +519,11 @@ export class PluginLoader {
         logPath: '',
         extensionMode: 2, // Development
         environment: {
-          lokusVersion: '1.0.0',
+          NoteMakingAppVersion: '1.0.0',
           nodeVersion: '18.0.0',
           platform: 'darwin', // TODO: Get real platform
           arch: 'x64',
-          appName: 'Lokus',
+          appName: 'NoteMakingApp',
           appVersion: '1.0.0',
           isDevelopment: true,
           isTesting: false
@@ -585,7 +585,7 @@ export class PluginLoader {
       this.logger.info(`PluginClass final: ${typeof PluginClass}`, PluginClass);
 
       if (typeof PluginClass === 'function') {
-        // Class-based plugin (Lokus standard)
+        // Class-based plugin (NoteMakingApp standard)
         try {
           plugin = new PluginClass(context)
         } catch (e) {
@@ -594,7 +594,7 @@ export class PluginLoader {
         }
       } else if (typeof PluginClass === 'object' && PluginClass !== null) {
         // Object-based plugin (VS Code style / CommonJS)
-        // Wrap it to adapt to Lokus interface
+        // Wrap it to adapt to NoteMakingApp interface
         plugin = {
           ...PluginClass,
           activate: async () => {
@@ -827,7 +827,7 @@ export class PluginInstaller {
       const { tempDir, join, homeDir } = await import('@tauri-apps/api/path')
 
       const tempDirectory = await tempDir()
-      const fileName = `${pluginId}-${version || 'latest'}.lokus`
+      const fileName = `${pluginId}-${version || 'latest'}.NoteMakingApp`
       const filePath = await join(tempDirectory, fileName)
 
       this.logger.info(`Downloading to temp path: ${filePath}`)
@@ -843,7 +843,7 @@ export class PluginInstaller {
           const home = await homeDir()
           // Use the installed plugin name (folder name)
           const pluginName = installedName || pluginData.name || pluginId
-          const pluginPath = await join(home, '.lokus', 'plugins', pluginName)
+          const pluginPath = await join(home, '.NoteMakingApp', 'plugins', pluginName)
 
           // Determine icon extension from URL
           const iconUrl = pluginData.icon_url

@@ -200,7 +200,7 @@ export function updateReferences(content, oldName, newName, oldPath, newPath) {
 
 /**
  * Scan workspace for all files that reference a target file
- * @param {Array} fileIndex - Array of { title, path } from __LOKUS_FILE_INDEX__
+ * @param {Array} fileIndex - Array of { title, path } from __NoteMakingApp_FILE_INDEX__
  * @param {string} targetName - Name of the file being moved/renamed
  * @param {string} targetPath - Full path of the file being moved/renamed
  * @returns {Promise<Array>} Array of { path, references }

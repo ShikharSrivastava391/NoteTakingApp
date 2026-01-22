@@ -1,6 +1,6 @@
 /**
- * Lokus Plugin API - The runtime API that plugins use to interact with Lokus
- * This is what gets imported as '@lokus/plugin-api' in plugins
+ * NoteMakingApp Plugin API - The runtime API that plugins use to interact with NoteMakingApp
+ * This is what gets imported as '@NoteMakingApp/plugin-api' in plugins
  */
 
 import { EventEmitter } from '../../utils/EventEmitter.js';
@@ -2107,7 +2107,7 @@ export class DataAPI extends EventEmitter {
     }
     // Fallback to localStorage for testing/simple cases
     try {
-      const storageKey = `lokus_plugin_${this.currentPluginId}_${key}`;
+      const storageKey = `NoteMakingApp_plugin_${this.currentPluginId}_${key}`;
       const value = localStorage.getItem(storageKey);
       return value ? JSON.parse(value) : undefined;
     } catch {
@@ -2129,7 +2129,7 @@ export class DataAPI extends EventEmitter {
       return db.set(key, value);
     }
     // Fallback to localStorage for testing/simple cases
-    const storageKey = `lokus_plugin_${this.currentPluginId}_${key}`;
+    const storageKey = `NoteMakingApp_plugin_${this.currentPluginId}_${key}`;
     localStorage.setItem(storageKey, JSON.stringify(value));
   }
 
@@ -2146,7 +2146,7 @@ export class DataAPI extends EventEmitter {
       return db.delete(key);
     }
     // Fallback to localStorage for testing/simple cases
-    const storageKey = `lokus_plugin_${this.currentPluginId}_${key}`;
+    const storageKey = `NoteMakingApp_plugin_${this.currentPluginId}_${key}`;
     localStorage.removeItem(storageKey);
   }
 
@@ -2162,7 +2162,7 @@ export class DataAPI extends EventEmitter {
       return db.keys();
     }
     // Fallback to localStorage for testing/simple cases
-    const prefix = `lokus_plugin_${this.currentPluginId}_`;
+    const prefix = `NoteMakingApp_plugin_${this.currentPluginId}_`;
     const keys = [];
     // Use Object.keys for better test environment compatibility
     const allKeys = Object.keys(localStorage);
@@ -2186,7 +2186,7 @@ export class DataAPI extends EventEmitter {
       return db.clear();
     }
     // Fallback to localStorage for testing/simple cases
-    const prefix = `lokus_plugin_${this.currentPluginId}_`;
+    const prefix = `NoteMakingApp_plugin_${this.currentPluginId}_`;
     // Use Object.keys for better test environment compatibility
     const keysToRemove = Object.keys(localStorage).filter(key => key.startsWith(prefix));
     keysToRemove.forEach(key => localStorage.removeItem(key));
@@ -2201,7 +2201,7 @@ export class DataAPI extends EventEmitter {
  * Main Plugin API Class
  * This is what gets passed to plugin constructors
  */
-export class LokusPluginAPI extends EventEmitter {
+export class NoteMakingAppPluginAPI extends EventEmitter {
   constructor(managers = {}) {
     super();
 
@@ -2406,4 +2406,4 @@ export class LokusPluginAPI extends EventEmitter {
 }
 
 // Export the main API class
-export default LokusPluginAPI;
+export default NoteMakingAppPluginAPI;

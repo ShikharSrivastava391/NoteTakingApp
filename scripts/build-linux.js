@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Linux Build Script for Lokus
+ * Linux Build Script for NoteMakingApp
  * 
  * This script handles Linux-specific build operations including:
  * - Platform validation
@@ -416,7 +416,7 @@ function verifyBuildOutputs() {
   
   const expectedOutputs = [
     {
-      path: join(PROJECT_ROOT, 'src-tauri', 'target', 'release', 'lokus'),
+      path: join(PROJECT_ROOT, 'src-tauri', 'target', 'release', 'NoteMakingApp'),
       description: 'Main executable'
     },
     {
@@ -483,10 +483,10 @@ function packageApplication() {
   });
   
   // Copy executable
-  const exePath = join(PROJECT_ROOT, 'src-tauri', 'target', 'release', 'lokus');
+  const exePath = join(PROJECT_ROOT, 'src-tauri', 'target', 'release', 'NoteMakingApp');
   if (existsSync(exePath)) {
-    copyFileSync(exePath, join(distDir, 'lokus'));
-    executeCommand(`chmod +x "${join(distDir, 'lokus')}"`, 'Making executable runnable');
+    copyFileSync(exePath, join(distDir, 'NoteMakingApp'));
+    executeCommand(`chmod +x "${join(distDir, 'NoteMakingApp')}"`, 'Making executable runnable');
     printColor('✓ Executable copied to dist-linux/', 'green');
   }
   
@@ -494,33 +494,33 @@ function packageApplication() {
   const desktopEntry = `[Desktop Entry]
 Version=1.0
 Type=Application
-Name=Lokus
+Name=NoteMakingApp
 Comment=Modern note-taking and knowledge management application
-Exec=${join(distDir, 'lokus')}
-Icon=lokus
+Exec=${join(distDir, 'NoteMakingApp')}
+Icon=NoteMakingApp
 Terminal=false
 Categories=Office;TextEditor;
-StartupWMClass=lokus
+StartupWMClass=NoteMakingApp
 MimeType=text/markdown;
 `;
   
   if (!isDryRun) {
-    writeFileSync(join(distDir, 'lokus.desktop'), desktopEntry);
+    writeFileSync(join(distDir, 'NoteMakingApp.desktop'), desktopEntry);
     printColor('✓ Desktop entry file created', 'green');
   }
   
   // Create installation script
   const installScript = `#!/bin/bash
-# Lokus Installation Script for Linux
+# NoteMakingApp Installation Script for Linux
 
 set -e
 
-INSTALL_DIR="/opt/lokus"
+INSTALL_DIR="/opt/NoteMakingApp"
 BIN_DIR="/usr/local/bin"
 DESKTOP_DIR="/usr/share/applications"
 ICON_DIR="/usr/share/icons/hicolor/256x256/apps"
 
-echo "Installing Lokus..."
+echo "Installing NoteMakingApp..."
 
 # Check for root privileges
 if [ "$EUID" -ne 0 ]; then
@@ -532,17 +532,17 @@ fi
 mkdir -p "$INSTALL_DIR"
 
 # Copy executable
-cp lokus "$INSTALL_DIR/"
-chmod +x "$INSTALL_DIR/lokus"
+cp NoteMakingApp "$INSTALL_DIR/"
+chmod +x "$INSTALL_DIR/NoteMakingApp"
 
 # Create symlink in bin directory
-ln -sf "$INSTALL_DIR/lokus" "$BIN_DIR/lokus"
+ln -sf "$INSTALL_DIR/NoteMakingApp" "$BIN_DIR/NoteMakingApp"
 
 # Install desktop entry
-if [ -f "lokus.desktop" ]; then
+if [ -f "NoteMakingApp.desktop" ]; then
     mkdir -p "$DESKTOP_DIR"
-    cp lokus.desktop "$DESKTOP_DIR/"
-    chmod 644 "$DESKTOP_DIR/lokus.desktop"
+    cp NoteMakingApp.desktop "$DESKTOP_DIR/"
+    chmod 644 "$DESKTOP_DIR/NoteMakingApp.desktop"
 fi
 
 # Update desktop database
@@ -550,8 +550,8 @@ if command -v update-desktop-database >/dev/null 2>&1; then
     update-desktop-database "$DESKTOP_DIR"
 fi
 
-echo "✓ Lokus installed successfully!"
-echo "You can now run 'lokus' from anywhere or find it in your applications menu."
+echo "✓ NoteMakingApp installed successfully!"
+echo "You can now run 'NoteMakingApp' from anywhere or find it in your applications menu."
 `;
   
   if (!isDryRun) {
@@ -562,15 +562,15 @@ echo "You can now run 'lokus' from anywhere or find it in your applications menu
   
   // Create uninstall script
   const uninstallScript = `#!/bin/bash
-# Lokus Uninstallation Script for Linux
+# NoteMakingApp Uninstallation Script for Linux
 
 set -e
 
-INSTALL_DIR="/opt/lokus"
+INSTALL_DIR="/opt/NoteMakingApp"
 BIN_DIR="/usr/local/bin"
 DESKTOP_DIR="/usr/share/applications"
 
-echo "Uninstalling Lokus..."
+echo "Uninstalling NoteMakingApp..."
 
 # Check for root privileges
 if [ "$EUID" -ne 0 ]; then
@@ -579,8 +579,8 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 # Remove files
-rm -f "$BIN_DIR/lokus"
-rm -f "$DESKTOP_DIR/lokus.desktop"
+rm -f "$BIN_DIR/NoteMakingApp"
+rm -f "$DESKTOP_DIR/NoteMakingApp.desktop"
 rm -rf "$INSTALL_DIR"
 
 # Update desktop database
@@ -588,7 +588,7 @@ if command -v update-desktop-database >/dev/null 2>&1; then
     update-desktop-database "$DESKTOP_DIR"
 fi
 
-echo "✓ Lokus uninstalled successfully!"
+echo "✓ NoteMakingApp uninstalled successfully!"
 `;
   
   if (!isDryRun) {
@@ -635,22 +635,22 @@ function printBuildSummary(distDir, distro) {
   
   printColor('\nBuild Outputs:', 'blue');
   printColor(`  📁 Distribution folder: ${distDir}`, 'cyan');
-  printColor(`  🚀 Executable: ${distDir}/lokus`, 'cyan');
+  printColor(`  🚀 Executable: ${distDir}/NoteMakingApp`, 'cyan');
   printColor(`  📦 DEB package: ${distDir}/*.deb (if available)`, 'cyan');
   printColor(`  📦 RPM package: ${distDir}/*.rpm (if available)`, 'cyan');
-  printColor(`  🖥️ Desktop entry: ${distDir}/lokus.desktop`, 'cyan');
+  printColor(`  🖥️ Desktop entry: ${distDir}/NoteMakingApp.desktop`, 'cyan');
   printColor(`  📜 Install script: ${distDir}/install.sh`, 'cyan');
   printColor(`  📜 Uninstall script: ${distDir}/uninstall.sh`, 'cyan');
   
   printColor('\nInstallation Options:', 'blue');
   
-  if (existsSync(join(distDir, 'lokus.deb'))) {
+  if (existsSync(join(distDir, 'NoteMakingApp.deb'))) {
     printColor('  DEB Package (Ubuntu/Debian):', 'cyan');
     printColor(`    sudo dpkg -i ${distDir}/*.deb`, 'cyan');
     printColor(`    sudo apt-get install -f  # Fix dependencies if needed`, 'cyan');
   }
   
-  if (existsSync(join(distDir, 'lokus.rpm'))) {
+  if (existsSync(join(distDir, 'NoteMakingApp.rpm'))) {
     printColor('  RPM Package (Fedora/RHEL):', 'cyan');
     printColor(`    sudo rpm -i ${distDir}/*.rpm`, 'cyan');
     printColor(`    # Or use dnf/yum for dependency resolution`, 'cyan');
@@ -661,7 +661,7 @@ function printBuildSummary(distDir, distro) {
   printColor(`    sudo ./install.sh`, 'cyan');
   
   printColor('  Direct Execution:', 'cyan');
-  printColor(`    ${distDir}/lokus`, 'cyan');
+  printColor(`    ${distDir}/NoteMakingApp`, 'cyan');
   
   printColor('\nNext Steps:', 'blue');
   printColor('  • Test on different Linux distributions', 'cyan');
@@ -719,7 +719,7 @@ function handleError(error, context = '') {
  */
 async function main() {
   try {
-    printHeader('Lokus Linux Build Script');
+    printHeader('NoteMakingApp Linux Build Script');
     
     const totalSteps = 9;
     let currentStep = 1;
@@ -774,7 +774,7 @@ process.on('SIGTERM', () => {
 
 // Show help if requested
 if (process.argv.includes('--help') || process.argv.includes('-h')) {
-  printHeader('Lokus Linux Build Script Help');
+  printHeader('NoteMakingApp Linux Build Script Help');
   printColor('Usage: npm run build:linux [options]', 'cyan');
   printColor('\nOptions:', 'blue');
   printColor('  --verbose, -v      Show detailed output', 'cyan');

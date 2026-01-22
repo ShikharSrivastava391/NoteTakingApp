@@ -1,5 +1,5 @@
 import { EventEmitter } from '../utils/EventEmitter.js'
-import LokusPluginAPI from './api/LokusPluginAPI.js'
+import NoteMakingAppPluginAPI from './api/NoteMakingAppPluginAPI.js'
 import { logger } from '../utils/logger.js'
 import { isVersionCompatible } from '../utils/semver.js'
 import { PluginInstaller } from './core/PluginLoader.js'
@@ -74,7 +74,7 @@ export class PluginManager extends EventEmitter {
     this.tauri = null
 
     // Create the Plugin API instance that will be passed to plugins
-    this.pluginAPI = new LokusPluginAPI(managers)
+    this.pluginAPI = new NoteMakingAppPluginAPI(managers)
   }
 
   /**
@@ -115,8 +115,8 @@ export class PluginManager extends EventEmitter {
     try {
       if (this.tauri.isTauri) {
         const home = await this.tauri.homeDir()
-        const pluginDir = await this.tauri.join(home, '.lokus', 'plugins')
-        const extensionsDir = await this.tauri.join(home, '.lokus', 'extensions')
+        const pluginDir = await this.tauri.join(home, '.NoteMakingApp', 'plugins')
+        const extensionsDir = await this.tauri.join(home, '.NoteMakingApp', 'extensions')
 
         // Add default plugin directories
         this.pluginDirs.add(pluginDir)
@@ -162,7 +162,7 @@ export class PluginManager extends EventEmitter {
           name: 'Simple Test Plugin',
           version: '1.0.0',
           description: 'A simple test plugin for demonstration',
-          author: 'Lokus Team',
+          author: 'NoteMakingApp Team',
           main: 'index.js',
           permissions: ['editor', 'ui']
         },
@@ -227,7 +227,7 @@ export class PluginManager extends EventEmitter {
         name: 'Simple Test Plugin',
         version: '1.0.0',
         description: 'A simple test plugin for demonstration',
-        author: 'Lokus Team',
+        author: 'NoteMakingApp Team',
         main: 'index.js',
         permissions: ['editor', 'ui']
       }
@@ -263,17 +263,17 @@ export class PluginManager extends EventEmitter {
     // Required fields for new format
     const newRequired = ['id', 'name', 'version', 'main', 'manifest']
     // Required fields for old format (fallback)
-    const oldRequired = ['id', 'name', 'version', 'main', 'lokusVersion']
+    const oldRequired = ['id', 'name', 'version', 'main', 'NoteMakingAppVersion']
 
     let required = newRequired
 
-    // Check if this is old format (has lokusVersion)
-    if (manifest.lokusVersion) {
+    // Check if this is old format (has NoteMakingAppVersion)
+    if (manifest.NoteMakingAppVersion) {
       required = oldRequired
 
-      // Validate Lokus compatibility for old format
-      if (!this.isVersionCompatible(manifest.lokusVersion)) {
-        throw new Error(`Incompatible Lokus version: ${manifest.lokusVersion}`)
+      // Validate NoteMakingApp compatibility for old format
+      if (!this.isVersionCompatible(manifest.NoteMakingAppVersion)) {
+        throw new Error(`Incompatible NoteMakingApp version: ${manifest.NoteMakingAppVersion}`)
       }
     }
 
@@ -337,14 +337,14 @@ export class PluginManager extends EventEmitter {
   }
 
   /**
-   * Check if plugin is compatible with current Lokus version
+   * Check if plugin is compatible with current NoteMakingApp version
    * COMPLETED TODO: Implemented proper semver compatibility checking
    */
   async isVersionCompatible(requiredVersion) {
     // Get actual app version
     const { getAppVersion } = await import('../utils/appInfo.js');
-    const lokusVersion = await getAppVersion();
-    return isVersionCompatible(lokusVersion, requiredVersion);
+    const NoteMakingAppVersion = await getAppVersion();
+    return isVersionCompatible(NoteMakingAppVersion, requiredVersion);
   }
 
   /**

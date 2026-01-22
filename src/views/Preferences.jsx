@@ -164,7 +164,7 @@ export default function Preferences() {
       await updateConfig({ customSymbols: symbols });
       // Emit event to notify editor to reload symbols
       const { emit } = await import('@tauri-apps/api/event');
-      await emit('lokus:custom-symbols-changed', { symbols });
+      await emit('NoteMakingApp:custom-symbols-changed', { symbols });
     } catch (e) {
       console.error('Failed to save custom symbols:', e);
     }
@@ -2410,7 +2410,7 @@ export default function Preferences() {
                       if (saved) {
                         try {
                           const { emit } = await import('@tauri-apps/api/event');
-                          await emit('lokus:markdown-config-changed', {
+                          await emit('NoteMakingApp:markdown-config-changed', {
                             config: markdownSyntaxConfig.getAll()
                           });
                           if (import.meta.env.DEV) {
@@ -2777,7 +2777,7 @@ export default function Preferences() {
                       <div className="w-16 h-16 bg-app-accent rounded-full flex items-center justify-center mx-auto mb-6">
                         <LogIn className="w-8 h-8 text-white" />
                       </div>
-                      <h2 className="text-xl font-semibold text-app-text mb-3">Sign in to Lokus</h2>
+                      <h2 className="text-xl font-semibold text-app-text mb-3">Sign in to NoteMakingApp</h2>
                       <p className="text-app-text-secondary mb-8 max-w-md mx-auto">
                         Sync your notes across devices and access your account.
                       </p>
@@ -3469,7 +3469,7 @@ export default function Preferences() {
                                 <div className="col-span-2">
                                   <span className="text-app-muted">Author Info:</span>
                                   <span className="ml-2 text-app-text text-xs">
-                                    {syncUsername || 'Lokus'} &lt;{syncUsername || 'lokus'}@users.noreply.github.com&gt;
+                                    {syncUsername || 'NoteMakingApp'} &lt;{syncUsername || 'NoteMakingApp'}@users.noreply.github.com&gt;
                                   </span>
                                   <p className="text-xs text-app-muted mt-1">Auto-generated from username</p>
                                 </div>
@@ -3610,8 +3610,8 @@ export default function Preferences() {
                                   await invoke('git_commit', {
                                     workspace_path: workspacePath,
                                     message: syncMessage || 'Update workspace',
-                                    author_name: syncUsername || 'Lokus',
-                                    author_email: `${syncUsername || 'lokus'}@users.noreply.github.com`
+                                    author_name: syncUsername || 'NoteMakingApp',
+                                    author_email: `${syncUsername || 'NoteMakingApp'}@users.noreply.github.com`
                                   });
                                   // Then push
                                   await invoke('git_push', {
@@ -3706,7 +3706,7 @@ export default function Preferences() {
                     </button>
 
                     <p className="mt-4 text-sm text-app-muted">
-                      Lokus automatically checks for updates in the background. Click the button above to check manually.
+                      NoteMakingApp automatically checks for updates in the background. Click the button above to check manually.
                     </p>
                   </div>
                 </section>
@@ -3829,7 +3829,7 @@ export default function Preferences() {
                 }}>
                   <p className="text-sm" style={{ color: 'rgb(var(--muted))' }}>
                     Need help? Read the <a
-                      href="https://github.com/lokus-ai/lokus/blob/main/docs/migration-guide.md"
+                      href="https://github.com/NoteMakingApp-ai/NoteMakingApp/blob/main/docs/migration-guide.md"
                       target="_blank"
                       rel="noopener noreferrer"
                       style={{ color: 'rgb(var(--accent))', textDecoration: 'underline' }}

@@ -1,6 +1,6 @@
 /**
- * Workspace Resource Provider for Lokus
- * Integrates with Lokus's workspace management system to provide real-time access to:
+ * Workspace Resource Provider for NoteMakingApp
+ * Integrates with NoteMakingApp's workspace management system to provide real-time access to:
  * - Active workspace path and configuration
  * - Open files and tabs
  * - Recent files and session state
@@ -45,7 +45,7 @@ export class WorkspaceProvider {
   }
 
   /**
-   * Load workspace data from Lokus backend
+   * Load workspace data from NoteMakingApp backend
    */
   async loadWorkspaceData() {
     if (!this.workspacePath) return;
@@ -62,7 +62,7 @@ export class WorkspaceProvider {
         this.openTabs = (session.open_tabs || []).map(path => ({
           path,
           name: path.split('/').pop(),
-          uri: `lokus://workspace/file/${encodeURIComponent(path)}`
+          uri: `NoteMakingApp://workspace/file/${encodeURIComponent(path)}`
         }));
         this.activeFile = this.openTabs.length > 0 ? this.openTabs[0].path : null;
       }
@@ -78,7 +78,7 @@ export class WorkspaceProvider {
    * Filter out ignored files and directories
    */
   filterIgnoredFiles(entries) {
-    const ignoredNames = ['.lokus', '.DS_Store', 'node_modules', '.git'];
+    const ignoredNames = ['.NoteMakingApp', '.DS_Store', 'node_modules', '.git'];
     return entries
       .filter(entry => !ignoredNames.includes(entry.name))
       .map(entry => {
@@ -115,7 +115,7 @@ export class WorkspaceProvider {
       if (typeof window !== 'undefined') {
         // Watch for workspace path changes on window object
         const checkWorkspaceChange = () => {
-          const currentPath = window.__LOKUS_WORKSPACE_PATH__;
+          const currentPath = window.__NoteMakingApp_WORKSPACE_PATH__;
           if (currentPath && currentPath !== this.workspacePath) {
             this.workspacePath = currentPath;
             this.loadWorkspaceData();
@@ -135,31 +135,31 @@ export class WorkspaceProvider {
   async listResources() {
     const resources = [
       {
-        uri: 'lokus://workspace/info',
+        uri: 'NoteMakingApp://workspace/info',
         name: 'Workspace Information',
         description: 'Current workspace path and basic information',
         mimeType: 'application/json'
       },
       {
-        uri: 'lokus://workspace/files',
+        uri: 'NoteMakingApp://workspace/files',
         name: 'Workspace Files',
         description: 'Complete file tree of the current workspace',
         mimeType: 'application/json'
       },
       {
-        uri: 'lokus://workspace/open-tabs',
+        uri: 'NoteMakingApp://workspace/open-tabs',
         name: 'Open Tabs',
         description: 'Currently open files in the workspace',
         mimeType: 'application/json'
       },
       {
-        uri: 'lokus://workspace/session',
+        uri: 'NoteMakingApp://workspace/session',
         name: 'Session State',
         description: 'Current session state including open tabs and expanded folders',
         mimeType: 'application/json'
       },
       {
-        uri: 'lokus://workspace/recent',
+        uri: 'NoteMakingApp://workspace/recent',
         name: 'Recent Files',
         description: 'Recently accessed files in the workspace',
         mimeType: 'application/json'
@@ -170,7 +170,7 @@ export class WorkspaceProvider {
     if (this.openTabs && this.openTabs.length > 0) {
       for (const tab of this.openTabs) {
         resources.push({
-          uri: `lokus://workspace/file/${encodeURIComponent(tab.path)}`,
+          uri: `NoteMakingApp://workspace/file/${encodeURIComponent(tab.path)}`,
           name: `File: ${tab.name}`,
           description: `Content of file ${tab.path}`,
           mimeType: tab.name.endsWith('.md') ? 'text/markdown' : 'text/plain'
@@ -414,8 +414,8 @@ export class WorkspaceProvider {
    */
   getMetadata() {
     return {
-      name: 'Lokus Workspace Provider',
-      description: 'Provides access to Lokus workspace files, tabs, and session state',
+      name: 'NoteMakingApp Workspace Provider',
+      description: 'Provides access to NoteMakingApp workspace files, tabs, and session state',
       version: '1.0.0',
       capabilities: [
         'workspace-info',

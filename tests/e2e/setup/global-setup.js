@@ -11,7 +11,7 @@ export default async function globalSetup() {
   console.log('🚀 Setting up E2E test environment...');
   
   // Create a global test workspace directory
-  const globalTestWorkspace = join(tmpdir(), 'lokus-e2e-global');
+  const globalTestWorkspace = join(tmpdir(), 'NoteMakingApp-e2e-global');
   
   try {
     // Clean up any existing workspace
@@ -41,7 +41,7 @@ export default async function globalSetup() {
           version: '1.0',
           created: new Date().toISOString(),
           modified: new Date().toISOString(),
-          createdWith: 'Lokus E2E'
+          createdWith: 'NoteMakingApp E2E'
         }
       }, null, 2)
     };
@@ -51,7 +51,7 @@ export default async function globalSetup() {
     }
 
     // Store path for tests to use
-    process.env.LOKUS_GLOBAL_TEST_WORKSPACE = globalTestWorkspace;
+    process.env.NoteMakingApp_GLOBAL_TEST_WORKSPACE = globalTestWorkspace;
     
     console.log(`✅ Global test workspace created: ${globalTestWorkspace}`);
     

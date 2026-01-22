@@ -1,7 +1,7 @@
 /**
  * Roam Research Importer
  *
- * Imports notes from Roam Research JSON export to Lokus format
+ * Imports notes from Roam Research JSON export to NoteMakingApp format
  */
 
 import { BaseImporter } from './base-importer.js';
@@ -459,8 +459,8 @@ export class RoamImporter extends BaseImporter {
         }
       }
 
-      // Step 7: Create .lokus folder to mark as Lokus workspace
-      await this.createLokusMarker(folderPath);
+      // Step 7: Create .NoteMakingApp folder to mark as NoteMakingApp workspace
+      await this.createNoteMakingAppMarker(folderPath);
 
       // Step 8: Move original JSON to backup folder inside workspace
       await this.backupJsonFile(jsonFilePath, folderPath);
@@ -480,19 +480,19 @@ export class RoamImporter extends BaseImporter {
   }
 
   /**
-   * Create .lokus folder to mark as Lokus workspace
+   * Create .NoteMakingApp folder to mark as NoteMakingApp workspace
    */
-  async createLokusMarker(folderPath) {
-    const lokusPath = `${folderPath}/.lokus`;
+  async createNoteMakingAppMarker(folderPath) {
+    const NoteMakingAppPath = `${folderPath}/.NoteMakingApp`;
     try {
-      const exists = await invoke('path_exists', { path: lokusPath });
+      const exists = await invoke('path_exists', { path: NoteMakingAppPath });
       if (!exists) {
-        await invoke('create_directory', { path: lokusPath, recursive: true });
+        await invoke('create_directory', { path: NoteMakingAppPath, recursive: true });
       }
 
       // Write a marker file
       await invoke('write_file', {
-        path: `${lokusPath}/converted.json`,
+        path: `${NoteMakingAppPath}/converted.json`,
         content: JSON.stringify({
           convertedFrom: 'roam',
           convertedAt: new Date().toISOString(),
@@ -501,7 +501,7 @@ export class RoamImporter extends BaseImporter {
       });
     } catch (error) {
       // Non-fatal, just log
-      console.error('Failed to create Lokus marker:', error);
+      console.error('Failed to create NoteMakingApp marker:', error);
     }
   }
 
@@ -512,7 +512,7 @@ export class RoamImporter extends BaseImporter {
     try {
       const date = new Date().toISOString().split('T')[0];
       const fileName = jsonFilePath.substring(jsonFilePath.lastIndexOf('/') + 1);
-      const backupPath = `${workspacePath}/.lokus-backup-${date}`;
+      const backupPath = `${workspacePath}/.NoteMakingApp-backup-${date}`;
 
       await invoke('create_directory', { path: backupPath, recursive: true });
 

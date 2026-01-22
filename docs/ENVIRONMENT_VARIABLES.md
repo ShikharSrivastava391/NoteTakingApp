@@ -2,14 +2,14 @@
 
 ## Configuration
 
-Lokus uses environment variables to configure various aspects of the application. These variables can be set in a `.env` file in the root directory.
+NoteMakingApp uses environment variables to configure various aspects of the application. These variables can be set in a `.env` file in the root directory.
 
 ## Available Variables
 
 ### Authentication
 
 #### `VITE_AUTH_BASE_URL`
-**Default:** `https://lokusmd.com` (production) or `http://localhost:3000` (development)
+**Default:** `https://NoteMakingAppmd.com` (production) or `http://localhost:3000` (development)
 
 The base URL for the authentication backend server. This is used for:
 - User sign up and sign in
@@ -20,7 +20,7 @@ The base URL for the authentication backend server. This is used for:
 **Example:**
 ```bash
 # Production (default)
-VITE_AUTH_BASE_URL=https://lokusmd.com
+VITE_AUTH_BASE_URL=https://NoteMakingAppmd.com
 
 # Local development
 VITE_AUTH_BASE_URL=http://localhost:3000
@@ -58,13 +58,13 @@ Your Google OAuth Client Secret from Google Cloud Console (same setup as above).
 ## Platform-Specific Notes
 
 ### Windows
-Environment variables are set the same way across all builds. The app will use `https://lokusmd.com` in production builds.
+Environment variables are set the same way across all builds. The app will use `https://NoteMakingAppmd.com` in production builds.
 
 ### macOS
-Environment variables are set the same way across all builds. The app will use `https://lokusmd.com` in production builds.
+Environment variables are set the same way across all builds. The app will use `https://NoteMakingAppmd.com` in production builds.
 
 ### Linux
-Environment variables are set the same way across all builds. The app will use `https://lokusmd.com` in production builds.
+Environment variables are set the same way across all builds. The app will use `https://NoteMakingAppmd.com` in production builds.
 
 ## Development vs Production
 
@@ -75,7 +75,7 @@ When running `npm run dev`, the app uses:
 
 ### Production Build
 When building with `npm run build`:
-- `VITE_AUTH_BASE_URL`: defaults to `https://lokusmd.com`
+- `VITE_AUTH_BASE_URL`: defaults to `https://NoteMakingAppmd.com`
 - Can be overridden by `.env` file during build time
 - Environment variables are baked into the build
 
@@ -89,7 +89,7 @@ When building with `npm run build`:
 2. Edit `.env` with your values:
    ```bash
    # For production builds
-   VITE_AUTH_BASE_URL=https://lokusmd.com
+   VITE_AUTH_BASE_URL=https://NoteMakingAppmd.com
 
    # For Gmail integration (optional)
    GOOGLE_CLIENT_ID=your_client_id_here
@@ -112,9 +112,9 @@ When building with `npm run build`:
 **Problem:** After signing up, the email confirmation link points to localhost instead of your domain.
 
 **Solution:**
-1. Ensure `VITE_AUTH_BASE_URL=https://lokusmd.com` is set in your `.env` file
+1. Ensure `VITE_AUTH_BASE_URL=https://NoteMakingAppmd.com` is set in your `.env` file
 2. Rebuild the application with `npm run build`
-3. Check that your backend server (lokusmd.com) is also configured to use the production URL for email links
+3. Check that your backend server (NoteMakingAppmd.com) is also configured to use the production URL for email links
 
 ### Authentication not working
 

@@ -1,4 +1,4 @@
-// Search utilities for Lokus editor
+// Search utilities for NoteMakingApp editor
 import { Decoration, DecorationSet } from '@tiptap/pm/view';
 import { Plugin, PluginKey } from '@tiptap/pm/state';
 

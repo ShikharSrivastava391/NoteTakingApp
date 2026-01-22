@@ -15,7 +15,7 @@ Currently supported versions for security updates:
 
 ### How to Report
 
-Email: **security@lokusmd.com**
+Email: **security@NoteMakingAppmd.com**
 
 Include:
 - Description of the vulnerability
@@ -42,7 +42,7 @@ Include:
 
 ## Security Measures
 
-Lokus implements several security measures:
+NoteMakingApp implements several security measures:
 
 ### Code Signing
 - **macOS**: Developer ID Application certificate
@@ -67,15 +67,15 @@ Lokus implements several security measures:
 ## Known Security Considerations
 
 1. **OAuth Tokens**: Stored in system keychain (macOS Keychain) - as secure as your OS
-2. **File Access**: Lokus requires broad file system access for workspace management
+2. **File Access**: NoteMakingApp requires broad file system access for workspace management
 3. **Auto-Updates**: Downloads from GitHub releases (verified via signature)
 
 ## Security Best Practices for Users
 
-1. **Keep Lokus Updated**: Enable auto-updates
+1. **Keep NoteMakingApp Updated**: Enable auto-updates
 2. **Secure Your Workspace**: Don't share workspace folders with untrusted users
 3. **OAuth Caution**: Review Gmail permissions before connecting
-4. **Backups**: Maintain backups (Lokus data is local-only)
+4. **Backups**: Maintain backups (NoteMakingApp data is local-only)
 5. **System Security**: Keep your OS and security software updated
 
 ## Vulnerability Disclosure History
@@ -84,15 +84,15 @@ No vulnerabilities disclosed to date.
 
 ## Contact
 
-- **Security Issues**: security@lokusmd.com
-- **General Support**: support@lokusmd.com
-- **GitHub Issues**: https://github.com/lokus-ai/lokus/issues (non-security bugs only)
+- **Security Issues**: security@NoteMakingAppmd.com
+- **General Support**: support@NoteMakingAppmd.com
+- **GitHub Issues**: https://github.com/NoteMakingApp-ai/NoteMakingApp/issues (non-security bugs only)
 
 ## Open Source
 
-Lokus is open-source. You can review our security implementation:
-https://github.com/lokus-ai/lokus
+NoteMakingApp is open-source. You can review our security implementation:
+https://github.com/NoteMakingApp-ai/NoteMakingApp
 
 ## Acknowledgments
 
-We thank security researchers who help keep Lokus secure. Responsible disclosures are appreciated and will be credited.
+We thank security researchers who help keep NoteMakingApp secure. Responsible disclosures are appreciated and will be credited.

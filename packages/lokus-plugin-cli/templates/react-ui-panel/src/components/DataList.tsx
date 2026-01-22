@@ -9,9 +9,9 @@ interface DataListProps {
 }
 
 const Container = styled.div`
-  border: 1px solid var(--lokus-border);
+  border: 1px solid var(--NoteMakingApp-border);
   border-radius: 4px;
-  background: var(--lokus-secondary-background);
+  background: var(--NoteMakingApp-secondary-background);
   max-height: 300px;
   overflow-y: auto;
 `;
@@ -24,9 +24,9 @@ const List = styled.ul`
 
 const ListItem = styled.li<{ clickable?: boolean }>`
   padding: 8px 12px;
-  border-bottom: 1px solid var(--lokus-border);
+  border-bottom: 1px solid var(--NoteMakingApp-border);
   font-size: 13px;
-  color: var(--lokus-foreground);
+  color: var(--NoteMakingApp-foreground);
   
   &:last-child {
     border-bottom: none;
@@ -37,11 +37,11 @@ const ListItem = styled.li<{ clickable?: boolean }>`
     transition: background-color 0.15s ease;
     
     &:hover {
-      background: var(--lokus-hover-background);
+      background: var(--NoteMakingApp-hover-background);
     }
     
     &:active {
-      background: var(--lokus-active-background);
+      background: var(--NoteMakingApp-active-background);
     }
   `}
 `;
@@ -49,7 +49,7 @@ const ListItem = styled.li<{ clickable?: boolean }>`
 const EmptyState = styled.div`
   padding: 24px 16px;
   text-align: center;
-  color: var(--lokus-secondary-foreground);
+  color: var(--NoteMakingApp-secondary-foreground);
   font-size: 13px;
   font-style: italic;
 `;
@@ -57,7 +57,7 @@ const EmptyState = styled.div`
 const LoadingState = styled.div`
   padding: 24px 16px;
   text-align: center;
-  color: var(--lokus-secondary-foreground);
+  color: var(--NoteMakingApp-secondary-foreground);
   font-size: 13px;
   display: flex;
   align-items: center;
@@ -68,8 +68,8 @@ const LoadingState = styled.div`
 const LoadingSpinner = styled.div`
   width: 16px;
   height: 16px;
-  border: 2px solid var(--lokus-border);
-  border-top-color: var(--lokus-accent-background);
+  border: 2px solid var(--NoteMakingApp-border);
+  border-top-color: var(--NoteMakingApp-accent-background);
   border-radius: 50%;
   animation: spin 1s linear infinite;
   
@@ -81,7 +81,7 @@ const LoadingSpinner = styled.div`
 `;
 
 const ItemIndex = styled.span`
-  color: var(--lokus-secondary-foreground);
+  color: var(--NoteMakingApp-secondary-foreground);
   font-size: 11px;
   margin-right: 8px;
   opacity: 0.7;

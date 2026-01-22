@@ -1,4 +1,4 @@
-import { Logger as SDKLogger } from 'lokus-plugin-sdk';
+import { Logger as SDKLogger } from 'NoteMakingApp-plugin-sdk';
 
 /**
  * Enhanced logger utility for {{pluginName}}

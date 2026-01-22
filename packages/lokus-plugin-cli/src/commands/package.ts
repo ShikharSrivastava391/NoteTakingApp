@@ -101,7 +101,7 @@ export const packageCommand = new Command('package')
         description: manifest.description,
         author: manifest.author,
         packagedAt: new Date().toISOString(),
-        packagedBy: '@lokus/plugin-cli',
+        packagedBy: '@NoteMakingApp/plugin-cli',
         size: await FileUtils.calculateDirSize(packageDir)
       };
 
@@ -150,7 +150,7 @@ export const packageCommand = new Command('package')
 
       logger.newLine();
       logger.info('Next steps:');
-      logger.info('  lokus-plugin publish    # Publish to registry');
+      logger.info('  NoteMakingApp-plugin publish    # Publish to registry');
       logger.info('  Manual installation:   # Share the .zip/.tar file');
 
     } catch (error) {

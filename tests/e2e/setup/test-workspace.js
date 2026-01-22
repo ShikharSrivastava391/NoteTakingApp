@@ -12,7 +12,7 @@ import { test as base } from '@playwright/test';
 export const test = base.extend({
   // Create a test workspace for each test
   testWorkspace: async ({}, use) => {
-    const workspaceDir = join(tmpdir(), `lokus-test-${Date.now()}-${Math.random().toString(36).substring(7)}`);
+    const workspaceDir = join(tmpdir(), `NoteMakingApp-test-${Date.now()}-${Math.random().toString(36).substring(7)}`);
     
     // Create workspace directory
     await fs.mkdir(workspaceDir, { recursive: true });
@@ -39,7 +39,7 @@ export const test = base.extend({
           version: '1.0',
           created: new Date().toISOString(),
           modified: new Date().toISOString(),
-          createdWith: 'Lokus Test'
+          createdWith: 'NoteMakingApp Test'
         }
       }, null, 2)
     };
@@ -84,7 +84,7 @@ export const test = base.extend({
     await page.evaluate((workspacePath) => {
       // Store workspace path for the app to use
       if (window.localStorage) {
-        window.localStorage.setItem('lokus-test-workspace', workspacePath);
+        window.localStorage.setItem('NoteMakingApp-test-workspace', workspacePath);
       }
     }, testWorkspace);
 
@@ -114,7 +114,7 @@ export class TestWorkspaceHelper {
         version: '1.0',
         created: new Date().toISOString(),
         modified: new Date().toISOString(),
-        createdWith: 'Lokus Test'
+        createdWith: 'NoteMakingApp Test'
       }
     };
 
@@ -184,7 +184,7 @@ export const testWorkspaceConfigs = {
 
 // Function to create workspace with specific config
 export async function createConfiguredWorkspace(config = testWorkspaceConfigs.basic) {
-  const workspaceDir = join(tmpdir(), `lokus-configured-${Date.now()}`);
+  const workspaceDir = join(tmpdir(), `NoteMakingApp-configured-${Date.now()}`);
   await fs.mkdir(workspaceDir, { recursive: true });
 
   for (const [filePath, content] of Object.entries(config.files)) {

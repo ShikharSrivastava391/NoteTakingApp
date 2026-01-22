@@ -6,7 +6,7 @@
 
 import { logger } from './logger';
 
-const CLIPBOARD_STORAGE_KEY = 'lokus_clipboard';
+const CLIPBOARD_STORAGE_KEY = 'NoteMakingApp_clipboard';
 
 export const ClipboardOperation = {
   COPY: 'copy',

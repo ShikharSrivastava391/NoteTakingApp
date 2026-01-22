@@ -61,7 +61,7 @@ export function PluginProvider({ children }) {
         });
 
         // Fetch plugin metadata from registry
-        const response = await fetch(`https://lokusmd.com/api/v1/registry/plugin/${slug}`);
+        const response = await fetch(`https://NoteMakingAppmd.com/api/v1/registry/plugin/${slug}`);
         if (!response.ok) {
           throw new Error(`Plugin not found: ${slug}`);
         }
@@ -94,10 +94,10 @@ export function PluginProvider({ children }) {
         pluginManager.loadPlugins(true); // Force reload on external updates
       });
 
-      // Listen for deep links (e.g. lokus://plugin-dev?url=...)
+      // Listen for deep links (e.g. NoteMakingApp://plugin-dev?url=...)
       const deepLinkUnlistenPromise = listen("deep-link-received", async (event) => {
         const urlStr = event.payload;
-        if (typeof urlStr === 'string' && urlStr.startsWith('lokus://plugin-dev')) {
+        if (typeof urlStr === 'string' && urlStr.startsWith('NoteMakingApp://plugin-dev')) {
           try {
             const urlObj = new URL(urlStr);
             const devUrl = urlObj.searchParams.get('url');

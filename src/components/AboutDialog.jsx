@@ -33,7 +33,7 @@ const AboutDialog = ({ isOpen, onClose }) => {
       >
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-bold text-app-text">About Lokus</h2>
+          <h2 className="text-2xl font-bold text-app-text">About NoteMakingApp</h2>
           <button
             onClick={onClose}
             className="p-1 rounded hover:bg-app-hover text-app-muted hover:text-app-text"
@@ -49,7 +49,7 @@ const AboutDialog = ({ isOpen, onClose }) => {
             <span className="text-4xl font-bold text-white">L</span>
           </div>
           <h3 className="text-xl font-semibold text-app-text mb-2">
-            {appInfo?.name || 'Lokus'}
+            {appInfo?.name || 'NoteMakingApp'}
           </h3>
           <p className="text-sm text-app-muted">
             Version {appInfo?.version || '1.3.5'}
@@ -123,10 +123,10 @@ const AboutDialog = ({ isOpen, onClose }) => {
         {/* Footer */}
         <div className="mt-6 pt-4 border-t border-app-border text-center">
           <p className="text-xs text-app-muted">
-            Made with <Coffee className="w-3 h-3 inline" /> by the Lokus team
+            Made with <Coffee className="w-3 h-3 inline" /> by the NoteMakingApp team
           </p>
           <p className="text-xs text-app-muted mt-1">
-            © 2024 Lokus. Open source under MIT License.
+            © 2024 NoteMakingApp. Open source under MIT License.
           </p>
         </div>
       </div>

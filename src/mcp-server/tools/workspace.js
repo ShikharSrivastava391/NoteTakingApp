@@ -1,6 +1,6 @@
 /**
  * Workspace Management Tools for MCP
- * Tools for managing Lokus workspaces and getting information
+ * Tools for managing NoteMakingApp workspaces and getting information
  */
 
 import { readdir, stat, readFile } from "fs/promises";
@@ -142,8 +142,8 @@ ${data.data.has_tasks ? '✅ Tasks enabled' : '❌ Tasks not configured'}`
 
   // Local detection
   const stats = await getWorkspaceStats(workspace);
-  const lokusDir = join(workspace, '.lokus');
-  const hasLokus = await exists(lokusDir);
+  const NoteMakingAppDir = join(workspace, '.NoteMakingApp');
+  const hasNoteMakingApp = await exists(NoteMakingAppDir);
 
   return {
     content: [{
@@ -153,7 +153,7 @@ ${data.data.has_tasks ? '✅ Tasks enabled' : '❌ Tasks not configured'}`
 📝 Notes: ${stats.noteCount}
 📂 Folders: ${stats.folderCount}
 💾 Total Size: ${formatBytes(stats.totalSize)}
-🔧 Lokus Features: ${hasLokus ? 'Configured' : 'Not configured'}`
+🔧 NoteMakingApp Features: ${hasNoteMakingApp ? 'Configured' : 'Not configured'}`
     }]
   };
 }
@@ -236,7 +236,7 @@ async function listFolders(workspace, maxDepth) {
 }
 
 async function getWorkspaceSettings(workspace) {
-  const settingsPath = join(workspace, '.lokus', 'settings.json');
+  const settingsPath = join(workspace, '.NoteMakingApp', 'settings.json');
 
   try {
     const content = await readFile(settingsPath, 'utf-8');
@@ -252,7 +252,7 @@ async function getWorkspaceSettings(workspace) {
     return {
       content: [{
         type: "text",
-        text: "No workspace settings found. This workspace may not be configured for Lokus."
+        text: "No workspace settings found. This workspace may not be configured for NoteMakingApp."
       }]
     };
   }

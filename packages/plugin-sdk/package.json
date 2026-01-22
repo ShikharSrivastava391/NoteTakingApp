@@ -1,7 +1,7 @@
 {
-  "name": "lokus-plugin-sdk",
+  "name": "NoteMakingApp-plugin-sdk",
   "version": "1.1.0",
-  "description": "Official Plugin Development Kit (PDK) for Lokus - Build powerful plugins with TypeScript-first development experience",
+  "description": "Official Plugin Development Kit (PDK) for NoteMakingApp - Build powerful plugins with TypeScript-first development experience",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "module": "dist/index.esm.js",
@@ -50,7 +50,7 @@
     "dev-server": "node dist/cli/dev-server.js"
   },
   "keywords": [
-    "lokus",
+    "NoteMakingApp",
     "plugin",
     "sdk",
     "pdk",
@@ -59,17 +59,17 @@
     "extension",
     "api"
   ],
-  "author": "Lokus Team",
+  "author": "NoteMakingApp Team",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lokus/lokus.git",
+    "url": "https://github.com/NoteMakingApp/NoteMakingApp.git",
     "directory": "packages/plugin-sdk"
   },
   "bugs": {
-    "url": "https://github.com/lokus/lokus/issues"
+    "url": "https://github.com/NoteMakingApp/NoteMakingApp/issues"
   },
-  "homepage": "https://lokus.dev/docs/plugin-development",
+  "homepage": "https://NoteMakingApp.dev/docs/plugin-development",
   "engines": {
     "node": ">=16.0.0",
     "npm": ">=8.0.0"

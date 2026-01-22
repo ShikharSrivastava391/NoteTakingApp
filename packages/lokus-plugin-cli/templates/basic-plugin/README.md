@@ -12,7 +12,7 @@
 ## Installation
 
 ```bash
-lokus-plugin install {{pluginName}}
+NoteMakingApp-plugin install {{pluginName}}
 ```
 
 ## Development
@@ -21,7 +21,7 @@ lokus-plugin install {{pluginName}}
 
 - Node.js 16+
 - npm 8+
-- Lokus Plugin SDK
+- NoteMakingApp Plugin SDK
 
 ### Setup
 
@@ -34,7 +34,7 @@ cd {{pluginName}}
 npm install
 
 # Start development server
-lokus-plugin dev
+NoteMakingApp-plugin dev
 ```
 
 ### Available Scripts
@@ -57,7 +57,7 @@ After installation, the plugin adds the following features:
 
 ### Configuration
 
-The plugin can be configured through Lokus settings:
+The plugin can be configured through NoteMakingApp settings:
 
 ```json
 {
@@ -96,4 +96,4 @@ The main plugin class that extends `BasePlugin` and provides:
 
 ---
 
-*Built with [Lokus Plugin SDK](https://lokus.dev/docs/plugin-development)*
+*Built with [NoteMakingApp Plugin SDK](https://NoteMakingApp.dev/docs/plugin-development)*

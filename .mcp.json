@@ -1,6 +1,6 @@
 {
   "mcpServers": {
-    "lokus": {
+    "NoteMakingApp": {
       "url": "http://localhost:3456/mcp"
     }
   }

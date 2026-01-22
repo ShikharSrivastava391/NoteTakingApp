@@ -161,7 +161,7 @@ export function normalizeWikiLinks(content) {
 }
 
 /**
- * Convert Logseq page embeds to Lokus format
+ * Convert Logseq page embeds to NoteMakingApp format
  * {{embed [[page]]}} → ![[page]]
  */
 export function convertEmbeds(content) {
@@ -172,7 +172,7 @@ export function convertEmbeds(content) {
 }
 
 /**
- * Convert Logseq queries to code blocks (can't execute in Lokus)
+ * Convert Logseq queries to code blocks (can't execute in NoteMakingApp)
  */
 export function convertQueries(content) {
   return content

@@ -112,7 +112,7 @@ export class EnhancedManifestValidator {
     }
 
     // Legacy v1 format (no explicit version)
-    if (manifest.lokusVersion && !manifest.engines) {
+    if (manifest.NoteMakingAppVersion && !manifest.engines) {
       return MANIFEST_VERSIONS.V1
     }
 
@@ -170,7 +170,7 @@ export class EnhancedManifestValidator {
       }
 
       // Check for v1 required fields
-      const requiredV1Fields = ['id', 'name', 'version', 'main', 'lokusVersion']
+      const requiredV1Fields = ['id', 'name', 'version', 'main', 'NoteMakingAppVersion']
       const missingFields = requiredV1Fields.filter(field => !manifest[field])
       
       if (missingFields.length > 0) {
@@ -481,7 +481,7 @@ export class BatchManifestValidator {
     this.results.forEach(result => {
       if (result.manifest?.manifest === '2.0') {
         byVersion.v2.push(result)
-      } else if (result.manifest?.manifest === '1.0' || result.manifest?.lokusVersion) {
+      } else if (result.manifest?.manifest === '1.0' || result.manifest?.NoteMakingAppVersion) {
         byVersion.v1.push(result)
       } else {
         byVersion.unknown.push(result)

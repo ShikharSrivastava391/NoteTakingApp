@@ -1,6 +1,6 @@
-# Platform Abstraction Layer for Lokus
+# Platform Abstraction Layer for NoteMakingApp
 
-This directory contains the platform abstraction layer for Lokus, providing a clean, trait-based interface for platform-specific operations while maintaining clear separation between business logic and platform-dependent code.
+This directory contains the platform abstraction layer for NoteMakingApp, providing a clean, trait-based interface for platform-specific operations while maintaining clear separation between business logic and platform-dependent code.
 
 ## 🏗️ Architecture Overview
 
@@ -319,4 +319,4 @@ When adding new platform features:
 
 ---
 
-*This platform abstraction layer ensures Lokus provides consistent, reliable functionality across all supported operating systems while leveraging the unique capabilities of each platform.*
+*This platform abstraction layer ensures NoteMakingApp provides consistent, reliable functionality across all supported operating systems while leveraging the unique capabilities of each platform.*

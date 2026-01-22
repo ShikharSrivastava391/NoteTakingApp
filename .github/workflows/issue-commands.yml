@@ -258,7 +258,7 @@ Good luck! 🚀`
                 owner: issue.owner,
                 repo: issue.repo,
                 issue_number: issue.number,
-                body: `👋 Welcome to Lokus, @${author}! Thanks for opening your first issue!
+                body: `👋 Welcome to NoteMakingApp, @${author}! Thanks for opening your first issue!
 
 **To get started working on this:**
 1. Comment \`/start\` to assign it to yourself

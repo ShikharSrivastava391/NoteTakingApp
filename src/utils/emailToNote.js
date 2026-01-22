@@ -2,7 +2,7 @@
  * Email to Note Conversion Utilities
  * 
  * This module provides functionality to convert Gmail emails into markdown notes
- * that can be saved and managed within the Lokus workspace.
+ * that can be saved and managed within the NoteMakingApp workspace.
  */
 
 import { invoke } from '@tauri-apps/api/core';

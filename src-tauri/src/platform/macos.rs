@@ -1,4 +1,4 @@
-/// macOS-specific platform implementation for Lokus
+/// macOS-specific platform implementation for NoteMakingApp
 /// 
 /// This module provides macOS-specific implementations of file system operations,
 /// system integration, and error handling using native macOS tools and conventions.

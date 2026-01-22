@@ -17,7 +17,7 @@ describe('TaskCreationModal Component', () => {
     beforeEach(() => {
         vi.clearAllMocks()
         // Mock global workspace path
-        globalThis.__LOKUS_WORKSPACE_PATH__ = '/test/workspace'
+        globalThis.__NoteMakingApp_WORKSPACE_PATH__ = '/test/workspace'
     })
 
     it('loads boards on open', async () => {

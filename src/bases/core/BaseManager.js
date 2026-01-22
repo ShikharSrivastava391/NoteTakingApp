@@ -369,7 +369,7 @@ export class BaseManager {
    */
   async listBases(directory = null, options = {}) {
     try {
-      const basesDir = directory ? joinPath(directory, '.lokus', 'bases') : await this.getBasesDirectory(directory)
+      const basesDir = directory ? joinPath(directory, '.NoteMakingApp', 'bases') : await this.getBasesDirectory(directory)
 
       // Ensure the bases directory exists
       await this.ensureBasesDirectory(basesDir)
@@ -722,15 +722,15 @@ export class BaseManager {
 
   async getBasesDirectory(workspacePath = null) {
     if (workspacePath) {
-      return normalizePath(joinPath(workspacePath, '.lokus', 'bases'))
+      return normalizePath(joinPath(workspacePath, '.NoteMakingApp', 'bases'))
     }
     // Default fallback - use current working directory or user documents
     // This should be overridden by passing workspacePath
     try {
       const homeDir = await invoke('get_home_directory') || 'C:\\Users\\Default\\Documents'
-      return normalizePath(joinPath(homeDir, 'Documents', 'Lokus', '.lokus', 'bases'))
+      return normalizePath(joinPath(homeDir, 'Documents', 'NoteMakingApp', '.NoteMakingApp', 'bases'))
     } catch (error) {
-      return normalizePath(joinPath('C:', 'Users', 'Default', 'Documents', 'Lokus', '.lokus', 'bases'))
+      return normalizePath(joinPath('C:', 'Users', 'Default', 'Documents', 'NoteMakingApp', '.NoteMakingApp', 'bases'))
     }
   }
 
@@ -739,32 +739,32 @@ export class BaseManager {
     // This avoids the expensive read_workspace_files call just to check existence
     try {
         // Split the path to find workspace root and create directories step by step
-        // basesDir should look like: "C:/Users/.../Desktop/Knowledge/.lokus/bases"
+        // basesDir should look like: "C:/Users/.../Desktop/Knowledge/.NoteMakingApp/bases"
         const normalizedPath = basesDir.replace(/\\/g, '/')
         const pathParts = normalizedPath.split('/')
         
-        // Find the index of .lokus in the path
-        const lokusIndex = pathParts.findIndex(part => part === '.lokus')
+        // Find the index of .NoteMakingApp in the path
+        const NoteMakingAppIndex = pathParts.findIndex(part => part === '.NoteMakingApp')
         
-        if (lokusIndex !== -1) {
-          // Get workspace root (everything before .lokus)
-          const workspaceRoot = pathParts.slice(0, lokusIndex).join('/')
+        if (NoteMakingAppIndex !== -1) {
+          // Get workspace root (everything before .NoteMakingApp)
+          const workspaceRoot = pathParts.slice(0, NoteMakingAppIndex).join('/')
           
-          // First, try to create .lokus directory
+          // First, try to create .NoteMakingApp directory
           try {
             await invoke('create_folder_in_workspace', { 
               workspacePath: workspaceRoot, 
-              name: '.lokus' 
+              name: '.NoteMakingApp' 
             })
-          } catch (lokusError) {
-            // .lokus might already exist, that's okay
+          } catch (NoteMakingAppError) {
+            // .NoteMakingApp might already exist, that's okay
           }
           
-          // Then, create bases directory inside .lokus
-          const lokusPath = pathParts.slice(0, lokusIndex + 1).join('/')
+          // Then, create bases directory inside .NoteMakingApp
+          const NoteMakingAppPath = pathParts.slice(0, NoteMakingAppIndex + 1).join('/')
           try {
             await invoke('create_folder_in_workspace', { 
-              workspacePath: lokusPath, 
+              workspacePath: NoteMakingAppPath, 
               name: 'bases' 
             })
           } catch { }

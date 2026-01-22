@@ -16,8 +16,8 @@ const colors = {
 const program = new Command()
 
 program
-  .name('lokus-plugin')
-  .description('Official CLI tool for developing Lokus plugins')
+  .name('NoteMakingApp-plugin')
+  .description('Official CLI tool for developing NoteMakingApp plugins')
   .version('1.0.0')
 
 // Create command
@@ -38,10 +38,10 @@ program
         id: name.toLowerCase().replace(/[^a-z0-9-]/g, '-'),
         name: name,
         version: '1.0.0',
-        description: `A Lokus plugin created with lokus-plugin CLI`,
+        description: `A NoteMakingApp plugin created with NoteMakingApp-plugin CLI`,
         author: 'Your Name',
         main: 'src/index.js',
-        lokusVersion: '^1.0.0',
+        NoteMakingAppVersion: '^1.0.0',
         permissions: ['modify_ui'],
         activationEvents: ['onStartup'],
         categories: ['Other']
@@ -53,7 +53,7 @@ program
       await fs.ensureDir(path.join(pluginDir, 'src'))
       
       const indexContent = `/**
- * ${name} Plugin for Lokus
+ * ${name} Plugin for NoteMakingApp
  */
 
 export class ${name.replace(/[^a-zA-Z0-9]/g, '')}Plugin {
@@ -80,17 +80,17 @@ export default ${name.replace(/[^a-zA-Z0-9]/g, '')}Plugin`
       // Create README
       const readmeContent = `# ${name}
 
-A Lokus plugin created with the lokus-plugin CLI.
+A NoteMakingApp plugin created with the NoteMakingApp-plugin CLI.
 
 ## Installation
 
-1. Copy this plugin directory to your Lokus plugins folder
-2. Open Lokus and go to Settings > Plugins
+1. Copy this plugin directory to your NoteMakingApp plugins folder
+2. Open NoteMakingApp and go to Settings > Plugins
 3. Enable the ${name} plugin
 
 ## Development
 
-See the [Plugin Development Guide](https://github.com/lokus-ai/lokus/blob/main/PLUGIN_DEVELOPMENT.md) for more information.
+See the [Plugin Development Guide](https://github.com/NoteMakingApp-ai/NoteMakingApp/blob/main/PLUGIN_DEVELOPMENT.md) for more information.
 `
       
       await fs.writeFile(path.join(pluginDir, 'README.md'), readmeContent)

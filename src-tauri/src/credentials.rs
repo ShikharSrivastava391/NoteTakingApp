@@ -40,7 +40,7 @@ pub async fn store_git_credentials(
     username: String,
     token: String,
 ) -> Result<(), String> {
-    let service_name = format!("lokus.git.{}", workspace_id);
+    let service_name = format!("NoteMakingApp.git.{}", workspace_id);
 
     #[cfg(target_os = "macos")]
     {
@@ -53,7 +53,7 @@ pub async fn store_git_credentials(
 
         // Store username in a separate entry
         let username_service = format!("{}.username", service_name);
-        set_generic_password(&username_service, "lokus", username.as_bytes())
+        set_generic_password(&username_service, "NoteMakingApp", username.as_bytes())
             .map_err(|e| format!("Failed to store username in Keychain: {}", e))?;
     }
 
@@ -108,7 +108,7 @@ pub async fn store_git_credentials(
             .map_err(|e| format!("Failed to store credentials: {}", e))?;
 
         // Store username separately for retrieval
-        let username_entry = Entry::new(&format!("{}.username", service_name), "lokus")
+        let username_entry = Entry::new(&format!("{}.username", service_name), "NoteMakingApp")
             .map_err(|e| format!("Failed to create username entry: {}", e))?;
         username_entry.set_password(&username)
             .map_err(|e| format!("Failed to store username: {}", e))?;
@@ -129,7 +129,7 @@ pub async fn store_git_credentials(
 pub async fn retrieve_git_credentials(
     workspace_id: String,
 ) -> Result<GitCredentials, String> {
-    let service_name = format!("lokus.git.{}", workspace_id);
+    let service_name = format!("NoteMakingApp.git.{}", workspace_id);
 
     #[cfg(target_os = "macos")]
     {
@@ -144,7 +144,7 @@ pub async fn retrieve_git_credentials(
 
         // Retrieve username from separate entry
         let username_service = format!("{}.username", workspace_id);
-        let username_bytes = get_generic_password(&username_service, "lokus")
+        let username_bytes = get_generic_password(&username_service, "NoteMakingApp")
             .map_err(|e| format!("Username not found in Keychain: {}", e))?;
 
         let username = String::from_utf8(username_bytes)
@@ -214,7 +214,7 @@ pub async fn retrieve_git_credentials(
         use keyring::Entry;
 
         // Retrieve username first
-        let username_entry = Entry::new(&format!("{}.username", service_name), "lokus")
+        let username_entry = Entry::new(&format!("{}.username", service_name), "NoteMakingApp")
             .map_err(|e| format!("Failed to access keyring: {}", e))?;
         let username = username_entry.get_password()
             .map_err(|e| format!("Username not found: {}", e))?;
@@ -240,7 +240,7 @@ pub async fn retrieve_git_credentials(
 /// Delete git credentials from OS keychain
 #[command]
 pub async fn delete_git_credentials(workspace_id: String) -> Result<(), String> {
-    let service_name = format!("lokus.git.{}", workspace_id);
+    let service_name = format!("NoteMakingApp.git.{}", workspace_id);
 
     #[cfg(target_os = "macos")]
     {
@@ -252,7 +252,7 @@ pub async fn delete_git_credentials(workspace_id: String) -> Result<(), String> 
 
         // Delete username entry
         let username_service = format!("{}.username", workspace_id);
-        let _ = delete_generic_password(&username_service, "lokus");
+        let _ = delete_generic_password(&username_service, "NoteMakingApp");
         // Ignore error if username entry doesn't exist
     }
 
@@ -279,7 +279,7 @@ pub async fn delete_git_credentials(workspace_id: String) -> Result<(), String> 
         use keyring::Entry;
 
         // Try to get username first to delete the token entry
-        let username_entry = Entry::new(&format!("{}.username", service_name), "lokus")
+        let username_entry = Entry::new(&format!("{}.username", service_name), "NoteMakingApp")
             .map_err(|e| format!("Failed to access keyring: {}", e))?;
 
         if let Ok(username) = username_entry.get_password() {
@@ -306,7 +306,7 @@ pub async fn store_iroh_keys(
     workspace_id: String,
     private_key: Vec<u8>,
 ) -> Result<(), String> {
-    let service_name = format!("lokus.iroh.{}", workspace_id);
+    let service_name = format!("NoteMakingApp.iroh.{}", workspace_id);
 
     #[cfg(target_os = "macos")]
     {
@@ -382,7 +382,7 @@ pub async fn store_iroh_keys(
 pub async fn retrieve_iroh_keys(
     workspace_id: String,
 ) -> Result<Vec<u8>, String> {
-    let service_name = format!("lokus.iroh.{}", workspace_id);
+    let service_name = format!("NoteMakingApp.iroh.{}", workspace_id);
 
     #[cfg(target_os = "macos")]
     {
@@ -457,7 +457,7 @@ pub async fn retrieve_iroh_keys(
 /// Delete iroh keys from OS keychain
 #[command]
 pub async fn delete_iroh_keys(workspace_id: String) -> Result<(), String> {
-    let service_name = format!("lokus.iroh.{}", workspace_id);
+    let service_name = format!("NoteMakingApp.iroh.{}", workspace_id);
 
     #[cfg(target_os = "macos")]
     {

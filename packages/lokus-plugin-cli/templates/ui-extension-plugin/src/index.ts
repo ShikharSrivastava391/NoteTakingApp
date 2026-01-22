@@ -1,4 +1,4 @@
-import { BasePlugin, PluginContext, PluginActivationContext } from 'lokus-plugin-sdk';
+import { BasePlugin, PluginContext, PluginActivationContext } from 'NoteMakingApp-plugin-sdk';
 import { {{ pluginNamePascalCase }}Panel } from './panel';
 import { {{ pluginNamePascalCase }}StatusItem } from './status-item';
 
@@ -6,7 +6,7 @@ import { {{ pluginNamePascalCase }}StatusItem } from './status-item';
  * {{pluginNamePascalCase}} - {{description}}
  * 
  * A UI extension plugin that demonstrates custom panels, status bar items,
- * and user interface integration with Lokus.
+ * and user interface integration with NoteMakingApp.
  * 
  * @author {{author}}
  * @version 0.1.0

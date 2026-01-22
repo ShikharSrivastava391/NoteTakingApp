@@ -1,5 +1,5 @@
 import { {{pluginNamePascalCase}} } from '../src/index';
-import { createMockPluginContext, createMockActivationContext } from 'lokus-plugin-sdk/testing';
+import { createMockPluginContext, createMockActivationContext } from 'NoteMakingApp-plugin-sdk/testing';
 
 describe('{{pluginNamePascalCase}}', () => {
   let plugin: {{pluginNamePascalCase}};

@@ -56,7 +56,7 @@ fn get_backups_dir(workspace_path: &Path, file_path: &str) -> Result<PathBuf, St
         .to_string();
 
     let backups_dir = workspace_path
-        .join(".lokus")
+        .join(".NoteMakingApp")
         .join("backups")
         .join(file_name);
 

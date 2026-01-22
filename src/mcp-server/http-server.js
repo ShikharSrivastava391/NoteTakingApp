@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
 /**
- * Lokus MCP HTTP Server
+ * NoteMakingApp MCP HTTP Server
  *
  * Provides HTTP/JSON-RPC transport for CLI tools.
- * Auto-started by Lokus app on launch.
+ * Auto-started by NoteMakingApp app on launch.
  * Shares tool implementations with stdio server.
  */
 
@@ -38,9 +38,9 @@ import { markdownSyntaxResources, getMarkdownSyntaxResource } from "./resources/
 
 // ===== CONFIGURATION =====
 const CONFIG = {
-  defaultWorkspace: join(homedir(), 'Documents', 'Lokus Workspace'),
-  lokusConfigDir: join(homedir(), '.lokus'),
-  lastWorkspaceFile: join(homedir(), '.lokus', 'last-workspace.json'),
+  defaultWorkspace: join(homedir(), 'Documents', 'NoteMakingApp Workspace'),
+  NoteMakingAppConfigDir: join(homedir(), '.NoteMakingApp'),
+  lastWorkspaceFile: join(homedir(), '.NoteMakingApp', 'last-workspace.json'),
   apiUrl: 'http://127.0.0.1:3333',
   port: parseInt(process.argv[2]) || 3456 // Port from command line or default
 };
@@ -118,7 +118,7 @@ class WorkspaceDetector {
     } catch {
       // Create it
       await mkdir(workspace, { recursive: true });
-      await mkdir(join(workspace, '.lokus'), { recursive: true });
+      await mkdir(join(workspace, '.NoteMakingApp'), { recursive: true });
     }
     return workspace;
   }
@@ -143,7 +143,7 @@ const server = http.createServer(async (req, res) => {
   // Health check
   if (req.method === 'GET' && req.url === '/health') {
     res.writeHead(200, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({ status: 'healthy', service: 'lokus-mcp-http' }));
+    res.end(JSON.stringify({ status: 'healthy', service: 'NoteMakingApp-mcp-http' }));
     return;
   }
 
@@ -151,7 +151,7 @@ const server = http.createServer(async (req, res) => {
   if (req.method === 'GET' && req.url === '/mcp/info') {
     res.writeHead(200, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({
-      name: 'lokus-mcp-http',
+      name: 'NoteMakingApp-mcp-http',
       version: '1.0.0',
       transport: 'http',
       tools: getAllTools().length
@@ -228,7 +228,7 @@ async function handleMCPRequest(request) {
             resources: {}
           },
           serverInfo: {
-            name: 'lokus-mcp-http',
+            name: 'NoteMakingApp-mcp-http',
             version: '1.0.0'
           }
         },
@@ -368,7 +368,7 @@ async function main() {
   try {
     server.listen(CONFIG.port, '127.0.0.1', () => {
       logger.info('===========================================');
-      logger.info(`Lokus MCP HTTP Server v1.0 started`);
+      logger.info(`NoteMakingApp MCP HTTP Server v1.0 started`);
       logger.info(`Port: ${CONFIG.port}`);
       logger.info(`URL: http://127.0.0.1:${CONFIG.port}/mcp`);
       logger.info(`Tools: ${getAllTools().length}`);

@@ -823,7 +823,7 @@ impl IrohSyncProviderV2 {
                 let metadata = entry.metadata().await
                     .map_err(|e| format!("Failed to get metadata for {:?}: {}", path, e))?;
                 
-                // Skip hidden files and .lokus directory
+                // Skip hidden files and .NoteMakingApp directory
                 if path.file_name()
                     .and_then(|n| n.to_str())
                     .map(|n| n.starts_with('.'))

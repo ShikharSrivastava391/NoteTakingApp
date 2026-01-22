@@ -219,4 +219,4 @@ window.__TAURI__.listen('sync_error', (event) => {
 
 The Iroh V2 architecture transforms the sync system from a prototype into an enterprise-grade solution. By addressing fundamental issues around state management, memory usage, error handling, and performance, we can now reliably sync hundreds of files across multiple devices.
 
-This architecture provides the foundation for Lokus to scale from individual users to enterprise deployments while maintaining data integrity and performance.
+This architecture provides the foundation for NoteMakingApp to scale from individual users to enterprise deployments while maintaining data integrity and performance.

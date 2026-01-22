@@ -1,5 +1,5 @@
 /**
- * PDF utility functions for Lokus
+ * PDF utility functions for NoteMakingApp
  */
 
 export const PDF_EXTENSIONS = ['pdf'];

@@ -1,7 +1,7 @@
 /**
- * Workspace Manager for Lokus MCP Server
+ * Workspace Manager for NoteMakingApp MCP Server
  * 
- * Manages workspace state shared between Lokus app and MCP server.
+ * Manages workspace state shared between NoteMakingApp app and MCP server.
  * Uses a JSON file in the home directory to track active workspaces.
  */
 
@@ -9,7 +9,7 @@ import { readFile, writeFile, stat } from 'fs/promises';
 import { join } from 'path';
 import { homedir } from 'os';
 
-const WORKSPACE_STATE_FILE = join(homedir(), '.lokus-active-workspaces.json');
+const WORKSPACE_STATE_FILE = join(homedir(), '.NoteMakingApp-active-workspaces.json');
 
 export class WorkspaceManager {
   constructor(logger = console) {
@@ -62,15 +62,15 @@ export class WorkspaceManager {
         return false;
       }
       
-      // Check if it's a Lokus workspace (has .lokus directory) 
-      const lokusDir = join(workspacePath, '.lokus');
+      // Check if it's a NoteMakingApp workspace (has .NoteMakingApp directory) 
+      const NoteMakingAppDir = join(workspacePath, '.NoteMakingApp');
       try {
-        const lokusStat = await stat(lokusDir);
-        if (lokusStat.isDirectory()) {
-          return true; // Confirmed Lokus workspace
+        const NoteMakingAppStat = await stat(NoteMakingAppDir);
+        if (NoteMakingAppStat.isDirectory()) {
+          return true; // Confirmed NoteMakingApp workspace
         }
       } catch (error) {
-        // .lokus doesn't exist, check if directory has markdown files (potential workspace)
+        // .NoteMakingApp doesn't exist, check if directory has markdown files (potential workspace)
         try {
           const { readdir } = await import('fs/promises');
           const contents = await readdir(workspacePath);
@@ -213,14 +213,14 @@ export class WorkspaceManager {
   }
 
   /**
-   * Scan for Lokus workspaces on the system
+   * Scan for NoteMakingApp workspaces on the system
    */
   async scanForWorkspaces() {
     // Common locations to scan
     const scanPaths = [
       join(homedir(), 'Documents'),
-      join(homedir(), 'Documents', 'Lokus-Workspace'),
-      join(homedir(), 'Documents', 'Lokus Workspace'),
+      join(homedir(), 'Documents', 'NoteMakingApp-Workspace'),
+      join(homedir(), 'Documents', 'NoteMakingApp Workspace'),
       join(homedir())
     ];
 
@@ -242,7 +242,7 @@ export class WorkspaceManager {
       }
     }
 
-    // Scan for directories with .lokus folders
+    // Scan for directories with .NoteMakingApp folders
     const searchDirs = [
       homedir(),
       join(homedir(), 'Documents'),
@@ -258,7 +258,7 @@ export class WorkspaceManager {
           if (entry.isDirectory()) {
             const entryPath = join(searchDir, entry.name);
             
-            // Check if this directory contains .lokus or markdown files
+            // Check if this directory contains .NoteMakingApp or markdown files
             try {
               const isWorkspace = await this.validateWorkspace(entryPath);
               if (isWorkspace && !foundWorkspaces.some(w => w.path === entryPath)) {
@@ -297,10 +297,10 @@ export class WorkspaceManager {
         const foundWorkspaces = await this.scanForWorkspaces();
         
         if (foundWorkspaces.length > 0) {
-          // Prioritize workspaces - prefer Lokus-Full-Scale-Test if available
+          // Prioritize workspaces - prefer NoteMakingApp-Full-Scale-Test if available
           const priorityWorkspace = foundWorkspaces.find(w => 
-            w.name === 'Lokus-Full-Scale-Test' || 
-            w.path.includes('Lokus-Full-Scale-Test')
+            w.name === 'NoteMakingApp-Full-Scale-Test' || 
+            w.path.includes('NoteMakingApp-Full-Scale-Test')
           );
           
           const selectedWorkspace = priorityWorkspace || foundWorkspaces[0];

@@ -1,4 +1,4 @@
-# Linux Build Environment for Lokus
+# Linux Build Environment for NoteMakingApp
 # Based on Ubuntu 22.04 with all Tauri dependencies
 
 FROM ubuntu:22.04

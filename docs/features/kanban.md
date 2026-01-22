@@ -1,6 +1,6 @@
 # Kanban Boards
 
-Lokus includes a sophisticated Kanban board system for task management and project organization. The system supports both mini inline Kanban boards for quick task tracking and full-featured Kanban views for comprehensive project management.
+NoteMakingApp includes a sophisticated Kanban board system for task management and project organization. The system supports both mini inline Kanban boards for quick task tracking and full-featured Kanban views for comprehensive project management.
 
 ## Overview
 

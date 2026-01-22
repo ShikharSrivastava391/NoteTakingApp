@@ -1,5 +1,5 @@
 /**
- * @fileoverview Main Lokus API interface types
+ * @fileoverview Main NoteMakingApp API interface types
  */
 
 import type { CommandAPI } from './commands.js'
@@ -21,9 +21,9 @@ import type { PluginManifest } from '../manifest.js'
 import type { Permission } from '../permissions.js'
 
 /**
- * Main Lokus API interface provided to plugins
+ * Main NoteMakingApp API interface provided to plugins
  */
-export interface LokusAPI {
+export interface NoteMakingAppAPI {
   /** Commands API - Register and execute commands */
   readonly commands: CommandAPI
 

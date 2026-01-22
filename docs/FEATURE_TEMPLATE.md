@@ -1,6 +1,6 @@
 # Feature Documentation Template
 
-Use this template when creating documentation for new features in Lokus. This ensures consistency and completeness across all feature documentation.
+Use this template when creating documentation for new features in NoteMakingApp. This ensures consistency and completeness across all feature documentation.
 
 ## File Naming Convention
 - Use kebab-case for file names: `feature-name.md`
@@ -90,7 +90,7 @@ Access feature settings through [location]:
 ## Integration with Other Features
 
 ### Feature Integration 1
-How this feature works with other Lokus features:
+How this feature works with other NoteMakingApp features:
 - **Interaction Description** - How they work together
 - **Benefits** - What this integration provides
 - **Usage Examples** - Practical examples
@@ -269,4 +269,4 @@ Before publishing feature documentation, verify:
 
 ---
 
-*This template should be used for all new feature documentation to ensure consistency and quality across the Lokus documentation ecosystem.*
+*This template should be used for all new feature documentation to ensure consistency and quality across the NoteMakingApp documentation ecosystem.*

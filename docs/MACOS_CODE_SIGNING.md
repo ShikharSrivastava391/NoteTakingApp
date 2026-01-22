@@ -1,13 +1,13 @@
-# macOS Code Signing & Notarization Guide for Lokus
+# macOS Code Signing & Notarization Guide for NoteMakingApp
 
 > **Status:** Ready for implementation when needed
 >
-> **Purpose:** Eliminate the need for users to run `xattr -cr Lokus.app` by properly signing and notarizing the app with Apple Developer certificate.
+> **Purpose:** Eliminate the need for users to run `xattr -cr NoteMakingApp.app` by properly signing and notarizing the app with Apple Developer certificate.
 
 ## Overview
 
 When properly signed and notarized, users can:
-- ✅ Download Lokus.dmg or .app.tar.gz
+- ✅ Download NoteMakingApp.dmg or .app.tar.gz
 - ✅ Open directly without any terminal commands
 - ✅ macOS Gatekeeper automatically verifies the signature
 - ✅ Shows "Verified Developer" status
@@ -53,7 +53,7 @@ On your Mac:
 # In left sidebar, select "login" keychain (important!)
 # In "My Certificates" section, find "Developer ID Application: Your Name"
 # Right-click → Export "Developer ID Application: Your Name"
-# Save as: lokus-certificate.p12
+# Save as: NoteMakingApp-certificate.p12
 # Set a strong password (you'll need this later)
 ```
 
@@ -65,17 +65,17 @@ GitHub Actions uses OpenSSL 3.x which rejects old RC2 encryption:
 cd ~/Desktop
 
 # Extract the certificate and key
-openssl pkcs12 -in lokus-certificate.p12 -out temp.pem -nodes
+openssl pkcs12 -in NoteMakingApp-certificate.p12 -out temp.pem -nodes
 
 # Re-encrypt with modern AES-256
-openssl pkcs12 -export -in temp.pem -out lokus-certificate-modern.p12 \
+openssl pkcs12 -export -in temp.pem -out NoteMakingApp-certificate-modern.p12 \
   -keypbe AES-256-CBC -certpbe AES-256-CBC
 
 # Clean up temporary file
 rm temp.pem
 
 # Test the new certificate
-openssl pkcs12 -info -in lokus-certificate-modern.p12 -noout
+openssl pkcs12 -info -in NoteMakingApp-certificate-modern.p12 -noout
 ```
 
 ### 1.5 Get Your Signing Identity
@@ -203,14 +203,14 @@ The file should look like:
 
 ## Step 5: Setup GitHub Secrets
 
-Go to: `https://github.com/your-username/lokus/settings/secrets/actions`
+Go to: `https://github.com/your-username/NoteMakingApp/settings/secrets/actions`
 
 ### 5.1 Certificate Secrets
 
 **APPLE_CERTIFICATE**
 ```bash
 # Convert .p12 to base64
-base64 -i lokus-certificate-modern.p12 | pbcopy
+base64 -i NoteMakingApp-certificate-modern.p12 | pbcopy
 # Paste into GitHub secret
 ```
 
@@ -238,7 +238,7 @@ your-apple-id@email.com
 # 2. Sign in with your Apple ID
 # 3. Security section → App-Specific Passwords
 # 4. Click "+" to generate new password
-# 5. Name it: "Lokus GitHub Actions"
+# 5. Name it: "NoteMakingApp GitHub Actions"
 # 6. Copy the password (format: xxxx-xxxx-xxxx-xxxx)
 ```
 
@@ -330,13 +330,13 @@ Edit `.github/workflows/release.yml` around line 124-136:
 Since this app is unsigned, macOS will block it by default. After downloading, run:
 
 ```bash
-xattr -cr /Applications/Lokus.app
+xattr -cr /Applications/NoteMakingApp.app
 ```
 
 Or for the DMG:
 ```bash
-xattr -cr ~/Downloads/Lokus.dmg
-open ~/Downloads/Lokus.dmg
+xattr -cr ~/Downloads/NoteMakingApp.dmg
+open ~/Downloads/NoteMakingApp.dmg
 ```
 ```
 
@@ -347,9 +347,9 @@ open ~/Downloads/Lokus.dmg
 This release is **code signed and notarized** by Apple Developer Program.
 
 **Installation Steps:**
-1. Download `Lokus_x64.app.tar.gz` or `Lokus.dmg`
+1. Download `NoteMakingApp_x64.app.tar.gz` or `NoteMakingApp.dmg`
 2. Open the DMG or extract the tarball
-3. Drag `Lokus.app` to Applications folder
+3. Drag `NoteMakingApp.app` to Applications folder
 4. Open normally - macOS Gatekeeper will verify automatically ✓
 
 **Universal Binary:** Supports both Intel and Apple Silicon Macs (M1/M2/M3).
@@ -407,18 +407,18 @@ npm run tauri build
 
 ```bash
 # Check code signature
-codesign -dv --verbose=4 "src-tauri/target/release/bundle/macos/Lokus.app"
+codesign -dv --verbose=4 "src-tauri/target/release/bundle/macos/NoteMakingApp.app"
 
 # Verify hardened runtime
-codesign -d --entitlements - "src-tauri/target/release/bundle/macos/Lokus.app"
+codesign -d --entitlements - "src-tauri/target/release/bundle/macos/NoteMakingApp.app"
 
 # Check notarization status (wait 5-60 minutes after build)
-spctl -a -v "src-tauri/target/release/bundle/macos/Lokus.app"
+spctl -a -v "src-tauri/target/release/bundle/macos/NoteMakingApp.app"
 ```
 
 Expected output:
 ```
-Lokus.app: accepted
+NoteMakingApp.app: accepted
 source=Notarized Developer ID
 ```
 
@@ -426,10 +426,10 @@ source=Notarized Developer ID
 
 ```bash
 # Simulate download (add quarantine attribute)
-xattr -w com.apple.quarantine "0181;00000000;Chrome" "src-tauri/target/release/bundle/macos/Lokus.app"
+xattr -w com.apple.quarantine "0181;00000000;Chrome" "src-tauri/target/release/bundle/macos/NoteMakingApp.app"
 
 # Try to open - should work without xattr -cr
-open "src-tauri/target/release/bundle/macos/Lokus.app"
+open "src-tauri/target/release/bundle/macos/NoteMakingApp.app"
 ```
 
 If it opens without errors, signing works! 🎉
@@ -464,7 +464,7 @@ Once everything is set up:
    - Upload signed artifacts to release
 
 4. **Monitor progress:**
-   - Go to: https://github.com/your-username/lokus/actions
+   - Go to: https://github.com/your-username/NoteMakingApp/actions
    - Watch the workflow run
    - Check for any errors in the logs
 
@@ -477,7 +477,7 @@ After release is published:
 - [ ] Download the DMG from GitHub releases
 - [ ] Open DMG without any xattr commands
 - [ ] Drag app to Applications folder
-- [ ] Open Lokus.app normally
+- [ ] Open NoteMakingApp.app normally
 - [ ] macOS should show "Verifying..." then open
 - [ ] No "unidentified developer" warnings
 - [ ] Right-click → Get Info → Shows "Verified by Apple"
@@ -493,7 +493,7 @@ After release is published:
 security find-identity -v -p codesigning
 
 # If missing, re-import certificate
-security import lokus-certificate-modern.p12 -k ~/Library/Keychains/login.keychain-db
+security import NoteMakingApp-certificate-modern.p12 -k ~/Library/Keychains/login.keychain-db
 ```
 
 ### Notarization Fails

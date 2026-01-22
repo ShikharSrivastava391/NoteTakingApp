@@ -222,7 +222,7 @@ export class ProjectScaffolder {
       files: ['dist', 'plugin.json', 'README.md'],
       scripts: this.generatePackageScripts(),
       keywords: [
-        'lokus',
+        'NoteMakingApp',
         'plugin',
         this.template.category.toLowerCase(),
         ...this.template.technologies.map(t => t.toLowerCase())
@@ -237,7 +237,7 @@ export class ProjectScaffolder {
       homepage: `https://github.com/${authorSlug}/${this.options.pluginName}#readme`,
       engines: {
         node: '>=16.0.0',
-        lokus: '^1.0.0'
+        NoteMakingApp: '^1.0.0'
       },
       dependencies: this.generateDependencies(),
       devDependencies: this.generateDevDependencies()
@@ -310,9 +310,9 @@ export class ProjectScaffolder {
     }
 
     // Plugin development scripts
-    scripts.dev = 'lokus-plugin dev';
-    scripts.package = 'lokus-plugin package';
-    scripts.publish = 'lokus-plugin publish';
+    scripts.dev = 'NoteMakingApp-plugin dev';
+    scripts.package = 'NoteMakingApp-plugin package';
+    scripts.publish = 'NoteMakingApp-plugin publish';
 
     // Storybook scripts
     if (this.options.storybook) {
@@ -426,12 +426,12 @@ export class ProjectScaffolder {
       author: this.options.author,
       main: this.options.typescript ? 'dist/index.js' : 'src/index.js',
       engines: {
-        lokus: '^1.0.0'
+        NoteMakingApp: '^1.0.0'
       },
       categories: [this.template.category],
       keywords: [
         this.options.pluginName,
-        'lokus',
+        'NoteMakingApp',
         'plugin',
         this.template.category.toLowerCase()
       ],
@@ -511,12 +511,12 @@ await esbuild.build({
   entryPoints: ['src/index.${entryExt}'],
   bundle: true,
   outfile: 'dist/index.js',
-  platform: 'browser', // Target browser for Lokus runtime
+  platform: 'browser', // Target browser for NoteMakingApp runtime
   target: 'es2020',
   format: 'esm',
   sourcemap: !isProduction,
   minify: isProduction,
-  external: ['lokus-plugin-sdk', 'react', 'react-dom'], // Externalize runtime dependencies
+  external: ['NoteMakingApp-plugin-sdk', 'react', 'react-dom'], // Externalize runtime dependencies
   define: {
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
   }
@@ -531,7 +531,7 @@ if (process.argv.includes('--watch')) {
     target: 'es2020',
     format: 'esm',
     sourcemap: true,
-    external: ['lokus-plugin-sdk', 'react', 'react-dom'],
+    external: ['NoteMakingApp-plugin-sdk', 'react', 'react-dom'],
     define: {
       'process.env.NODE_ENV': JSON.stringify('development')
     }
@@ -548,12 +548,12 @@ esbuild.build({
   entryPoints: ['src/index.${entryExt}'],
   bundle: true,
   outfile: 'dist/index.js',
-  platform: 'browser', // Target browser for Lokus runtime
+  platform: 'browser', // Target browser for NoteMakingApp runtime
   target: 'es2020',
   format: 'cjs',
   sourcemap: !isProduction,
   minify: isProduction,
-  external: ['lokus-plugin-sdk', 'react', 'react-dom'], // Externalize runtime dependencies
+  external: ['NoteMakingApp-plugin-sdk', 'react', 'react-dom'], // Externalize runtime dependencies
   define: {
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
   }
@@ -568,7 +568,7 @@ if (process.argv.includes('--watch')) {
     target: 'es2020',
     format: 'cjs',
     sourcemap: true,
-    external: ['lokus-plugin-sdk', 'react', 'react-dom'],
+    external: ['NoteMakingApp-plugin-sdk', 'react', 'react-dom'],
     define: {
       'process.env.NODE_ENV': JSON.stringify('development')
     }
@@ -596,7 +596,7 @@ module.exports = {
     libraryTarget: 'commonjs2'
   },
   externals: {
-    'lokus-plugin-sdk': 'commonjs2 lokus-plugin-sdk'
+    'NoteMakingApp-plugin-sdk': 'commonjs2 NoteMakingApp-plugin-sdk'
   },
   ${this.options.typescript ? `resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx']
@@ -630,7 +630,7 @@ export default {
     format: 'cjs',
     sourcemap: true
   },
-  external: ['lokus-plugin-sdk'],
+  external: ['NoteMakingApp-plugin-sdk'],
   plugins: [
     resolve(),
     commonjs(),
@@ -655,7 +655,7 @@ export default defineConfig({
       formats: ['cjs']
     },
     rollupOptions: {
-      external: ['lokus-plugin-sdk']
+      external: ['NoteMakingApp-plugin-sdk']
     },
     target: 'node16',
     sourcemap: true
@@ -683,8 +683,8 @@ global.console = {
     return `// Vitest setup file
 import { vi } from 'vitest';
 
-// Mock lokus-plugin-sdk for testing
-vi.mock('lokus-plugin-sdk', () => ({
+// Mock NoteMakingApp-plugin-sdk for testing
+vi.mock('NoteMakingApp-plugin-sdk', () => ({
   PluginContext: vi.fn(),
   Logger: vi.fn(),
   // Add other SDK mocks as needed
@@ -752,7 +752,7 @@ MIT © [${this.options.author}](https://github.com/${this.options.author})
 
 ---
 
-Generated with [Lokus Plugin CLI](https://lokus.dev/docs/plugin-development)`;
+Generated with [NoteMakingApp Plugin CLI](https://NoteMakingApp.dev/docs/plugin-development)`;
   }
 
   private async generateContributing(): Promise<string> {
@@ -818,7 +818,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Initial release
-- Plugin generated with Lokus Plugin CLI`;
+- Plugin generated with NoteMakingApp Plugin CLI`;
   }
 
   private async generateTypedocConfig(): Promise<void> {

@@ -92,7 +92,7 @@ export interface TemplateDependencies {
   runtime?: Record<string, string>
   development?: Record<string, string>
   peer?: Record<string, string>
-  lokus?: Record<string, string>
+  NoteMakingApp?: Record<string, string>
 }
 
 export interface TemplateFileConfig {
@@ -182,7 +182,7 @@ export interface TemplateGenerationOptions {
   includeBuildConfig?: boolean
   mcpVersion?: string
   manifestVersion?: string
-  lokusVersion?: string
+  NoteMakingAppVersion?: string
   
   // Template-specific customization options
   [key: string]: any
@@ -201,7 +201,7 @@ export interface PluginMetadata {
   templateVersion: string
   generatedAt: string
   generatorVersion: string
-  lokusVersion: string
+  NoteMakingAppVersion: string
   mcpVersion: string
   useTypeScript: boolean
   options: Record<string, any>
@@ -218,7 +218,7 @@ export interface PluginManifest {
   author: string
   license: string
   engines: {
-    lokus: string
+    NoteMakingApp: string
   }
   main: string
   activationEvents: string[]

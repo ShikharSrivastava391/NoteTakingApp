@@ -7,27 +7,27 @@
 export const macosConfig = {
   // Application settings
   app: {
-    name: 'Lokus',
-    bundleId: 'com.lokus.app',
-    defaultInstallPath: '/Applications/Lokus.app',
-    userDataPath: '~/Library/Application Support/Lokus',
-    tempPath: '~/Library/Caches/Lokus'
+    name: 'NoteMakingApp',
+    bundleId: 'com.NoteMakingApp.app',
+    defaultInstallPath: '/Applications/NoteMakingApp.app',
+    userDataPath: '~/Library/Application Support/NoteMakingApp',
+    tempPath: '~/Library/Caches/NoteMakingApp'
   },
 
   // File management
   files: {
-    defaultWorkspacePath: '~/Documents/Lokus',
+    defaultWorkspacePath: '~/Documents/NoteMakingApp',
     maxPathLength: 1024, // HFS+ supports much longer paths
     invalidChars: ':/',
     hiddenFilePrefix: '.',
     associations: {
       '.md': {
-        bundleId: 'com.lokus.markdown',
+        bundleId: 'com.NoteMakingApp.markdown',
         description: 'Markdown Document',
         icon: 'markdown.icns'
       },
       '.markdown': {
-        bundleId: 'com.lokus.markdown',
+        bundleId: 'com.NoteMakingApp.markdown',
         description: 'Markdown Document',
         icon: 'markdown.icns'
       }
@@ -106,15 +106,15 @@ export const macosConfig = {
     // Quick Look support
     quickLook: {
       enabled: true,
-      generator: 'com.lokus.quicklook'
+      generator: 'com.NoteMakingApp.quicklook'
     },
     // Context menu
     contextMenu: {
       enabled: true,
       entries: [
         {
-          title: 'Open with Lokus',
-          command: 'open -a Lokus "%@"',
+          title: 'Open with NoteMakingApp',
+          command: 'open -a NoteMakingApp "%@"',
           when: 'markdown'
         }
       ]
@@ -188,14 +188,14 @@ export const macosConfig = {
     },
     services: {
       enabled: true,
-      entries: ['Create Lokus Note', 'Add to Lokus']
+      entries: ['Create NoteMakingApp Note', 'Add to NoteMakingApp']
     }
   },
 
   // iCloud integration
   icloud: {
     enabled: false, // Future feature
-    containerIdentifier: 'iCloud.com.lokus.app',
+    containerIdentifier: 'iCloud.com.NoteMakingApp.app',
     syncFolders: ['Notes', 'Templates', 'Settings']
   }
 };

@@ -117,7 +117,7 @@ export default function QuickImport({ onClose, onWorkspaceOpen }) {
         setResult({
           success: true,
           workspacePath: selectedPath,
-          message: 'Obsidian vault is already compatible with Lokus!'
+          message: 'Obsidian vault is already compatible with NoteMakingApp!'
         });
         setIsConverting(false);
         return;

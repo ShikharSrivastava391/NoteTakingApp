@@ -2,7 +2,7 @@
  * @fileoverview Configuration manager utility
  */
 
-import type { LokusAPI, Disposable, Event } from '../types/index.js'
+import type { NoteMakingAppAPI, Disposable, Event } from '../types/index.js'
 import { DisposableStore } from './disposable-store.js'
 
 /**
@@ -14,7 +14,7 @@ export class ConfigManager implements Disposable {
 
   constructor(
     private pluginId: string,
-    private api: LokusAPI
+    private api: NoteMakingAppAPI
   ) {
     // Listen to configuration changes
     const configDisposable = this.api.config.onDidChange((event) => {

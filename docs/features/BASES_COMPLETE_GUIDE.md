@@ -1,4 +1,4 @@
-# Lokus Bases: Complete Guide
+# NoteMakingApp Bases: Complete Guide
 
 > **Transform your markdown files into powerful databases**
 
@@ -26,7 +26,7 @@
 
 ### What are Bases?
 
-Bases are Lokus's answer to database views for markdown files. Inspired by Notion and Airtable, Bases let you:
+Bases are NoteMakingApp's answer to database views for markdown files. Inspired by Notion and Airtable, Bases let you:
 
 - **Query your notes** like a database
 - **Visualize data** in table, list, gallery, and calendar views
@@ -76,7 +76,7 @@ Bases are Lokus's answer to database views for markdown files. Inspired by Notio
 
 #### Method 1: Automatic Default Base
 
-On first launch, Lokus creates a default "All Notes" base automatically:
+On first launch, NoteMakingApp creates a default "All Notes" base automatically:
 
 1. Click **"Bases"** in the sidebar
 2. You'll see all your notes in a table
@@ -102,7 +102,7 @@ Bases are stored as `.base` files in your workspace:
 
 ```
 workspace/
-├── .lokus/
+├── .NoteMakingApp/
 │   └── bases/
 │       ├── all-notes.base      # Default base
 │       ├── projects.base       # Custom base
@@ -120,7 +120,7 @@ include:
   - "**/*.md"
 exclude:
   - "archive/**"
-  - ".lokus/**"
+  - ".NoteMakingApp/**"
 
 # Define columns
 columns:
@@ -292,7 +292,7 @@ columns:
 
 ### Property Scanning
 
-Lokus automatically scans your notes to detect properties:
+NoteMakingApp automatically scans your notes to detect properties:
 
 1. Reads YAML frontmatter from all notes
 2. Extracts property keys and types
@@ -731,7 +731,7 @@ filters:
    ```yaml
    exclude:
      - "archive/**"
-     - ".lokus/**"
+     - ".NoteMakingApp/**"
      - "node_modules/**"
    ```
 
@@ -931,7 +931,7 @@ mcp.call('update_base_property', {
 1. **Check .base file format**
    ```bash
    # Validate YAML
-   cat .lokus/bases/my-base.base
+   cat .NoteMakingApp/bases/my-base.base
    ```
 
 2. **Verify source folder exists**
@@ -1099,8 +1099,8 @@ mcp.call('update_base_property', {
 
 ## Additional Resources
 
-- **Video Tutorials**: https://www.youtube.com/@lokus-ai
-- **Community Forum**: https://github.com/lokus-ai/lokus/discussions
+- **Video Tutorials**: https://www.youtube.com/@NoteMakingApp-ai
+- **Community Forum**: https://github.com/NoteMakingApp-ai/NoteMakingApp/discussions
 - **Example Bases**: `/examples/bases/` in repository
 - **API Documentation**: `/docs/developer/bases-api.md`
 
@@ -1108,6 +1108,6 @@ mcp.call('update_base_property', {
 
 **Last Updated:** October 2025
 **Version:** 1.3.1
-**Feedback:** https://github.com/lokus-ai/lokus/issues
+**Feedback:** https://github.com/NoteMakingApp-ai/NoteMakingApp/issues
 
 [📹 Note: Replace all video placeholders with actual tutorials]

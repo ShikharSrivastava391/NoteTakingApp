@@ -186,11 +186,11 @@ class MarkdownSyntaxConfig {
       const { readTextFile, exists } = await import("@tauri-apps/plugin-fs");
 
       // Try to get workspace from window variable first (set by Workspace component)
-      const workspacePath = (typeof window !== 'undefined' && window.__LOKUS_WORKSPACE_PATH__) || getSavedWorkspacePath();
+      const workspacePath = (typeof window !== 'undefined' && window.__NoteMakingApp_WORKSPACE_PATH__) || getSavedWorkspacePath();
 
       if (!workspacePath) return null;
 
-      const configPath = await join(workspacePath, '.lokus', 'markdown-syntax.json');
+      const configPath = await join(workspacePath, '.NoteMakingApp', 'markdown-syntax.json');
       if (!(await exists(configPath))) {
         return null;
       }
@@ -209,18 +209,18 @@ class MarkdownSyntaxConfig {
       const { writeTextFile, mkdir, exists } = await import("@tauri-apps/plugin-fs");
 
       // Try to get workspace from window variable first (set by Workspace component)
-      let workspacePath = (typeof window !== 'undefined' && window.__LOKUS_WORKSPACE_PATH__) || getSavedWorkspacePath();
+      let workspacePath = (typeof window !== 'undefined' && window.__NoteMakingApp_WORKSPACE_PATH__) || getSavedWorkspacePath();
 
       if (!workspacePath) {
         return false;
       }
 
-      const lokusDir = await join(workspacePath, '.lokus');
-      if (!(await exists(lokusDir))) {
-        await mkdir(lokusDir, { recursive: true });
+      const NoteMakingAppDir = await join(workspacePath, '.NoteMakingApp');
+      if (!(await exists(NoteMakingAppDir))) {
+        await mkdir(NoteMakingAppDir, { recursive: true });
       }
 
-      const configPath = await join(workspacePath, '.lokus', 'markdown-syntax.json');
+      const configPath = await join(workspacePath, '.NoteMakingApp', 'markdown-syntax.json');
       await writeTextFile(configPath, JSON.stringify(this.config, null, 2));
       return true;
     } catch (e) {

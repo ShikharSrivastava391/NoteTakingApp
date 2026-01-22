@@ -1,6 +1,6 @@
 /**
  * Canvas Tools for MCP
- * Tools for working with Lokus Canvas (Tldraw integration)
+ * Tools for working with NoteMakingApp Canvas (Tldraw integration)
  */
 
 import { readFile, writeFile, readdir, mkdir } from "fs/promises";
@@ -126,7 +126,7 @@ export async function executeCanvasTool(tool, args, workspace, apiUrl) {
 }
 
 async function listCanvases(workspace) {
-  const canvasDir = join(workspace, '.lokus', 'canvas');
+  const canvasDir = join(workspace, '.NoteMakingApp', 'canvas');
 
   try {
     const entries = await readdir(canvasDir, { withFileTypes: true });
@@ -172,7 +172,7 @@ async function listCanvases(workspace) {
 }
 
 async function getCanvas(workspace, canvasId) {
-  const canvasPath = join(workspace, '.lokus', 'canvas', `${canvasId}.json`);
+  const canvasPath = join(workspace, '.NoteMakingApp', 'canvas', `${canvasId}.json`);
 
   try {
     const content = await readFile(canvasPath, 'utf-8');
@@ -210,7 +210,7 @@ ${connections.length > 5 ? `... and ${connections.length - 5} more connections` 
 }
 
 async function createCanvas(workspace, { name, description }) {
-  const canvasDir = join(workspace, '.lokus', 'canvas');
+  const canvasDir = join(workspace, '.NoteMakingApp', 'canvas');
   await mkdir(canvasDir, { recursive: true });
 
   const canvasId = name.toLowerCase().replace(/[^a-z0-9]/g, '-');
@@ -237,7 +237,7 @@ async function createCanvas(workspace, { name, description }) {
 }
 
 async function addCanvasShape(workspace, { canvasId, shape }) {
-  const canvasPath = join(workspace, '.lokus', 'canvas', `${canvasId}.json`);
+  const canvasPath = join(workspace, '.NoteMakingApp', 'canvas', `${canvasId}.json`);
 
   try {
     const content = await readFile(canvasPath, 'utf-8');
@@ -279,7 +279,7 @@ async function addCanvasShape(workspace, { canvasId, shape }) {
 }
 
 async function getCanvasConnections(workspace, canvasId) {
-  const canvasPath = join(workspace, '.lokus', 'canvas', `${canvasId}.json`);
+  const canvasPath = join(workspace, '.NoteMakingApp', 'canvas', `${canvasId}.json`);
 
   try {
     const content = await readFile(canvasPath, 'utf-8');
@@ -319,7 +319,7 @@ async function getCanvasConnections(workspace, canvasId) {
 }
 
 async function exportCanvas(workspace, { canvasId, format = 'markdown' }) {
-  const canvasPath = join(workspace, '.lokus', 'canvas', `${canvasId}.json`);
+  const canvasPath = join(workspace, '.NoteMakingApp', 'canvas', `${canvasId}.json`);
 
   try {
     const content = await readFile(canvasPath, 'utf-8');

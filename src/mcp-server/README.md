@@ -503,7 +503,7 @@ curl -H "X-API-Key: ADMIN_KEY" \
 
 ## 📝 License
 
-This security system is part of the Lokus project and follows the same licensing terms.
+This security system is part of the NoteMakingApp project and follows the same licensing terms.
 
 ## 🤝 Contributing
 

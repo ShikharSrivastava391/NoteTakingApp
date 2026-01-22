@@ -1,8 +1,8 @@
-# UI Plugin Development Guide for Lokus
+# UI Plugin Development Guide for NoteMakingApp
 
 ## Overview
 
-Lokus provides a comprehensive UI extension system that allows plugins to seamlessly integrate custom panels, toolbars, context menus, and other UI components into the application. This guide covers everything you need to know to create powerful UI extensions.
+NoteMakingApp provides a comprehensive UI extension system that allows plugins to seamlessly integrate custom panels, toolbars, context menus, and other UI components into the application. This guide covers everything you need to know to create powerful UI extensions.
 
 ## Table of Contents
 
@@ -395,7 +395,7 @@ Commands are ranked by relevance and usage frequency.
 
 ### Using CSS Custom Properties
 
-Lokus uses CSS custom properties for theming. Always use these in your components:
+NoteMakingApp uses CSS custom properties for theming. Always use these in your components:
 
 ```css
 .my-component {
@@ -634,11 +634,11 @@ uiAPI.on('panel-activated', (event) => {
 
 ## Conclusion
 
-The Lokus UI extension system provides powerful capabilities for creating rich, integrated user interfaces. By following the patterns and best practices outlined in this guide, you can create plugins that feel native to the Lokus experience while providing unique and valuable functionality.
+The NoteMakingApp UI extension system provides powerful capabilities for creating rich, integrated user interfaces. By following the patterns and best practices outlined in this guide, you can create plugins that feel native to the NoteMakingApp experience while providing unique and valuable functionality.
 
-For more examples and inspiration, check out the included example plugins and explore the Lokus source code. Happy plugin development!
+For more examples and inspiration, check out the included example plugins and explore the NoteMakingApp source code. Happy plugin development!
 
 ---
 
 *Last Updated: September 2025*
-*Lokus UI Plugin Development Guide v1.0*
+*NoteMakingApp UI Plugin Development Guide v1.0*

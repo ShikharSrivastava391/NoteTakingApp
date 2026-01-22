@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Windows Build Script for Lokus
+ * Windows Build Script for NoteMakingApp
  * 
  * This script handles Windows-specific build operations including:
  * - Platform validation
@@ -297,7 +297,7 @@ function verifyBuildOutputs() {
   
   const expectedOutputs = [
     {
-      path: join(PROJECT_ROOT, 'src-tauri', 'target', 'release', 'lokus.exe'),
+      path: join(PROJECT_ROOT, 'src-tauri', 'target', 'release', 'NoteMakingApp.exe'),
       description: 'Main executable'
     },
     {
@@ -346,20 +346,20 @@ function packageApplication() {
   }
   
   // Copy executable
-  const exePath = join(PROJECT_ROOT, 'src-tauri', 'target', 'release', 'lokus.exe');
+  const exePath = join(PROJECT_ROOT, 'src-tauri', 'target', 'release', 'NoteMakingApp.exe');
   if (existsSync(exePath)) {
-    copyFileSync(exePath, join(distDir, 'lokus.exe'));
+    copyFileSync(exePath, join(distDir, 'NoteMakingApp.exe'));
     printColor('✓ Executable copied to dist-windows/', 'green');
   }
   
   // Create a simple batch file for running the app
   const batchContent = `@echo off
-echo Starting Lokus...
-"%~dp0lokus.exe"
+echo Starting NoteMakingApp...
+"%~dp0NoteMakingApp.exe"
 pause`;
   
   if (!isDryRun) {
-    require('fs').writeFileSync(join(distDir, 'run-lokus.bat'), batchContent);
+    require('fs').writeFileSync(join(distDir, 'run-NoteMakingApp.bat'), batchContent);
     printColor('✓ Convenience batch file created', 'green');
   }
   
@@ -403,8 +403,8 @@ function printBuildSummary(distDir) {
   printColor('\nBuild Outputs:', 'blue');
   printColor(`  📁 Distribution folder: ${distDir}`, 'cyan');
   printColor(`  📦 MSI Installer: ${distDir}\\*.msi`, 'cyan');
-  printColor(`  🚀 Executable: ${distDir}\\lokus.exe`, 'cyan');
-  printColor(`  📝 Run script: ${distDir}\\run-lokus.bat`, 'cyan');
+  printColor(`  🚀 Executable: ${distDir}\\NoteMakingApp.exe`, 'cyan');
+  printColor(`  📝 Run script: ${distDir}\\run-NoteMakingApp.bat`, 'cyan');
   
   printColor('\nNext Steps:', 'blue');
   printColor('  • Test the application thoroughly', 'cyan');
@@ -447,7 +447,7 @@ function handleError(error, context = '') {
  */
 async function main() {
   try {
-    printHeader('Lokus Windows Build Script');
+    printHeader('NoteMakingApp Windows Build Script');
     
     const totalSteps = 8;
     let currentStep = 1;
@@ -502,7 +502,7 @@ process.on('SIGTERM', () => {
 
 // Show help if requested
 if (process.argv.includes('--help') || process.argv.includes('-h')) {
-  printHeader('Lokus Windows Build Script Help');
+  printHeader('NoteMakingApp Windows Build Script Help');
   printColor('Usage: npm run build:windows [options]', 'cyan');
   printColor('\nOptions:', 'blue');
   printColor('  --verbose, -v    Show detailed output', 'cyan');

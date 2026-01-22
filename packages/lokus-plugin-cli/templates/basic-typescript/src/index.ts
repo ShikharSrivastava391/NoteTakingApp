@@ -1,4 +1,4 @@
-import { PluginContext, PluginLogger } from 'lokus-plugin-sdk';
+import { PluginContext, PluginLogger } from 'NoteMakingApp-plugin-sdk';
 
 /**
  * {{description}}

@@ -1,6 +1,6 @@
 # Platform Support Guide
 
-This guide provides comprehensive information about developing, building, and distributing Lokus across different platforms.
+This guide provides comprehensive information about developing, building, and distributing NoteMakingApp across different platforms.
 
 ## 📋 Table of Contents
 
@@ -224,19 +224,19 @@ code --install-extension rust-lang.rust-analyzer
 sudo xcode-select --install
 
 # LLDB debugging
-lldb target/debug/lokus
+lldb target/debug/NoteMakingApp
 
 # Instruments profiling
-instruments -t "Time Profiler" target/debug/lokus
+instruments -t "Time Profiler" target/debug/NoteMakingApp
 ```
 
 #### Linux Development
 ```bash
 # GDB debugging
-gdb target/debug/lokus
+gdb target/debug/NoteMakingApp
 
 # Valgrind memory analysis
-valgrind --tool=memcheck target/debug/lokus
+valgrind --tool=memcheck target/debug/NoteMakingApp
 
 # GTK debugging
 export GTK_DEBUG=interactive
@@ -313,7 +313,7 @@ xcode-select --install
 sudo xcode-select --reset
 
 # Code signing issues
-codesign --verify --deep --strict target/release/bundle/macos/Lokus.app
+codesign --verify --deep --strict target/release/bundle/macos/NoteMakingApp.app
 ```
 
 #### Linux Issues
@@ -379,13 +379,13 @@ fn optimize_for_linux() {
 ```bash
 # Platform-specific memory profiling
 # Windows
-dotMemory.exe target/release/lokus.exe
+dotMemory.exe target/release/NoteMakingApp.exe
 
 # macOS
-instruments -t "Allocations" target/release/lokus
+instruments -t "Allocations" target/release/NoteMakingApp
 
 # Linux
-valgrind --tool=massif target/release/lokus
+valgrind --tool=massif target/release/NoteMakingApp
 ```
 
 ## 📚 Additional Resources
@@ -401,10 +401,10 @@ valgrind --tool=massif target/release/lokus
 - [Distribution Guide](https://tauri.app/v1/guides/distribution/)
 
 ### Community Support
-- [Discord](https://discord.gg/lokus) - Real-time help and discussion
-- [GitHub Discussions](https://github.com/lokus-ai/lokus/discussions) - Q&A and ideas
+- [Discord](https://discord.gg/NoteMakingApp) - Real-time help and discussion
+- [GitHub Discussions](https://github.com/NoteMakingApp-ai/NoteMakingApp/discussions) - Q&A and ideas
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/tauri) - Technical questions
 
 ---
 
-*This guide is regularly updated as new platform support features are added to Lokus.*
+*This guide is regularly updated as new platform support features are added to NoteMakingApp.*

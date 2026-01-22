@@ -1,6 +1,6 @@
-# Lokus Plugin CLI - Advanced Plugin Development Toolkit
+# NoteMakingApp Plugin CLI - Advanced Plugin Development Toolkit
 
-🚀 **Professional-grade CLI for developing Lokus plugins with modern tooling, comprehensive templates, and industry-standard development practices.**
+🚀 **Professional-grade CLI for developing NoteMakingApp plugins with modern tooling, comprehensive templates, and industry-standard development practices.**
 
 ## ✨ Features
 
@@ -19,7 +19,7 @@
 ### 📦 Professional Packaging
 - **Multi-format Support**: ZIP, TAR.GZ with compression options
 - **Integrity Verification**: SHA-256 checksums and package validation
-- **Marketplace Ready**: Optimized for Lokus, VS Code, Chrome Web Store
+- **Marketplace Ready**: Optimized for NoteMakingApp, VS Code, Chrome Web Store
 - **Digital Signing**: Package signing and verification support
 
 ### 🧪 Comprehensive Testing
@@ -39,36 +39,36 @@
 ### Installation
 
 ```bash
-npm install -g @lokus/plugin-cli
+npm install -g @NoteMakingApp/plugin-cli
 ```
 
 ### Create Your First Plugin
 
 ```bash
 # Interactive plugin creation
-lokus-plugin create
+NoteMakingApp-plugin create
 
 # Quick start with specific template
-lokus-plugin create my-plugin --template react-ui-panel --author "Your Name"
+NoteMakingApp-plugin create my-plugin --template react-ui-panel --author "Your Name"
 ```
 
 ### Development Workflow
 
 ```bash
 # Start development server with hot reload
-lokus-plugin dev
+NoteMakingApp-plugin dev
 
 # Run tests with coverage
-lokus-plugin test --coverage
+NoteMakingApp-plugin test --coverage
 
 # Build for production
-lokus-plugin build --target production
+NoteMakingApp-plugin build --target production
 
 # Generate documentation
-lokus-plugin docs --serve
+NoteMakingApp-plugin docs --serve
 
 # Package for distribution
-lokus-plugin package --format both --verify
+NoteMakingApp-plugin package --format both --verify
 ```
 
 ## 📋 Plugin Templates
@@ -128,7 +128,7 @@ AI-powered development features
 Create new plugins with rich templates and intelligent configuration.
 
 ```bash
-lokus-plugin create [name] [options]
+NoteMakingApp-plugin create [name] [options]
 
 Options:
   -t, --template <template>     Plugin template to use
@@ -156,7 +156,7 @@ Options:
 Start development server with hot reload, debugging, and real-time monitoring.
 
 ```bash
-lokus-plugin dev [options]
+NoteMakingApp-plugin dev [options]
 
 Options:
   -p, --port <port>            Server port (default: 3000)
@@ -178,7 +178,7 @@ Options:
 Run tests with multi-framework support and advanced reporting.
 
 ```bash
-lokus-plugin test [options]
+NoteMakingApp-plugin test [options]
 
 Options:
   -w, --watch                  Watch files for changes
@@ -208,7 +208,7 @@ Options:
 Package plugins for distribution with integrity verification and marketplace optimization.
 
 ```bash
-lokus-plugin package [options]
+NoteMakingApp-plugin package [options]
 
 Options:
   -o, --out-dir <dir>          Output directory (default: dist)
@@ -221,7 +221,7 @@ Options:
   --include-source             Include source code
   --include-docs               Include documentation
   --include-tests              Include tests
-  --marketplace <name>         Target marketplace (lokus, vscode, chrome)
+  --marketplace <name>         Target marketplace (NoteMakingApp, vscode, chrome)
   --prerelease                 Mark as prerelease version
   --dry-run                    Perform dry run without creating files
 ```
@@ -231,7 +231,7 @@ Options:
 Generate comprehensive documentation with multiple output formats and live preview.
 
 ```bash
-lokus-plugin docs [options]
+NoteMakingApp-plugin docs [options]
 
 Options:
   -g, --generator <type>       Documentation generator (typedoc, jsdoc, custom)
@@ -284,14 +284,14 @@ my-plugin/
 {
   "name": "my-plugin",
   "version": "1.0.0",
-  "description": "My awesome Lokus plugin",
+  "description": "My awesome NoteMakingApp plugin",
   "author": "Your Name",
   "main": "dist/index.js",
   "engines": {
-    "lokus": "^1.0.0"
+    "NoteMakingApp": "^1.0.0"
   },
   "categories": ["Editor"],
-  "keywords": ["lokus", "plugin"],
+  "keywords": ["NoteMakingApp", "plugin"],
   "permissions": [
     "editor:read",
     "editor:write"
@@ -330,7 +330,7 @@ Supports multiple testing frameworks with pre-configured setups:
 ### 1. Create Plugin
 
 ```bash
-lokus-plugin create awesome-plugin
+NoteMakingApp-plugin create awesome-plugin
 ```
 
 Choose from interactive prompts:
@@ -343,7 +343,7 @@ Choose from interactive prompts:
 
 ```bash
 cd awesome-plugin
-lokus-plugin dev --open
+NoteMakingApp-plugin dev --open
 ```
 
 Features:
@@ -355,7 +355,7 @@ Features:
 ### 3. Write Tests
 
 ```bash
-lokus-plugin test --coverage --watch
+NoteMakingApp-plugin test --coverage --watch
 ```
 
 Capabilities:
@@ -367,7 +367,7 @@ Capabilities:
 ### 4. Generate Documentation
 
 ```bash
-lokus-plugin docs --serve
+NoteMakingApp-plugin docs --serve
 ```
 
 Output:
@@ -379,7 +379,7 @@ Output:
 ### 5. Package for Distribution
 
 ```bash
-lokus-plugin package --format both --verify --sign
+NoteMakingApp-plugin package --format both --verify --sign
 ```
 
 Produces:
@@ -407,13 +407,13 @@ Enhanced debugging capabilities:
 
 ```bash
 # Enable Node.js inspector
-lokus-plugin dev --inspect
+NoteMakingApp-plugin dev --inspect
 
 # Enable verbose logging  
-lokus-plugin dev --verbose
+NoteMakingApp-plugin dev --verbose
 
 # Enable performance profiling
-lokus-plugin dev --profiling
+NoteMakingApp-plugin dev --profiling
 ```
 
 ### Marketplace Integration
@@ -421,14 +421,14 @@ lokus-plugin dev --profiling
 Optimized for multiple marketplaces:
 
 ```bash
-# Lokus Marketplace
-lokus-plugin package --marketplace lokus
+# NoteMakingApp Marketplace
+NoteMakingApp-plugin package --marketplace NoteMakingApp
 
 # VS Code Marketplace  
-lokus-plugin package --marketplace vscode
+NoteMakingApp-plugin package --marketplace vscode
 
 # Chrome Web Store
-lokus-plugin package --marketplace chrome
+NoteMakingApp-plugin package --marketplace chrome
 ```
 
 ### CI/CD Integration
@@ -447,10 +447,10 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 
 ```bash
 # Clone the repository
-git clone https://github.com/lokus/lokus-plugin-cli.git
+git clone https://github.com/NoteMakingApp/NoteMakingApp-plugin-cli.git
 
 # Install dependencies
-cd lokus-plugin-cli
+cd NoteMakingApp-plugin-cli
 npm install
 
 # Link for local development
@@ -465,15 +465,15 @@ npm run build
 
 ## 📄 License
 
-MIT © [Lokus Team](https://lokus.dev)
+MIT © [NoteMakingApp Team](https://NoteMakingApp.dev)
 
 ---
 
 ## 🆘 Support
 
-- **Documentation**: https://lokus.dev/docs/plugin-development
-- **Community**: https://discord.gg/lokus
-- **Issues**: https://github.com/lokus/lokus/issues
-- **Examples**: https://github.com/lokus/plugin-examples
+- **Documentation**: https://NoteMakingApp.dev/docs/plugin-development
+- **Community**: https://discord.gg/NoteMakingApp
+- **Issues**: https://github.com/NoteMakingApp/NoteMakingApp/issues
+- **Examples**: https://github.com/NoteMakingApp/plugin-examples
 
-Built with ❤️ by the Lokus team and community.
+Built with ❤️ by the NoteMakingApp team and community.

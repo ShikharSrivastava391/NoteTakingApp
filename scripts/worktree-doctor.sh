@@ -206,7 +206,7 @@ else
     echo ""
     echo "Recommended actions:"
     echo "  • Run 'git worktree prune' to remove stale worktrees"
-    echo "  • Fix broken symlinks with: ln -s ../../Lokus-Main/node_modules <worktree>/node_modules"
+    echo "  • Fix broken symlinks with: ln -s ../../NoteMakingApp-Main/node_modules <worktree>/node_modules"
     echo "  • Update port configs in .env.local files"
     echo "  • Recreate worktrees with issues using 'npm run worktree:create'"
     exit 1

@@ -1,6 +1,6 @@
-# Gmail Components for Lokus
+# Gmail Components for NoteMakingApp
 
-This directory contains comprehensive Gmail UI components that integrate seamlessly with the existing Lokus interface. The components provide a professional email experience with full Gmail functionality.
+This directory contains comprehensive Gmail UI components that integrate seamlessly with the existing NoteMakingApp interface. The components provide a professional email experience with full Gmail functionality.
 
 ## Components Overview
 
@@ -113,20 +113,20 @@ Rich email composition interface with multiple modes.
 - `onClose` - Callback when composer is closed
 - `onSend` - Callback when email is sent
 
-## Integration with Lokus
+## Integration with NoteMakingApp
 
 ### Styling Consistency
-All components use Lokus's existing CSS custom properties and styling patterns:
+All components use NoteMakingApp's existing CSS custom properties and styling patterns:
 - `bg-app-bg`, `bg-app-panel` for backgrounds
 - `text-app-text`, `text-app-text-secondary` for text colors
 - `border-app-border` for borders
 - `obsidian-button` for consistent button styling
-- Responsive design matching Lokus patterns
+- Responsive design matching NoteMakingApp patterns
 
 ### Component Architecture
-- Follow Lokus's React component patterns
+- Follow NoteMakingApp's React component patterns
 - Use existing UI components from `src/components/ui/`
-- Integrate with Lokus's theme system
+- Integrate with NoteMakingApp's theme system
 - Consistent icon usage with Lucide React
 
 ### Backend Integration
@@ -175,8 +175,8 @@ function CustomGmailLayout() {
 
 ### Utilities
 - Date formatting utilities (src/utils/dateUtils.js)
-- Existing Lokus UI components
-- Lokus theme system
+- Existing NoteMakingApp UI components
+- NoteMakingApp theme system
 
 ## Keyboard Shortcuts
 

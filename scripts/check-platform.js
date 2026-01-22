@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
 /**
- * Platform Detection and Dependency Checker for Lokus
+ * Platform Detection and Dependency Checker for NoteMakingApp
  * 
  * This script detects the current platform and verifies that all required
- * dependencies are installed for building and developing Lokus.
+ * dependencies are installed for building and developing NoteMakingApp.
  */
 
 import { execSync } from 'child_process';
@@ -430,7 +430,7 @@ function printRecommendations() {
  * Main execution function
  */
 function main() {
-  printHeader('Lokus Platform & Dependency Checker');
+  printHeader('NoteMakingApp Platform & Dependency Checker');
   
   printPlatformSummary();
   
@@ -462,7 +462,7 @@ function main() {
   printHeader('Summary');
   
   if (allChecksPass) {
-    printColor('🎉 All checks passed! You\'re ready to develop Lokus.', 'green');
+    printColor('🎉 All checks passed! You\'re ready to develop NoteMakingApp.', 'green');
     printColor('\nQuick start commands:', 'blue');
     printColor('  npm run dev          - Start development server', 'cyan');
     printColor('  npm run tauri dev    - Start Tauri development', 'cyan');

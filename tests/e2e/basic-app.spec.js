@@ -1,15 +1,15 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('Basic App Tests', () => {
-  test('should load Lokus app', async ({ page }) => {
+  test('should load NoteMakingApp app', async ({ page }) => {
     // Go to the app (use / to use baseURL from playwright.config.js)
     await page.goto('/')
     
     // Wait for app to load
     await page.waitForLoadState('networkidle')
     
-    // Should show Lokus branding
-    await expect(page.locator('text=Lokus')).toBeVisible({ timeout: 10000 });
+    // Should show NoteMakingApp branding
+    await expect(page.locator('text=NoteMakingApp')).toBeVisible({ timeout: 10000 });
     
     // Take a screenshot for debugging
     await page.screenshot({ path: 'test-results/app-loaded.png' });

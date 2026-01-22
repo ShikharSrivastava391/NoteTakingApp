@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://lokus.dev/schemas/contributions/themes.json",
+  "$id": "https://NoteMakingApp.dev/schemas/contributions/themes.json",
   "title": "Themes Contribution Schema",
-  "description": "Schema for theme contributions in Lokus plugins",
+  "description": "Schema for theme contributions in NoteMakingApp plugins",
   "type": "array",
   "items": {
     "type": "object",
@@ -118,9 +118,9 @@
           "compatibility": {
             "type": "object",
             "properties": {
-              "lokusVersion": {
+              "NoteMakingAppVersion": {
                 "type": "string",
-                "description": "Compatible Lokus version range"
+                "description": "Compatible NoteMakingApp version range"
               },
               "languages": {
                 "type": "array",

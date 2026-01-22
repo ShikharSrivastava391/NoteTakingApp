@@ -2,7 +2,7 @@
  * Data Provider API - Comprehensive interface for plugin data providers
  * 
  * This API enables plugins to provide alternative data sources, custom algorithms,
- * and enhanced functionality for all data-driven components in Lokus.
+ * and enhanced functionality for all data-driven components in NoteMakingApp.
  * 
  * Supported Provider Types:
  * - Graph Renderers: Custom graph visualization and layout algorithms

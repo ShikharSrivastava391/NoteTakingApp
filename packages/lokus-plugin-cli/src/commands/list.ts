@@ -64,7 +64,7 @@ export const listCommand = new Command('list')
         logger.info('No plugins installed');
         logger.newLine();
         logger.info('Install plugins with:');
-        logger.info('  lokus-plugin install <plugin-name>');
+        logger.info('  NoteMakingApp-plugin install <plugin-name>');
         return;
       }
 
@@ -100,24 +100,24 @@ export const listCommand = new Command('list')
 async function getGlobalPluginsDir(): Promise<string> {
   const os = require('os');
   const homeDir = os.homedir();
-  return path.join(homeDir, '.lokus', 'plugins');
+  return path.join(homeDir, '.NoteMakingApp', 'plugins');
 }
 
 async function getLocalPluginsDir(): Promise<string | null> {
   const cwd = process.cwd();
   
-  // Try to find Lokus workspace root
+  // Try to find NoteMakingApp workspace root
   let currentDir = cwd;
   while (currentDir !== path.dirname(currentDir)) {
-    const lokusConfig = path.join(currentDir, '.lokus');
-    if (await fs.pathExists(lokusConfig)) {
-      return path.join(currentDir, '.lokus', 'plugins');
+    const NoteMakingAppConfig = path.join(currentDir, '.NoteMakingApp');
+    if (await fs.pathExists(NoteMakingAppConfig)) {
+      return path.join(currentDir, '.NoteMakingApp', 'plugins');
     }
     currentDir = path.dirname(currentDir);
   }
   
   // Check current directory
-  const localDir = path.join(cwd, '.lokus', 'plugins');
+  const localDir = path.join(cwd, '.NoteMakingApp', 'plugins');
   if (await fs.pathExists(localDir)) {
     return localDir;
   }

@@ -5,7 +5,7 @@ import { tmpdir } from 'os';
 
 // Helper functions for creating test workspaces
 export async function createTestWorkspace() {
-  const tempDir = join(tmpdir(), `lokus-test-${Date.now()}-${Math.random().toString(36).substring(7)}`);
+  const tempDir = join(tmpdir(), `NoteMakingApp-test-${Date.now()}-${Math.random().toString(36).substring(7)}`);
   await fs.mkdir(tempDir, { recursive: true });
   
   // Create a test markdown file
@@ -33,7 +33,7 @@ export class WorkspaceHelper {
 
   async createTempWorkspace() {
     // Create temporary workspace directory
-    const tempDir = join(tmpdir(), `lokus-test-${Date.now()}-${Math.random().toString(36).substring(7)}`);
+    const tempDir = join(tmpdir(), `NoteMakingApp-test-${Date.now()}-${Math.random().toString(36).substring(7)}`);
     await fs.mkdir(tempDir, { recursive: true });
     
     // Create a test markdown file
@@ -109,7 +109,7 @@ export class WorkspaceHelper {
         version: '1.0',
         created: new Date().toISOString(),
         modified: new Date().toISOString(),
-        createdWith: 'Lokus'
+        createdWith: 'NoteMakingApp'
       }
     };
 

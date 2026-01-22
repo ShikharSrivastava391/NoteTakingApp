@@ -1,6 +1,6 @@
 # MCP Plugin Templates System
 
-A comprehensive template system for generating MCP-enabled plugins for Lokus. This system provides developer-friendly templates, CLI integration, and example projects to make MCP plugin development easy and efficient.
+A comprehensive template system for generating MCP-enabled plugins for NoteMakingApp. This system provides developer-friendly templates, CLI integration, and example projects to make MCP plugin development easy and efficient.
 
 ## Overview
 
@@ -24,7 +24,7 @@ The MCP Plugin Templates System consists of several components:
 
 ### 🛠️ Development Tools
 
-- **Interactive CLI**: `lokus-plugin create` with guided setup
+- **Interactive CLI**: `NoteMakingApp-plugin create` with guided setup
 - **Template Validation**: Comprehensive validation and error checking
 - **TypeScript Support**: Full TypeScript definitions and templates
 - **Build Configuration**: Automated build setup (package.json, tsconfig, etc.)
@@ -42,10 +42,10 @@ The MCP Plugin Templates System consists of several components:
 
 ### Installation
 
-The template system is built into Lokus and automatically available when the plugin system is initialized:
+The template system is built into NoteMakingApp and automatically available when the plugin system is initialized:
 
 ```javascript
-import { initializePluginSystem } from '@lokus/plugins'
+import { initializePluginSystem } from '@NoteMakingApp/plugins'
 
 // Initialize with template support (enabled by default)
 const { pluginManager, templateSystem } = await initializePluginSystem(editorAPI, {
@@ -59,13 +59,13 @@ const { pluginManager, templateSystem } = await initializePluginSystem(editorAPI
 
 ```bash
 # Interactive generation
-lokus-plugin create interactive
+NoteMakingApp-plugin create interactive
 
 # Direct generation
-lokus-plugin create basic-mcp-server --name "My File Server" --id "my-file-server"
+NoteMakingApp-plugin create basic-mcp-server --name "My File Server" --id "my-file-server"
 
 # With options
-lokus-plugin create ai-assistant \
+NoteMakingApp-plugin create ai-assistant \
   --name "Writing Helper" \
   --id "writing-helper" \
   --typescript \
@@ -76,7 +76,7 @@ lokus-plugin create ai-assistant \
 #### Using the API
 
 ```javascript
-import { generateMCPPlugin, TEMPLATE_TYPES } from '@lokus/plugins'
+import { generateMCPPlugin, TEMPLATE_TYPES } from '@NoteMakingApp/plugins'
 
 const pluginStructure = await generateMCPPlugin(TEMPLATE_TYPES.BASIC_MCP_SERVER, {
   pluginId: 'my-file-server',
@@ -98,13 +98,13 @@ const pluginStructure = await generateMCPPlugin(TEMPLATE_TYPES.BASIC_MCP_SERVER,
 
 ```bash
 # List available examples
-lokus-plugin list examples
+NoteMakingApp-plugin list examples
 
 # Download an example
-lokus-plugin download example basic-file-server ./my-plugin
+NoteMakingApp-plugin download example basic-file-server ./my-plugin
 
 # Browse examples by category
-lokus-plugin list examples --category getting-started
+NoteMakingApp-plugin list examples --category getting-started
 ```
 
 ## Template Types
@@ -117,7 +117,7 @@ Perfect for beginners learning MCP concepts.
 **Use Cases**: File access, simple data providers, learning MCP
 
 ```bash
-lokus-plugin create basic-mcp-server --name "File Manager"
+NoteMakingApp-plugin create basic-mcp-server --name "File Manager"
 ```
 
 ### AI Assistant Plugin
@@ -128,7 +128,7 @@ AI-powered plugins with chat interfaces and prompt templates.
 **Use Cases**: Writing assistants, code helpers, content generation
 
 ```bash
-lokus-plugin create ai-assistant --name "Code Assistant" --api-provider openai
+NoteMakingApp-plugin create ai-assistant --name "Code Assistant" --api-provider openai
 ```
 
 ### Data Provider
@@ -139,7 +139,7 @@ Connect to databases and APIs with caching and synchronization.
 **Use Cases**: Database integrations, API wrappers, data synchronization
 
 ```bash
-lokus-plugin create data-provider --name "DB Connector" --data-source database
+NoteMakingApp-plugin create data-provider --name "DB Connector" --data-source database
 ```
 
 ### Tool Collection
@@ -150,7 +150,7 @@ Collections of utility tools and functions.
 **Use Cases**: Development utilities, text processing, file operations
 
 ```bash
-lokus-plugin create tool-collection --name "Dev Tools" --tool-category dev
+NoteMakingApp-plugin create tool-collection --name "Dev Tools" --tool-category dev
 ```
 
 ### Multi-Server Plugin
@@ -161,7 +161,7 @@ Advanced plugins with multiple coordinated MCP servers.
 **Use Cases**: Enterprise systems, complex integrations, microservices
 
 ```bash
-lokus-plugin create multi-server --name "Workspace Manager" --server-count 3
+NoteMakingApp-plugin create multi-server --name "Workspace Manager" --server-count 3
 ```
 
 ## CLI Commands
@@ -171,10 +171,10 @@ Generate new plugins from templates.
 
 ```bash
 # Interactive mode
-lokus-plugin create interactive
+NoteMakingApp-plugin create interactive
 
 # Direct creation
-lokus-plugin create <template-type> [options]
+NoteMakingApp-plugin create <template-type> [options]
 
 # Options:
 #   --name, -n         Plugin name
@@ -192,16 +192,16 @@ List available templates and examples.
 
 ```bash
 # List templates
-lokus-plugin list
+NoteMakingApp-plugin list
 
 # List by category
-lokus-plugin list --category basic
+NoteMakingApp-plugin list --category basic
 
 # List by complexity
-lokus-plugin list --complexity beginner
+NoteMakingApp-plugin list --complexity beginner
 
 # List examples
-lokus-plugin list examples
+NoteMakingApp-plugin list examples
 ```
 
 ### Show
@@ -209,10 +209,10 @@ Show detailed information about templates.
 
 ```bash
 # Show template details
-lokus-plugin show basic-mcp-server
+NoteMakingApp-plugin show basic-mcp-server
 
 # Show all template info
-lokus-plugin show --all
+NoteMakingApp-plugin show --all
 ```
 
 ### Download
@@ -220,10 +220,10 @@ Download example projects.
 
 ```bash
 # Download example
-lokus-plugin download example <example-id> <target-directory>
+NoteMakingApp-plugin download example <example-id> <target-directory>
 
 # List available examples
-lokus-plugin download list
+NoteMakingApp-plugin download list
 ```
 
 ## API Reference
@@ -236,7 +236,7 @@ import {
   getAvailableMCPTemplates,
   TEMPLATE_TYPES,
   TEMPLATE_COMPLEXITY
-} from '@lokus/plugins'
+} from '@NoteMakingApp/plugins'
 
 // Generate plugin
 const structure = await generateMCPPlugin(templateType, options)
@@ -253,7 +253,7 @@ const beginnerTemplates = templates.filter(t =>
 ### Example Projects
 
 ```typescript
-import { initializeExampleRegistry } from '@lokus/plugins'
+import { initializeExampleRegistry } from '@NoteMakingApp/plugins'
 
 const registry = await initializeExampleRegistry()
 
@@ -270,7 +270,7 @@ await registry.downloadExample('basic-file-server', './my-plugin')
 ### Template Configuration
 
 ```typescript
-import { TemplateConfig, TEMPLATE_FEATURES } from '@lokus/plugins'
+import { TemplateConfig, TEMPLATE_FEATURES } from '@NoteMakingApp/plugins'
 
 const config = new TemplateConfig()
 
@@ -305,7 +305,7 @@ my-plugin/
 ├── .gitignore               # Git ignore rules
 ├── .eslintrc.json           # ESLint configuration
 ├── tsconfig.json            # TypeScript config (if using TS)
-├── .lokus-template.json     # Template metadata
+├── .NoteMakingApp-template.json     # Template metadata
 ├── src/
 │   ├── index.js|ts          # Main plugin file
 │   ├── server.js|ts         # MCP server implementation
@@ -417,7 +417,7 @@ Each template type supports additional customization:
 Create your own templates by extending the base system:
 
 ```typescript
-import { MCPPluginTemplateGenerator, TemplateConfig } from '@lokus/plugins'
+import { MCPPluginTemplateGenerator, TemplateConfig } from '@NoteMakingApp/plugins'
 
 const generator = new MCPPluginTemplateGenerator()
 
@@ -448,7 +448,7 @@ Templates can be integrated with existing build systems:
 
 ```javascript
 // webpack.config.js
-const { generateMCPPlugin } = require('@lokus/plugins')
+const { generateMCPPlugin } = require('@NoteMakingApp/plugins')
 
 module.exports = async (env) => {
   if (env.generatePlugin) {
@@ -491,7 +491,7 @@ jobs:
       - uses: actions/setup-node@v3
       - run: npm install
       - run: |
-          npx lokus-plugin create ${{ github.event.inputs.template }} \
+          npx NoteMakingApp-plugin create ${{ github.event.inputs.template }} \
             --name "Generated Plugin" \
             --id "generated-plugin" \
             --no-install \
@@ -527,11 +527,11 @@ jobs:
 Enable debug logging for detailed information:
 
 ```bash
-DEBUG=lokus:templates lokus-plugin create basic-mcp-server
+DEBUG=NoteMakingApp:templates NoteMakingApp-plugin create basic-mcp-server
 ```
 
 ```javascript
-process.env.DEBUG = 'lokus:templates'
+process.env.DEBUG = 'NoteMakingApp:templates'
 const structure = await generateMCPPlugin(templateType, options)
 ```
 
@@ -603,4 +603,4 @@ For questions and support:
 - Documentation: `/docs/plugins/templates/`
 - Issues: GitHub Issues
 - Community: Discord #plugin-development
-- Email: plugins@lokus.dev
+- Email: plugins@NoteMakingApp.dev

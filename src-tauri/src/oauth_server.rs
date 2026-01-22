@@ -170,7 +170,7 @@ async fn handle_gmail_callback(req: Request<Incoming>) -> Result<HyperResponse, 
               <body style="font-family: Arial, sans-serif; text-align: center; padding: 50px;">
                 <h1 style="color: #28a745;">✅ Authentication Successful!</h1>
                 <p>Gmail connection completed successfully.</p>
-                <p>You can close this window and return to Lokus.</p>
+                <p>You can close this window and return to NoteMakingApp.</p>
                 <script>
                   // Auto-close after 3 seconds
                   setTimeout(() => {{
@@ -215,7 +215,7 @@ fn parse_query_params(query: &str) -> HashMap<String, String> {
 
 fn write_auth_callback(code: &str, state: &str) -> Result<(), Box<dyn std::error::Error>> {
     let home_dir = dirs::home_dir().ok_or("Could not find home directory")?;
-    let temp_dir = home_dir.join(".lokus").join("temp");
+    let temp_dir = home_dir.join(".NoteMakingApp").join("temp");
     
     // Ensure temp directory exists
     if !temp_dir.exists() {

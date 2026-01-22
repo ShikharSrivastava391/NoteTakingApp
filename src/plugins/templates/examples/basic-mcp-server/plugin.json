@@ -5,11 +5,11 @@
   "displayName": "Basic MCP File Server",
   "version": "1.0.0",
   "description": "A simple MCP server that provides file system access and basic file operations",
-  "publisher": "lokus-examples",
-  "author": "Lokus Team",
+  "publisher": "NoteMakingApp-examples",
+  "author": "NoteMakingApp Team",
   "license": "MIT",
   "engines": {
-    "lokus": "^1.0.0"
+    "NoteMakingApp": "^1.0.0"
   },
   "main": "./src/index.js",
   "activationEvents": [

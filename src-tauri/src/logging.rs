@@ -32,7 +32,7 @@ pub fn init_logging(config: LoggingConfig) -> Result<(), String> {
     // Set up daily rotating file appender
     let file_appender = RollingFileAppender::builder()
         .rotation(Rotation::DAILY)
-        .filename_prefix("lokus")
+        .filename_prefix("NoteMakingApp")
         .filename_suffix("log")
         .build(&config.log_dir)
         .map_err(|e| format!("Failed to create file appender: {}", e))?;
@@ -131,7 +131,7 @@ mod tests {
     #[test]
     fn test_logging_config_creation() {
         let config = LoggingConfig {
-            log_dir: PathBuf::from("/tmp/lokus-test-logs"),
+            log_dir: PathBuf::from("/tmp/NoteMakingApp-test-logs"),
             max_days_retained: 7,
             sentry_enabled: false,
             environment: "test".to_string(),

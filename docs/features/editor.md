@@ -1,10 +1,10 @@
 # Rich Text Editor
 
-Lokus features a powerful rich text editor built on TipTap that provides a seamless writing experience with comprehensive formatting options, markdown support, and advanced features like math rendering and wiki links.
+NoteMakingApp features a powerful rich text editor built on TipTap that provides a seamless writing experience with comprehensive formatting options, markdown support, and advanced features like math rendering and wiki links.
 
 ## Overview
 
-The Lokus editor combines the best of rich text editing with markdown compatibility:
+The NoteMakingApp editor combines the best of rich text editing with markdown compatibility:
 - **TipTap-powered** rich text editing with modern UI
 - **Complete markdown support** with extensions
 - **Math equation rendering** using KaTeX

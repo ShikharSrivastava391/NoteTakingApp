@@ -21,7 +21,7 @@ export class PluginFileWatcher {
 
         try {
             const home = await homeDir();
-            const pluginsDir = await join(home, '.lokus', 'plugins');
+            const pluginsDir = await join(home, '.NoteMakingApp', 'plugins');
 
             logger.info(`[PluginFileWatcher] Starting watch on ${pluginsDir}`);
 

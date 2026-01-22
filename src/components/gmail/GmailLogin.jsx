@@ -102,7 +102,7 @@ export default function GmailLogin({ onLoginSuccess }) {
             <h3 className="text-lg font-semibold mb-2">Complete authentication</h3>
             <p className="text-app-text-secondary mb-4">
               We've opened your browser to complete the Gmail authentication.
-              Please authorize Lokus to access your Gmail account.
+              Please authorize NoteMakingApp to access your Gmail account.
             </p>
             <div className="bg-app-panel-secondary rounded-lg p-4 mb-4">
               <div className="flex items-start gap-3">
@@ -110,7 +110,7 @@ export default function GmailLogin({ onLoginSuccess }) {
                 <div className="text-sm text-left">
                   <p className="font-medium mb-1">Secure authentication</p>
                   <p className="text-app-text-secondary">
-                    Your login is handled securely by Google. Lokus never sees your password.
+                    Your login is handled securely by Google. NoteMakingApp never sees your password.
                   </p>
                 </div>
               </div>
@@ -162,7 +162,7 @@ export default function GmailLogin({ onLoginSuccess }) {
             </div>
             <h2 className="text-2xl font-bold mb-2">Connect your Gmail</h2>
             <p className="text-app-text-secondary mb-8 max-w-md mx-auto">
-              Access your Gmail emails directly from Lokus. View, search, and manage 
+              Access your Gmail emails directly from NoteMakingApp. View, search, and manage 
               your emails seamlessly within your knowledge workspace.
             </p>
             
@@ -183,7 +183,7 @@ export default function GmailLogin({ onLoginSuccess }) {
               </h3>
               <ul className="text-sm text-app-text-secondary space-y-2 text-left">
                 <li>• Authentication is handled securely by Google</li>
-                <li>• Your login credentials are never stored in Lokus</li>
+                <li>• Your login credentials are never stored in NoteMakingApp</li>
                 <li>• You can revoke access at any time from your Google account</li>
                 <li>• Email data is only stored locally on your device</li>
               </ul>

@@ -12,62 +12,62 @@ interface ButtonProps {
 
 const buttonVariants = {
   primary: css`
-    background: var(--lokus-button-primary-background);
-    color: var(--lokus-button-primary-foreground);
-    border: 1px solid var(--lokus-button-primary-background);
+    background: var(--NoteMakingApp-button-primary-background);
+    color: var(--NoteMakingApp-button-primary-foreground);
+    border: 1px solid var(--NoteMakingApp-button-primary-background);
     
     &:hover:not(:disabled) {
-      background: var(--lokus-button-primary-hover-background);
-      border-color: var(--lokus-button-primary-hover-background);
+      background: var(--NoteMakingApp-button-primary-hover-background);
+      border-color: var(--NoteMakingApp-button-primary-hover-background);
     }
     
     &:active:not(:disabled) {
-      background: var(--lokus-button-primary-active-background);
-      border-color: var(--lokus-button-primary-active-background);
+      background: var(--NoteMakingApp-button-primary-active-background);
+      border-color: var(--NoteMakingApp-button-primary-active-background);
     }
   `,
   
   secondary: css`
-    background: var(--lokus-button-secondary-background);
-    color: var(--lokus-button-secondary-foreground);
-    border: 1px solid var(--lokus-border);
+    background: var(--NoteMakingApp-button-secondary-background);
+    color: var(--NoteMakingApp-button-secondary-foreground);
+    border: 1px solid var(--NoteMakingApp-border);
     
     &:hover:not(:disabled) {
-      background: var(--lokus-button-secondary-hover-background);
+      background: var(--NoteMakingApp-button-secondary-hover-background);
     }
     
     &:active:not(:disabled) {
-      background: var(--lokus-button-secondary-active-background);
+      background: var(--NoteMakingApp-button-secondary-active-background);
     }
   `,
   
   outline: css`
     background: transparent;
-    color: var(--lokus-foreground);
-    border: 1px solid var(--lokus-border);
+    color: var(--NoteMakingApp-foreground);
+    border: 1px solid var(--NoteMakingApp-border);
     
     &:hover:not(:disabled) {
-      background: var(--lokus-hover-background);
+      background: var(--NoteMakingApp-hover-background);
     }
     
     &:active:not(:disabled) {
-      background: var(--lokus-active-background);
+      background: var(--NoteMakingApp-active-background);
     }
   `,
   
   danger: css`
-    background: var(--lokus-error-background);
-    color: var(--lokus-error-foreground);
-    border: 1px solid var(--lokus-error-background);
+    background: var(--NoteMakingApp-error-background);
+    color: var(--NoteMakingApp-error-foreground);
+    border: 1px solid var(--NoteMakingApp-error-background);
     
     &:hover:not(:disabled) {
-      background: var(--lokus-error-hover-background);
-      border-color: var(--lokus-error-hover-background);
+      background: var(--NoteMakingApp-error-hover-background);
+      border-color: var(--NoteMakingApp-error-hover-background);
     }
     
     &:active:not(:disabled) {
-      background: var(--lokus-error-active-background);
-      border-color: var(--lokus-error-active-background);
+      background: var(--NoteMakingApp-error-active-background);
+      border-color: var(--NoteMakingApp-error-active-background);
     }
   `
 };
@@ -117,7 +117,7 @@ const StyledButton = styled.button<ButtonProps>`
   }
   
   &:focus {
-    outline: 2px solid var(--lokus-focus-border);
+    outline: 2px solid var(--NoteMakingApp-focus-border);
     outline-offset: 2px;
   }
 `;

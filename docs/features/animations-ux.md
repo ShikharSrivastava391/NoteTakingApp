@@ -1,6 +1,6 @@
 # Fluid UX Enhancements and Animations
 
-Lokus provides a polished, fluid user experience through carefully crafted animations, transitions, and micro-interactions. The UX design prioritizes responsiveness, visual feedback, and smooth state transitions to create a professional and enjoyable note-taking environment.
+NoteMakingApp provides a polished, fluid user experience through carefully crafted animations, transitions, and micro-interactions. The UX design prioritizes responsiveness, visual feedback, and smooth state transitions to create a professional and enjoyable note-taking environment.
 
 ## Design Philosophy
 
@@ -21,7 +21,7 @@ Lokus provides a polished, fluid user experience through carefully crafted anima
 ## Core Animation System
 
 ### CSS Variables and Custom Properties
-Lokus uses a sophisticated CSS custom property system for consistent theming and smooth transitions:
+NoteMakingApp uses a sophisticated CSS custom property system for consistent theming and smooth transitions:
 
 ```css
 :root {

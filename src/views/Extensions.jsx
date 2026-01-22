@@ -46,7 +46,7 @@ const MARKETPLACE_PLUGINS = [
     lastUpdated: "2024-01-18",
     permissions: ["editor-extensions", "file-system"],
     dependencies: [],
-    homepage: "https://github.com/tablepro/lokus-advanced-tables",
+    homepage: "https://github.com/tablepro/NoteMakingApp-advanced-tables",
     tags: ["tables", "data", "formatting", "productivity"],
     isMarketplace: true
   },
@@ -74,7 +74,7 @@ const MARKETPLACE_PLUGINS = [
     name: "Notion Integration",
     version: "0.9.5",
     description: "Seamlessly sync your notes with Notion databases and pages",
-    longDescription: "Connect Lokus with your Notion workspace. Sync notes, create database entries, and maintain consistency across platforms. Features real-time sync, conflict resolution, and selective synchronization.",
+    longDescription: "Connect NoteMakingApp with your Notion workspace. Sync notes, create database entries, and maintain consistency across platforms. Features real-time sync, conflict resolution, and selective synchronization.",
     author: "NotionBridge",
     category: "integrations",
     rating: 4.3,
@@ -84,7 +84,7 @@ const MARKETPLACE_PLUGINS = [
     lastUpdated: "2024-01-20",
     permissions: ["network", "file-system", "user-data"],
     dependencies: ["notion-api"],
-    homepage: "https://notionbridge.com/lokus",
+    homepage: "https://notionbridge.com/NoteMakingApp",
     tags: ["notion", "sync", "database", "integration"],
     isMarketplace: true
   },
@@ -103,7 +103,7 @@ const MARKETPLACE_PLUGINS = [
     lastUpdated: "2024-01-14",
     permissions: ["editor-extensions"],
     dependencies: ["katex-enhanced"],
-    homepage: "https://mathtools.dev/lokus",
+    homepage: "https://mathtools.dev/NoteMakingApp",
     tags: ["math", "latex", "equations", "science"],
     isMarketplace: true
   },
@@ -122,7 +122,7 @@ const MARKETPLACE_PLUGINS = [
     lastUpdated: "2024-01-17",
     permissions: ["notifications", "settings", "analytics"],
     dependencies: [],
-    homepage: "https://productivitypro.com/pomodoro-lokus",
+    homepage: "https://productivitypro.com/pomodoro-NoteMakingApp",
     tags: ["pomodoro", "timer", "productivity", "focus"],
     isMarketplace: true
   },
@@ -141,7 +141,7 @@ const MARKETPLACE_PLUGINS = [
     lastUpdated: "2024-01-19",
     permissions: ["shell-commands", "file-system", "network"],
     dependencies: ["runtime-engines"],
-    homepage: "https://codeflow.dev/lokus-runner",
+    homepage: "https://codeflow.dev/NoteMakingApp-runner",
     tags: ["code", "execution", "development", "languages"],
     isMarketplace: true
   }

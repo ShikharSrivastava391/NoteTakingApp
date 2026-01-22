@@ -152,8 +152,8 @@ export const finderIntegration = {
   // Generate Finder context menu items
   getContextMenuItems: () => [
     {
-      id: 'open-with-lokus',
-      label: 'Open with Lokus',
+      id: 'open-with-NoteMakingApp',
+      label: 'Open with NoteMakingApp',
       icon: 'file-text'
     },
     {

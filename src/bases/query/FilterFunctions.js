@@ -1,5 +1,5 @@
 /**
- * Filter Functions for Lokus Bases
+ * Filter Functions for NoteMakingApp Bases
  * Built-in filter functions for querying note collections
  */
 

@@ -1,6 +1,6 @@
 /**
  * Bases (Database) Tools for MCP
- * Tools for working with Lokus Bases - structured data views
+ * Tools for working with NoteMakingApp Bases - structured data views
  */
 
 import { readFile, writeFile, readdir, mkdir } from "fs/promises";
@@ -189,7 +189,7 @@ export async function executeBaseTool(tool, args, workspace, apiUrl) {
 }
 
 async function listBases(workspace) {
-  const basesDir = join(workspace, '.lokus', 'bases');
+  const basesDir = join(workspace, '.NoteMakingApp', 'bases');
 
   try {
     const entries = await readdir(basesDir, { withFileTypes: true });
@@ -234,7 +234,7 @@ async function listBases(workspace) {
 }
 
 async function getBase(workspace, baseName) {
-  const basePath = join(workspace, '.lokus', 'bases', `${baseName}.json`);
+  const basePath = join(workspace, '.NoteMakingApp', 'bases', `${baseName}.json`);
 
   try {
     const content = await readFile(basePath, 'utf-8');
@@ -267,7 +267,7 @@ ${base.records?.length > 5 ? `\n... and ${base.records.length - 5} more records`
 }
 
 async function createBase(workspace, { name, schema, description }) {
-  const basesDir = join(workspace, '.lokus', 'bases');
+  const basesDir = join(workspace, '.NoteMakingApp', 'bases');
   const basePath = join(basesDir, `${name}.json`);
 
   // Ensure bases directory exists
@@ -293,7 +293,7 @@ async function createBase(workspace, { name, schema, description }) {
 }
 
 async function addBaseRecord(workspace, { baseName, record }) {
-  const basePath = join(workspace, '.lokus', 'bases', `${baseName}.json`);
+  const basePath = join(workspace, '.NoteMakingApp', 'bases', `${baseName}.json`);
 
   try {
     const content = await readFile(basePath, 'utf-8');
@@ -331,7 +331,7 @@ async function addBaseRecord(workspace, { baseName, record }) {
 }
 
 async function queryBase(workspace, { baseName, filter = {}, sort = null, limit = 100 }) {
-  const basePath = join(workspace, '.lokus', 'bases', `${baseName}.json`);
+  const basePath = join(workspace, '.NoteMakingApp', 'bases', `${baseName}.json`);
 
   try {
     const content = await readFile(basePath, 'utf-8');
@@ -384,7 +384,7 @@ async function queryBase(workspace, { baseName, filter = {}, sort = null, limit 
 }
 
 async function updateBaseRecord(workspace, { baseName, recordId, updates }) {
-  const basePath = join(workspace, '.lokus', 'bases', `${baseName}.json`);
+  const basePath = join(workspace, '.NoteMakingApp', 'bases', `${baseName}.json`);
 
   try {
     const content = await readFile(basePath, 'utf-8');
@@ -424,7 +424,7 @@ async function updateBaseRecord(workspace, { baseName, recordId, updates }) {
 }
 
 async function deleteBaseRecord(workspace, { baseName, recordId }) {
-  const basePath = join(workspace, '.lokus', 'bases', `${baseName}.json`);
+  const basePath = join(workspace, '.NoteMakingApp', 'bases', `${baseName}.json`);
 
   try {
     const content = await readFile(basePath, 'utf-8');
@@ -458,7 +458,7 @@ async function deleteBaseRecord(workspace, { baseName, recordId }) {
 }
 
 async function getBaseStats(workspace, baseName) {
-  const basePath = join(workspace, '.lokus', 'bases', `${baseName}.json`);
+  const basePath = join(workspace, '.NoteMakingApp', 'bases', `${baseName}.json`);
 
   try {
     const content = await readFile(basePath, 'utf-8');

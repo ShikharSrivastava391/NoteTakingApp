@@ -23,7 +23,7 @@ export class MCPPluginTemplateGenerator {
       includeBuildConfig: true,
       mcpVersion: MCP_PROTOCOL_VERSION,
       manifestVersion: MANIFEST_VERSION_2,
-      lokusVersion: '^1.0.0'
+      NoteMakingAppVersion: '^1.0.0'
     }
     
     this.initializeBuiltInTemplates()
@@ -226,7 +226,7 @@ export class MCPPluginTemplateGenerator {
       templateVersion: '1.0.0',
       generatedAt: new Date().toISOString(),
       generatorVersion: '1.0.0',
-      lokusVersion: options.lokusVersion,
+      NoteMakingAppVersion: options.NoteMakingAppVersion,
       mcpVersion: options.mcpVersion,
       useTypeScript: options.useTypeScript,
       options: this.extractCustomizationOptions(template, options)
@@ -348,7 +348,7 @@ export class MCPPluginTemplateGenerator {
       author: options.author || 'Your Name',
       license: options.license || 'MIT',
       engines: {
-        lokus: options.lokusVersion
+        NoteMakingApp: options.NoteMakingAppVersion
       },
       main: options.useTypeScript ? './dist/index.js' : './src/index.js',
       activationEvents: this.generateActivationEvents(template, customOptions),
@@ -562,7 +562,7 @@ export class MCPPluginTemplateGenerator {
    * Generate keywords for manifest
    */
   generateKeywords(template, options) {
-    const keywords = ['mcp', 'plugin', 'lokus']
+    const keywords = ['mcp', 'plugin', 'NoteMakingApp']
     
     switch (template.type) {
       case TEMPLATE_TYPES.AI_ASSISTANT:
@@ -708,8 +708,8 @@ export class MCPPluginTemplateGenerator {
  * Basic MCP Server Plugin - Main Entry Point
  */
 
-import { BasePlugin } from '@lokus/plugin-core'
-import { MCPResourceBuilder, MCPToolBuilder } from '@lokus/mcp'
+import { BasePlugin } from '@NoteMakingApp/plugin-core'
+import { MCPResourceBuilder, MCPToolBuilder } from '@NoteMakingApp/mcp'
 import { BasicMCPServer } from './server.js'
 
 export class {{pluginName || 'BasicMCPPlugin'}} extends BasePlugin {
@@ -745,7 +745,7 @@ export default {{pluginName || 'BasicMCPPlugin'}}`
  * Basic MCP Server Implementation
  */
 
-import { MCPResourceBuilder, MCPToolBuilder } from '@lokus/mcp'
+import { MCPResourceBuilder, MCPToolBuilder } from '@NoteMakingApp/mcp'
 
 export class BasicMCPServer {
   constructor() {
@@ -949,11 +949,11 @@ export const toolDefinitions = {
         build: options.useTypeScript ? 'tsc -p tsconfig.build.json' : 'echo "No build step required"',
         test: 'jest',
         lint: 'eslint src/',
-        dev: 'npm run build && lokus-plugin dev'
+        dev: 'npm run build && NoteMakingApp-plugin dev'
       },
       dependencies: {
-        '@lokus/plugin-core': '^1.0.0',
-        '@lokus/mcp': '^1.0.0'
+        '@NoteMakingApp/plugin-core': '^1.0.0',
+        '@NoteMakingApp/mcp': '^1.0.0'
       },
       devDependencies: options.useTypeScript ? {
         typescript: '^5.0.0',

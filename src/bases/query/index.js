@@ -1,5 +1,5 @@
 /**
- * Lokus Bases Query Engine
+ * NoteMakingApp Bases Query Engine
  * Complete query and formula engine for filtering, sorting, and processing note collections
  */
 

@@ -40,7 +40,7 @@ vi.mock('./ui/enhanced-toast', () => ({
     showEnhancedToast: vi.fn(),
 }))
 
-const SNOOZE_STORAGE_KEY = 'lokus_update_snoozed';
+const SNOOZE_STORAGE_KEY = 'NoteMakingApp_update_snoozed';
 
 describe('UpdateChecker Component', () => {
     beforeEach(() => {
@@ -85,7 +85,7 @@ describe('UpdateChecker Component', () => {
                 expect.objectContaining({
                     id: 'update-available',
                     title: 'Update Available: v2.0.0',
-                    message: 'A new version of Lokus is ready to install',
+                    message: 'A new version of NoteMakingApp is ready to install',
                     variant: 'update',
                     expandedContent: 'New features and bug fixes',
                     persistent: true,

@@ -4,7 +4,7 @@
 
 import { Disposable } from './utilities.js'
 import { PluginManifest } from './manifest.js'
-import { LokusAPI } from './api/index.js'
+import { NoteMakingAppAPI } from './api/index.js'
 import { PluginContext } from './lifecycle.js'
 
 /**
@@ -320,7 +320,7 @@ export interface PluginUpdate {
  */
 export abstract class BasePlugin implements Plugin {
   protected context?: PluginContext
-  protected api?: LokusAPI
+  protected api?: NoteMakingAppAPI
   private disposables: Disposable[] = []
 
   /**
@@ -361,9 +361,9 @@ export abstract class BasePlugin implements Plugin {
   }
 
   /**
-   * Get Lokus API
+   * Get NoteMakingApp API
    */
-  protected getAPI(): LokusAPI {
+  protected getAPI(): NoteMakingAppAPI {
     if (!this.api) {
       throw new Error('Plugin not activated')
     }

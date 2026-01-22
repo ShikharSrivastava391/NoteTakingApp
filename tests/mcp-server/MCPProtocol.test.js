@@ -489,7 +489,7 @@ describe('MCPProtocol', () => {
 
       const getRequest = TestDataGenerator.generateMCPMessage(MCPMethod.PROMPTS_GET, {
         name: 'greeting_prompt',
-        arguments: { name: 'John', service: 'Lokus' }
+        arguments: { name: 'John', service: 'NoteMakingApp' }
       });
       
       const response = await protocol.handleMessage(getRequest);
@@ -498,7 +498,7 @@ describe('MCPProtocol', () => {
       
       const parsedResponse = JSON.parse(response);
       expect(parsedResponse.result.messages).toHaveLength(1);
-      expect(parsedResponse.result.messages[0].content.text).toBe('Hello John, welcome to Lokus!');
+      expect(parsedResponse.result.messages[0].content.text).toBe('Hello John, welcome to NoteMakingApp!');
     });
 
     test('should handle non-existent prompt', async () => {

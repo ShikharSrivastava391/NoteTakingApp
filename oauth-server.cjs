@@ -56,9 +56,7 @@ const server = http.createServer((req, res) => {
         <body style="font-family: Arial, sans-serif; text-align: center; padding: 50px;">
           <h1 style="color: #28a745;">✅ Authentication Successful!</h1>
           <p>Gmail connection completed successfully.</p>
-          <p>You can close this window and return to Lokus.</p>
           <script>
-            // Send message to Lokus app
             fetch('http://localhost:8080/complete-auth', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
@@ -115,7 +113,7 @@ const server = http.createServer((req, res) => {
         // Write the auth data to a temporary file for the Tauri app to pick up
         const fs = require('fs');
         const path = require('path');
-        const tempDir = path.join(require('os').homedir(), '.lokus', 'temp');
+        const tempDir = path.join(require('os').homedir(), '.', 'temp');
         
         // Ensure temp directory exists
         if (!fs.existsSync(tempDir)) {

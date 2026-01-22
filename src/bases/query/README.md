@@ -1,6 +1,6 @@
-# Lokus Bases Query Engine
+# NoteMakingApp Bases Query Engine
 
-A powerful and flexible query engine for filtering, sorting, and processing note collections in Lokus Bases. Inspired by Obsidian Dataview with enhanced capabilities for complex queries and formula evaluation.
+A powerful and flexible query engine for filtering, sorting, and processing note collections in NoteMakingApp Bases. Inspired by Obsidian Dataview with enhanced capabilities for complex queries and formula evaluation.
 
 ## Features
 
@@ -301,4 +301,4 @@ try {
 
 ## License
 
-Part of the Lokus application. See main project license for details.
+Part of the NoteMakingApp application. See main project license for details.

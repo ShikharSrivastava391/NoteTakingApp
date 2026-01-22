@@ -1,15 +1,15 @@
-# Lokus MCP Server API Documentation
+# NoteMakingApp MCP Server API Documentation
 
 ## Overview
 
-The Lokus Model Context Protocol (MCP) server provides a standardized interface for AI assistants to interact with Lokus's knowledge management system. This includes access to workspace content, plugin capabilities, and intelligent tools for content manipulation and discovery.
+The NoteMakingApp Model Context Protocol (MCP) server provides a standardized interface for AI assistants to interact with NoteMakingApp's knowledge management system. This includes access to workspace content, plugin capabilities, and intelligent tools for content manipulation and discovery.
 
 ## Quick Start
 
 ### 1. Server Setup
 
 ```bash
-# Start Lokus with MCP server enabled
+# Start NoteMakingApp with MCP server enabled
 npm run tauri dev
 
 # The MCP server will be available at:
@@ -44,7 +44,7 @@ const response = await fetch('http://localhost:3001/api/mcp/initialize', {
 ### 3. Authentication
 
 ```bash
-# Get API key from Lokus preferences
+# Get API key from NoteMakingApp preferences
 # Set in request headers:
 X-API-Key: your-api-key-here
 
@@ -56,7 +56,7 @@ Authorization: Bearer your-jwt-token
 
 ### Resources
 
-Resources represent accessible content within Lokus:
+Resources represent accessible content within NoteMakingApp:
 
 - **Files**: Markdown documents, images, attachments
 - **Workspace Data**: Project information, tags, metadata  
@@ -134,7 +134,7 @@ Start a new MCP session with capability negotiation.
     }
   },
   "serverInfo": {
-    "name": "Lokus MCP Server",
+    "name": "NoteMakingApp MCP Server",
     "version": "1.0.0"
   }
 }
@@ -645,25 +645,25 @@ curl -X POST http://localhost:3001/api/mcp/logging/setLevel \
 ## SDK and Libraries
 
 ### Official SDKs
-- **JavaScript/TypeScript**: `@lokus/mcp-client`
-- **Python**: `lokus-mcp-client`
-- **Rust**: `lokus-mcp`
+- **JavaScript/TypeScript**: `@NoteMakingApp/mcp-client`
+- **Python**: `NoteMakingApp-mcp-client`
+- **Rust**: `NoteMakingApp-mcp`
 
 ### Community Libraries
-- **Go**: `github.com/user/lokus-mcp-go`
-- **Java**: `com.example:lokus-mcp-java`
-- **C#**: `Lokus.MCP.Client`
+- **Go**: `github.com/user/NoteMakingApp-mcp-go`
+- **Java**: `com.example:NoteMakingApp-mcp-java`
+- **C#**: `NoteMakingApp.MCP.Client`
 
 ### Installation
 ```bash
 # JavaScript
-npm install @lokus/mcp-client
+npm install @NoteMakingApp/mcp-client
 
 # Python
-pip install lokus-mcp-client
+pip install NoteMakingApp-mcp-client
 
 # Rust
-cargo add lokus-mcp
+cargo add NoteMakingApp-mcp
 ```
 
 ## Examples
@@ -694,10 +694,10 @@ See the [examples directory](./examples/) for complete code samples:
 
 ## Support
 
-- **Documentation**: [docs.lokus.ai/mcp](https://docs.lokus.ai/mcp)
-- **GitHub Issues**: [github.com/lokus-ai/lokus/issues](https://github.com/lokus-ai/lokus/issues)
-- **Discord**: [discord.gg/lokus](https://discord.gg/lokus)
-- **Email**: support@lokus.ai
+- **Documentation**: [docs.NoteMakingApp.ai/mcp](https://docs.NoteMakingApp.ai/mcp)
+- **GitHub Issues**: [github.com/NoteMakingApp-ai/NoteMakingApp/issues](https://github.com/NoteMakingApp-ai/NoteMakingApp/issues)
+- **Discord**: [discord.gg/NoteMakingApp](https://discord.gg/NoteMakingApp)
+- **Email**: support@NoteMakingApp.ai
 
 ## License
 

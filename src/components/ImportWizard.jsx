@@ -222,7 +222,7 @@ export default function ImportWizard({ onClose, initialWorkspacePath }) {
                 className="platform-card obsidian-card"
                 onClick={() => {
                   // Show Obsidian compatibility info
-                  alert('Obsidian vaults are already compatible with Lokus!\n\nJust open your Obsidian vault folder in Lokus - no import needed.');
+                  alert('Obsidian vaults are already compatible with NoteMakingApp!\n\nJust open your Obsidian vault folder in NoteMakingApp - no import needed.');
                 }}
               >
                 <FileText className="platform-icon" />

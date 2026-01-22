@@ -7,7 +7,7 @@
  * - Drag and drop support
  * - Resizing and docking
  * - Focus and z-index management
- * - Integration with Lokus theme system
+ * - Integration with NoteMakingApp theme system
  */
 
 import React, { createContext, useContext, useState, useEffect, useCallback, useRef } from 'react';
